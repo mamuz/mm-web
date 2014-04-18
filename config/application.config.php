@@ -3,11 +3,9 @@
 $env = APPLICATION_ENV;
 
 // Use the $env value to determine which modules to load
-$modules = array();
-
-if ($env == 'development') {
-    $modules[] = 'ZendDeveloperTools';
-}
+$modules = array(
+    'Application',
+);
 
 return array(
     // This should be an array of module namespaces used in the application.
