@@ -1,6 +1,8 @@
 <?php
+if (file_exists('environment.php')) require 'environment.php';
+
 // Define environment
-define('APPLICATION_ENV', getenv('APPLICATION_ENV') ?: 'development'); //@todo production
+define('APPLICATION_ENV', getenv('APPLICATION_ENV') ?: 'production');
 
 /**
  * Display all errors when APPLICATION_ENV is development.
