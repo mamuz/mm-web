@@ -1,4 +1,9 @@
 !.gitignore
 composer.phar
+config/autoload/*.local.php
+data
+data/*
+vendor
+vendor/*
 .idea
 .idea/*

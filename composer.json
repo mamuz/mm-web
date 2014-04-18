@@ -16,10 +16,11 @@
       "url" : "http://packages.zendframework.com/"
     },
     {
-      "type": "git",
-      "url" : "https://github.com/mamuz/ZfcBase.git"
+      "type": "vcs",
+      "url" : "https://github.com/mamuz/ZfcBase"
     }
   ],
+  "minimum-stability": "dev",
   "require"     : {
     "php"                         : ">=5.4",
     "zendframework/zendframework" : "~2.3.1",
