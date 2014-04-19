@@ -1,10 +1,10 @@
 <?php
 
 return array(
-    'router' => array(
+    'router'       => array(
         'routes' => array(
             'home' => array(
-                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'type'    => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(
                     'route'    => '/',
                     'defaults' => array(
@@ -15,7 +15,7 @@ return array(
             ),
         ),
     ),
-    'controllers' => array(
+    'controllers'  => array(
         'invokables' => array(
             'Application\Controller\Index' => 'Application\Controller\IndexController'
         ),
@@ -26,13 +26,15 @@ return array(
         'doctype'                  => 'HTML5',
         'not_found_template'       => 'error/404',
         'exception_template'       => 'error/index',
-        'template_map' => array(
+        'template_map'             => array(
             'layout/layout'           => __DIR__ . '/../view/layout/layout.phtml',
+            'layout/header'           => __DIR__ . '/../view/layout/header.phtml',
+            'layout/footer'           => __DIR__ . '/../view/layout/footer.phtml',
             'application/index/index' => __DIR__ . '/../view/application/index/index.phtml',
             'error/404'               => __DIR__ . '/../view/error/404.phtml',
             'error/index'             => __DIR__ . '/../view/error/index.phtml',
         ),
-        'template_path_stack' => array(
+        'template_path_stack'      => array(
             __DIR__ . '/../view',
         ),
     ),
