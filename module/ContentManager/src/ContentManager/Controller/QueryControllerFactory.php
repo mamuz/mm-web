@@ -14,8 +14,9 @@ class QueryControllerFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
+        /** @var \Zend\Mvc\Controller\ControllerManager $serviceLocator */
         /** @var \ContentManager\Service\Query $queryService */
-        $queryService = $serviceLocator->get('ContentManager\Service\Query');
+        $queryService = $serviceLocator->getServiceLocator()->get('ContentManager\Service\Query');
 
         $controller = new QueryController;
         $controller->setQueryService($queryService);
