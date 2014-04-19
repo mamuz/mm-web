@@ -2,8 +2,11 @@
 
 <phpunit bootstrap="Bootstrap.php" colors="true">
     <testsuites>
-        <testsuite name="Overall Testsuite">
-            <directory>../module/Base/test/BaseTest</directory>
+        <testsuite name="Application Testsuite">
+            <directory>../module/Application/test/ApplicationTest</directory>
+        </testsuite>
+        <testsuite name="ContentManager Testsuite">
+            <directory>../module/ContentManager/test/ContentManagerTest</directory>
         </testsuite>
     </testsuites>
     <listeners>

@@ -63,10 +63,8 @@ class Bootstrap
                 'Zend\Loader\StandardAutoloader' => array(
                     'autoregister_zf' => true,
                     'namespaces'      => array(
-                        'BaseTest'    => __DIR__ . '/../module/Base/test/BaseTest',
-                        'TweakTest'   => __DIR__ . '/../module/W3c/test/W3cTest',
-                        'TweakTest'   => __DIR__ . '/../module/Tweak/test/TweakTest',
-                        'AnalyzeTest' => __DIR__ . '/../module/Analyze/test/AnalyzeTest',
+                        'ApplicationTest'    => __DIR__ . '/../module/Application/test/ApplicationTest',
+                        'ContentManagerTest' => __DIR__ . '/../module/ContentManager/test/ContentManagerTest',
                     ),
                 ),
             )
