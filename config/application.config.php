@@ -2,7 +2,10 @@
 $env = APPLICATION_ENV;
 
 $modules = array(
+    'DoctrineModule',
+    'DoctrineORMModule',
     'Application',
+    'ContentManager',
 );
 
 return array(
