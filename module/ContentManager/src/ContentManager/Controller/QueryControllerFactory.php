@@ -1,6 +1,6 @@
 <?php
 
-namespace ContentManager\Mapper;
+namespace ContentManager\Controller;
 
 use ContentManager\Controller\QueryController;
 use Zend\ServiceManager\FactoryInterface;

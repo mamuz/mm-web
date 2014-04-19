@@ -1,6 +1,6 @@
 <?php
 
-namespace ContentManager\Mapper;
+namespace ContentManager\Service;
 
 use ContentManager\Mapper\Db\Query as QueryMapper;
 use ContentManager\Service\Query as QueryService;
