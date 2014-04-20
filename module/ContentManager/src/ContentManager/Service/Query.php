@@ -9,8 +9,8 @@ class Query implements QueryInterface
 {
     use QueryAwareTrait;
 
-    public function findPageByName($name)
+    public function findPageByNode($parent, $child = null)
     {
-        return $this->getQueryMapper()->findPageByName($name);
+        return $this->getQueryMapper()->findPageByNode($parent, $child);
     }
 }

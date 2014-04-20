@@ -1,14 +1,15 @@
 <?php
 
 return array(
-    'router'       => array(
+    'router'          => array(
         'routes' => array(
             'content' => array(
                 'type'          => 'segment',
                 'options'       => array(
-                    'route'       => '/content[/:name]',
+                    'route'       => '/content[/:parent][/:child]',
                     'constraints' => array(
-                        'name' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'parent' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'child'  => '[a-zA-Z][a-zA-Z0-9_-]*',
                     ),
                     'defaults'    => array(
                         'controller' => 'ContentManager\Controller\Query',
@@ -19,29 +20,29 @@ return array(
             ),
         ),
     ),
-    'controllers'  => array(
+    'controllers'     => array(
         'factories' => array(
             'ContentManager\Controller\Query' => 'ContentManager\Controller\QueryControllerFactory'
         ),
     ),
-    'service_manager'  => array(
+    'service_manager' => array(
         'factories' => array(
             'ContentManager\Service\Query' => 'ContentManager\Service\QueryFactory'
         ),
     ),
-    'view_manager' => array(
+    'view_manager'    => array(
         'template_path_stack' => array(
             __DIR__ . '/../view',
         ),
     ),
-    'doctrine'     => array(
+    'doctrine'        => array(
         'driver' => array(
             'contentmanager_entities' => array(
                 'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
                 'cache' => 'array',
                 'paths' => array(__DIR__ . '/../src/ContentManager/Entity')
             ),
-            'orm_default'          => array(
+            'orm_default'             => array(
                 'drivers' => array(
                     'ContentManager\Entity' => 'contentmanager_entities'
                 ),

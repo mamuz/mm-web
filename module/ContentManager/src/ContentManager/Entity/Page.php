@@ -23,6 +23,12 @@ class Page
 
     /**
      * @ORM\Column(type="string")
+     * @var string|null
+     */
+    private $parentName;
+
+    /**
+     * @ORM\Column(type="string")
      * @var string
      */
     private $title = '';
@@ -32,6 +38,12 @@ class Page
      * @var string
      */
     private $content = '';
+
+    /**
+     * @ORM\Column(type="boolean")
+     * @var bool
+     */
+    private $active = false;
 
     /**
      * destroy identity
@@ -79,6 +91,32 @@ class Page
     }
 
     /**
+     * @param string $parentName
+     * @return Page
+     */
+    public function setParentName($parentName)
+    {
+        $this->parentName = $parentName;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getParentName()
+    {
+        return $this->parentName;
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasParentName()
+    {
+        return (null !== $this->getParentName());
+    }
+
+    /**
      * @param string $title
      * @return Page
      */
@@ -112,5 +150,23 @@ class Page
     public function getContent()
     {
         return $this->content;
+    }
+
+    /**
+     * @param boolean $active
+     * @return Page
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+        return $this;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isActive()
+    {
+        return $this->active;
     }
 }

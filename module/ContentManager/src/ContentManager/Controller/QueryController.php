@@ -17,8 +17,9 @@ class QueryController extends AbstractActionController
      */
     public function pageAction()
     {
-        $name = $this->params()->fromRoute('name');
-        $page = $this->getQueryService()->findPageByName($name);
+        $parent = $this->params()->fromRoute('parent');
+        $child = $this->params()->fromRoute('child');
+        $page = $this->getQueryService()->findPageByNode($parent, $child);
         return new ViewModel(array('content' => $page->getContent()));
     }
 }

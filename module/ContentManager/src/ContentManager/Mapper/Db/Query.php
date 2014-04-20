@@ -34,15 +34,34 @@ class Query implements QueryInterface
         return $this->entityManager;
     }
 
-    public function findPageByName($name)
+    public function findPageByNode($parent, $child = null)
     {
-        $page = $this->getRepository()->findOneBy(array('name' => $name));
+        $criteria = $this->createCriteria($parent, $child);
+        $page = $this->getRepository()->findOneBy($criteria);
 
         if (null === $page) {
             $page = new NullPage;
         }
 
         return $page;
+    }
+
+    /**
+     * @param string     $parent
+     * @param string|null $child
+     * @return array
+     */
+    protected function createCriteria($parent, $child = null)
+    {
+        $criteria = array('active' => true);
+        if ($child) {
+            $criteria['name'] = $child;
+            $criteria['parentName'] = $parent;
+        } else {
+            $criteria['name'] = $parent;
+        }
+
+        return $criteria;
     }
 
     /**
