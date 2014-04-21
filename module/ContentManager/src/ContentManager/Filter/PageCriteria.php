@@ -7,12 +7,11 @@ use Zend\Filter\FilterInterface;
 class PageCriteria implements FilterInterface
 {
     /** @var array */
-    private $criteria
-        = array(
-            'active'     => true,
-            'name'       => null,
-            'parentName' => null,
-        );
+    private $criteria = array(
+        'active'     => true,
+        'name'       => null,
+        'parentName' => null,
+    );
 
     /**
      * @param array $criteria
