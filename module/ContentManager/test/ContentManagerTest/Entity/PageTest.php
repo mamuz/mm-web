@@ -25,7 +25,6 @@ class PageTest extends \PHPUnit_Framework_TestCase
         $this->assertNull($clone->getName());
     }
 
-
     public function testMutateAndAccessId()
     {
         $expected = 12;
@@ -33,7 +32,6 @@ class PageTest extends \PHPUnit_Framework_TestCase
         $this->fixture->setId($expected);
         $this->assertSame($expected, $this->fixture->getId());
     }
-
 
     public function testMutateAndAccessName()
     {
@@ -43,7 +41,6 @@ class PageTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($expected, $this->fixture->getName());
     }
 
-
     public function testMutateAndAccessParentName()
     {
         $expected = 'foo';
@@ -51,7 +48,6 @@ class PageTest extends \PHPUnit_Framework_TestCase
         $this->fixture->setParentName($expected);
         $this->assertSame($expected, $this->fixture->getParentName());
     }
-
 
     public function testMutateAndAccessTitle()
     {
@@ -61,7 +57,6 @@ class PageTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($expected, $this->fixture->getTitle());
     }
 
-
     public function testMutateAndAccessContent()
     {
         $expected = 'foo';
@@ -69,7 +64,6 @@ class PageTest extends \PHPUnit_Framework_TestCase
         $this->fixture->setContent($expected);
         $this->assertSame($expected, $this->fixture->getContent());
     }
-
 
     public function testMutateAndAccessActive()
     {
