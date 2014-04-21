@@ -6,6 +6,7 @@ $env = getenv('APPLICATION_ENV') ? : 'production';
 $modules = array(
     'DoctrineModule',
     'DoctrineORMModule',
+    'MaglMarkdown',
     'Application',
     'ContentManager',
 );
