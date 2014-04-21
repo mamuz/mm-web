@@ -3,20 +3,19 @@
 namespace ContentManager;
 
 use Zend\ModuleManager\Feature;
+use Zend\ModuleManager\ModuleManagerInterface;
 use Zend\Mvc\ModuleRouteListener;
 
 class Module implements
     Feature\AutoloaderProviderInterface,
     Feature\ConfigProviderInterface,
-    Feature\DependencyIndicatorInterface
+    Feature\InitProviderInterface
 {
-    public function getModuleDependencies()
+    public function init(ModuleManagerInterface $modules)
     {
-        return array(
-            'DoctrineModule',
-            'DoctrineORMModule',
-            'MaglMarkdown',
-        );
+        $modules->loadModule('DoctrineModule');
+        $modules->loadModule('DoctrineORMModule');
+        $modules->loadModule('MaglMarkdown');
     }
 
     public function getConfig()
