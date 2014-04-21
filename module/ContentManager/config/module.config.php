@@ -6,10 +6,10 @@ return array(
             'content' => array(
                 'type'          => 'segment',
                 'options'       => array(
-                    'route'       => '/content[/:parent][/:child]',
+                    'route'       => '/content[/:parentName][/:name]',
                     'constraints' => array(
-                        'parent' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                        'child'  => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'parentName' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'name'       => '[a-zA-Z][a-zA-Z0-9_-]*',
                     ),
                     'defaults'    => array(
                         'controller' => 'ContentManager\Controller\Query',

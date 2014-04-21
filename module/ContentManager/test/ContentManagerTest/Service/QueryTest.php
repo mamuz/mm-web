@@ -31,24 +31,12 @@ class QueryTest extends \PHPUnit_Framework_TestCase
 
     public function testFindPageByName()
     {
-        $name = 'foo';
+        $criteria = array('foo');
         $this->mapper
-            ->shouldReceive('findPageByNode')
-            ->with($name, null)
+            ->shouldReceive('findPageByCriteria')
+            ->with($criteria)
             ->andReturn($this->entity);
 
-        $this->assertSame($this->entity, $this->fixture->findPageByNode($name));
-    }
-
-    public function testFindPageByNameWithParent()
-    {
-        $name = 'foo';
-        $parent = 'bar';
-        $this->mapper
-            ->shouldReceive('findPageByNode')
-            ->with($name, $parent)
-            ->andReturn($this->entity);
-
-        $this->assertSame($this->entity, $this->fixture->findPageByNode($name, $parent));
+        $this->assertSame($this->entity, $this->fixture->findPageByCriteria($criteria));
     }
 }

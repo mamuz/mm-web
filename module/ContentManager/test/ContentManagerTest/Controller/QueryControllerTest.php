@@ -58,14 +58,12 @@ class QueryControllerTest extends \PHPUnit_Framework_TestCase
 
     public function testQueryActionCanBeAccessed()
     {
-        $parent = 'foo';
-        $child = 'bar';
+        $criteria = array('foo');
         $content = 'baz';
 
         $params = \Mockery::mock('Zend\Mvc\Controller\Plugin\Params');
         $params->shouldReceive('__invoke')->andReturn($params);
-        $params->shouldReceive('fromRoute')->with('parent')->andReturn($parent);
-        $params->shouldReceive('fromRoute')->with('child')->andReturn($child);
+        $params->shouldReceive('fromRoute')->andReturn($criteria);
         $pluginManager = \Mockery::mock('Zend\Mvc\Controller\PluginManager')->shouldIgnoreMissing();
         $pluginManager->shouldReceive('get')->with('params', null)->andReturn($params);
         $this->fixture->setPluginManager($pluginManager);
@@ -74,8 +72,8 @@ class QueryControllerTest extends \PHPUnit_Framework_TestCase
         $page->shouldReceive('getContent')->andReturn($content);
 
         $this->queryInterface
-            ->shouldReceive('findPageByNode')
-            ->with($parent, $child)
+            ->shouldReceive('findPageByCriteria')
+            ->with($criteria)
             ->andReturn($page);
 
         $this->routeMatch->setParam('action', 'page');

@@ -19,8 +19,12 @@ class QueryTest extends \PHPUnit_Framework_TestCase
     /** @var \ContentManager\Entity\Page | \Mockery\MockInterface */
     protected $entity;
 
+    /** @var \Zend\Filter\FilterInterface | \Mockery\MockInterface */
+    protected $filter;
+
     protected function setUp()
     {
+        $this->filter = \Mockery::mock('Zend\Filter\FilterInterface');
         $this->entity = \Mockery::mock('ContentManager\Entity\Page');
         $this->entityRepository = \Mockery::mock('Doctrine\ORM\EntityRepository');
         $this->entityManager = \Mockery::mock('Doctrine\ORM\EntityManager');
@@ -29,7 +33,7 @@ class QueryTest extends \PHPUnit_Framework_TestCase
             ->with('ContentManager\Entity\Page')
             ->andReturn($this->entityRepository);
 
-        $this->fixture = new Query($this->entityManager);
+        $this->fixture = new Query($this->entityManager, $this->filter);
     }
 
     public function testImplementingQueryInterface()
@@ -39,44 +43,22 @@ class QueryTest extends \PHPUnit_Framework_TestCase
 
     public function testFindPageByName()
     {
-        $name = 'foo';
-        $this->entityRepository->shouldReceive('findOneBy')->with(
-            array(
-                'active'     => true,
-                'name'       => $name,
-                'parentName' => null,
-            )
-        )->andReturn($this->entity);
+        $criteria = array('foo');
+        $this->filter->shouldReceive('filter')->with($criteria)->andReturn($criteria);
+        $this->entityRepository->shouldReceive('findOneBy')->with($criteria)->andReturn($this->entity);
 
-        $this->assertSame($this->entity, $this->fixture->findPageByNode($name));
-    }
-
-    public function testFindPageByNameWithParent()
-    {
-        $name = 'foo';
-        $parent = 'bar';
-        $this->entityRepository->shouldReceive('findOneBy')->with(
-            array(
-                'active'     => true,
-                'name'       => $parent,
-                'parentName' => $name,
-            )
-        )->andReturn($this->entity);
-
-        $this->assertSame($this->entity, $this->fixture->findPageByNode($name, $parent));
+        $this->assertSame($this->entity, $this->fixture->findPageByCriteria($criteria));
     }
 
     public function testFindNullPage()
     {
-        $name = 'foo';
-        $this->entityRepository->shouldReceive('findOneBy')->with(
-            array(
-                'active'     => true,
-                'name'       => $name,
-                'parentName' => null,
-            )
-        )->andReturn(null);
+        $criteria = array('foo');
+        $this->filter->shouldReceive('filter')->with($criteria)->andReturn($criteria);
+        $this->entityRepository->shouldReceive('findOneBy')->with($criteria)->andReturn(null);
 
-        $this->assertInstanceOf('ContentManager\Entity\NullPage', $this->fixture->findPageByNode($name));
+        $this->assertInstanceOf(
+            'ContentManager\Entity\NullPage',
+            $this->fixture->findPageByCriteria($criteria)
+        );
     }
 }

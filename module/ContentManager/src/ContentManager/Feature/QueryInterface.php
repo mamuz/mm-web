@@ -7,10 +7,8 @@ use ContentManager\Entity\Page;
 interface QueryInterface
 {
     /**
-     * @param string      $parent
-     * @param string|null $child
-     *
+     * @param array $criteria
      * @return Page
      */
-    public function findPageByNode($parent, $child = null);
+    public function findPageByCriteria(array $criteria);
 }

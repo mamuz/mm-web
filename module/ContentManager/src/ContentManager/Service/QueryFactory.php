@@ -2,6 +2,7 @@
 
 namespace ContentManager\Service;
 
+use ContentManager\Filter\PageCriteria;
 use ContentManager\Mapper\Db\Query as QueryMapper;
 use ContentManager\Service\Query as QueryService;
 use Zend\ServiceManager\FactoryInterface;
@@ -18,7 +19,8 @@ class QueryFactory implements FactoryInterface
         /** @var \Doctrine\ORM\EntityManager $entityManager */
         $entityManager = $serviceLocator->get('Doctrine\ORM\EntityManager');
 
-        $queryMapper = new QueryMapper($entityManager);
+        $criteriaFilter = new PageCriteria;
+        $queryMapper = new QueryMapper($entityManager, $criteriaFilter);
         $queryService = new QueryService($queryMapper);
 
         return $queryService;

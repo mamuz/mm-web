@@ -17,8 +17,8 @@ class Query implements QueryInterface
         $this->mapper = $mapper;
     }
 
-    public function findPageByNode($parent, $child = null)
+    public function findPageByCriteria(array $criteria)
     {
-        return $this->mapper->findPageByNode($parent, $child);
+        return $this->mapper->findPageByCriteria($criteria);
     }
 }

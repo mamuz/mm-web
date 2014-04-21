@@ -6,23 +6,31 @@ use ContentManager\Entity\NullPage;
 use ContentManager\Feature\QueryInterface;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityRepository;
+use Zend\Filter\FilterInterface;
 
 class Query implements QueryInterface
 {
     /** @var EntityManager */
     private $entityManager;
 
+    /** @var FilterInterface */
+    private $criteriaFilter;
+
     /**
-     * @param EntityManager $entityManager
+     * @param EntityManager   $entityManager
+     * @param FilterInterface $criteriaFilter
      */
-    public function __construct(EntityManager $entityManager)
-    {
+    public function __construct(
+        EntityManager $entityManager,
+        FilterInterface $criteriaFilter
+    ) {
         $this->entityManager = $entityManager;
+        $this->criteriaFilter = $criteriaFilter;
     }
 
-    public function findPageByNode($parent, $child = null)
+    public function findPageByCriteria(array $criteria)
     {
-        $criteria = $this->createCriteria($parent, $child);
+        $criteria = $this->criteriaFilter->filter($criteria);
         $page = $this->getRepository()->findOneBy($criteria);
 
         if (null === $page) {
@@ -33,28 +41,9 @@ class Query implements QueryInterface
     }
 
     /**
-     * @param string      $parent
-     * @param string|null $child
-     * @return array
-     */
-    protected function createCriteria($parent, $child = null)
-    {
-        $criteria = array('active' => true);
-        if (null !== $child) {
-            $criteria['name'] = $child;
-            $criteria['parentName'] = $parent;
-        } else {
-            $criteria['name'] = $parent;
-            $criteria['parentName'] = null;
-        }
-
-        return $criteria;
-    }
-
-    /**
      * @return EntityRepository
      */
-    protected function getRepository()
+    private function getRepository()
     {
         return $this->entityManager->getRepository('ContentManager\Entity\Page');
     }
