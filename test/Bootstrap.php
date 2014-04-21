@@ -7,7 +7,8 @@ use Zend\Mvc\Service\ServiceManagerConfig;
 use Zend\ServiceManager\ServiceManager;
 use Zend\Stdlib\ArrayUtils;
 
-define('APPLICATION_ENV', 'testing');
+// Define environment
+putenv('APPLICATION_ENV=testing');
 error_reporting(E_ALL | E_STRICT);
 chdir(__DIR__);
 

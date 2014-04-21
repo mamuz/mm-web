@@ -1,14 +1,17 @@
 <?php
-if (file_exists('environment.php')) require 'environment.php';
+
+if (file_exists('environment.php')) {
+    require 'environment.php';
+}
 
 // Define environment
-define('APPLICATION_ENV', getenv('APPLICATION_ENV') ?: 'production');
+$env = getenv('APPLICATION_ENV') ? : 'production';
 
 /**
- * Display all errors when APPLICATION_ENV is development.
+ * Display all errors when environment is development.
  * Define request consts for Zend developer tools.
  */
-if (APPLICATION_ENV == 'development') {
+if ($env === 'development') {
     define('REQUEST_MEMORY_USAGE', memory_get_usage());
     define('REQUEST_MICROTIME', microtime(true));
     error_reporting(E_ALL);

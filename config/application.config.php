@@ -1,5 +1,7 @@
 <?php
-$env = APPLICATION_ENV;
+
+// Define environment
+$env = getenv('APPLICATION_ENV') ? : 'production';
 
 $modules = array(
     'DoctrineModule',
