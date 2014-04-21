@@ -14,7 +14,7 @@ use Zend\Mvc\Router\RouteMatch;
 class QueryControllerTest extends \PHPUnit_Framework_TestCase
 {
     /** @var \Zend\Mvc\Controller\AbstractActionController */
-    protected $controller;
+    protected $fixture;
 
     /** @var Request */
     protected $request;
@@ -28,11 +28,16 @@ class QueryControllerTest extends \PHPUnit_Framework_TestCase
     /** @var MvcEvent */
     protected $event;
 
+    /** @var \ContentManager\Feature\QueryInterface | \Mockery\MockInterface */
+    protected $queryInterface;
+
     protected function setUp()
     {
+        $this->queryInterface = \Mockery::mock('ContentManager\Feature\QueryInterface');
+
         /** @var \Zend\ServiceManager\ServiceManager $serviceManager */
         $serviceManager = Bootstrap::getServiceManager();
-        $this->controller = new QueryController();
+        $this->fixture = new QueryController();
         $this->request = new Request();
         $this->routeMatch = new RouteMatch(array('controller' => 'index'));
         $this->event = new MvcEvent();
@@ -42,23 +47,44 @@ class QueryControllerTest extends \PHPUnit_Framework_TestCase
 
         $this->event->setRouter($router);
         $this->event->setRouteMatch($this->routeMatch);
-        $this->controller->setEvent($this->event);
-        $this->controller->setServiceLocator($serviceManager);
+        $this->fixture->setEvent($this->event);
+        $this->fixture->setServiceLocator($serviceManager);
+        $this->fixture->setQueryService($this->queryInterface);
     }
 
     public function testExtendingZendActionController()
     {
-        $this->assertInstanceOf('Zend\Mvc\Controller\AbstractActionController', $this->controller);
+        $this->assertInstanceOf('Zend\Mvc\Controller\AbstractActionController', $this->fixture);
     }
 
     public function testQueryActionCanBeAccessed()
     {
-        return;
+        $parent = 'foo';
+        $child = 'bar';
+        $content = 'baz';
+
+        $params = \Mockery::mock('Zend\Mvc\Controller\Plugin\Params');
+        $params->shouldReceive('__invoke')->andReturn($params);
+        $params->shouldReceive('fromRoute')->with('parent')->andReturn($parent);
+        $params->shouldReceive('fromRoute')->with('child')->andReturn($child);
+        $pluginManager = \Mockery::mock('Zend\Mvc\Controller\PluginManager')->shouldIgnoreMissing();
+        $pluginManager->shouldReceive('get')->with('params', null)->andReturn($params);
+        $this->fixture->setPluginManager($pluginManager);
+
+        $page = \Mockery::mock('ContentManager\Entity\Page');
+        $page->shouldReceive('getContent')->andReturn($content);
+
+        $this->queryInterface
+            ->shouldReceive('findPageByNode')
+            ->with($parent, $child)
+            ->andReturn($page);
+
         $this->routeMatch->setParam('action', 'page');
-        $result = $this->controller->dispatch($this->request);
-        $response = $this->controller->getResponse();
+        $result = $this->fixture->dispatch($this->request);
+        $response = $this->fixture->getResponse();
 
         $this->assertInstanceOf('Zend\View\Model\ViewModel', $result);
+        $this->assertSame($content, $result->getVariables()['content']);
         $this->assertEquals(200, $response->getStatusCode());
     }
 }
