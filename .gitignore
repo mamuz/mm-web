@@ -1,6 +1,7 @@
 !.gitignore
 composer.phar
 config/autoload/*.local.php
+config/autoload/doctrine.production.php
 data
 data/*
 vendor
