@@ -22,13 +22,13 @@ class Page
     private $name;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      * @var string|null
      */
     private $parentName;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      * @var string
      */
     private $title = '';
@@ -40,7 +40,7 @@ class Page
     private $content = '';
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", nullable=false)
      * @var bool
      */
     private $active = false;
