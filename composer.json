@@ -14,21 +14,14 @@
     {
       "type": "composer",
       "url" : "http://packages.zendframework.com/"
-    },
-    {
-      "type": "vcs",
-      "url" : "https://github.com/mamuz/ZfcBase"
     }
   ],
   "minimum-stability": "dev",
   "require"          : {
     "php"                         : ">=5.4",
     "zendframework/zendframework" : "~2.3.1",
-    "zf-commons/zfc-base"         : "dev-master",
     "doctrine/doctrine-orm-module": "0.*",
+    "maglnet/magl-markdown"       : "1.*",
     "mockery/mockery"             : "0.9.*"
-  },
-  "require-dev"      : {
-    "ccampbell/chromephp": "dev-master"
   }
 }
