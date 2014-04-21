@@ -7,8 +7,18 @@ use Zend\Mvc\ModuleRouteListener;
 
 class Module implements
     Feature\AutoloaderProviderInterface,
-    Feature\ConfigProviderInterface
+    Feature\ConfigProviderInterface,
+    Feature\DependencyIndicatorInterface
 {
+    public function getModuleDependencies()
+    {
+        return array(
+            'DoctrineModule',
+            'DoctrineORMModule',
+            'MaglMarkdown',
+        );
+    }
+
     public function getConfig()
     {
         return include __DIR__ . '/config/module.config.php';
