@@ -33,12 +33,12 @@ class PageCriteria implements FilterInterface
 
     public function filter($value)
     {
-        if (!is_array($value) && !$value instanceof \Traversable) {
-            $value = (array)$value;
+        if (!is_array($value) && !$value instanceof \ArrayAccess) {
+            $value = (array) $value;
         }
 
         $criteria = $this->getCriteria();
-        foreach ($criteria as $key => $val) {
+        foreach (array_keys($criteria) as $key) {
             if (array_key_exists($key, $value)) {
                 $criteria[$key] = $value[$key];
             }
