@@ -54,11 +54,12 @@ class Query implements QueryInterface
     protected function createCriteria($parent, $child = null)
     {
         $criteria = array('active' => true);
-        if ($child) {
+        if (null === $child) {
             $criteria['name'] = $child;
             $criteria['parentName'] = $parent;
         } else {
             $criteria['name'] = $parent;
+            $criteria['parentName'] = null;
         }
 
         return $criteria;
