@@ -18,8 +18,7 @@ class QueryControllerFactory implements FactoryInterface
         /** @var \ContentManager\Service\Query $queryService */
         $queryService = $serviceLocator->getServiceLocator()->get('ContentManager\Service\Query');
 
-        $controller = new QueryController;
-        $controller->setQueryService($queryService);
+        $controller = new QueryController($queryService);
 
         return $controller;
     }

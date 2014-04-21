@@ -37,7 +37,7 @@ class QueryControllerTest extends \PHPUnit_Framework_TestCase
 
         /** @var \Zend\ServiceManager\ServiceManager $serviceManager */
         $serviceManager = Bootstrap::getServiceManager();
-        $this->fixture = new QueryController();
+        $this->fixture = new QueryController($this->queryInterface);
         $this->request = new Request();
         $this->routeMatch = new RouteMatch(array('controller' => 'index'));
         $this->event = new MvcEvent();
@@ -49,7 +49,6 @@ class QueryControllerTest extends \PHPUnit_Framework_TestCase
         $this->event->setRouteMatch($this->routeMatch);
         $this->fixture->setEvent($this->event);
         $this->fixture->setServiceLocator($serviceManager);
-        $this->fixture->setQueryService($this->queryInterface);
     }
 
     public function testExtendingZendActionController()

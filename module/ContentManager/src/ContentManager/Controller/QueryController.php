@@ -2,16 +2,25 @@
 
 namespace ContentManager\Controller;
 
-use ContentManager\Service\QueryAwareTrait;
+use ContentManager\Feature\QueryInterface;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
 class QueryController extends AbstractActionController
 {
-    use QueryAwareTrait;
+    /** @var QueryInterface */
+    private $queryService;
 
     /**
-     * Page content retrieval by name parameter
+     * @param QueryInterface $queryService
+     */
+    public function __construct(QueryInterface $queryService)
+    {
+        $this->queryService = $queryService;
+    }
+
+    /**
+     * Page content retrieval by route parameters
      *
      * @return ViewModel
      */
@@ -19,7 +28,7 @@ class QueryController extends AbstractActionController
     {
         $parent = $this->params()->fromRoute('parent');
         $child = $this->params()->fromRoute('child');
-        $page = $this->getQueryService()->findPageByNode($parent, $child);
+        $page = $this->queryService->findPageByNode($parent, $child);
         return new ViewModel(array('content' => $page->getContent()));
     }
 }

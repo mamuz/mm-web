@@ -3,14 +3,22 @@
 namespace ContentManager\Service;
 
 use ContentManager\Feature\QueryInterface;
-use ContentManager\Mapper\QueryAwareTrait;
 
 class Query implements QueryInterface
 {
-    use QueryAwareTrait;
+    /** @var QueryInterface */
+    private $mapper;
+
+    /**
+     * @param QueryInterface $mapper
+     */
+    public function __construct(QueryInterface $mapper)
+    {
+        $this->mapper = $mapper;
+    }
 
     public function findPageByNode($parent, $child = null)
     {
-        return $this->getQueryMapper()->findPageByNode($parent, $child);
+        return $this->mapper->findPageByNode($parent, $child);
     }
 }

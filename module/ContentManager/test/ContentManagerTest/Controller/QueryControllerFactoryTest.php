@@ -30,6 +30,5 @@ class QueryControllerFactoryTest extends \PHPUnit_Framework_TestCase
         $controller = $this->fixture->createService($sm);
 
         $this->assertInstanceOf('ContentManager\Controller\QueryController', $controller);
-        $this->assertSame($queryInterface, $controller->getQueryService());
     }
 }

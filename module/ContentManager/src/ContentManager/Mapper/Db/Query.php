@@ -14,24 +14,10 @@ class Query implements QueryInterface
 
     /**
      * @param EntityManager $entityManager
-     * @return Query
      */
-    public function setEntityManager(EntityManager $entityManager)
+    public function __construct(EntityManager $entityManager)
     {
         $this->entityManager = $entityManager;
-        return $this;
-    }
-
-    /**
-     * @return EntityManager
-     * @throws \DomainException
-     */
-    public function getEntityManager()
-    {
-        if (!$this->entityManager instanceof EntityManager) {
-            throw new \DomainException("EntityManager has not been set");
-        }
-        return $this->entityManager;
     }
 
     public function findPageByNode($parent, $child = null)
@@ -47,7 +33,7 @@ class Query implements QueryInterface
     }
 
     /**
-     * @param string     $parent
+     * @param string      $parent
      * @param string|null $child
      * @return array
      */
@@ -70,6 +56,6 @@ class Query implements QueryInterface
      */
     protected function getRepository()
     {
-        return $this->getEntityManager()->getRepository('ContentManager\Entity\Page');
+        return $this->entityManager->getRepository('ContentManager\Entity\Page');
     }
 }
