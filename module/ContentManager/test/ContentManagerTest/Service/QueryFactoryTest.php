@@ -22,7 +22,9 @@ class QueryControllerFactoryTest extends \PHPUnit_Framework_TestCase
 
     public function testCreation()
     {
+        $repository = \Mockery::mock('Doctrine\Common\Persistence\ObjectRepository');
         $entityManager = \Mockery::mock('Doctrine\ORM\EntityManager');
+        $entityManager->shouldReceive('getRepository')->andReturn($repository);
         $sm = \Mockery::mock('Zend\ServiceManager\ServiceLocatorInterface');
         $sm->shouldReceive('get')->with('Doctrine\ORM\EntityManager')->andReturn($entityManager);
 

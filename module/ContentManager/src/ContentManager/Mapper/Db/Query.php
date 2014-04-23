@@ -4,47 +4,38 @@ namespace ContentManager\Mapper\Db;
 
 use ContentManager\Entity\NullPage;
 use ContentManager\Feature\QueryInterface;
-use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\EntityRepository;
+use Doctrine\Common\Persistence\ObjectRepository;
 use Zend\Filter\FilterInterface;
 
 class Query implements QueryInterface
 {
-    /** @var EntityManager */
-    private $entityManager;
+    /** @var ObjectRepository */
+    private $repository;
 
     /** @var FilterInterface */
     private $criteriaFilter;
 
     /**
-     * @param EntityManager   $entityManager
-     * @param FilterInterface $criteriaFilter
+     * @param ObjectRepository $repository
+     * @param FilterInterface  $criteriaFilter
      */
     public function __construct(
-        EntityManager $entityManager,
+        ObjectRepository $repository,
         FilterInterface $criteriaFilter
     ) {
-        $this->entityManager = $entityManager;
+        $this->repository = $repository;
         $this->criteriaFilter = $criteriaFilter;
     }
 
     public function findPageByCriteria(array $criteria)
     {
         $criteria = $this->criteriaFilter->filter($criteria);
-        $page = $this->getRepository()->findOneBy($criteria);
+        $page = $this->repository->findOneBy($criteria);
 
         if (null === $page) {
             $page = new NullPage;
         }
 
         return $page;
-    }
-
-    /**
-     * @return EntityRepository
-     */
-    private function getRepository()
-    {
-        return $this->entityManager->getRepository('ContentManager\Entity\Page');
     }
 }

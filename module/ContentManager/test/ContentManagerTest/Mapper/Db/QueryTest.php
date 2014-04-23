@@ -10,10 +10,7 @@ class QueryTest extends \PHPUnit_Framework_TestCase
     /** @var Query */
     protected $fixture;
 
-    /** @var \Doctrine\ORM\EntityManager | \Mockery\MockInterface */
-    protected $entityManager;
-
-    /** @var \Doctrine\ORM\EntityRepository | \Mockery\MockInterface */
+    /** @var \Doctrine\Common\Persistence\ObjectRepository | \Mockery\MockInterface */
     protected $entityRepository;
 
     /** @var \ContentManager\Entity\Page | \Mockery\MockInterface */
@@ -26,14 +23,9 @@ class QueryTest extends \PHPUnit_Framework_TestCase
     {
         $this->filter = \Mockery::mock('Zend\Filter\FilterInterface');
         $this->entity = \Mockery::mock('ContentManager\Entity\Page');
-        $this->entityRepository = \Mockery::mock('Doctrine\ORM\EntityRepository');
-        $this->entityManager = \Mockery::mock('Doctrine\ORM\EntityManager');
-        $this->entityManager
-            ->shouldReceive('getRepository')
-            ->with('ContentManager\Entity\Page')
-            ->andReturn($this->entityRepository);
+        $this->entityRepository = \Mockery::mock('Doctrine\Common\Persistence\ObjectRepository');
 
-        $this->fixture = new Query($this->entityManager, $this->filter);
+        $this->fixture = new Query($this->entityRepository, $this->filter);
     }
 
     public function testImplementingQueryInterface()

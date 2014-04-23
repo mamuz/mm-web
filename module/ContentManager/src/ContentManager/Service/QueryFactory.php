@@ -18,9 +18,10 @@ class QueryFactory implements FactoryInterface
     {
         /** @var \Doctrine\ORM\EntityManager $entityManager */
         $entityManager = $serviceLocator->get('Doctrine\ORM\EntityManager');
+        $repository = $entityManager->getRepository('ContentManager\Entity\Page');
 
         $criteriaFilter = new PageCriteria;
-        $queryMapper = new QueryMapper($entityManager, $criteriaFilter);
+        $queryMapper = new QueryMapper($repository, $criteriaFilter);
         $queryService = new QueryService($queryMapper);
 
         return $queryService;
