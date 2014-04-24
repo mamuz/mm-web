@@ -26,9 +26,6 @@ class PageFactory implements FactoryInterface
         $entityManager = $serviceLocator->get('Doctrine\ORM\EntityManager');
         $entity = new Page;
 
-        $builder = $serviceLocator->get('formannotationbuilder');
-        var_dump(get_class($builder));
-        exit;
         $builder = new AnnotationBuilder($entityManager);
         $form = $builder->createForm($entity);
         $form->setHydrator(new DoctrineHydrator($entityManager, 'ContentManager\Entity\Page'));
