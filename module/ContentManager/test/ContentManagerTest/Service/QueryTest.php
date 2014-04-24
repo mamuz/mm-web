@@ -29,14 +29,14 @@ class QueryTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('ContentManager\Feature\QueryInterface', $this->fixture);
     }
 
-    public function testFindPageByName()
+    public function testFindActivePageByPath()
     {
-        $criteria = array('foo');
+        $path = 'foo';
         $this->mapper
-            ->shouldReceive('findPageByCriteria')
-            ->with($criteria)
+            ->shouldReceive('findActivePageByPath')
+            ->with($path)
             ->andReturn($this->entity);
 
-        $this->assertSame($this->entity, $this->fixture->findPageByCriteria($criteria));
+        $this->assertSame($this->entity, $this->fixture->findActivePageByPath($path));
     }
 }

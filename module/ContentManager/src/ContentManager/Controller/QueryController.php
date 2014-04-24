@@ -26,8 +26,8 @@ class QueryController extends AbstractActionController
      */
     public function pageAction()
     {
-        $criteria = $this->params()->fromRoute();
-        $page = $this->queryService->findPageByCriteria($criteria);
+        $path = $this->params()->fromRoute('path');
+        $page = $this->queryService->findActivePageByPath($path);
         return new ViewModel(array('content' => $page->getContent()));
     }
 }

@@ -7,8 +7,8 @@ use ContentManager\Entity\Page;
 interface QueryInterface
 {
     /**
-     * @param array $criteria
+     * @param string $path
      * @return Page
      */
-    public function findPageByCriteria(array $criteria);
+    public function findActivePageByPath($path);
 }

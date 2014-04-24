@@ -33,24 +33,38 @@ class QueryTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('ContentManager\Feature\QueryInterface', $this->fixture);
     }
 
-    public function testFindPageByName()
+    public function testFindActivePageByPath()
     {
-        $criteria = array('foo');
-        $this->filter->shouldReceive('filter')->with($criteria)->andReturn($criteria);
-        $this->entityRepository->shouldReceive('findOneBy')->with($criteria)->andReturn($this->entity);
+        $path = 'foo';
+        $this->entityRepository
+            ->shouldReceive('findOneBy')
+            ->with(
+                array(
+                    'path'   => $path,
+                    'active' => true,
+                )
+            )
+            ->andReturn($this->entity);
 
-        $this->assertSame($this->entity, $this->fixture->findPageByCriteria($criteria));
+        $this->assertSame($this->entity, $this->fixture->findActivePageByPath($path));
     }
 
-    public function testFindNullPage()
+    public function testFindActivePageByPathWithNullPage()
     {
-        $criteria = array('foo');
-        $this->filter->shouldReceive('filter')->with($criteria)->andReturn($criteria);
-        $this->entityRepository->shouldReceive('findOneBy')->with($criteria)->andReturn(null);
+        $path = 'foo';
+        $this->entityRepository
+            ->shouldReceive('findOneBy')
+            ->with(
+                array(
+                    'path'   => $path,
+                    'active' => true,
+                )
+            )
+            ->andReturn(null);
 
         $this->assertInstanceOf(
             'ContentManager\Entity\NullPage',
-            $this->fixture->findPageByCriteria($criteria)
+            $this->fixture->findActivePageByPath($path)
         );
     }
 }

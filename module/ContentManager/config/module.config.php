@@ -6,10 +6,9 @@ return array(
             'content' => array(
                 'type'          => 'segment',
                 'options'       => array(
-                    'route'       => '/content[/:parentName][/:name]',
+                    'route'       => '/content[/:path]',
                     'constraints' => array(
-                        'parentName' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                        'name'       => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'path' => '[a-zA-Z][/a-zA-Z0-9_-]*',
                     ),
                     'defaults'    => array(
                         'controller' => 'ContentManager\Controller\Query',
@@ -22,12 +21,17 @@ return array(
     ),
     'controllers'     => array(
         'factories' => array(
-            'ContentManager\Controller\Query' => 'ContentManager\Controller\QueryControllerFactory'
+            'ContentManager\Controller\Query' => 'ContentManager\Controller\QueryControllerFactory',
         ),
     ),
     'service_manager' => array(
         'factories' => array(
-            'ContentManager\Service\Query' => 'ContentManager\Service\QueryFactory'
+            'ContentManager\Service\Query' => 'ContentManager\Service\QueryFactory',
+        ),
+    ),
+    'form_elements'   => array(
+        'factories' => array(
+            'ContentManager\Form\Page' => 'ContentManager\Form\PageFactory',
         ),
     ),
     'view_manager'    => array(

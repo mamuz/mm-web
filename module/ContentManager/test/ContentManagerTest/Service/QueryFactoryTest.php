@@ -28,8 +28,8 @@ class QueryControllerFactoryTest extends \PHPUnit_Framework_TestCase
         $sm = \Mockery::mock('Zend\ServiceManager\ServiceLocatorInterface');
         $sm->shouldReceive('get')->with('Doctrine\ORM\EntityManager')->andReturn($entityManager);
 
-        $controller = $this->fixture->createService($sm);
+        $service = $this->fixture->createService($sm);
 
-        $this->assertInstanceOf('ContentManager\Service\Query', $controller);
+        $this->assertInstanceOf('ContentManager\Service\Query', $service);
     }
 }

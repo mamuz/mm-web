@@ -18,11 +18,11 @@ class PageTest extends \PHPUnit_Framework_TestCase
     public function testClone()
     {
         $this->fixture->setId(12);
-        $this->fixture->setName('foo');
+        $this->fixture->setPath('foo');
         $clone = clone $this->fixture;
 
         $this->assertNull($clone->getId());
-        $this->assertNull($clone->getName());
+        $this->assertNull($clone->getPath());
     }
 
     public function testMutateAndAccessId()
@@ -33,20 +33,12 @@ class PageTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($expected, $this->fixture->getId());
     }
 
-    public function testMutateAndAccessName()
+    public function testMutateAndAccessPath()
     {
         $expected = 'foo';
-        $this->assertNull($this->fixture->getName());
-        $this->fixture->setName($expected);
-        $this->assertSame($expected, $this->fixture->getName());
-    }
-
-    public function testMutateAndAccessParentName()
-    {
-        $expected = 'foo';
-        $this->assertNull($this->fixture->getParentName());
-        $this->fixture->setParentName($expected);
-        $this->assertSame($expected, $this->fixture->getParentName());
+        $this->assertNull($this->fixture->getPath());
+        $this->fixture->setPath($expected);
+        $this->assertSame($expected, $this->fixture->getPath());
     }
 
     public function testMutateAndAccessTitle()

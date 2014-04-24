@@ -3,44 +3,61 @@
 namespace ContentManager\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Zend\Form\Annotation;
 
-/** @ORM\Entity */
+/**
+ * @ORM\Entity
+ * @Annotation\Name("Page")
+ */
 class Page
 {
     /**
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(type="integer")
+     * @Annotation\Exclude()
      * @var int
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", unique=true, nullable=false)
+     * @Annotation\Filter({"name":"StripTags"})
+     * @Annotation\Filter({"name":"StringTrim"})
+     * @Annotation\Validator({"name":"Alnum", "options": {"allowWhiteSpace":"false"}})
+     * @Annotation\Validator({"name":"StringLength", "options": {"min":"1", "max":"255"}})
+     * @Annotation\Options({"label":"Name"})
+     * @Annotation\Required()
      * @var string
      */
-    private $name;
+    private $path;
 
     /**
      * @ORM\Column(type="string", nullable=true)
-     * @var string|null
-     */
-    private $parentName;
-
-    /**
-     * @ORM\Column(type="string", nullable=true)
+     * @Annotation\Filter({"name":"StripTags"})
+     * @Annotation\Filter({"name":"StringTrim"})
+     * @Annotation\Validator({"name":"Alnum", "options": {"allowWhiteSpace":"false"}})
+     * @Annotation\Validator({"name":"StringLength", "options": {"min":"1", "max":"255"}})
+     * @Annotation\Options({"label":"Title"})
      * @var string
      */
     private $title = '';
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", nullable=true)
+     * @Annotation\Attributes({"type":"text"})
+     * @Annotation\Filter({"name":"StripTags"})
+     * @Annotation\Filter({"name":"StringTrim"})
+     * @Annotation\Validator({"name":"Alnum", "options": {"allowWhiteSpace":"false"}})
+     * @Annotation\Options({"label":"Content"})
      * @var string
      */
     private $content = '';
 
     /**
      * @ORM\Column(type="boolean", nullable=false)
+     * @Annotation\Filter({"name":"Boolean"})
+     * @Annotation\Options({"label":"Active"})
      * @var bool
      */
     private $active = false;
@@ -51,7 +68,7 @@ class Page
     public function __clone()
     {
         $this->id = null;
-        $this->name = null;
+        $this->path = null;
     }
 
     /**
@@ -73,47 +90,21 @@ class Page
     }
 
     /**
-     * @param string $name
+     * @param string $path
      * @return Page
      */
-    public function setName($name)
+    public function setPath($path)
     {
-        $this->name = $name;
+        $this->path = $path;
         return $this;
     }
 
     /**
      * @return string
      */
-    public function getName()
+    public function getPath()
     {
-        return $this->name;
-    }
-
-    /**
-     * @param string $parentName
-     * @return Page
-     */
-    public function setParentName($parentName)
-    {
-        $this->parentName = $parentName;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getParentName()
-    {
-        return $this->parentName;
-    }
-
-    /**
-     * @return bool
-     */
-    public function hasParentName()
-    {
-        return (null !== $this->getParentName());
+        return $this->path;
     }
 
     /**

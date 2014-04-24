@@ -5,32 +5,28 @@ namespace ContentManager\Mapper\Db;
 use ContentManager\Entity\NullPage;
 use ContentManager\Feature\QueryInterface;
 use Doctrine\Common\Persistence\ObjectRepository;
-use Zend\Filter\FilterInterface;
 
 class Query implements QueryInterface
 {
     /** @var ObjectRepository */
     private $repository;
 
-    /** @var FilterInterface */
-    private $criteriaFilter;
-
     /**
      * @param ObjectRepository $repository
-     * @param FilterInterface  $criteriaFilter
      */
-    public function __construct(
-        ObjectRepository $repository,
-        FilterInterface $criteriaFilter
-    ) {
+    public function __construct(ObjectRepository $repository)
+    {
         $this->repository = $repository;
-        $this->criteriaFilter = $criteriaFilter;
     }
 
-    public function findPageByCriteria(array $criteria)
+    public function findActivePageByPath($path)
     {
-        $criteria = $this->criteriaFilter->filter($criteria);
-        $page = $this->repository->findOneBy($criteria);
+        $page = $this->repository->findOneBy(
+            array(
+                'path'   => $path,
+                'active' => true,
+            )
+        );
 
         if (null === $page) {
             $page = new NullPage;

@@ -17,8 +17,8 @@ class Query implements QueryInterface
         $this->mapper = $mapper;
     }
 
-    public function findPageByCriteria(array $criteria)
+    public function findActivePageByPath($path)
     {
-        return $this->mapper->findPageByCriteria($criteria);
+        return $this->mapper->findActivePageByPath($path);
     }
 }
