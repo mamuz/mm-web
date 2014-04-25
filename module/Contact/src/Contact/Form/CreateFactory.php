@@ -5,6 +5,7 @@ namespace Contact\Form;
 use Contact\Entity\Contact;
 use DoctrineModule\Stdlib\Hydrator\DoctrineObject as DoctrineHydrator;
 use DoctrineORMModule\Form\Annotation\AnnotationBuilder;
+use Zend\Captcha;
 use Zend\Form\Form;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorAwareInterface;
@@ -39,7 +40,28 @@ class CreateFactory implements FactoryInterface
             )
         );
 
-        //@todo add csrf and captcha
+        $form->add(
+            array(
+                'type'    => 'Zend\Form\Element\Csrf',
+                'name'    => 'csrf',
+                'options' => array(
+                    'csrf_options' => array(
+                        'timeout' => 6000 // 10 minutes
+                    )
+                )
+            )
+        );
+
+        $form->add(
+            array(
+                'type'    => 'Zend\Form\Element\Captcha',
+                'name'    => 'captcha',
+                'options' => array(
+                    'label'   => 'Please verify you are human',
+                    'captcha' => new Captcha\Figlet,
+                ),
+            )
+        );
 
         return $form;
     }
