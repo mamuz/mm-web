@@ -1,0 +1,193 @@
+<?php
+
+namespace Contact\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Zend\Form\Annotation;
+
+/**
+ * @ORM\Entity
+ * @Annotation\Name("Page")
+ */
+class Contact
+{
+    /**
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\Column(type="integer")
+     * @Annotation\Exclude()
+     * @var int
+     */
+    private $id;
+
+    /**
+     * @ORM\Column(type="string", unique=true, nullable=false)
+     * @Annotation\Type({"Zend\Form\Element\Email"})
+     * @Annotation\Filter({"name":"StringTrim"})
+     * @Annotation\Validator({"name":"EmailAddress"}})
+     * @Annotation\Options({"label":"From"})
+     * @Annotation\Required()
+     * @var string
+     */
+    private $fromEmail;
+
+    /**
+     * @ORM\Column(type="string", nullable=false)
+     * @Annotation\Type({"Zend\Form\Element\Text"})
+     * @Annotation\Filter({"name":"StripTags"})
+     * @Annotation\Filter({"name":"StringTrim"})
+     * @Annotation\Validator({"name":"Alnum", "options": {"allowWhiteSpace":"false"}})
+     * @Annotation\Validator({"name":"StringLength", "options": {"min":"3", "max":"255"}})
+     * @Annotation\Options({"label":"Subject"})
+     * @var string
+     */
+    private $subject;
+
+    /**
+     * @ORM\Column(type="text", nullable=false)
+     * @Annotation\Type({"Zend\Form\Element\TextArea"})
+     * @Annotation\Filter({"name":"StripTags"})
+     * @Annotation\Filter({"name":"StringTrim"})
+     * @Annotation\Validator({"name":"Alnum", "options": {"allowWhiteSpace":"true"}})
+     * @Annotation\Validator({"name":"StringLength", "options": {"min":"3", "max":"65535"}})
+     * @Annotation\Options({"label":"Message"})
+     * @var string
+     */
+    private $message;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=false)
+     * @Annotation\Exclude()
+     * @var bool
+     */
+    private $replied = false;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=false)
+     * @Annotation\Exclude()
+     * @var \DateTime
+     */
+    private $createdAt;
+
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime;
+    }
+
+    /**
+     * destroy identity
+     */
+    public function __clone()
+    {
+        $this->id = null;
+        $this->createdAt = new \DateTime;
+    }
+
+    /**
+     * @param \DateTime $createdAt
+     * @return Contact
+     */
+    public function setCreatedAt(\DateTime $createdAt)
+    {
+        $this->createdAt = $createdAt;
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @param string $fromEmail
+     * @return Contact
+     */
+    public function setFromEmail($fromEmail)
+    {
+        $this->fromEmail = $fromEmail;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFromEmail()
+    {
+        return $this->fromEmail;
+    }
+
+    /**
+     * @param int $id
+     * @return Contact
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param string $message
+     * @return Contact
+     */
+    public function setMessage($message)
+    {
+        $this->message = $message;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMessage()
+    {
+        return $this->message;
+    }
+
+    /**
+     * @param boolean $replied
+     * @return Contact
+     */
+    public function setReplied($replied)
+    {
+        $this->replied = $replied;
+        return $this;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isReplied()
+    {
+        return $this->replied;
+    }
+
+    /**
+     * @param string $subject
+     * @return Contact
+     */
+    public function setSubject($subject)
+    {
+        $this->subject = $subject;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSubject()
+    {
+        return $this->subject;
+    }
+}

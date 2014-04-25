@@ -1,8 +1,8 @@
 <?php
 
-namespace ContentManager\Form;
+namespace Contact\Form;
 
-use ContentManager\Entity\Page;
+use Contact\Entity\Contact;
 use DoctrineModule\Stdlib\Hydrator\DoctrineObject as DoctrineHydrator;
 use DoctrineORMModule\Form\Annotation\AnnotationBuilder;
 use Zend\Form\Form;
@@ -24,7 +24,7 @@ class CreateFactory implements FactoryInterface
 
         /** @var \Doctrine\Common\Persistence\ObjectManager $entityManager */
         $entityManager = $serviceLocator->get('Doctrine\ORM\EntityManager');
-        $entity = new Page;
+        $entity = new Contact;
 
         $builder = new AnnotationBuilder($entityManager);
         $form = $builder->createForm($entity);

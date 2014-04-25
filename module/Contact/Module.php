@@ -3,11 +3,19 @@
 namespace Contact;
 
 use Zend\ModuleManager\Feature;
+use Zend\ModuleManager\ModuleManagerInterface;
 
 class Module implements
     Feature\AutoloaderProviderInterface,
-    Feature\ConfigProviderInterface
+    Feature\ConfigProviderInterface,
+    Feature\InitProviderInterface
 {
+    public function init(ModuleManagerInterface $modules)
+    {
+        $modules->loadModule('DoctrineModule');
+        $modules->loadModule('DoctrineORMModule');
+    }
+
     public function getConfig()
     {
         return include __DIR__ . '/config/module.config.php';
