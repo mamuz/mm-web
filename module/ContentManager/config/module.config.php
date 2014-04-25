@@ -35,8 +35,8 @@ return array(
         ),
     ),
     'view_manager'    => array(
-        'template_path_stack' => array(
-            __DIR__ . '/../view',
+        'template_map' => array(
+            'content-manager/query/page' => __DIR__ . '/../view/content-manager/query/page.phtml',
         ),
     ),
     'doctrine'        => array(

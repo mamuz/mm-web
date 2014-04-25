@@ -5,6 +5,7 @@ $env = getenv('APPLICATION_ENV') ? : 'production';
 
 $modules = array(
     'Application',
+    'Contact',
     'ContentManager',
 );
 

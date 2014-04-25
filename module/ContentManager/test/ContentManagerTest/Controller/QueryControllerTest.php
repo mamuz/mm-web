@@ -81,7 +81,7 @@ class QueryControllerTest extends \PHPUnit_Framework_TestCase
         $response = $this->fixture->getResponse();
 
         $this->assertInstanceOf('Zend\View\Model\ViewModel', $result);
-        $this->assertSame($content, $result->getVariables()['content']);
+        $this->assertSame($page, $result->getVariables()['page']);
         $this->assertEquals(200, $response->getStatusCode());
     }
 }

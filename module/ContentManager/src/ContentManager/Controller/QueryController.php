@@ -20,7 +20,7 @@ class QueryController extends AbstractActionController
     }
 
     /**
-     * Page content retrieval by route parameters
+     * Page retrieval by route parameters
      *
      * @return ViewModel
      */
@@ -28,6 +28,6 @@ class QueryController extends AbstractActionController
     {
         $path = $this->params()->fromRoute('path');
         $page = $this->queryService->findActivePageByPath($path);
-        return new ViewModel(array('content' => $page->getContent()));
+        return new ViewModel(array('page' => $page));
     }
 }
