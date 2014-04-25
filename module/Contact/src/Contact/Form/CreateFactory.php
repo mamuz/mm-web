@@ -34,14 +34,6 @@ class CreateFactory implements FactoryInterface
 
         $form->add(
             array(
-                'name'       => 'submit',
-                'type'       => 'Submit',
-                'attributes' => array('value' => 'send'),
-            )
-        );
-
-        $form->add(
-            array(
                 'type'    => 'Zend\Form\Element\Csrf',
                 'name'    => 'csrf',
                 'options' => array(
@@ -54,11 +46,25 @@ class CreateFactory implements FactoryInterface
 
         $form->add(
             array(
-                'type'    => 'Zend\Form\Element\Captcha',
-                'name'    => 'captcha',
-                'options' => array(
+                'type'       => 'Zend\Form\Element\Captcha',
+                'name'       => 'captcha',
+                'options'    => array(
                     'label'   => 'Please verify you are human',
                     'captcha' => new Captcha\Figlet,
+                ),
+                'attributes' => array(
+                    'required' => 'required'
+                ),
+            )
+        );
+
+        $form->add(
+            array(
+                'name'       => 'submit',
+                'type'       => 'Submit',
+                'attributes' => array(
+                    'value' => 'send',
+                    'class' => 'btn btn-default',
                 ),
             )
         );

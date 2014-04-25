@@ -14,6 +14,7 @@ class Module implements
     {
         $modules->loadModule('DoctrineModule');
         $modules->loadModule('DoctrineORMModule');
+        $modules->loadModule('TwbBundle');
     }
 
     public function getConfig()

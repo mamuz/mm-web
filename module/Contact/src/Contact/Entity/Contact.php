@@ -25,6 +25,7 @@ class Contact
      * @Annotation\Filter({"name":"StringTrim"})
      * @Annotation\Validator({"name":"EmailAddress"})
      * @Annotation\Options({"label":"From"})
+     * @Annotation\Attributes({"required":"required", "type":"email", "placeholder":"Enter your Email"})
      * @Annotation\Required()
      * @var string
      */
@@ -37,6 +38,8 @@ class Contact
      * @Annotation\Validator({"name":"Alnum", "options": {"allowWhiteSpace":"false"}})
      * @Annotation\Validator({"name":"StringLength", "options": {"min":"3", "max":"255"}})
      * @Annotation\Options({"label":"Subject"})
+     * @Annotation\Attributes({"required":"required", "placeholder":"Enter subject"})
+     * @Annotation\Required()
      * @var string
      */
     private $subject;
@@ -48,6 +51,8 @@ class Contact
      * @Annotation\Validator({"name":"Alnum", "options": {"allowWhiteSpace":"true"}})
      * @Annotation\Validator({"name":"StringLength", "options": {"min":"3", "max":"65535"}})
      * @Annotation\Options({"label":"Message"})
+     * @Annotation\Attributes({"required":"required", "placeholder":"Enter message"})
+     * @Annotation\Required()
      * @var string
      */
     private $message;
