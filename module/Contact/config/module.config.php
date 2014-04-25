@@ -17,7 +17,7 @@ return array(
     ),
     'controllers'     => array(
         'factories' => array(
-            'Contact\Controller\Command' => 'Contact\Controller\CommanfControllerFactory'
+            'Contact\Controller\Command' => 'Contact\Controller\CommandControllerFactory'
         ),
     ),
     'service_manager' => array(

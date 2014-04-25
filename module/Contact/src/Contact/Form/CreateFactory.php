@@ -31,6 +31,16 @@ class CreateFactory implements FactoryInterface
         $form->setHydrator(new DoctrineHydrator($entityManager, 'ContentManager\Entity\Page'));
         $form->bind($entity);
 
+        $form->add(
+            array(
+                'name'       => 'submit',
+                'type'       => 'Submit',
+                'attributes' => array('value' => 'send'),
+            )
+        );
+
+        //@todo add csrf and captcha
+
         return $form;
     }
 }

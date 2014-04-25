@@ -6,5 +6,8 @@ if (isset($this->contact)) {
     $form = $this->form;
     $form->setAttribute('action', $this->url('contact'));
     $form->prepare();
+
+    echo $this->form()->openTag($form);
     echo $this->formCollection($form);
+    echo $this->form()->closeTag();
 }

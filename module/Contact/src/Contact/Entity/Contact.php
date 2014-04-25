@@ -22,9 +22,8 @@ class Contact
 
     /**
      * @ORM\Column(type="string", unique=true, nullable=false)
-     * @Annotation\Type({"Zend\Form\Element\Email"})
      * @Annotation\Filter({"name":"StringTrim"})
-     * @Annotation\Validator({"name":"EmailAddress"}})
+     * @Annotation\Validator({"name":"EmailAddress"})
      * @Annotation\Options({"label":"From"})
      * @Annotation\Required()
      * @var string
@@ -33,7 +32,6 @@ class Contact
 
     /**
      * @ORM\Column(type="string", nullable=false)
-     * @Annotation\Type({"Zend\Form\Element\Text"})
      * @Annotation\Filter({"name":"StripTags"})
      * @Annotation\Filter({"name":"StringTrim"})
      * @Annotation\Validator({"name":"Alnum", "options": {"allowWhiteSpace":"false"}})
@@ -45,7 +43,6 @@ class Contact
 
     /**
      * @ORM\Column(type="text", nullable=false)
-     * @Annotation\Type({"Zend\Form\Element\TextArea"})
      * @Annotation\Filter({"name":"StripTags"})
      * @Annotation\Filter({"name":"StringTrim"})
      * @Annotation\Validator({"name":"Alnum", "options": {"allowWhiteSpace":"true"}})
