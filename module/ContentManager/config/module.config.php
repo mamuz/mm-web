@@ -29,11 +29,6 @@ return array(
             'ContentManager\Service\Query' => 'ContentManager\Service\QueryFactory',
         ),
     ),
-    'form_elements'   => array(
-        'factories' => array(
-            'ContentManager\Form\Page' => 'ContentManager\Form\PageFactory',
-        ),
-    ),
     'view_manager'    => array(
         'template_map' => array(
             'content-manager/query/page' => __DIR__ . '/../view/content-manager/query/page.phtml',

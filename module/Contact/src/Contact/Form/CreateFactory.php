@@ -10,7 +10,7 @@ use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorAwareInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class PageFactory implements FactoryInterface
+class CreateFactory implements FactoryInterface
 {
     /**
      * {@inheritdoc}
