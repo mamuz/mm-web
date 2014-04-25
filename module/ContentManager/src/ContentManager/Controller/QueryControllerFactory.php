@@ -4,6 +4,7 @@ namespace ContentManager\Controller;
 
 use ContentManager\Controller\QueryController;
 use Zend\ServiceManager\FactoryInterface;
+use Zend\ServiceManager\ServiceLocatorAwareInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
 class QueryControllerFactory implements FactoryInterface
@@ -14,9 +15,12 @@ class QueryControllerFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        /** @var \Zend\Mvc\Controller\ControllerManager $serviceLocator */
+        if ($serviceLocator instanceof ServiceLocatorAwareInterface) {
+            $serviceLocator = $serviceLocator->getServiceLocator();
+        }
+
         /** @var \ContentManager\Service\Query $queryService */
-        $queryService = $serviceLocator->getServiceLocator()->get('ContentManager\Service\Query');
+        $queryService = $serviceLocator->get('ContentManager\Service\Query');
 
         $controller = new QueryController($queryService);
 
