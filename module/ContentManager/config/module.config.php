@@ -6,7 +6,7 @@ return array(
             'content' => array(
                 'type'          => 'segment',
                 'options'       => array(
-                    'route'       => '[/:path]',
+                    'route'       => '/cm[/:path]',
                     'constraints' => array(
                         'path' => '[a-zA-Z][/a-zA-Z0-9_-]*',
                     ),
