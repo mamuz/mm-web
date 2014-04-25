@@ -22,7 +22,7 @@ class PageFactory implements FactoryInterface
             $serviceLocator = $serviceLocator->getServiceLocator();
         }
 
-        /** @var \Doctrine\ORM\EntityManager $entityManager */
+        /** @var \Doctrine\Common\Persistence\ObjectManager $entityManager */
         $entityManager = $serviceLocator->get('Doctrine\ORM\EntityManager');
         $entity = new Page;
 

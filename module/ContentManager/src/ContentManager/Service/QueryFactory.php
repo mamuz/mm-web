@@ -15,7 +15,7 @@ class QueryFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        /** @var \Doctrine\ORM\EntityManager $entityManager */
+        /** @var \Doctrine\Common\Persistence\ObjectManager $entityManager */
         $entityManager = $serviceLocator->get('Doctrine\ORM\EntityManager');
         $repository = $entityManager->getRepository('ContentManager\Entity\Page');
 
