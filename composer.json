@@ -21,7 +21,8 @@
     "php"                         : ">=5.4",
     "zendframework/zendframework" : "~2.3.1",
     "doctrine/doctrine-orm-module": "0.*",
-    "maglnet/magl-markdown"       : "1.*"
+    "maglnet/magl-markdown"       : "1.*",
+    "neilime/zf2-twb-bundle"      : "2.*@stable"
   },
   "require-dev"      : {
     "phpunit/phpunit": "4.0.*",
