@@ -4,7 +4,6 @@ namespace ContentManager;
 
 use Zend\ModuleManager\Feature;
 use Zend\ModuleManager\ModuleManagerInterface;
-use Zend\Mvc\ModuleRouteListener;
 
 class Module implements
     Feature\AutoloaderProviderInterface,
