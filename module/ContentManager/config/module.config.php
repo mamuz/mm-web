@@ -6,7 +6,7 @@ return array(
             'content' => array(
                 'type'          => 'segment',
                 'options'       => array(
-                    'route'       => '/cm[/:path]',
+                    'route'       => '[/:path]',
                     'constraints' => array(
                         'path' => '[a-zA-Z][/a-zA-Z0-9_-]*',
                     ),
@@ -15,6 +15,7 @@ return array(
                         'action'     => 'page',
                     ),
                 ),
+                'priority'      => -1000,
                 'may_terminate' => true,
             ),
         ),
