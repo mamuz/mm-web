@@ -22,6 +22,7 @@ class Command implements CommandInterface
     public function persist(Contact $contact)
     {
         $this->objectManager->persist($contact);
+        $this->objectManager->flush();
         return $contact;
     }
 }

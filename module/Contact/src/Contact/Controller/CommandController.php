@@ -4,6 +4,7 @@ namespace Contact\Controller;
 
 use Contact\Feature\CommandInterface;
 use Zend\Form\FormInterface;
+use Zend\Http\PhpEnvironment\Response;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ModelInterface;
 use Zend\View\Model\ViewModel;
@@ -39,12 +40,14 @@ class CommandController extends AbstractActionController
      */
     public function createAction()
     {
-        /** @var \Zend\Http\Request $request */
-        $request = $this->getRequest();
+        $prg = $this->prg('/contact', true);
+        if ($prg instanceof Response) {
+            return $prg;
+        } elseif ($prg === false) {
+            return $this->viewModel;
+        }
 
-        if ($request->isPost()
-            && $this->contactForm->setData($request->getPost())->isValid()
-        ) {
+        if ($this->contactForm->setData($prg)->isValid()) {
             /** @var \Contact\Entity\Contact $contact */
             $contact = $this->contactForm->getData();
             $this->commandService->persist($contact);

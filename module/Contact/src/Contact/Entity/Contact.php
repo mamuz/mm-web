@@ -21,7 +21,7 @@ class Contact
     private $id;
 
     /**
-     * @ORM\Column(type="string", unique=true, nullable=false)
+     * @ORM\Column(type="string", nullable=false)
      * @Annotation\Filter({"name":"StringTrim"})
      * @Annotation\Validator({"name":"EmailAddress"})
      * @Annotation\Options({"label":"From"})
@@ -35,7 +35,7 @@ class Contact
      * @ORM\Column(type="string", nullable=false)
      * @Annotation\Filter({"name":"StripTags"})
      * @Annotation\Filter({"name":"StringTrim"})
-     * @Annotation\Validator({"name":"Alnum", "options": {"allowWhiteSpace":"false"}})
+     * @Annotation\Filter({"name":"StripNewlines"})
      * @Annotation\Validator({"name":"StringLength", "options": {"min":"3", "max":"255"}})
      * @Annotation\Options({"label":"Subject"})
      * @Annotation\Attributes({"required":"required", "placeholder":"Enter subject"})
@@ -48,7 +48,6 @@ class Contact
      * @ORM\Column(type="text", nullable=false)
      * @Annotation\Filter({"name":"StripTags"})
      * @Annotation\Filter({"name":"StringTrim"})
-     * @Annotation\Validator({"name":"Alnum", "options": {"allowWhiteSpace":"true"}})
      * @Annotation\Validator({"name":"StringLength", "options": {"min":"3", "max":"65535"}})
      * @Annotation\Options({"label":"Message"})
      * @Annotation\Attributes({"required":"required", "placeholder":"Enter message"})

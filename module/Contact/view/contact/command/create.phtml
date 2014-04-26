@@ -1,8 +1,7 @@
 <h1>Contact</h1>
-
 <?php
 if (isset($this->contact)) {
-    var_dump($this->contact);
+    echo $this->alert('Thank you for sending message.', 'alert-success');
 } else {
     /** @var \Zend\Form\Form $form */
     $form = $this->form;
