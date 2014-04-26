@@ -19,3 +19,19 @@ footer {
 footer .well {
     margin-bottom: 0;
 }
+
+#contact {
+    max-width: 400px;
+}
+
+#contact textarea {
+    height: 100px;
+}
+
+#contact .btn {
+    width: 100%;
+}
+
+#recaptcha_area {
+    margin: auto;
+}

@@ -44,19 +44,10 @@ class CreateFactory implements FactoryInterface
             )
         );
 
-        $form->add(
-            array(
-                'type'       => 'Zend\Form\Element\Captcha',
-                'name'       => 'captcha',
-                'options'    => array(
-                    'label'   => 'Please verify you are human',
-                    'captcha' => new Captcha\Figlet,
-                ),
-                'attributes' => array(
-                    'required' => 'required'
-                ),
-            )
-        );
+        $config = $serviceLocator->get('Config');
+        if (isset($config['captcha'])) {
+            $form->add($config['captcha']);
+        }
 
         $form->add(
             array(

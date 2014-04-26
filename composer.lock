@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "8cd4ea1f023d53265ccf298981197ee3",
+    "hash": "96ece3817b901a33f33242be918598c9",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1120,6 +1120,55 @@
             "time": "2014-04-25 05:46:25"
         },
         {
+            "name": "zendframework/zendservice-recaptcha",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zendframework/ZendService_ReCaptcha.git",
+                "reference": "f77367b79fed0b043eef18e59cae607b47b1c3e2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://packages.zendframework.com/composer/zendframework-zendservice-recaptcha-f77367b79fed0b043eef18e59cae607b47b1c3e2-zip-da3fb0.zip",
+                "reference": "dev-master",
+                "shasum": "62930cdb12babee93e56dc7796bb8d4bafa94232"
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "zendframework/zend-config": ">=2.0.0",
+                "zendframework/zend-http": ">=2.0.0",
+                "zendframework/zend-json": ">=2.0.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "ZendService\\ReCaptcha\\": "library/"
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "OOP wrapper for the ReCaptcha web service",
+            "homepage": "http://packages.zendframework.com/",
+            "keywords": [
+                "recaptcha",
+                "zf2"
+            ],
+            "support": {
+                "source": "https://github.com/zendframework/ZendService_ReCaptcha/tree/master",
+                "issues": "https://github.com/zendframework/ZendService_ReCaptcha/issues"
+            },
+            "time": "2012-12-11 22:09:14"
+        },
+        {
             "name": "zendframework/zendxml",
             "version": "dev-master",
             "source": {
@@ -1241,12 +1290,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "aef655b2481c7ef8c8b73288c383261b2bb7e2a2"
+                "reference": "e3741b4937c32bc3b101e4c670083fe0ee78d225"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/aef655b2481c7ef8c8b73288c383261b2bb7e2a2",
-                "reference": "aef655b2481c7ef8c8b73288c383261b2bb7e2a2",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/e3741b4937c32bc3b101e4c670083fe0ee78d225",
+                "reference": "e3741b4937c32bc3b101e4c670083fe0ee78d225",
                 "shasum": ""
             },
             "require": {
@@ -1263,7 +1312,8 @@
             },
             "suggest": {
                 "ext-dom": "*",
-                "ext-xdebug": ">=2.2.1"
+                "ext-xdebug": ">=2.2.1",
+                "ext-xmlwriter": "*"
             },
             "type": "library",
             "extra": {
@@ -1297,7 +1347,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-04-03 03:26:47"
+            "time": "2014-04-26 09:30:11"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -1488,16 +1538,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "a8d628ee246265b8dbcd839304c41b8839783581"
+                "reference": "efdfca6bf1ee99d609b7b20ecf63c3818e3d2182"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/a8d628ee246265b8dbcd839304c41b8839783581",
-                "reference": "a8d628ee246265b8dbcd839304c41b8839783581",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/efdfca6bf1ee99d609b7b20ecf63c3818e3d2182",
+                "reference": "efdfca6bf1ee99d609b7b20ecf63c3818e3d2182",
                 "shasum": ""
             },
             "require": {
                 "ext-dom": "*",
+                "ext-json": "*",
                 "ext-pcre": "*",
                 "ext-reflection": "*",
                 "ext-spl": "*",
@@ -1514,9 +1565,6 @@
                 "symfony/yaml": "~2.0"
             },
             "suggest": {
-                "ext-json": "*",
-                "ext-simplexml": "*",
-                "ext-tokenizer": "*",
                 "phpunit/php-invoker": "~1.1"
             },
             "bin": [
@@ -1555,7 +1603,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-04-24 07:55:55"
+            "time": "2014-04-26 06:27:42"
         },
         {
             "name": "phpunit/phpunit-mock-objects",

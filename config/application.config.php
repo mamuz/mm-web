@@ -1,6 +1,5 @@
 <?php
 
-// Define environment
 $env = getenv('APPLICATION_ENV') ? : 'production';
 
 $modules = array(

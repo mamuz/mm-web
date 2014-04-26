@@ -7,7 +7,7 @@ use Zend\Form\Annotation;
 
 /**
  * @ORM\Entity
- * @Annotation\Name("Contact")
+ * @Annotation\Name("contact")
  */
 class Contact
 {
@@ -25,7 +25,7 @@ class Contact
      * @Annotation\Filter({"name":"StringTrim"})
      * @Annotation\Validator({"name":"EmailAddress"})
      * @Annotation\Options({"label":"From"})
-     * @Annotation\Attributes({"required":"required", "type":"email", "placeholder":"Enter your Email"})
+     * @Annotation\Attributes({"required":"required", "type":"email", "placeholder":"Enter your email"})
      * @Annotation\Required()
      * @var string
      */

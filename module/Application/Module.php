@@ -17,6 +17,18 @@ class Module implements
         $eventManager = $e->getApplication()->getEventManager();
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
+
+        $response = $e->getResponse();
+        if ($response instanceof \Zend\Http\Response) {
+            $response->getHeaders()->addHeaderLine(
+                'Content-Type',
+                'text/html; charset=UTF-8'
+            );
+            $response->getHeaders()->addHeaderLine(
+                'Content-Language',
+                'en'
+            );
+        }
     }
 
     public function getConfig()
