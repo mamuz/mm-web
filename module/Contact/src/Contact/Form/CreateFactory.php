@@ -60,8 +60,8 @@ class CreateFactory implements FactoryInterface
 
         $form->add(
             array(
-                'name'       => 'submit',
                 'type'       => 'Submit',
+                'name'       => 'submit',
                 'attributes' => array(
                     'value' => 'send',
                     'class' => 'btn btn-default',

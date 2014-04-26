@@ -7,7 +7,7 @@ use Zend\Form\Annotation;
 
 /**
  * @ORM\Entity
- * @Annotation\Name("Page")
+ * @Annotation\Name("Contact")
  */
 class Contact
 {
