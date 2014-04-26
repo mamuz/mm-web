@@ -31,6 +31,12 @@ class QueryControllerTest extends \PHPUnit_Framework_TestCase
     /** @var \ContentManager\Feature\QueryInterface | \Mockery\MockInterface */
     protected $queryInterface;
 
+    /** @var \ContentManager\Entity\Page | \Mockery\MockInterface */
+    protected $page;
+
+    /** @var string */
+    protected $path = 'foo';
+
     protected function setUp()
     {
         $this->queryInterface = \Mockery::mock('ContentManager\Feature\QueryInterface');
@@ -45,6 +51,13 @@ class QueryControllerTest extends \PHPUnit_Framework_TestCase
         $routerConfig = isset($config['router']) ? $config['router'] : array();
         $router = HttpRouter::factory($routerConfig);
 
+        $params = \Mockery::mock('Zend\Mvc\Controller\Plugin\Params');
+        $params->shouldReceive('__invoke')->andReturn($params);
+        $params->shouldReceive('fromRoute')->with('path')->andReturn($this->path);
+        $pluginManager = \Mockery::mock('Zend\Mvc\Controller\PluginManager')->shouldIgnoreMissing();
+        $pluginManager->shouldReceive('get')->with('params', null)->andReturn($params);
+
+        $this->fixture->setPluginManager($pluginManager);
         $this->event->setRouter($router);
         $this->event->setRouteMatch($this->routeMatch);
         $this->fixture->setEvent($this->event);
@@ -58,30 +71,39 @@ class QueryControllerTest extends \PHPUnit_Framework_TestCase
 
     public function testQueryActionCanBeAccessed()
     {
-        $path = 'foo';
         $content = 'baz';
+        $this->page = \Mockery::mock('ContentManager\Entity\Page');
+        $this->page->shouldReceive('getContent')->andReturn($content);
 
-        $params = \Mockery::mock('Zend\Mvc\Controller\Plugin\Params');
-        $params->shouldReceive('__invoke')->andReturn($params);
-        $params->shouldReceive('fromRoute')->with('path')->andReturn($path);
-        $pluginManager = \Mockery::mock('Zend\Mvc\Controller\PluginManager')->shouldIgnoreMissing();
-        $pluginManager->shouldReceive('get')->with('params', null)->andReturn($params);
-        $this->fixture->setPluginManager($pluginManager);
-
-        $page = \Mockery::mock('ContentManager\Entity\Page');
-        $page->shouldReceive('getContent')->andReturn($content);
 
         $this->queryInterface
             ->shouldReceive('findActivePageByPath')
-            ->with($path)
-            ->andReturn($page);
+            ->with($this->path)
+            ->andReturn($this->page);
 
         $this->routeMatch->setParam('action', 'page');
         $result = $this->fixture->dispatch($this->request);
         $response = $this->fixture->getResponse();
 
         $this->assertInstanceOf('Zend\View\Model\ViewModel', $result);
-        $this->assertSame($page, $result->getVariables()['page']);
+        $this->assertSame($this->page, $result->getVariables()['page']);
         $this->assertEquals(200, $response->getStatusCode());
+    }
+
+    public function testQueryActionPageNotFoundByNullPage()
+    {
+        $this->page = \Mockery::mock('ContentManager\Entity\NullPage');
+
+        $this->queryInterface
+            ->shouldReceive('findActivePageByPath')
+            ->with($this->path)
+            ->andReturn($this->page);
+
+        $this->routeMatch->setParam('action', 'page');
+        $result = $this->fixture->dispatch($this->request);
+        $response = $this->fixture->getResponse();
+
+        $this->assertNull($result);
+        $this->assertEquals(404, $response->getStatusCode());
     }
 }

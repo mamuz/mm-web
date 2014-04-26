@@ -2,7 +2,9 @@
 
 namespace ContentManager\Controller;
 
+use ContentManager\Entity\NullPage;
 use ContentManager\Feature\QueryInterface;
+use Zend\Http\Response;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
@@ -22,12 +24,20 @@ class QueryController extends AbstractActionController
     /**
      * Page retrieval by route parameters
      *
-     * @return ViewModel
+     * @return ViewModel|null
      */
     public function pageAction()
     {
         $path = $this->params()->fromRoute('path');
         $page = $this->queryService->findActivePageByPath($path);
+
+        if ($page instanceof NullPage) {
+            /** @var Response $response */
+            $response = $this->getResponse();
+            $response->setStatusCode(Response::STATUS_CODE_404);
+            return null;
+        }
+
         return new ViewModel(array('page' => $page));
     }
 }
