@@ -9,7 +9,8 @@ if (isset($this->contact)) {
     echo '<h2><small>' . $this->translate('Summary') . '</small></h2>';
     echo '<dl class="dl-horizontal">';
     foreach ($contact->toArray() as $field => $value) {
-        echo '<dt>' . $this->translate($field) . '</dt><dd>' . nl2br($this->escapeHtml($value)) . '</dd>';
+        echo '<dt>' . $this->translate($field) . '</dt>';
+        echo '<dd>' . nl2br($this->escapeHtml($value)) . '</dd>';
     }
     echo '</dl>';
 } else {
