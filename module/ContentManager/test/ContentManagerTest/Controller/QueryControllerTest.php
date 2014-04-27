@@ -75,7 +75,6 @@ class QueryControllerTest extends \PHPUnit_Framework_TestCase
         $this->page = \Mockery::mock('ContentManager\Entity\Page');
         $this->page->shouldReceive('getContent')->andReturn($content);
 
-
         $this->queryInterface
             ->shouldReceive('findActivePageByPath')
             ->with($this->path)
