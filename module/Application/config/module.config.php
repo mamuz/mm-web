@@ -1,5 +1,7 @@
 <?php
 
+$env = getenv('APPLICATION_ENV') ? : 'production';
+
 return array(
     'router'       => array(
         'routes' => array(
@@ -21,8 +23,8 @@ return array(
         ),
     ),
     'view_manager' => array(
-        'display_not_found_reason' => true,
-        'display_exceptions'       => true,
+        'display_not_found_reason' => ($env != 'production'),
+        'display_exceptions'       => ($env != 'production'),
         'doctype'                  => 'HTML5',
         'not_found_template'       => 'error/404',
         'exception_template'       => 'error/index',
@@ -34,6 +36,14 @@ return array(
             'application/index/index' => __DIR__ . '/../view/application/index/index.phtml',
             'error/404'               => __DIR__ . '/../view/error/404.phtml',
             'error/index'             => __DIR__ . '/../view/error/index.phtml',
+        ),
+    ),
+    'application'  => array(
+        'http' => array(
+            'headers' => array(
+                'Content-Type'     => 'text/html; charset=UTF-8',
+                'Content-Language' => 'en',
+            ),
         ),
     ),
 );

@@ -3,8 +3,10 @@
 namespace Application;
 
 use Zend\EventManager\EventInterface;
+use Zend\Http\PhpEnvironment\Response as HttpResponse;
 use Zend\ModuleManager\Feature;
 use Zend\Mvc\ModuleRouteListener;
+use Zend\Stdlib\ResponseInterface;
 
 class Module implements
     Feature\AutoloaderProviderInterface,
@@ -14,21 +16,7 @@ class Module implements
     public function onBootstrap(EventInterface $e)
     {
         /** @var \Zend\Mvc\MvcEvent $e */
-        $eventManager = $e->getApplication()->getEventManager();
-        $moduleRouteListener = new ModuleRouteListener();
-        $moduleRouteListener->attach($eventManager);
-
-        $response = $e->getResponse();
-        if ($response instanceof \Zend\Http\Response) {
-            $response->getHeaders()->addHeaderLine(
-                'Content-Type',
-                'text/html; charset=UTF-8'
-            );
-            $response->getHeaders()->addHeaderLine(
-                'Content-Language',
-                'en'
-            );
-        }
+        $this->addHeaderLinesTo($e->getResponse());
     }
 
     public function getConfig()
@@ -45,5 +33,19 @@ class Module implements
                 ),
             ),
         );
+    }
+
+    /**
+     * @param ResponseInterface $response
+     * @return void
+     */
+    private function addHeaderLinesTo(ResponseInterface $response)
+    {
+        if ($response instanceof HttpResponse) {
+            $headers = $this->getConfig()['application']['http']['headers'];
+            foreach ($headers as $name => $value) {
+                $response->getHeaders()->addHeaderLine($name, $value);
+            }
+        }
     }
 }
