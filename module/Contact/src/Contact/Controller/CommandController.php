@@ -36,7 +36,7 @@ class CommandController extends AbstractActionController
     /**
      * Persist contact entity
      *
-     * @return ModelInterface
+     * @return ModelInterface|Response
      */
     public function createAction()
     {

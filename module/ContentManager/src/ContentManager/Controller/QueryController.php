@@ -6,6 +6,7 @@ use ContentManager\Entity\NullPage;
 use ContentManager\Feature\QueryInterface;
 use Zend\Http\Response;
 use Zend\Mvc\Controller\AbstractActionController;
+use Zend\View\Model\ModelInterface;
 use Zend\View\Model\ViewModel;
 
 class QueryController extends AbstractActionController
@@ -24,7 +25,7 @@ class QueryController extends AbstractActionController
     /**
      * Page retrieval by route parameters
      *
-     * @return ViewModel|null
+     * @return ModelInterface|null
      */
     public function pageAction()
     {
