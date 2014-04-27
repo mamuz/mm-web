@@ -4,8 +4,8 @@ namespace Contact\Controller;
 
 use Contact\Feature\CommandInterface;
 use Zend\Form\FormInterface;
-use Zend\Http\PhpEnvironment\Response;
 use Zend\Mvc\Controller\AbstractActionController;
+use Zend\Stdlib\ResponseInterface;
 use Zend\View\Model\ModelInterface;
 use Zend\View\Model\ViewModel;
 
@@ -36,12 +36,12 @@ class CommandController extends AbstractActionController
     /**
      * Persist contact entity
      *
-     * @return ModelInterface|Response
+     * @return ModelInterface|ResponseInterface
      */
     public function createAction()
     {
         $prg = $this->prg('/contact', true);
-        if ($prg instanceof Response) {
+        if ($prg instanceof ResponseInterface) {
             return $prg;
         } elseif ($prg === false) {
             return $this->viewModel;
