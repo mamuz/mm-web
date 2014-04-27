@@ -4,8 +4,8 @@ namespace ContactTest\Controller;
 
 use Contact\Controller\CommandController;
 use ContactTest\Bootstrap;
-use Zend\Http\Request;
-use Zend\Http\Response;
+use Zend\Http\PhpEnvironment\Request;
+use Zend\Http\PhpEnvironment\Response;
 use Zend\Mvc\MvcEvent;
 use Zend\Mvc\Router\Http\TreeRouteStack as HttpRouter;
 use Zend\Mvc\Router\RouteMatch;
@@ -34,6 +34,9 @@ class QueryControllerTest extends \PHPUnit_Framework_TestCase
     /** @var \Zend\Form\FormInterface | \Mockery\MockInterface */
     protected $formInterface;
 
+    /** @var \Zend\Mvc\Controller\Plugin\PostRedirectGet | \Mockery\MockInterface */
+    protected $prg;
+
     protected function setUp()
     {
         $this->commandInterface = \Mockery::mock('Contact\Feature\CommandInterface');
@@ -49,6 +52,11 @@ class QueryControllerTest extends \PHPUnit_Framework_TestCase
         $routerConfig = isset($config['router']) ? $config['router'] : array();
         $router = HttpRouter::factory($routerConfig);
 
+        $this->prg = \Mockery::mock('Zend\Mvc\Controller\Plugin\PostRedirectGet');
+        $pluginManager = \Mockery::mock('Zend\Mvc\Controller\PluginManager')->shouldIgnoreMissing();
+        $pluginManager->shouldReceive('get')->with('params', null)->andReturn($this->prg);
+
+        $this->fixture->setPluginManager($pluginManager);
         $this->event->setRouter($router);
         $this->event->setRouteMatch($this->routeMatch);
         $this->fixture->setEvent($this->event);
@@ -63,10 +71,14 @@ class QueryControllerTest extends \PHPUnit_Framework_TestCase
     public function testCreateActionCanBeAccessed()
     {
         $this->routeMatch->setParam('action', 'create');
+        $this->request->setRequestUri('/contact');
         $result = $this->fixture->dispatch($this->request);
         $response = $this->fixture->getResponse();
 
-        $this->assertInstanceOf('Zend\View\Model\ViewModel', $result);
+        $this->prg->shouldReceive('__invoke')->with('/contact')->andReturn($this->prg);
+        $this->prg->shouldReceive('fromRoute')->with('path')->andReturn($this->path);
+
+        $this->assertInstanceOf('Zend\View\Model\ModelInterface', $result);
         $this->assertSame($this->formInterface, $result->getVariables()['form']);
         $this->assertEquals(200, $response->getStatusCode());
     }

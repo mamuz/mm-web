@@ -4,7 +4,7 @@ namespace ContentManager\Controller;
 
 use ContentManager\Entity\NullPage;
 use ContentManager\Feature\QueryInterface;
-use Zend\Http\Response;
+use Zend\Http\PhpEnvironment\Response;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ModelInterface;
 use Zend\View\Model\ViewModel;

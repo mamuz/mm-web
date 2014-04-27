@@ -4,8 +4,8 @@ namespace ApplicationTest\Controller;
 
 use Application\Controller\IndexController;
 use ApplicationTest\Bootstrap;
-use Zend\Http\Request;
-use Zend\Http\Response;
+use Zend\Http\PhpEnvironment\Request;
+use Zend\Http\PhpEnvironment\Response;
 use Zend\Mvc\MvcEvent;
 use Zend\Mvc\Router\Http\TreeRouteStack as HttpRouter;
 use Zend\Mvc\Router\RouteMatch;
