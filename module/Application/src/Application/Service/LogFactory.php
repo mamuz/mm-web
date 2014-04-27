@@ -8,7 +8,7 @@ use Zend\Log\Writer\Stream;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class ErrorHandlingFactory implements FactoryInterface
+class LogFactory implements FactoryInterface
 {
     /**
      * {@inheritdoc}
