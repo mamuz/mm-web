@@ -25,9 +25,7 @@ class Command implements EventManagerAwareInterface, CommandInterface
     public function persist(Contact $contact)
     {
         $this->triggerEvent(__FUNCTION__ . '.pre', func_get_args());
-
-        $contact = $this->mapper->persist($contact);
-
+        $this->mapper->persist($contact);
         $this->triggerEvent(__FUNCTION__ . '.post', func_get_args());
 
         return $contact;
