@@ -70,4 +70,19 @@ class ContactTest extends \PHPUnit_Framework_TestCase
         $this->fixture->setReplied($expected);
         $this->assertTrue($this->fixture->isReplied());
     }
+
+    public function testArrayRepresentation()
+    {
+        $this->fixture->setId(12);
+        $this->fixture->setFromEmail('email');
+        $this->fixture->setSubject('subject');
+
+        $this->assertSame(
+            array(
+                'From'    => 'email',
+                'Subject' => 'subject',
+            ),
+            $this->fixture->toArray()
+        );
+    }
 }

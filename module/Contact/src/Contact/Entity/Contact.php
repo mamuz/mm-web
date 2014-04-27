@@ -194,4 +194,15 @@ class Contact
     {
         return $this->subject;
     }
+
+    /**
+     * @return array
+     */
+    public function toArray()
+    {
+        return array(
+            'From'    => $this->getFromEmail(),
+            'Subject' => $this->getSubject(),
+        );
+    }
 }
