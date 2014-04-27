@@ -40,7 +40,9 @@ class CommandController extends AbstractActionController
      */
     public function createAction()
     {
-        $prg = $this->prg('/contact', true);
+        /** @var \Zend\Http\PhpEnvironment\Request $request */
+        $request = $this->getRequest();
+        $prg = $this->prg($request->getRequestUri(), true);
         if ($prg instanceof ResponseInterface) {
             return $prg;
         } elseif ($prg === false) {
