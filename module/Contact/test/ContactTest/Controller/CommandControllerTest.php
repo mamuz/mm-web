@@ -11,7 +11,7 @@ use Zend\Mvc\Router\Http\TreeRouteStack as HttpRouter;
 use Zend\Mvc\Router\RouteMatch;
 
 /** @group Controller */
-class QueryControllerTest extends \PHPUnit_Framework_TestCase
+class CommandControllerTest extends \PHPUnit_Framework_TestCase
 {
     /** @var \Zend\Mvc\Controller\AbstractActionController */
     protected $fixture;
@@ -37,6 +37,9 @@ class QueryControllerTest extends \PHPUnit_Framework_TestCase
     /** @var \Zend\Mvc\Controller\Plugin\PostRedirectGet | \Mockery\MockInterface */
     protected $prg;
 
+    /** @var string */
+    protected $uri = 'foo';
+
     protected function setUp()
     {
         $this->commandInterface = \Mockery::mock('Contact\Feature\CommandInterface');
@@ -52,9 +55,10 @@ class QueryControllerTest extends \PHPUnit_Framework_TestCase
         $routerConfig = isset($config['router']) ? $config['router'] : array();
         $router = HttpRouter::factory($routerConfig);
 
+        $this->request->setRequestUri($this->uri);
         $this->prg = \Mockery::mock('Zend\Mvc\Controller\Plugin\PostRedirectGet');
         $pluginManager = \Mockery::mock('Zend\Mvc\Controller\PluginManager')->shouldIgnoreMissing();
-        $pluginManager->shouldReceive('get')->with('params', null)->andReturn($this->prg);
+        $pluginManager->shouldReceive('get')->with('prg', null)->andReturn($this->prg);
 
         $this->fixture->setPluginManager($pluginManager);
         $this->event->setRouter($router);
@@ -71,24 +75,31 @@ class QueryControllerTest extends \PHPUnit_Framework_TestCase
     public function testCreateActionCanBeAccessed()
     {
         $this->routeMatch->setParam('action', 'create');
-        $this->request->setRequestUri('/contact');
+        $this->prg->shouldReceive('__invoke')->with($this->uri, true)->andReturn(false);
+
         $result = $this->fixture->dispatch($this->request);
         $response = $this->fixture->getResponse();
-
-        $this->prg->shouldReceive('__invoke')->with('/contact')->andReturn($this->prg);
-        $this->prg->shouldReceive('fromRoute')->with('path')->andReturn($this->path);
 
         $this->assertInstanceOf('Zend\View\Model\ModelInterface', $result);
         $this->assertSame($this->formInterface, $result->getVariables()['form']);
         $this->assertEquals(200, $response->getStatusCode());
     }
 
+    public function testCreateActionCanBeAccessedAfterPost()
+    {
+        $responseInterface = \Mockery::mock('Zend\Stdlib\ResponseInterface');
+        $this->routeMatch->setParam('action', 'create');
+        $this->prg->shouldReceive('__invoke')->with($this->uri, true)->andReturn($responseInterface);
+
+        $result = $this->fixture->dispatch($this->request);
+        $this->assertSame($responseInterface, $result);
+    }
+
     public function testCreateActionWithInvalidPost()
     {
         $postData = new \Zend\Stdlib\Parameters(array('foo', 'baz'));
+        $this->prg->shouldReceive('__invoke')->with($this->uri, true)->andReturn($postData);
         $this->routeMatch->setParam('action', 'create');
-        $this->request->setMethod(Request::METHOD_POST);
-        $this->request->setPost($postData);
         $this->formInterface->shouldReceive('setData')->with($postData)->andReturn($this->formInterface);
         $this->formInterface->shouldReceive('isValid')->andReturn(false);
         $result = $this->fixture->dispatch($this->request);
@@ -103,9 +114,8 @@ class QueryControllerTest extends \PHPUnit_Framework_TestCase
     {
         $contact = \Mockery::mock('Contact\Entity\Contact');
         $postData = new \Zend\Stdlib\Parameters(array('foo', 'baz'));
+        $this->prg->shouldReceive('__invoke')->with($this->uri, true)->andReturn($postData);
         $this->routeMatch->setParam('action', 'create');
-        $this->request->setMethod(Request::METHOD_POST);
-        $this->request->setPost($postData);
         $this->formInterface->shouldReceive('setData')->with($postData)->andReturn($this->formInterface);
         $this->formInterface->shouldReceive('isValid')->andReturn(true);
         $this->formInterface->shouldReceive('getData')->andReturn($contact);
