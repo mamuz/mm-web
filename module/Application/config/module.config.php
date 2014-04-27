@@ -3,7 +3,7 @@
 $env = getenv('APPLICATION_ENV') ? : 'production';
 
 return array(
-    'router'       => array(
+    'router'          => array(
         'routes' => array(
             'home' => array(
                 'type'    => 'Zend\Mvc\Router\Http\Literal',
@@ -17,12 +17,18 @@ return array(
             ),
         ),
     ),
-    'controllers'  => array(
+    'controllers'     => array(
         'invokables' => array(
-            'Application\Controller\Index' => 'Application\Controller\IndexController'
+            'Application\Controller\Index' => 'Application\Controller\IndexController',
         ),
     ),
-    'view_manager' => array(
+    'service_manager' => array(
+        'factories' => array(
+            'Application\Service\ErrorHandling' => 'Application\Service\ErrorHandlingFactory',
+            'Application\Service\Log'           => 'Application\Service\LogFactory',
+        ),
+    ),
+    'view_manager'    => array(
         'display_not_found_reason' => ($env != 'production'),
         'display_exceptions'       => ($env != 'production'),
         'doctype'                  => 'HTML5',
@@ -38,7 +44,7 @@ return array(
             'error/index'             => __DIR__ . '/../view/error/index.phtml',
         ),
     ),
-    'application'  => array(
+    'application'     => array(
         'http' => array(
             'headers' => array(
                 'Content-Type'     => 'text/html; charset=UTF-8',

@@ -5,7 +5,9 @@ namespace Application;
 use Zend\EventManager\EventInterface;
 use Zend\Http\PhpEnvironment\Response as HttpResponse;
 use Zend\ModuleManager\Feature;
+use Zend\Mvc\ApplicationInterface;
 use Zend\Mvc\ModuleRouteListener;
+use Zend\Mvc\MvcEvent;
 use Zend\Stdlib\ResponseInterface;
 
 class Module implements
@@ -15,7 +17,11 @@ class Module implements
 {
     public function onBootstrap(EventInterface $e)
     {
-        /** @var \Zend\Mvc\MvcEvent $e */
+        /** @var ApplicationInterface $application */
+        $application = $e->getTarget();
+
+        /** @var MvcEvent $e */
+        $this->registerErrorLoggerTo($application);
         $this->addHeaderLinesTo($e->getResponse());
     }
 
@@ -32,6 +38,28 @@ class Module implements
                     __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
                 ),
             ),
+        );
+    }
+
+    /**
+     * @param ApplicationInterface $application
+     * @return void
+     */
+    private function registerErrorLoggerTo(ApplicationInterface $application)
+    {
+        $eventManager = $application->getEventManager();
+        $serviceManager = $application->getServiceManager();
+        $eventManager->attach(
+            array(MvcEvent::EVENT_DISPATCH_ERROR, MvcEvent::EVENT_RENDER_ERROR),
+            function (MvcEvent $event) use ($serviceManager) {
+                $exception = $event->getResult()->exception;
+                if (!$exception) {
+                    return;
+                }
+                /** @var \Application\Service\ErrorHandling $errorHandler */
+                $errorHandler = $serviceManager->get('Application\Service\ErrorHandling');
+                $errorHandler->logException($exception);
+            }
         );
     }
 
