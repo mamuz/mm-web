@@ -1,7 +1,17 @@
 <h1>Contact</h1>
 <?php
 if (isset($this->contact)) {
+    /** @var \Contact\Entity\Contact $contact */
+    $contact = $this->contact;
     echo $this->alert('Thank you for sending message.', 'alert-success');
+    echo '<h2>Summary</h2>';
+    echo '<blockquote>';
+    echo '<ul class="list-unstyled">';
+    foreach ($contact->toArray() as $field => $value) {
+        echo '<li><strong>' . $field . ':</strong> ' . $value . '<li>';
+    }
+    echo '</blockquote>';
+    echo '</ul>';
 } else {
     /** @var \Zend\Form\Form $form */
     $form = $this->form;
