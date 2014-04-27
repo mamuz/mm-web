@@ -5,7 +5,7 @@ namespace ContentManagerTest\Service;
 use ContentManager\Service\QueryFactory;
 
 /** @group Service */
-class QueryControllerFactoryTest extends \PHPUnit_Framework_TestCase
+class QueryFactoryTest extends \PHPUnit_Framework_TestCase
 {
     /** @var QueryFactory */
     protected $fixture;
