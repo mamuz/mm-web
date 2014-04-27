@@ -4,14 +4,12 @@ if (isset($this->contact)) {
     /** @var \Contact\Entity\Contact $contact */
     $contact = $this->contact;
     echo $this->alert('Thank you for sending message.', 'alert-success');
-    echo '<h2>Summary</h2>';
-    echo '<blockquote>';
-    echo '<ul class="list-unstyled">';
+    echo '<h2><small>Summary</small></h2>';
+    echo '<dl class="dl-horizontal">';
     foreach ($contact->toArray() as $field => $value) {
-        echo '<li><strong>' . $field . ':</strong> ' . $value . '<li>';
+        echo '<dt>' . $field . '</dt><dd>' . nl2br($this->escapeHtml($value)) . '</dd>';
     }
-    echo '</blockquote>';
-    echo '</ul>';
+    echo '</dl>';
 } else {
     /** @var \Zend\Form\Form $form */
     $form = $this->form;

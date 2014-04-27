@@ -203,6 +203,7 @@ class Contact
         return array(
             'From'    => $this->getFromEmail(),
             'Subject' => $this->getSubject(),
+            'Message' => $this->getMessage(),
         );
     }
 }
