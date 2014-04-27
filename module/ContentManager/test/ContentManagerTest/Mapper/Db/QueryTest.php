@@ -16,16 +16,12 @@ class QueryTest extends \PHPUnit_Framework_TestCase
     /** @var \ContentManager\Entity\Page | \Mockery\MockInterface */
     protected $entity;
 
-    /** @var \Zend\Filter\FilterInterface | \Mockery\MockInterface */
-    protected $filter;
-
     protected function setUp()
     {
-        $this->filter = \Mockery::mock('Zend\Filter\FilterInterface');
         $this->entity = \Mockery::mock('ContentManager\Entity\Page');
         $this->entityRepository = \Mockery::mock('Doctrine\Common\Persistence\ObjectRepository');
 
-        $this->fixture = new Query($this->entityRepository, $this->filter);
+        $this->fixture = new Query($this->entityRepository);
     }
 
     public function testImplementingQueryInterface()
