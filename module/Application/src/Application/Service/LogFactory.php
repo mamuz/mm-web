@@ -21,10 +21,6 @@ class ErrorHandlingFactory implements FactoryInterface
             new Stream('./data/logs/error_' . date('Y-m') . '.log')
         );
 
-        Logger::registerErrorHandler($logger);
-        Logger::registerExceptionHandler($logger);
-        Logger::registerFatalErrorShutdownFunction($logger);
-
         return $logger;
     }
 }
