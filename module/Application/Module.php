@@ -6,7 +6,6 @@ use Zend\EventManager\EventInterface;
 use Zend\Http\PhpEnvironment\Response as HttpResponse;
 use Zend\ModuleManager\Feature;
 use Zend\Mvc\ApplicationInterface;
-use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
 use Zend\Stdlib\ResponseInterface;
 
