@@ -6,7 +6,7 @@ use Contact\Entity\Contact;
 use DoctrineModule\Stdlib\Hydrator\DoctrineObject as DoctrineHydrator;
 use DoctrineORMModule\Form\Annotation\AnnotationBuilder;
 use Zend\Captcha;
-use Zend\Form\Form;
+use Zend\Form\FormInterface;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorAwareInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
@@ -15,7 +15,7 @@ class CreateFactory implements FactoryInterface
 {
     /**
      * {@inheritdoc}
-     * @return Form
+     * @return FormInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
