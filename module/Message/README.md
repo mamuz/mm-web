@@ -1,5 +1,0 @@
-# Message
-
-## Configuration
-
-tba
