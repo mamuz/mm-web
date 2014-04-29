@@ -29,11 +29,13 @@ class Aggregate extends AbstractListenerAggregate
      */
     public function onPersistContact(EventInterface $e)
     {
+        /** @var \Contact\Entity\Contact $contact */
+        $contact = $e->getParam(0);
         $message = new Message();
         $message->addTo('muzzi_is@web.de')
             ->addFrom('automail@marco-muths.de')
-            ->setSubject('New Contact')
-            ->setBody(implode(PHP_EOL, $e->getParams()));
+            ->setSubject('New Contact: ' . $contact->getId())
+            ->setBody(implode(PHP_EOL, $contact->toArray()));
 
         $transport = new Sendmail;
         $transport->send($message);
