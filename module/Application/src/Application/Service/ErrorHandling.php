@@ -19,7 +19,7 @@ class ErrorHandling
 
     /**
      * @param \Exception $e
-     * @return void
+     * @return ErrorHandling
      */
     public function logException(\Exception $e)
     {
@@ -34,5 +34,7 @@ class ErrorHandling
         $log .= "Trace:" . PHP_EOL . $trace;
 
         $this->logger->err($log);
+
+        return $this;
     }
 }
