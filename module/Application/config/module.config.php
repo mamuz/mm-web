@@ -23,8 +23,11 @@ return array(
         ),
     ),
     'service_manager' => array(
-        'factories' => array(
-            'Application\Listener\Aggregate'    => 'Application\Listener\AggregateFactory',
+        'invokables' => array(
+            'Application\Listener\Aggregate' => 'Application\Listener\Aggregate',
+        ),
+        'factories'  => array(
+            'Application\Service\Mail'          => 'Application\Service\MailFactory',
             'Application\Service\ErrorHandling' => 'Application\Service\ErrorHandlingFactory',
             'Application\Service\Log'           => 'Application\Service\LogFactory',
         ),

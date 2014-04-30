@@ -1,22 +1,22 @@
 <?php
 
-namespace Application\Listener;
+namespace Application\Service;
 
 use Zend\Mail\Transport\Sendmail;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class AggregateFactory implements FactoryInterface
+class LogFactory implements FactoryInterface
 {
     /**
      * {@inheritdoc}
-     * @return Aggregate
+     * @return Mail
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
         $mailTransporter = new Sendmail;
-        $aggregate = new Aggregate($mailTransporter);
+        $mailer = new Mail($mailTransporter);
 
-        return $aggregate;
+        return $mailer;
     }
 }

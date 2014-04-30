@@ -85,7 +85,7 @@ class Module implements
         $em = $application->getEventManager();
 
         /* @var \Application\Listener\Aggregate $listenerAggregate */
-        $listenerAggregate = $sm->get('Application\Listener\AggregateFactory');
+        $listenerAggregate = $sm->get('Application\Listener\Aggregate');
         $em->attachAggregate($listenerAggregate);
     }
 

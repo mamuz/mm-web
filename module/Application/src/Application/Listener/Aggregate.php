@@ -5,20 +5,19 @@ namespace Application\Listener;
 use Zend\EventManager\AbstractListenerAggregate;
 use Zend\EventManager\EventInterface;
 use Zend\EventManager\EventManagerInterface;
-use Zend\Mail\Message;
-use Zend\Mail\Transport\TransportInterface;
+use Zend\ServiceManager\ServiceLocatorAwareInterface;
+use Zend\ServiceManager\ServiceLocatorAwareTrait;
 
-class Aggregate extends AbstractListenerAggregate
+class Aggregate extends AbstractListenerAggregate implements ServiceLocatorAwareInterface
 {
-    /** @var TransportInterface */
-    private $mailTransporter;
+    use ServiceLocatorAwareTrait;
 
     /**
-     * @param TransportInterface $mailTransporter
+     * @return \Application\Service\Mail
      */
-    public function __construct(TransportInterface $mailTransporter)
+    private function getMailService()
     {
-        $this->mailTransporter = $mailTransporter;
+        return $this->getServiceLocator()->get('Application\Service\Mail');
     }
 
     /**
@@ -42,12 +41,6 @@ class Aggregate extends AbstractListenerAggregate
     {
         /** @var \Contact\Entity\Contact $contact */
         $contact = $e->getParam(0);
-        $message = new Message();
-        $message->addTo('muzzi_is@web.de')
-            ->addFrom('automail@marco-muths.de')
-            ->setSubject('New Contact: ' . $contact->getId())
-            ->setBody(implode(PHP_EOL, $contact->toArray()));
-
-        $this->mailTransporter->send($message);
+        $this->getMailService()->send(); // @todo with interface
     }
 }
