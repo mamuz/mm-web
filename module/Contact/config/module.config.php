@@ -21,11 +21,9 @@ return array(
         ),
     ),
     'service_manager' => array(
-        'invokables' => array(
-            'Contact\Listener\Aggregate' => 'Contact\Listener\Aggregate',
-        ),
-        'factories'  => array(
-            'Contact\Service\Command' => 'Contact\Service\CommandFactory',
+        'factories' => array(
+            'Contact\Listener\Aggregate' => 'Contact\Listener\AggregateFactory',
+            'Contact\Service\Command'    => 'Contact\Service\CommandFactory',
         ),
     ),
     'form_elements'   => array(

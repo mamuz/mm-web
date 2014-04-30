@@ -6,10 +6,21 @@ use Zend\EventManager\AbstractListenerAggregate;
 use Zend\EventManager\EventInterface;
 use Zend\EventManager\EventManagerInterface;
 use Zend\Mail\Message;
-use Zend\Mail\Transport\Sendmail;
+use Zend\Mail\Transport\TransportInterface;
 
 class Aggregate extends AbstractListenerAggregate
 {
+    /** @var TransportInterface */
+    private $mailTransporter;
+
+    /**
+     * @param TransportInterface $mailTransporter
+     */
+    public function __construct(TransportInterface $mailTransporter)
+    {
+        $this->mailTransporter = $mailTransporter;
+    }
+
     /**
      * @param EventManagerInterface $events
      * @return void
@@ -37,7 +48,6 @@ class Aggregate extends AbstractListenerAggregate
             ->setSubject('New Contact: ' . $contact->getId())
             ->setBody(implode(PHP_EOL, $contact->toArray()));
 
-        $transport = new Sendmail;
-        $transport->send($message);
+        $this->mailTransporter->send($message);
     }
 }
