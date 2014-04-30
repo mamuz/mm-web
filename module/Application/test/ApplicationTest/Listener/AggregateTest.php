@@ -1,8 +1,8 @@
 <?php
 
-namespace ContactTest\Listener;
+namespace ApplicationTest\Listener;
 
-use Contact\Listener\Aggregate;
+use Application\Listener\Aggregate;
 
 class AggregateTest extends \PHPUnit_Framework_TestCase
 {

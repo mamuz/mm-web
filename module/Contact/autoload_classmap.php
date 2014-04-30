@@ -7,7 +7,6 @@ return array(
     'Contact\Feature\CommandInterface'            => __DIR__ . '/src/Contact/Feature/CommandInterface.php',
     'Contact\Form\CreateFactory'                  => __DIR__ . '/src/Contact/Form/CreateFactory.php',
     'Contact\Entity\Contact'                      => __DIR__ . '/src/Contact/Entity/Contact.php',
-    'Contact\Listener\Aggregate'                  => __DIR__ . '/src/Contact/Listener/Aggregate.php',
     'Contact\Controller\CommandControllerFactory' => __DIR__ . '/src/Contact/Controller/CommandControllerFactory.php',
     'Contact\Controller\CommandController'        => __DIR__ . '/src/Contact/Controller/CommandController.php',
     'Contact\Module'                              => __DIR__ . '/Module.php',

@@ -24,6 +24,7 @@ return array(
     ),
     'service_manager' => array(
         'factories' => array(
+            'Application\Listener\Aggregate'    => 'Application\Listener\AggregateFactory',
             'Application\Service\ErrorHandling' => 'Application\Service\ErrorHandlingFactory',
             'Application\Service\Log'           => 'Application\Service\LogFactory',
         ),
@@ -35,6 +36,7 @@ return array(
         'not_found_template'       => 'error/404',
         'exception_template'       => 'error/index',
         'template_map'             => array(
+            'mail/contact'            => __DIR__ . '/../view/mail/contact.phtml',
             'plugin/googleanalytics'  => __DIR__ . '/../view/plugin/googleanalytics.phtml',
             'layout/layout'           => __DIR__ . '/../view/layout/layout.phtml',
             'layout/header'           => __DIR__ . '/../view/layout/header.phtml',

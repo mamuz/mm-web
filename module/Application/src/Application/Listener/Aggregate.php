@@ -1,6 +1,6 @@
 <?php
 
-namespace Contact\Listener;
+namespace Application\Listener;
 
 use Zend\EventManager\AbstractListenerAggregate;
 use Zend\EventManager\EventInterface;

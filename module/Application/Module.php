@@ -22,6 +22,7 @@ class Module implements
 
         /** @var MvcEvent $e */
         $this->registerErrorLoggerTo($application);
+        $this->attachListenerTo($application);
         $this->addHeaderLinesTo($e->getResponse());
     }
 
@@ -72,6 +73,20 @@ class Module implements
                 $errorHandler->logException($exception);
             }
         );
+    }
+
+    /**
+     * @param ApplicationInterface $application
+     * @return void
+     */
+    private function attachListenerTo(ApplicationInterface $application)
+    {
+        $sm = $application->getServiceManager();
+        $em = $application->getEventManager();
+
+        /* @var \Application\Listener\Aggregate $listenerAggregate */
+        $listenerAggregate = $sm->get('Application\Listener\AggregateFactory');
+        $em->attachAggregate($listenerAggregate);
     }
 
     /**

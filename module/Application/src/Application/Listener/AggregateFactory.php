@@ -1,6 +1,6 @@
 <?php
 
-namespace Contact\Listener;
+namespace Application\Listener;
 
 use Zend\Mail\Transport\Sendmail;
 use Zend\ServiceManager\FactoryInterface;

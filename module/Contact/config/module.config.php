@@ -22,8 +22,7 @@ return array(
     ),
     'service_manager' => array(
         'factories' => array(
-            'Contact\Listener\Aggregate' => 'Contact\Listener\AggregateFactory',
-            'Contact\Service\Command'    => 'Contact\Service\CommandFactory',
+            'Contact\Service\Command' => 'Contact\Service\CommandFactory',
         ),
     ),
     'form_elements'   => array(
