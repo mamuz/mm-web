@@ -4,7 +4,6 @@ namespace ContentManagerTest\Entity;
 
 use ContentManager\Entity\NullPage;
 
-/** @group Entity */
 class NullPageTest extends \PHPUnit_Framework_TestCase
 {
     /** @var NullPage */

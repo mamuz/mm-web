@@ -4,7 +4,6 @@ namespace ContactTest\Entity;
 
 use Contact\Entity\Contact;
 
-/** @group Entity */
 class ContactTest extends \PHPUnit_Framework_TestCase
 {
     /** @var Contact */

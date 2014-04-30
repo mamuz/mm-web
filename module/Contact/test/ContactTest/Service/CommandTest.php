@@ -4,7 +4,6 @@ namespace ContactTest\Service;
 
 use Contact\Service\Command;
 
-/** @group Service */
 class CommandTest extends \PHPUnit_Framework_TestCase
 {
     /** @var Command */

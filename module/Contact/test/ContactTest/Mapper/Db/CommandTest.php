@@ -4,7 +4,6 @@ namespace ContactTest\Mapper\Db;
 
 use Contact\Mapper\Db\Command;
 
-/** @group Mapper */
 class CommandTest extends \PHPUnit_Framework_TestCase
 {
     /** @var Command */

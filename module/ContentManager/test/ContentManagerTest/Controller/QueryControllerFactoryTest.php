@@ -4,7 +4,6 @@ namespace ContentManagerTest\Controller;
 
 use ContentManager\Controller\QueryControllerFactory;
 
-/** @group Controller */
 class QueryControllerFactoryTest extends \PHPUnit_Framework_TestCase
 {
     /** @var QueryControllerFactory */

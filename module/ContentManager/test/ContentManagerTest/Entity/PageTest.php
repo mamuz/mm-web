@@ -4,7 +4,6 @@ namespace ContentManagerTest\Entity;
 
 use ContentManager\Entity\Page;
 
-/** @group Entity */
 class PageTest extends \PHPUnit_Framework_TestCase
 {
     /** @var Page */

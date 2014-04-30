@@ -4,7 +4,6 @@ namespace ContentManagerTest\Mapper\Db;
 
 use ContentManager\Mapper\Db\Query;
 
-/** @group Mapper */
 class QueryTest extends \PHPUnit_Framework_TestCase
 {
     /** @var Query */

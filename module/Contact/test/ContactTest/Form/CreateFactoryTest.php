@@ -4,7 +4,6 @@ namespace ContactTest\Form;
 
 use Contact\Form\CreateFactory;
 
-/** @group Form */
 class CreateFactoryTest extends \PHPUnit_Framework_TestCase
 {
     /** @var CreateFactory */

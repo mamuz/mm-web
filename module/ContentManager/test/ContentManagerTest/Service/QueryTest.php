@@ -4,7 +4,6 @@ namespace ContentManagerTest\Service;
 
 use ContentManager\Service\Query;
 
-/** @group Service */
 class QueryTest extends \PHPUnit_Framework_TestCase
 {
     /** @var Query */

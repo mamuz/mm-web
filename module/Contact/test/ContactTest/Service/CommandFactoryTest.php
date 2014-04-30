@@ -4,7 +4,6 @@ namespace ContactTest\Service;
 
 use Contact\Service\CommandFactory;
 
-/** @group Service */
 class CommandFactoryTest extends \PHPUnit_Framework_TestCase
 {
     /** @var CommandFactory */

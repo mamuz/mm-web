@@ -4,7 +4,6 @@ namespace ContactTest\Controller;
 
 use Contact\Controller\CommandControllerFactory;
 
-/** @group Controller */
 class CommandControllerFactoryTest extends \PHPUnit_Framework_TestCase
 {
     /** @var CommandControllerFactory */

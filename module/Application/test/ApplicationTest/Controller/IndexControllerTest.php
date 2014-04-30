@@ -10,7 +10,6 @@ use Zend\Mvc\MvcEvent;
 use Zend\Mvc\Router\Http\TreeRouteStack as HttpRouter;
 use Zend\Mvc\Router\RouteMatch;
 
-/** @group Controller */
 class IndexControllerTest extends \PHPUnit_Framework_TestCase
 {
     /** @var \Zend\Mvc\Controller\AbstractActionController */
