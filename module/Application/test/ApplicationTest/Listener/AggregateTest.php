@@ -41,5 +41,6 @@ class AggregateTest extends \PHPUnit_Framework_TestCase
 
     public function testOnPersistContact()
     {
+        //@todo
     }
 }
