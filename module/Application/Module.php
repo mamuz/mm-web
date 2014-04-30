@@ -3,27 +3,42 @@
 namespace Application;
 
 use Zend\EventManager\EventInterface;
+use Zend\EventManager\EventManagerInterface;
 use Zend\Http\PhpEnvironment\Response as HttpResponse;
 use Zend\Log\Logger;
 use Zend\ModuleManager\Feature;
 use Zend\Mvc\ApplicationInterface;
 use Zend\Mvc\MvcEvent;
-use Zend\Stdlib\ResponseInterface;
+use Zend\ServiceManager\ServiceLocatorInterface;
 
 class Module implements
     Feature\AutoloaderProviderInterface,
     Feature\BootstrapListenerInterface,
     Feature\ConfigProviderInterface
 {
+    /** @var ApplicationInterface */
+    private $application;
+
+    /** @var ServiceLocatorInterface */
+    private $serviceLocator;
+
+    /** @var EventManagerInterface */
+    private $eventManager;
+
     public function onBootstrap(EventInterface $e)
     {
-        /** @var ApplicationInterface $application */
-        $application = $e->getTarget();
-
         /** @var MvcEvent $e */
-        $this->registerErrorLoggerTo($application);
-        $this->attachListenerTo($application);
-        $this->addHeaderLinesTo($e->getResponse());
+        $this->application = $e->getApplication();
+        $this->eventManager = $this->application->getEventManager();
+        $this->serviceLocator = $this->application->getServiceManager();
+
+        $this->attachErrorLogger();
+        $this->attachListenerAggregate();
+
+        $response = $e->getResponse();
+        if ($response instanceof HttpResponse) {
+            $this->addHeaderLinesToResponse($response);
+        }
     }
 
     public function getConfig()
@@ -46,60 +61,48 @@ class Module implements
     }
 
     /**
-     * @param ApplicationInterface $application
      * @return void
      */
-    private function registerErrorLoggerTo(ApplicationInterface $application)
+    private function attachErrorLogger()
     {
-        $eventManager = $application->getEventManager();
-        $serviceManager = $application->getServiceManager();
-
-        /** @var \Zend\Log\LoggerInterface $logger */
-        $logger = $serviceManager->get('Application\Service\Log');
+        /** @var \Zend\Log\Logger $logger */
+        $logger = $this->serviceLocator->get('Application\Service\Log');
 
         Logger::registerErrorHandler($logger);
         Logger::registerExceptionHandler($logger);
         Logger::registerFatalErrorShutdownFunction($logger);
 
-        $eventManager->attach(
+        $this->eventManager->attach(
             array(MvcEvent::EVENT_DISPATCH_ERROR, MvcEvent::EVENT_RENDER_ERROR),
-            function (MvcEvent $event) use ($serviceManager) {
-                $exception = $event->getResult()->exception;
-                if (!$exception) {
-                    return;
+            function (MvcEvent $event) {
+                if ($exception = $event->getResult()->exception) {
+                    /** @var \Application\Service\ErrorHandling $errorHandler */
+                    $errorHandler = $this->serviceLocator->get('Application\Service\ErrorHandling');
+                    $errorHandler->logException($exception);
                 }
-                /** @var \Application\Service\ErrorHandling $errorHandler */
-                $errorHandler = $serviceManager->get('Application\Service\ErrorHandling');
-                $errorHandler->logException($exception);
             }
         );
     }
 
     /**
-     * @param ApplicationInterface $application
      * @return void
      */
-    private function attachListenerTo(ApplicationInterface $application)
+    private function attachListenerAggregate()
     {
-        $sm = $application->getServiceManager();
-        $em = $application->getEventManager();
-
-        /* @var \Application\Listener\Aggregate $listenerAggregate */
-        $listenerAggregate = $sm->get('Application\Listener\Aggregate');
-        $em->attachAggregate($listenerAggregate);
+        /* @var \Zend\EventManager\ListenerAggregateInterface $listenerAggregate */
+        $listenerAggregate = $this->serviceLocator->get('Application\Listener\Aggregate');
+        $this->eventManager->attachAggregate($listenerAggregate);
     }
 
     /**
-     * @param ResponseInterface $response
+     * @param HttpResponse $response
      * @return void
      */
-    private function addHeaderLinesTo(ResponseInterface $response)
+    private function addHeaderLinesToResponse(HttpResponse $response)
     {
-        if ($response instanceof HttpResponse) {
-            $headers = $this->getConfig()['application']['http']['headers'];
-            foreach ($headers as $name => $value) {
-                $response->getHeaders()->addHeaderLine($name, $value);
-            }
+        $headers = $this->getConfig()['application']['http']['headers'];
+        foreach ($headers as $name => $value) {
+            $response->getHeaders()->addHeaderLine($name, $value);
         }
     }
 }
