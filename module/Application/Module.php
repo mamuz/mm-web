@@ -34,7 +34,7 @@ class Module implements
 
         $this->attachErrorLogger();
         $this->attachListenerAggregate();
-
+//
         $response = $e->getResponse();
         if ($response instanceof HttpResponse) {
             $this->addHeaderLinesToResponse($response);
