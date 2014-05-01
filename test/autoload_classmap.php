@@ -34,19 +34,43 @@ return array(
     __DIR__ . '/../module/Contact/test/ContactTest/Controller/CommandControllerTest.php',
     'Contact\Module'                                           => __DIR__ . '/../module/Contact/Module.php',
     'Application\Service\LogFactory'                           =>
-    __DIR__ . '/../module/Application/src/Application/Service/MailFactory.php',
+    __DIR__ . '/../module/Application/src/Application/Service/LogFactory.php',
     'Application\Service\ErrorHandlingFactory'                 =>
     __DIR__ . '/../module/Application/src/Application/Service/ErrorHandlingFactory.php',
+    'Application\Service\Feature\MailObjectInterface'          =>
+    __DIR__ . '/../module/Application/src/Application/Service/Feature/MailObjectInterface.php',
+    'Application\Service\Feature\ExceptionLoggerInterface'     =>
+    __DIR__ . '/../module/Application/src/Application/Service/Feature/ExceptionLoggerInterface.php',
     'Application\Service\ErrorHandling'                        =>
     __DIR__ . '/../module/Application/src/Application/Service/ErrorHandling.php',
+    'Application\Service\ContactMailFactory'                   =>
+    __DIR__ . '/../module/Application/src/Application/Service/ContactMailFactory.php',
     'Application\Service\Mail'                                 =>
     __DIR__ . '/../module/Application/src/Application/Service/Mail.php',
     'Application\Listener\Aggregate'                           =>
     __DIR__ . '/../module/Application/src/Application/Listener/Aggregate.php',
+    'Application\Options\MailInterface'                        =>
+    __DIR__ . '/../module/Application/src/Application/Options/MailInterface.php',
+    'Application\Options\Mail'                                 =>
+    __DIR__ . '/../module/Application/src/Application/Options/Mail.php',
+    'Application\Filter\MailMessage'                           =>
+    __DIR__ . '/../module/Application/src/Application/Filter/MailMessage.php',
     'Application\Controller\IndexController'                   =>
     __DIR__ . '/../module/Application/src/Application/Controller/IndexController.php',
+    'ApplicationTest\Service\ContactMailFactoryTest'           =>
+    __DIR__ . '/../module/Application/test/ApplicationTest/Service/ContactMailFactoryTest.php',
+    'ApplicationTest\Service\LogFactoryTest'                   =>
+    __DIR__ . '/../module/Application/test/ApplicationTest/Service/LogFactoryTest.php',
+    'ApplicationTest\Service\ErrorHandlingFactoryTest'         =>
+    __DIR__ . '/../module/Application/test/ApplicationTest/Service/ErrorHandlingFactoryTest.php',
+    'ApplicationTest\Service\ErrorHandlingTest'                =>
+    __DIR__ . '/../module/Application/test/ApplicationTest/Service/ErrorHandlingTest.php',
     'ApplicationTest\Listener\AggregateTest'                   =>
     __DIR__ . '/../module/Application/test/ApplicationTest/Listener/AggregateTest.php',
+    'ApplicationTest\Options\MailTest'                         =>
+    __DIR__ . '/../module/Application/test/ApplicationTest/Options/MailTest.php',
+    'ApplicationTest\Filter\MailMessageTest'                   =>
+    __DIR__ . '/../module/Application/test/ApplicationTest/Filter/MailMessageTest.php',
     'ApplicationTest\Controller\IndexControllerTest'           =>
     __DIR__ . '/../module/Application/test/ApplicationTest/Controller/IndexControllerTest.php',
     'ApplicationTest\Bootstrap'                                => __DIR__ . '/../module/Application/test/Bootstrap.php',
