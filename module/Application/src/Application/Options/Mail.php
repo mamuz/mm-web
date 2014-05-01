@@ -5,16 +5,16 @@ namespace Application\Options;
 class Mail implements MailInterface
 {
     /** @var string */
-    private $to;
+    private $to = '';
 
     /** @var string */
-    private $from;
+    private $from = '';
 
     /** @var string */
-    private $subjectTemplate;
+    private $subjectTemplate = '';
 
     /** @var string */
-    private $bodyTemplate;
+    private $bodyTemplate = '';
 
     /**
      * @param string[] $options

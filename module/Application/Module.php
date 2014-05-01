@@ -76,7 +76,7 @@ class Module implements
             array(MvcEvent::EVENT_DISPATCH_ERROR, MvcEvent::EVENT_RENDER_ERROR),
             function (MvcEvent $event) {
                 if ($exception = $event->getResult()->exception) {
-                    /** @var \Application\Service\ErrorHandling $errorHandler */
+                    /** @var \Application\Service\Feature\ExceptionLoggerInterface $errorHandler */
                     $errorHandler = $this->serviceLocator->get('Application\Service\ErrorHandling');
                     $errorHandler->logException($exception);
                 }

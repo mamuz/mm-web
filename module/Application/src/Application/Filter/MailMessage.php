@@ -5,22 +5,26 @@ namespace Application\Filter;
 use Application\Options\MailInterface as Options;
 use Zend\Filter\FilterInterface;
 use Zend\Mail\Message;
+use Zend\View\Model\ModelInterface;
 use Zend\View\Model\ViewModel;
-use Zend\View\Renderer\PhpRenderer;
+use Zend\View\Renderer\RendererInterface;
 
 class MailMessage implements FilterInterface
 {
-    /** @var PhpRenderer */
+    /** @var RendererInterface */
     private $renderer;
 
     /** @var Options */
     private $options;
 
+    /** @var ModelInterface */
+    private $model;
+
     /**
-     * @param PhpRenderer $renderer
-     * @param Options     $options
+     * @param RendererInterface $renderer
+     * @param Options           $options
      */
-    public function __construct(PhpRenderer $renderer, Options $options)
+    public function __construct(RendererInterface $renderer, Options $options)
     {
         $this->renderer = $renderer;
         $this->options = $options;
@@ -28,20 +32,40 @@ class MailMessage implements FilterInterface
 
     public function filter($value)
     {
-        $model = new ViewModel(array('object' => $value));
-
-        $model->setTemplate($this->options->getSubjectTemplate());
-        $subject = $this->renderer->render($model);
-
-        $model->setTemplate($this->options->getBodyTemplate());
-        $body = $this->renderer->render($model);
+        $this->model = new ViewModel(array('object' => $value));
 
         $message = new Message();
         $message->addTo($this->options->getTo())
             ->addFrom($this->options->getFrom())
-            ->setSubject($subject)
-            ->setBody($body);
+            ->setSubject($this->renderSubject())
+            ->setBody($this->renderBody());
 
         return $message;
+    }
+
+    /**
+     * @return string
+     */
+    private function renderSubject()
+    {
+        return $this->renderModel($this->options->getSubjectTemplate());
+    }
+
+    /**
+     * @return string
+     */
+    private function renderBody()
+    {
+        return $this->renderModel($this->options->getBodyTemplate());
+    }
+
+    /**
+     * @param string $template
+     * @return string
+     */
+    private function renderModel($template)
+    {
+        $this->model->setTemplate($template);
+        return $this->renderer->render($this->model);
     }
 }

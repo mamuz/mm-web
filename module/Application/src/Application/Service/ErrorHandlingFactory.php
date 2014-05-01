@@ -9,7 +9,7 @@ class ErrorHandlingFactory implements FactoryInterface
 {
     /**
      * {@inheritdoc}
-     * @return ErrorHandling
+     * @return \Application\Service\Feature\ExceptionLoggerInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {

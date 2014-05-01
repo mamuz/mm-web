@@ -58,14 +58,14 @@ return array(
         'mail' => array(
             'contact' => array(
                 'template_map' => array(
-                    'mail/contact/subject' => __DIR__ . '/../view/mail/contact/subject.phtml',
-                    'mail/contact/body'    => __DIR__ . '/../view/mail/contact/body.phtml',
+                    'contact/subject' => __DIR__ . '/../view/mail/contact/subject.phtml',
+                    'contact/body'    => __DIR__ . '/../view/mail/contact/body.phtml',
                 ),
                 'options'      => array(
                     'to'              => 'muzzi_is@web.de',
                     'from'            => 'automail@marco-muths.de',
-                    'subjectTemplate' => 'mail/contact/subject',
-                    'bodyTemplate'    => 'mail/contact/body',
+                    'subjectTemplate' => 'contact/subject',
+                    'bodyTemplate'    => 'contact/body',
                 ),
             ),
         ),

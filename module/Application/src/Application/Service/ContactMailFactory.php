@@ -14,7 +14,7 @@ class ContactMailFactory implements FactoryInterface
 {
     /**
      * {@inheritdoc}
-     * @return Mail
+     * @return \Application\Service\Feature\MailObjectInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {

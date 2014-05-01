@@ -2,9 +2,10 @@
 
 namespace Application\Service;
 
+use Application\Service\Feature\ExceptionLoggerInterface;
 use Zend\Log\LoggerInterface;
 
-class ErrorHandling
+class ErrorHandling implements ExceptionLoggerInterface
 {
     /** @var LoggerInterface */
     private $logger;
@@ -17,10 +18,6 @@ class ErrorHandling
         $this->logger = $logger;
     }
 
-    /**
-     * @param \Exception $e
-     * @return ErrorHandling
-     */
     public function logException(\Exception $e)
     {
         $messages = array();
@@ -35,7 +32,5 @@ class ErrorHandling
         $log .= "Trace:" . PHP_EOL . $trace;
 
         $this->logger->err($log);
-
-        return $this;
     }
 }
