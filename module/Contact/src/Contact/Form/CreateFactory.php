@@ -5,7 +5,6 @@ namespace Contact\Form;
 use Contact\Entity\Contact;
 use DoctrineModule\Stdlib\Hydrator\DoctrineObject as DoctrineHydrator;
 use DoctrineORMModule\Form\Annotation\AnnotationBuilder;
-use Zend\Captcha;
 use Zend\Form\FormInterface;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorAwareInterface;
