@@ -19,8 +19,10 @@ class ContactMailFactory implements FactoryInterface
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
         $config = $serviceLocator->get('Config')['application']['mail']['contact'];
+
+        $templateMap = new Resolver\TemplateMapResolver($config['template_map']);
         $resolver = new Resolver\AggregateResolver();
-        $resolver->attach($config['template_map']);
+        $resolver->attach($templateMap);
 
         $renderer = new PhpRenderer();
         $renderer->setResolver($resolver);
