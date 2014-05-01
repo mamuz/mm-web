@@ -34,6 +34,7 @@ class Mail implements MailObjectInterface
     public function bind($object)
     {
         $this->message = $this->messageBuilder->filter($object);
+        return $this;
     }
 
     public function send()
