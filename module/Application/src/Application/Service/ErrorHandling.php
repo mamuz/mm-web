@@ -38,12 +38,12 @@ class ErrorHandling implements ExceptionLoggerInterface
         $i = 1;
         do {
             $messages[] = sprintf(
-                '#%d %s in $s (%d): $s',
+                '#%d %s in %s (%d): %s',
                 $i++,
                 get_class($e),
                 $e->getFile(),
                 $e->getLine(),
-                PHP_EOL . $e->getMessage()
+                $e->getMessage()
             );
         } while ($e = $e->getPrevious());
 
