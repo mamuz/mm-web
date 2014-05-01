@@ -31,7 +31,7 @@ class Aggregate extends AbstractListenerAggregate implements ServiceLocatorAware
      */
     public function onPersistContact(EventInterface $e)
     {
-        /** @var \Application\Feature\MailInterface $mailer */
+        /** @var \Application\Service\Feature\MailObjectInterface $mailer */
         $mailer = $this->getServiceLocator()->get('Application\Service\ContactMail');
         $mailer->bind($e->getParam(0));
         $mailer->send();
