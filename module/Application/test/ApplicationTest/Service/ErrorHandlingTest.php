@@ -25,13 +25,7 @@ class ErrorHandlingTest extends \PHPUnit_Framework_TestCase
 
     public function testLogException()
     {
-        $exception = \Mockery::mock('Exception');
-        $exception->shouldReceive('getFile')->andReturn('file');
-        $exception->shouldReceive('getLine')->andReturn(12);
-        $exception->shouldReceive('getMessage')->andReturn('message');
-        $exception->shouldReceive('getPrevious')->andReturn(false);
-        $exception->shouldReceive('getTraceAsString')->andReturn('trace');
-
+        $exception = \Mockery::mock('Exception')->shouldIgnoreMissing();
         $this->logger->shouldReceive('err');
 
         $this->fixture->logException($exception);
