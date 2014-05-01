@@ -14,6 +14,8 @@ interface MailObjectInterface
 
     /**
      * Send message object as mail
+     *
+     * @return void
      */
     public function send();
 }
