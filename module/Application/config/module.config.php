@@ -27,7 +27,7 @@ return array(
             'Application\Listener\Aggregate' => 'Application\Listener\Aggregate',
         ),
         'factories'  => array(
-            'Application\Service\Mail'          => 'Application\Service\MailFactory',
+            'Application\Service\ContactMail'   => 'Application\Service\ContactMailFactory',
             'Application\Service\ErrorHandling' => 'Application\Service\ErrorHandlingFactory',
             'Application\Service\Log'           => 'Application\Service\LogFactory',
         ),

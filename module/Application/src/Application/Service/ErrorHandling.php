@@ -23,6 +23,7 @@ class ErrorHandling
      */
     public function logException(\Exception $e)
     {
+        $messages = array();
         $trace = $e->getTraceAsString();
         $i = 1;
         do {

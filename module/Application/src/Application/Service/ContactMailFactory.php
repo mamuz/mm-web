@@ -2,11 +2,12 @@
 
 namespace Application\Service;
 
+use Application\Filter\Mail\Contact as MessageBuilder;
 use Zend\Mail\Transport\Sendmail;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class LogFactory implements FactoryInterface
+class ContactMailFactory implements FactoryInterface
 {
     /**
      * {@inheritdoc}
@@ -15,7 +16,8 @@ class LogFactory implements FactoryInterface
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
         $mailTransporter = new Sendmail;
-        $mailer = new Mail($mailTransporter);
+        $messageBuilder = new MessageBuilder;
+        $mailer = new Mail($messageBuilder, $mailTransporter);
 
         return $mailer;
     }

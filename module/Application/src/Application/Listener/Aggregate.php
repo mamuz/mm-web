@@ -13,14 +13,6 @@ class Aggregate extends AbstractListenerAggregate implements ServiceLocatorAware
     use ServiceLocatorAwareTrait;
 
     /**
-     * @return \Application\Service\Mail
-     */
-    private function getMailService()
-    {
-        return $this->getServiceLocator()->get('Application\Service\Mail');
-    }
-
-    /**
      * @param EventManagerInterface $events
      * @return void
      */
@@ -39,8 +31,9 @@ class Aggregate extends AbstractListenerAggregate implements ServiceLocatorAware
      */
     public function onPersistContact(EventInterface $e)
     {
-        /** @var \Contact\Entity\Contact $contact */
-        $contact = $e->getParam(0);
-        $this->getMailService()->send(); // @todo with interface
+        /** @var \Application\Feature\MailInterface $mailer */
+        $mailer = $this->getServiceLocator()->get('Application\Service\ContactMail');
+        $mailer->bind($e->getParam(0));
+        $mailer->send();
     }
 }

@@ -2,30 +2,42 @@
 
 namespace Application\Service;
 
+use Application\Feature\MailInterface;
+use Zend\Filter\FilterInterface;
 use Zend\Mail\Message;
 use Zend\Mail\Transport\TransportInterface;
 
-class Mail
+class Mail implements MailInterface
 {
     /** @var TransportInterface */
     private $mailTransporter;
 
+    /** @var FilterInterface */
+    private $messageBuilder;
+
+    /** @var Message */
+    private $message;
+
     /**
+     * @param FilterInterface    $messageBuilder
      * @param TransportInterface $mailTransporter
      */
-    public function __construct(TransportInterface $mailTransporter)
-    {
+    public function __construct(
+        FilterInterface $messageBuilder,
+        TransportInterface $mailTransporter
+    ) {
+        $this->messageBuilder = $messageBuilder;
         $this->mailTransporter = $mailTransporter;
+        $this->message = new Message;
+    }
+
+    public function bind($object)
+    {
+        $this->message = $this->messageBuilder->filter($object);
     }
 
     public function send()
     {
-        $message = new Message();
-        $message->addTo('muzzi_is@web.de')
-            ->addFrom('automail@marco-muths.de')
-            ->setSubject('New Contact: ' . $contact->getId())
-            ->setBody(implode(PHP_EOL, $contact->toArray()));
-
-        $this->mailTransporter->send($message);
+        $this->mailTransporter->send($this->message);
     }
 }
