@@ -20,6 +20,11 @@ class AggregateTest extends \PHPUnit_Framework_TestCase
         $this->fixture->setServiceLocator($this->serviceLocator);
     }
 
+    public function testImplementingServiceLocatorAwareInterface()
+    {
+        $this->assertInstanceOf('Zend\ServiceManager\ServiceLocatorAwareInterface', $this->fixture);
+    }
+
     public function testExtendingAbstractListenerAggregate()
     {
         $this->assertInstanceOf('Zend\EventManager\AbstractListenerAggregate', $this->fixture);
@@ -41,6 +46,15 @@ class AggregateTest extends \PHPUnit_Framework_TestCase
 
     public function testOnPersistContact()
     {
-        //@todo
+        $object = 'foo';
+        $mailer = \Mockery::mock('\Application\Service\Feature\MailObjectInterface');
+        $mailer->shouldReceive('bind')->with($object);
+        $mailer->shouldReceive('send');
+        $this->serviceLocator->shouldReceive('get')->with('Application\Service\ContactMail')->andReturn($mailer);
+
+        $event = \Mockery::mock('Zend\EventManager\EventInterface');
+        $event->shouldReceive('getParam')->with(0)->andReturn($object);
+
+        $this->fixture->onPersistContact($event);
     }
 }
