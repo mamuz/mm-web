@@ -10,6 +10,9 @@ class ErrorHandling implements ExceptionLoggerInterface
     /** @var LoggerInterface */
     private $logger;
 
+    /** @var \Exception */
+    private $exception;
+
     /**
      * @param LoggerInterface $logger
      */
@@ -20,17 +23,30 @@ class ErrorHandling implements ExceptionLoggerInterface
 
     public function logException(\Exception $e)
     {
+        $log = $this->buildMessageBy($e) . PHP_EOL . $e->getTraceAsString();
+        $this->logger->err($log);
+    }
+
+    /**
+     * @param \Exception $e
+     * @return string
+     */
+    private function buildMessageBy(\Exception $e)
+    {
         $messages = array();
-        $trace = $e->getTraceAsString();
+
         $i = 1;
         do {
-            $messages[] = '#' . $i++ . " " . get_class($e)
-                . ' in ' . $e->getFile() . '(' . $e->getLine() . ') ' . $e->getMessage();
+            $messages[] = sprintf(
+                '#%d %s in $s (%d): $s',
+                $i++,
+                get_class($e),
+                $e->getFile(),
+                $e->getLine(),
+                $e->getMessage()
+            );
         } while ($e = $e->getPrevious());
 
-        $log = "Exception:" . PHP_EOL . implode(PHP_EOL, $messages) . PHP_EOL;
-        $log .= "Trace:" . PHP_EOL . $trace;
-
-        $this->logger->err($log);
+        return implode(PHP_EOL, $messages);
     }
 }
