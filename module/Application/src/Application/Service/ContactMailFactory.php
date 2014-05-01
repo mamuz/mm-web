@@ -2,10 +2,13 @@
 
 namespace Application\Service;
 
-use Application\Filter\Mail\Contact as MessageBuilder;
+use Application\Filter\MailMessage as MessageBuilder;
+use Application\Options\Mail as MailOptions;
 use Zend\Mail\Transport\Sendmail;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
+use Zend\View\Renderer\PhpRenderer;
+use Zend\View\Resolver;
 
 class ContactMailFactory implements FactoryInterface
 {
@@ -15,8 +18,17 @@ class ContactMailFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
+        $config = $serviceLocator->get('Config')['application']['mail']['contact'];
+        $resolver = new Resolver\AggregateResolver();
+        $resolver->attach($config['template_map']);
+
+        $renderer = new PhpRenderer();
+        $renderer->setResolver($resolver);
+
+        $mailOptions = new MailOptions($config['options']);
+
+        $messageBuilder = new MessageBuilder($renderer, $mailOptions);
         $mailTransporter = new Sendmail;
-        $messageBuilder = new MessageBuilder;
         $mailer = new Mail($messageBuilder, $mailTransporter);
 
         return $mailer;

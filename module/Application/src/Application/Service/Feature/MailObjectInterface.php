@@ -1,8 +1,8 @@
 <?php
 
-namespace Application\Feature;
+namespace Application\Service\Feature;
 
-interface MailInterface
+interface MailObjectInterface
 {
     /**
      * Bind a object which will be filtered to message object

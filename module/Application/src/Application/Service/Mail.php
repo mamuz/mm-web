@@ -2,12 +2,12 @@
 
 namespace Application\Service;
 
-use Application\Feature\MailInterface;
+use Application\Service\Feature\MailObjectInterface;
 use Zend\Filter\FilterInterface;
 use Zend\Mail\Message;
 use Zend\Mail\Transport\TransportInterface;
 
-class Mail implements MailInterface
+class Mail implements MailObjectInterface
 {
     /** @var TransportInterface */
     private $mailTransporter;

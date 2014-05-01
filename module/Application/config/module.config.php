@@ -39,7 +39,6 @@ return array(
         'not_found_template'       => 'error/404',
         'exception_template'       => 'error/index',
         'template_map'             => array(
-            'mail/contact'            => __DIR__ . '/../view/mail/contact.phtml',
             'plugin/googleanalytics'  => __DIR__ . '/../view/plugin/googleanalytics.phtml',
             'layout/layout'           => __DIR__ . '/../view/layout/layout.phtml',
             'layout/header'           => __DIR__ . '/../view/layout/header.phtml',
@@ -54,6 +53,20 @@ return array(
             'headers' => array(
                 'Content-Type'     => 'text/html; charset=UTF-8',
                 'Content-Language' => 'en',
+            ),
+        ),
+        'mail' => array(
+            'contact' => array(
+                'template_map' => array(
+                    'mail/contact/subject' => __DIR__ . '/../view/mail/contact/subject.phtml',
+                    'mail/contact/body'    => __DIR__ . '/../view/mail/contact/body.phtml',
+                ),
+                'options'      => array(
+                    'to'              => 'muzzi_is@web.de',
+                    'from'            => 'automail@marco-muths.de',
+                    'subjectTemplate' => 'mail/contact/subject',
+                    'bodyTemplate'    => 'mail/contact/body',
+                ),
             ),
         ),
     ),
