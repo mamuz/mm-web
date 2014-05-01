@@ -22,14 +22,7 @@ class CreateFactory implements FactoryInterface
             $serviceLocator = $serviceLocator->getServiceLocator();
         }
 
-        /** @var \Doctrine\Common\Persistence\ObjectManager $entityManager */
-        $entityManager = $serviceLocator->get('Doctrine\ORM\EntityManager');
-        $entity = new Contact;
-
-        $builder = new AnnotationBuilder($entityManager);
-        $form = $builder->createForm($entity);
-        $form->setHydrator(new DoctrineHydrator($entityManager));
-        $form->bind($entity);
+        $form = $this->buildForm($serviceLocator);
 
         $config = $serviceLocator->get('Config');
         if (isset($config['captcha'])) {
@@ -38,6 +31,24 @@ class CreateFactory implements FactoryInterface
 
         $this->addCsrfTo($form);
         $this->addSubmitTo($form);
+
+        return $form;
+    }
+
+    /**
+     * @param ServiceLocatorInterface $serviceLocator
+     * @return FormInterface
+     */
+    private function buildForm(ServiceLocatorInterface $serviceLocator)
+    {
+        /** @var \Doctrine\Common\Persistence\ObjectManager $entityManager */
+        $entityManager = $serviceLocator->get('Doctrine\ORM\EntityManager');
+        $entity = new Contact;
+
+        $builder = new AnnotationBuilder($entityManager);
+        $form = $builder->createForm($entity);
+        $form->setHydrator(new DoctrineHydrator($entityManager));
+        $form->bind($entity);
 
         return $form;
     }
