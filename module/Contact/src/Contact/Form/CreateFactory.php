@@ -32,6 +32,23 @@ class CreateFactory implements FactoryInterface
         $form->setHydrator(new DoctrineHydrator($entityManager));
         $form->bind($entity);
 
+        $config = $serviceLocator->get('Config');
+        if (isset($config['captcha'])) {
+            $form->add($config['captcha']);
+        }
+
+        $this->addCsrfTo($form);
+        $this->addSubmitTo($form);
+
+        return $form;
+    }
+
+    /**
+     * @param FormInterface $form
+     * @return void
+     */
+    private function addCsrfTo(FormInterface $form)
+    {
         $form->add(
             array(
                 'type'    => 'Zend\Form\Element\Csrf',
@@ -43,12 +60,14 @@ class CreateFactory implements FactoryInterface
                 )
             )
         );
+    }
 
-        $config = $serviceLocator->get('Config');
-        if (isset($config['captcha'])) {
-            $form->add($config['captcha']);
-        }
-
+    /**
+     * @param FormInterface $form
+     * @return void
+     */
+    private function addSubmitTo(FormInterface $form)
+    {
         $form->add(
             array(
                 'type'       => 'Submit',
@@ -59,7 +78,5 @@ class CreateFactory implements FactoryInterface
                 ),
             )
         );
-
-        return $form;
     }
 }
