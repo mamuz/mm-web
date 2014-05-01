@@ -30,6 +30,10 @@ class MailMessage implements FilterInterface
         $this->options = $options;
     }
 
+    /**
+     * {@inheritdoc}
+     * @return Message
+     */
     public function filter($value)
     {
         $this->model = new ViewModel(array('object' => $value));
