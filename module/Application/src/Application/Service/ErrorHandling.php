@@ -43,7 +43,7 @@ class ErrorHandling implements ExceptionLoggerInterface
                 get_class($e),
                 $e->getFile(),
                 $e->getLine(),
-                $e->getMessage()
+                PHP_EOL . $e->getMessage()
             );
         } while ($e = $e->getPrevious());
 
