@@ -10,9 +10,6 @@ class ErrorHandling implements ExceptionLoggerInterface
     /** @var LoggerInterface */
     private $logger;
 
-    /** @var \Exception */
-    private $exception;
-
     /**
      * @param LoggerInterface $logger
      */

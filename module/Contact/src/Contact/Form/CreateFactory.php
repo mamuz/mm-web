@@ -29,7 +29,7 @@ class CreateFactory implements FactoryInterface
 
         $builder = new AnnotationBuilder($entityManager);
         $form = $builder->createForm($entity);
-        $form->setHydrator(new DoctrineHydrator($entityManager, 'ContentManager\Entity\Page'));
+        $form->setHydrator(new DoctrineHydrator($entityManager));
         $form->bind($entity);
 
         $form->add(
