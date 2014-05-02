@@ -12,9 +12,6 @@ class LogFactoryTest extends \PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->fixture = new LogFactory;
-        $this->fixture->setWriter(
-            \Mockery::mock('Zend\Log\Writer\WriterInterface')
-        );
     }
 
     public function testImplementingFactoyInterface()
@@ -24,7 +21,10 @@ class LogFactoryTest extends \PHPUnit_Framework_TestCase
 
     public function testCreation()
     {
+        $config = array('application' => array('log' => null));
         $sm = \Mockery::mock('Zend\ServiceManager\ServiceLocatorInterface');
+        $sm->shouldReceive('get')->with('Config')->andReturn($config);
+
         $service = $this->fixture->createService($sm);
 
         $this->assertInstanceOf('Zend\Log\LoggerInterface', $service);

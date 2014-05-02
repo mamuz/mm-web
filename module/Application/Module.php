@@ -5,7 +5,6 @@ namespace Application;
 use Zend\EventManager\EventInterface;
 use Zend\EventManager\EventManagerInterface;
 use Zend\Http\PhpEnvironment\Response as HttpResponse;
-use Zend\Log\Logger;
 use Zend\ModuleManager\Feature;
 use Zend\Mvc\ApplicationInterface;
 use Zend\Mvc\MvcEvent;
@@ -65,13 +64,7 @@ class Module implements
      */
     private function attachErrorLogger()
     {
-        /** @var \Zend\Log\Logger $logger */
-        $logger = $this->serviceLocator->get('Application\Service\Log');
-
-        Logger::registerErrorHandler($logger);
-        Logger::registerExceptionHandler($logger);
-        Logger::registerFatalErrorShutdownFunction($logger);
-
+        $this->serviceLocator->get('Application\Service\Log');
         $this->eventManager->attach(
             array(MvcEvent::EVENT_DISPATCH_ERROR, MvcEvent::EVENT_RENDER_ERROR),
             function (MvcEvent $event) {

@@ -69,5 +69,24 @@ return array(
                 ),
             ),
         ),
+        'log'  => array(
+            'exceptionhandler'             => true,
+            'errorhandler'                 => true,
+            'fatal_error_shutdownfunction' => true,
+            'writers'                      => array(
+                'error' => array(
+                    'name'    => 'stream',
+                    'options' => array(
+                        'stream'    => './data/logs/error_' . date('Y-m') . '.log',
+                        'formatter' => array(
+                            'name'    => 'simple',
+                            'options' => array(
+                                'dateTimeFormat' => 'Y-m-d H:i:s'
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+        ),
     ),
 );
