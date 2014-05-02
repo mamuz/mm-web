@@ -2,12 +2,10 @@
   "name"             : "mamuz/mm-web",
   "description"      : "Practices, principles and patterns about web-development with PHP",
   "keywords"         : ["mamuz"],
-  "homepage"         : "http://www.marco-muths.de/",
   "authors"          : [
     {
-      "name"    : "Marco Muths",
-      "email"   : "muzzi_is@web.de",
-      "homepage": "http://www.marco-muths.de/"
+      "name" : "Marco Muths",
+      "email": "muzzi_is@web.de"
     }
   ],
   "repositories"     : [
