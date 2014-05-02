@@ -10,3 +10,26 @@ Homepage with ZF2 and Doctrine2
 ## Domain
 
 Practices, principles and patterns about web-development with PHP
+
+## Functional Features
+
+- Skeleton with twitter-Bootstrap
+- Contact
+- ContentManager
+- Responsive Frontend
+
+## Non-Functional Features
+
+- Composer
+- ErrorLogging
+- Recaptcha by GoogleApi
+- Reportmail for new contact entry
+- UserInput Filter
+- Markdown parser for ContentManager
+- ORM
+- AnnotationBuilder
+- Config Cache
+- Autoload classmap
+- Custom ServiceManager for each module
+- GitHub, Travis-CI and VersionEye
+- PHPUnit with Mockery
