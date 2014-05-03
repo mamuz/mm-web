@@ -95,9 +95,7 @@ class Bootstrap
         include $zf2Path . '/Zend/Loader/AutoloaderFactory.php';
         AutoloaderFactory::factory(
             array(
-                'Zend\Loader\ClassMapAutoloader' => array(
-                    __DIR__ . '/autoload_classmap.php',
-                ),
+                'Zend\Loader\ClassMapAutoloader' => static::collectAutoloaderClassMaps(),
                 'Zend\Loader\StandardAutoloader' => array(
                     'autoregister_zf' => true,
                     'namespaces' => array(
@@ -106,6 +104,16 @@ class Bootstrap
                 ),
             )
         );
+    }
+
+    protected static function collectAutoloaderClassMaps()
+    {
+        $classMaps = array();
+        $rootPath = dirname(static::findParentPath('module'));
+        foreach (static::$modules as $module) {
+            $classMaps[] = $rootPath . '/module/' . $module . '/autoload_classmap.php';
+        }
+        return $classMaps;
     }
 
     protected static function findParentPath($path)
