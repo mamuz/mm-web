@@ -34,3 +34,7 @@ Practices, principles and patterns about web-development with PHP
 - Custom ServiceManager for each module
 - GitHub, Travis-CI and VersionEye
 - PHPUnit with Mockery
+
+## Each module Testrunner
+
+

@@ -21,16 +21,14 @@ if (function_exists('xdebug_disable')) {
  */
 class Bootstrap
 {
-    protected static $modules = array(
-        'Application',
-        'Contact',
-        'ContentManager',
-    );
+    protected static $modules = array();
 
     protected static $serviceManager;
 
     public static function init()
     {
+        static::loadConfig();
+
         $zf2ModulePaths = array(dirname(dirname(__DIR__)));
         if (($path = static::findParentPath('vendor'))) {
             $zf2ModulePaths[] = $path;
@@ -53,6 +51,11 @@ class Bootstrap
         $serviceManager->setService('ApplicationConfig', $config);
         $serviceManager->get('ModuleManager')->loadModules();
         static::$serviceManager = $serviceManager;
+    }
+
+    protected static function loadConfig()
+    {
+        static::$modules = include __DIR__ . '/config.php';
     }
 
     public static function chroot()
