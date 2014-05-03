@@ -2,7 +2,7 @@
 
 ## Configuration
 
-In module config file define logging, http header
+In module config file define logging and http header
 
 ```php
 return array(
@@ -38,5 +38,27 @@ return array(
 
 ## Mail Listener
 
-For triggered events listener can be defined in src/Application/Listener/Aggregate.
-For example you can sending mails for that by implementing new Services.
+Listener for triggered events can be implemented in src/Application/Listener/Aggregate.
+For example you can sending mails for that by using Mail Service.
+Those services can be configured by a factory, which reads options from module config.
+
+```php
+return array(
+    'application'        => array(
+        'mail' => array(
+            'contact' => array(
+                'template_map' => array(
+                    'contact/subject' => __DIR__ . '/../view/mail/contact/subject.phtml',
+                    'contact/body'    => __DIR__ . '/../view/mail/contact/body.phtml',
+                ),
+                'options'      => array(
+                    'to'              => 'muzzi_is@web.de',
+                    'from'            => 'automail@marco-muths.de',
+                    'subjectTemplate' => 'contact/subject',
+                    'bodyTemplate'    => 'contact/body',
+                ),
+            ),
+        ),
+    ),
+);
+```
