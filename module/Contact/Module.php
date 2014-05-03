@@ -3,6 +3,8 @@
 namespace Contact;
 
 use Zend\ModuleManager\Feature;
+use Zend\ModuleManager\Listener\ServiceListenerInterface;
+use Zend\ModuleManager\ModuleManager;
 use Zend\ModuleManager\ModuleManagerInterface;
 
 class Module implements
@@ -15,6 +17,10 @@ class Module implements
         $modules->loadModule('DoctrineModule');
         $modules->loadModule('DoctrineORMModule');
         $modules->loadModule('TwbBundle');
+
+        if ($modules instanceof ModuleManager) {
+            $this->addDomainManager($modules);
+        }
     }
 
     public function getConfig()
@@ -33,6 +39,21 @@ class Module implements
                     __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
                 ),
             ),
+        );
+    }
+
+    private function addDomainManager(ModuleManager $modules)
+    {
+        /** @var \Zend\ServiceManager\ServiceLocatorInterface $sm */
+        $sm = $modules->getEvent()->getParam('ServiceManager');
+        /** @var ServiceListenerInterface $serviceListener */
+        $serviceListener = $sm->get('ServiceListener');
+
+        $serviceListener->addServiceManager(
+            'Contact\DomainManager',
+            'contact_domain',
+            'Contact\DomainManager\ProviderInterface',
+            'getContactDomainConfig'
         );
     }
 }

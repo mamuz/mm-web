@@ -23,6 +23,9 @@ class ErrorHandlingFactoryTest extends \PHPUnit_Framework_TestCase
     {
         $logger = \Mockery::mock('Zend\Log\LoggerInterface');
         $sm = \Mockery::mock('Zend\ServiceManager\ServiceLocatorInterface');
+        $sm->shouldReceive('get')
+            ->with('Application\PluginManager')
+            ->andReturn($sm);
         $sm->shouldReceive('get')->with('Application\Service\Log')->andReturn($logger);
 
         $service = $this->fixture->createService($sm);

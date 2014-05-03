@@ -24,6 +24,7 @@ class QueryControllerFactoryTest extends \PHPUnit_Framework_TestCase
         $queryInterface = \Mockery::mock('ContentManager\Feature\QueryInterface');
         $sm = \Mockery::mock('Zend\ServiceManager\ServiceLocatorInterface');
         $sm->shouldReceive('getServiceLocator')->andReturn($sm);
+        $sm->shouldReceive('get')->with('ContentManager\DomainManager')->andReturn($sm);
         $sm->shouldReceive('get')->with('ContentManager\Service\Query')->andReturn($queryInterface);
 
         $controller = $this->fixture->createService($sm);

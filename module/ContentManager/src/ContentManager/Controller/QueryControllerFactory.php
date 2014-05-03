@@ -18,9 +18,11 @@ class QueryControllerFactory implements FactoryInterface
         if ($serviceLocator instanceof ServiceLocatorAwareInterface) {
             $serviceLocator = $serviceLocator->getServiceLocator();
         }
+        /** @var ServiceLocatorInterface $domainManager */
+        $domainManager = $serviceLocator->get('ContentManager\DomainManager');
 
         /** @var \ContentManager\Feature\QueryInterface $queryService */
-        $queryService = $serviceLocator->get('ContentManager\Service\Query');
+        $queryService = $domainManager->get('ContentManager\Service\Query');
 
         $controller = new QueryController($queryService);
 

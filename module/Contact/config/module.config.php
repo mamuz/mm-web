@@ -22,6 +22,11 @@ return array(
     ),
     'service_manager' => array(
         'factories' => array(
+            'Contact\DomainManager' => 'Contact\DomainManager\Factory',
+        ),
+    ),
+    'contact_domain'  => array(
+        'factories' => array(
             'Contact\Service\Command' => 'Contact\Service\CommandFactory',
         ),
     ),

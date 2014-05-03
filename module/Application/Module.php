@@ -6,6 +6,9 @@ use Zend\EventManager\EventInterface;
 use Zend\EventManager\EventManagerInterface;
 use Zend\Http\PhpEnvironment\Response as HttpResponse;
 use Zend\ModuleManager\Feature;
+use Zend\ModuleManager\Listener\ServiceListenerInterface;
+use Zend\ModuleManager\ModuleManager;
+use Zend\ModuleManager\ModuleManagerInterface;
 use Zend\Mvc\ApplicationInterface;
 use Zend\Mvc\MvcEvent;
 use Zend\ServiceManager\ServiceLocatorInterface;
@@ -13,23 +16,33 @@ use Zend\ServiceManager\ServiceLocatorInterface;
 class Module implements
     Feature\AutoloaderProviderInterface,
     Feature\BootstrapListenerInterface,
-    Feature\ConfigProviderInterface
+    Feature\ConfigProviderInterface,
+    Feature\InitProviderInterface
 {
     /** @var ApplicationInterface */
     private $application;
 
     /** @var ServiceLocatorInterface */
-    private $serviceLocator;
+    private $pluginManager;
 
     /** @var EventManagerInterface */
     private $eventManager;
+
+    public function init(ModuleManagerInterface $modules)
+    {
+        if ($modules instanceof ModuleManager) {
+            $this->addPluginManager($modules);
+        }
+    }
 
     public function onBootstrap(EventInterface $e)
     {
         /** @var MvcEvent $e */
         $this->application = $e->getApplication();
         $this->eventManager = $this->application->getEventManager();
-        $this->serviceLocator = $this->application->getServiceManager();
+        $this->pluginManager = $this->application->getServiceManager()->get(
+            'Application\PluginManager'
+        );
 
         $this->attachErrorLogger();
         $this->attachListenerAggregate();
@@ -59,18 +72,33 @@ class Module implements
         );
     }
 
+    private function addPluginManager(ModuleManager $modules)
+    {
+        /** @var \Zend\ServiceManager\ServiceLocatorInterface $sm */
+        $sm = $modules->getEvent()->getParam('ServiceManager');
+        /** @var ServiceListenerInterface $serviceListener */
+        $serviceListener = $sm->get('ServiceListener');
+
+        $serviceListener->addServiceManager(
+            'Application\PluginManager',
+            'application_plugin',
+            'Application\PluginManager\ProviderInterface',
+            'getApplicationPluginConfig'
+        );
+    }
+
     /**
      * @return void
      */
     private function attachErrorLogger()
     {
-        $this->serviceLocator->get('Application\Service\Log');
+        $this->pluginManager->get('Application\Service\Log');
         $this->eventManager->attach(
             array(MvcEvent::EVENT_DISPATCH_ERROR, MvcEvent::EVENT_RENDER_ERROR),
             function (MvcEvent $event) {
                 if ($exception = $event->getResult()->exception) {
                     /** @var \Application\Service\Feature\ExceptionLoggerInterface $errorHandler */
-                    $errorHandler = $this->serviceLocator->get('Application\Service\ErrorHandling');
+                    $errorHandler = $this->pluginManager->get('Application\Service\ErrorHandling');
                     $errorHandler->logException($exception);
                 }
             }
@@ -83,7 +111,7 @@ class Module implements
     private function attachListenerAggregate()
     {
         /* @var \Zend\EventManager\ListenerAggregateInterface $listenerAggregate */
-        $listenerAggregate = $this->serviceLocator->get('Application\Listener\Aggregate');
+        $listenerAggregate = $this->pluginManager->get('Application\Listener\Aggregate');
         $this->eventManager->attachAggregate($listenerAggregate);
     }
 

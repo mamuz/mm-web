@@ -17,9 +17,12 @@ class CommandFactory implements FactoryInterface
     {
         /** @var \Doctrine\Common\Persistence\ObjectManager $entityManager */
         $entityManager = $serviceLocator->get('Doctrine\ORM\EntityManager');
+        /** @var \Zend\EventManager\EventManagerInterface $eventManager */
+        $eventManager = $serviceLocator->get('EventManager');
 
         $queryMapper = new CommandMapper($entityManager);
         $queryService = new CommandService($queryMapper);
+        $queryService->setEventManager($eventManager);
 
         return $queryService;
     }

@@ -18,12 +18,14 @@ class CommandControllerFactory implements FactoryInterface
         if ($serviceLocator instanceof ServiceLocatorAwareInterface) {
             $serviceLocator = $serviceLocator->getServiceLocator();
         }
+        /** @var ServiceLocatorInterface $domainManager */
+        $domainManager = $serviceLocator->get('Contact\DomainManager');
 
         /** @var \Contact\Feature\CommandInterface $commandService */
-        $commandService = $serviceLocator->get('Contact\Service\Command');
+        $commandService = $domainManager->get('Contact\Service\Command');
 
         /** @var ServiceLocatorInterface $fem */
-        $fem = $serviceLocator->get('FormElementManager');
+        $fem = $domainManager->get('FormElementManager');
 
         /** @var \Zend\Form\FormInterface $createForm */
         $createForm = $fem->get('Contact\Form\Create');

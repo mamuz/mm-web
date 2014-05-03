@@ -7,6 +7,7 @@ use Zend\EventManager\EventInterface;
 use Zend\EventManager\EventManagerInterface;
 use Zend\ServiceManager\ServiceLocatorAwareInterface;
 use Zend\ServiceManager\ServiceLocatorAwareTrait;
+use Zend\ServiceManager\ServiceLocatorInterface;
 
 class Aggregate extends AbstractListenerAggregate implements ServiceLocatorAwareInterface
 {
@@ -31,8 +32,10 @@ class Aggregate extends AbstractListenerAggregate implements ServiceLocatorAware
      */
     public function onPersistContact(EventInterface $e)
     {
+        /** @var ServiceLocatorInterface $serviceLocator */
+        $serviceLocator = $this->getServiceLocator()->get('Application\PluginManager');
         /** @var \Application\Service\Feature\MailObjectInterface $mailer */
-        $mailer = $this->getServiceLocator()->get('Application\Service\ContactMail');
+        $mailer = $serviceLocator->get('Application\Service\ContactMail');
         $mailer->bind($e->getParam(0));
         $mailer->send();
     }

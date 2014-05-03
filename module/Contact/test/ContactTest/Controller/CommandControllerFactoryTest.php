@@ -27,6 +27,7 @@ class CommandControllerFactoryTest extends \PHPUnit_Framework_TestCase
         $fem = \Mockery::mock('Zend\ServiceManager\ServiceLocatorInterface');
         $fem->shouldReceive('get')->with('Contact\Form\Create')->andReturn($formInterface);
         $sm->shouldReceive('getServiceLocator')->andReturn($sm);
+        $sm->shouldReceive('get')->with('Contact\DomainManager')->andReturn($sm);
         $sm->shouldReceive('get')->with('Contact\Service\Command')->andReturn($commandInterface);
         $sm->shouldReceive('get')->with('FormElementManager')->andReturn($fem);
 

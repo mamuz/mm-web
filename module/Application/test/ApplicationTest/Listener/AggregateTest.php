@@ -15,6 +15,10 @@ class AggregateTest extends \PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->serviceLocator = \Mockery::mock('Zend\ServiceManager\ServiceLocatorInterface');
+        $this->serviceLocator
+            ->shouldReceive('get')
+            ->with('Application\PluginManager')
+            ->andReturn($this->serviceLocator);
 
         $this->fixture = new Aggregate;
         $this->fixture->setServiceLocator($this->serviceLocator);

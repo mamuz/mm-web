@@ -1,7 +1,7 @@
 <?php
 
 return array(
-    'router'          => array(
+    'router'                 => array(
         'routes' => array(
             'content' => array(
                 'type'          => 'segment',
@@ -20,22 +20,27 @@ return array(
             ),
         ),
     ),
-    'controllers'     => array(
+    'controllers'            => array(
         'factories' => array(
             'ContentManager\Controller\Query' => 'ContentManager\Controller\QueryControllerFactory',
         ),
     ),
-    'service_manager' => array(
+    'service_manager'        => array(
+        'factories' => array(
+            'ContentManager\DomainManager' => 'ContentManager\DomainManager\Factory',
+        ),
+    ),
+    'content_manager_domain' => array(
         'factories' => array(
             'ContentManager\Service\Query' => 'ContentManager\Service\QueryFactory',
         ),
     ),
-    'view_manager'    => array(
+    'view_manager'           => array(
         'template_map' => array(
             'content-manager/query/page' => __DIR__ . '/../view/content-manager/query/page.phtml',
         ),
     ),
-    'doctrine'        => array(
+    'doctrine'               => array(
         'driver' => array(
             'contentmanager_entities' => array(
                 'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',

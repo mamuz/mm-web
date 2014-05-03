@@ -13,8 +13,10 @@ class ErrorHandlingFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
+        /** @var ServiceLocatorInterface $pluginManager */
+        $pluginManager = $serviceLocator->get('Application\PluginManager');
         /** @var \Zend\Log\LoggerInterface $logger */
-        $logger = $serviceLocator->get('Application\Service\Log');
+        $logger = $pluginManager->get('Application\Service\Log');
 
         return new ErrorHandling($logger);
     }

@@ -3,7 +3,7 @@
 $env = getenv('APPLICATION_ENV') ? : 'production';
 
 return array(
-    'router'          => array(
+    'router'             => array(
         'routes' => array(
             'home' => array(
                 'type'    => 'Zend\Mvc\Router\Http\Literal',
@@ -17,22 +17,30 @@ return array(
             ),
         ),
     ),
-    'controllers'     => array(
+    'controllers'        => array(
         'invokables' => array(
             'Application\Controller\Index' => 'Application\Controller\IndexController',
         ),
     ),
-    'service_manager' => array(
-        'invokables' => array(
+    'service_manager'    => array(
+        'factories' => array(
+            'Application\PluginManager' => 'Application\PluginManager\Factory',
+        ),
+    ),
+    'application_plugin' => array(
+        'initializers' => array(
+            'ServiceLocatorInitializer' => 'Application\PluginManager\ServiceLocatorInitializer',
+        ),
+        'invokables'   => array(
             'Application\Listener\Aggregate' => 'Application\Listener\Aggregate',
         ),
-        'factories'  => array(
+        'factories'    => array(
             'Application\Service\ContactMail'   => 'Application\Service\ContactMailFactory',
             'Application\Service\ErrorHandling' => 'Application\Service\ErrorHandlingFactory',
             'Application\Service\Log'           => 'Application\Service\LogFactory',
         ),
     ),
-    'view_manager'    => array(
+    'view_manager'       => array(
         'display_not_found_reason' => ($env != 'production'),
         'display_exceptions'       => ($env != 'production'),
         'doctype'                  => 'HTML5',
@@ -48,7 +56,7 @@ return array(
             'error/index'             => __DIR__ . '/../view/error/index.phtml',
         ),
     ),
-    'application'     => array(
+    'application'        => array(
         'http' => array(
             'headers' => array(
                 'Content-Type'     => 'text/html; charset=UTF-8',
