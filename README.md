@@ -32,9 +32,32 @@ Practices, principles and patterns about web-development with PHP
 - Config Cache
 - Autoload classmap
 - Custom ServiceManager for each module
-- GitHub, Travis-CI and VersionEye
+- GitHub, Travis-CI, Coveralls.io and VersionEye
 - PHPUnit with Mockery
 
-## Each module Testrunner
+## Testrunner
 
+In test directory an over all module tesrunner exists.
+Be sure that each module is defined in test\config.php and in test\phpunit.xml
+Each module must have an autoloader classmap.
 
+### Execute Testrunner
+
+```sh
+phpunit -c test/
+```
+
+### Autoload Classmap
+
+Each module must have an autoloader classmap
+
+```sh
+cd ./module/{name}; ../../vendor/bin/classmap_generator.php -w
+```
+
+## Travis-CI
+
+Travis Service integration is configured in .travis.yml.
+To check dependencies it is VersionEye Service integrated.
+Code coverage is integrated by Coveralls.io and configured in .coverall.yml.
+For Coveralls.io it must be "satooshi/php-coveralls" installed.
