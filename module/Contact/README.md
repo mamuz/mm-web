@@ -31,5 +31,5 @@ return array(
 
 Register your domain to [Google ReCaptcha WebService](http://recaptcha.net/) to
 create a private key and a public key. Be sure that private key will not commit to VCS.
-Usage of Recaptcha requires [ZendService_Recapcha][(https://github.com/zendframework/ZendService_ReCaptcha).
+Usage of Recaptcha requires [ZendService_Recapcha](https://github.com/zendframework/ZendService_ReCaptcha).
 Add this dependency to composer.json.
