@@ -12,11 +12,33 @@ return array(
     'Application\Service\ContactMailFactory'               =>
     __DIR__ . '/src/Application/Service/ContactMailFactory.php',
     'Application\Service\Mail'                             => __DIR__ . '/src/Application/Service/Mail.php',
+    'Application\PluginManager\ServiceLocatorInitializer'  =>
+    __DIR__ . '/src/Application/PluginManager/ServiceLocatorInitializer.php',
+    'Application\PluginManager\ProviderInterface'          =>
+    __DIR__ . '/src/Application/PluginManager/ProviderInterface.php',
+    'Application\PluginManager\Factory'                    => __DIR__ . '/src/Application/PluginManager/Factory.php',
     'Application\Listener\Aggregate'                       => __DIR__ . '/src/Application/Listener/Aggregate.php',
     'Application\Options\MailInterface'                    => __DIR__ . '/src/Application/Options/MailInterface.php',
     'Application\Options\Mail'                             => __DIR__ . '/src/Application/Options/Mail.php',
     'Application\Filter\MailMessage'                       => __DIR__ . '/src/Application/Filter/MailMessage.php',
     'Application\Controller\IndexController'               =>
     __DIR__ . '/src/Application/Controller/IndexController.php',
+    'ApplicationTest\Service\ContactMailFactoryTest'       =>
+    __DIR__ . '/test/ApplicationTest/Service/ContactMailFactoryTest.php',
+    'ApplicationTest\Service\LogFactoryTest'               =>
+    __DIR__ . '/test/ApplicationTest/Service/LogFactoryTest.php',
+    'ApplicationTest\Service\MailTest'                     => __DIR__ . '/test/ApplicationTest/Service/MailTest.php',
+    'ApplicationTest\Service\ErrorHandlingFactoryTest'     =>
+    __DIR__ . '/test/ApplicationTest/Service/ErrorHandlingFactoryTest.php',
+    'ApplicationTest\Service\ErrorHandlingTest'            =>
+    __DIR__ . '/test/ApplicationTest/Service/ErrorHandlingTest.php',
+    'ApplicationTest\Listener\AggregateTest'               =>
+    __DIR__ . '/test/ApplicationTest/Listener/AggregateTest.php',
+    'ApplicationTest\Options\MailTest'                     => __DIR__ . '/test/ApplicationTest/Options/MailTest.php',
+    'ApplicationTest\Filter\MailMessageTest'               =>
+    __DIR__ . '/test/ApplicationTest/Filter/MailMessageTest.php',
+    'ApplicationTest\Controller\IndexControllerTest'       =>
+    __DIR__ . '/test/ApplicationTest/Controller/IndexControllerTest.php',
+    'ApplicationTest\Bootstrap'                            => __DIR__ . '/test/Bootstrap.php',
     'Application\Module'                                   => __DIR__ . '/Module.php',
 );
