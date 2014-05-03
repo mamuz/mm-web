@@ -3,7 +3,6 @@
 namespace Contact\Service;
 
 use Contact\Mapper\Db\Command as CommandMapper;
-use Contact\Service\Command as CommandService;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
@@ -11,7 +10,7 @@ class CommandFactory implements FactoryInterface
 {
     /**
      * {@inheritdoc}
-     * @return CommandService
+     * @return Command
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
@@ -21,7 +20,7 @@ class CommandFactory implements FactoryInterface
         $eventManager = $serviceLocator->get('EventManager');
 
         $queryMapper = new CommandMapper($entityManager);
-        $queryService = new CommandService($queryMapper);
+        $queryService = new Command($queryMapper);
         $queryService->setEventManager($eventManager);
 
         return $queryService;

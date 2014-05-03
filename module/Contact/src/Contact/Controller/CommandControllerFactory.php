@@ -2,7 +2,6 @@
 
 namespace Contact\Controller;
 
-use Contact\Controller\CommandController;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorAwareInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
