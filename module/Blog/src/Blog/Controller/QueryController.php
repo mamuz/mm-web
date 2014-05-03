@@ -27,7 +27,7 @@ class QueryController extends AbstractActionController
      */
     public function latestAction()
     {
-        $collection = $this->queryService->findLatest();
+        $collection = $this->queryService->findCollection(array());
         return new ViewModel(array('collection' => $collection));
     }
 }

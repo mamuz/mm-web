@@ -7,7 +7,8 @@ use Blog\Entity\Blog;
 interface QueryInterface
 {
     /**
+     * @param array $criteria
      * @return Blog[]
      */
-    public function findLatest();
+    public function findCollection(array $criteria);
 }

@@ -24,7 +24,6 @@ class Page
      * @ORM\Column(type="string", unique=true, nullable=false)
      * @Annotation\Filter({"name":"StripTags"})
      * @Annotation\Filter({"name":"StringTrim"})
-     * @Annotation\Validator({"name":"Alnum", "options": {"allowWhiteSpace":"false"}})
      * @Annotation\Validator({"name":"StringLength", "options": {"min":"1", "max":"255"}})
      * @Annotation\Options({"label":"Name"})
      * @Annotation\Required()
@@ -48,7 +47,6 @@ class Page
      * @Annotation\Attributes({"type":"text"})
      * @Annotation\Filter({"name":"StripTags"})
      * @Annotation\Filter({"name":"StringTrim"})
-     * @Annotation\Validator({"name":"Alnum", "options": {"allowWhiteSpace":"false"}})
      * @Annotation\Options({"label":"Content"})
      * @var string
      */

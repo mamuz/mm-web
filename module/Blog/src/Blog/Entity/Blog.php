@@ -9,7 +9,7 @@ use Zend\Form\Annotation;
  * @ORM\Entity
  * @Annotation\Name("blog")
  */
-class Page
+class Blog
 {
     /**
      * @ORM\Id
@@ -19,18 +19,6 @@ class Page
      * @var int
      */
     private $id;
-
-    /**
-     * @ORM\Column(type="string", unique=true, nullable=false)
-     * @Annotation\Filter({"name":"StripTags"})
-     * @Annotation\Filter({"name":"StringTrim"})
-     * @Annotation\Validator({"name":"Alnum", "options": {"allowWhiteSpace":"false"}})
-     * @Annotation\Validator({"name":"StringLength", "options": {"min":"1", "max":"255"}})
-     * @Annotation\Options({"label":"Name"})
-     * @Annotation\Required()
-     * @var string
-     */
-    private $path;
 
     /**
      * @ORM\Column(type="string", nullable=true)
@@ -48,7 +36,7 @@ class Page
      * @Annotation\Attributes({"type":"text"})
      * @Annotation\Filter({"name":"StripTags"})
      * @Annotation\Filter({"name":"StringTrim"})
-     * @Annotation\Validator({"name":"Alnum", "options": {"allowWhiteSpace":"false"}})
+     * @Annotation\Validator({"name":"StringLength", "options": {"min":"3", "max":"65535"}})
      * @Annotation\Options({"label":"Content"})
      * @var string
      */
@@ -63,17 +51,48 @@ class Page
     private $active = false;
 
     /**
-     * destroy identity
+     * @ORM\Column(type="datetime", nullable=false)
+     * @Annotation\Exclude()
+     * @var \DateTime
+     */
+    private $createdAt;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=false)
+     * @Annotation\Exclude()
+     * @var \DateTime
+     */
+    private $modifiedAt;
+
+    /**
+     * init datetime objects
+     */
+    public function __construct()
+    {
+        $this->init();
+    }
+
+    /**
+     * destroy identity and init datetime objects
      */
     public function __clone()
     {
         $this->id = null;
-        $this->path = null;
+        $this->init();
+    }
+
+    /**
+     * set createdAt and modifiedAt to now
+     */
+    private function init()
+    {
+        $this->createdAt = new \DateTime;
+        $this->modifiedAt = new \DateTime;
     }
 
     /**
      * @param int $id
-     * @return Page
+     * @return Blog
      */
     public function setId($id)
     {
@@ -90,26 +109,8 @@ class Page
     }
 
     /**
-     * @param string $path
-     * @return Page
-     */
-    public function setPath($path)
-    {
-        $this->path = $path;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPath()
-    {
-        return $this->path;
-    }
-
-    /**
      * @param string $title
-     * @return Page
+     * @return Blog
      */
     public function setTitle($title)
     {
@@ -127,7 +128,7 @@ class Page
 
     /**
      * @param string $content
-     * @return Page
+     * @return Blog
      */
     public function setContent($content)
     {
@@ -145,7 +146,7 @@ class Page
 
     /**
      * @param boolean $active
-     * @return Page
+     * @return Blog
      */
     public function setActive($active)
     {

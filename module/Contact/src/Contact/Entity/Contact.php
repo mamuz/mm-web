@@ -71,19 +71,27 @@ class Contact
     private $createdAt;
 
     /**
-     * set createdAt to now
+     * init datetime object
      */
     public function __construct()
     {
-        $this->createdAt = new \DateTime;
+        $this->init();
     }
 
     /**
-     * destroy identity and set createdAt to now
+     * destroy identity and init datetime object
      */
     public function __clone()
     {
         $this->id = null;
+        $this->init();
+    }
+
+    /**
+     * set createdAt to now
+     */
+    private function init()
+    {
         $this->createdAt = new \DateTime;
     }
 

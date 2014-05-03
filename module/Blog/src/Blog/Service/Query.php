@@ -2,9 +2,9 @@
 
 namespace Blog\Service;
 
-use ContentManager\Feature\QueryInterface;
+use Blog\Feature\QueryInterface;
 
-class Blog implements QueryInterface
+class Query implements QueryInterface
 {
     /** @var QueryInterface */
     private $mapper;
@@ -17,8 +17,8 @@ class Blog implements QueryInterface
         $this->mapper = $mapper;
     }
 
-    public function findLatest()
+    public function findCollection(array $criteria)
     {
-        return $this->mapper->findLatest();
+        return $this->mapper->findCollection($criteria);
     }
 }

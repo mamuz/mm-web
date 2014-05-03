@@ -2,7 +2,7 @@
 
 namespace Blog\Controller;
 
-use ContentManager\Controller\QueryController;
+use Blog\Controller\QueryController;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorAwareInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;

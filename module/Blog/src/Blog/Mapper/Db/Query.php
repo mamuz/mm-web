@@ -18,12 +18,9 @@ class Query implements QueryInterface
         $this->repository = $repository;
     }
 
-    public function findLatest()
+    public function findCollection(array $criteria)
     {
-        $blogCollection = $this->repository->findBy(
-            array()
-        );
-
+        $blogCollection = $this->repository->findBy($criteria);
         return $blogCollection;
     }
 }
