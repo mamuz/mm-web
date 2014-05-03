@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "2d0ca6be64634b91758accb075a4527b",
+    "hash": "dd6e6e1a498e3d9c7f42580cf4da2487",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -301,12 +301,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "5c54cfdab2908e0a5bcb57f530c1d1060d6cf429"
+                "reference": "d33225508d885660a3a36eb046a3efafabf53e7f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/5c54cfdab2908e0a5bcb57f530c1d1060d6cf429",
-                "reference": "5c54cfdab2908e0a5bcb57f530c1d1060d6cf429",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/d33225508d885660a3a36eb046a3efafabf53e7f",
+                "reference": "d33225508d885660a3a36eb046a3efafabf53e7f",
                 "shasum": ""
             },
             "require": {
@@ -314,7 +314,7 @@
                 "php": ">=5.3.2"
             },
             "require-dev": {
-                "phpunit/phpunit": "3.7.*",
+                "phpunit/phpunit": "4.0.*",
                 "symfony/console": "2.*"
             },
             "suggest": {
@@ -337,7 +337,7 @@
             ],
             "authors": [
                 {
-                    "name": "Jonathan Wage",
+                    "name": "Jonathan H. Wage",
                     "email": "jonwage@gmail.com",
                     "homepage": "http://www.jwage.com/",
                     "role": "Creator"
@@ -364,7 +364,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2014-05-01 02:21:58"
+            "time": "2014-05-02 17:17:39"
         },
         {
             "name": "doctrine/doctrine-module",
@@ -667,12 +667,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "7fffba80c304c73b3209cf933803c25dcddf702f"
+                "reference": "94837a0105eec91f572ef18dc140779586f931a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/7fffba80c304c73b3209cf933803c25dcddf702f",
-                "reference": "7fffba80c304c73b3209cf933803c25dcddf702f",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/94837a0105eec91f572ef18dc140779586f931a6",
+                "reference": "94837a0105eec91f572ef18dc140779586f931a6",
                 "shasum": ""
             },
             "require": {
@@ -711,7 +711,7 @@
             ],
             "authors": [
                 {
-                    "name": "Jonathan Wage",
+                    "name": "Jonathan H. Wage",
                     "email": "jonwage@gmail.com",
                     "homepage": "http://www.jwage.com/",
                     "role": "Creator"
@@ -736,7 +736,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2014-05-01 12:23:56"
+            "time": "2014-05-02 23:43:38"
         },
         {
             "name": "erusev/parsedown",
@@ -1004,13 +1004,13 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "a64f716194111f9a4520d8dc74115aa1f89f89c8"
+                "reference": "75b6362d339c4a78f176d45d16dbe0b151482f8c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packages.zendframework.com/composer/zendframework-zendframework-a64f716194111f9a4520d8dc74115aa1f89f89c8-zip-10ce2e.zip",
+                "url": "https://packages.zendframework.com/composer/zendframework-zendframework-75b6362d339c4a78f176d45d16dbe0b151482f8c-zip-7084ed.zip",
                 "reference": "dev-master",
-                "shasum": "3758cf2fa28d0993f826102073284786d2d03fc8"
+                "shasum": "49003cf536f1f5463ae95df491f0651c71c8eb3c"
             },
             "require": {
                 "php": ">=5.3.23",
@@ -1117,7 +1117,7 @@
                 "source": "https://github.com/zendframework/zf2/tree/master",
                 "issues": "https://github.com/zendframework/zf2/issues"
             },
-            "time": "2014-05-01 17:04:23"
+            "time": "2014-05-02 23:48:34"
         },
         {
             "name": "zendframework/zendservice-recaptcha",
@@ -1224,12 +1224,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle3.git",
-                "reference": "e4d12d7d6acccf75a5e504114e2df9195e494108"
+                "reference": "0faed3abffffbd3018f0dac6261fa1b59000bfee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle3/zipball/e4d12d7d6acccf75a5e504114e2df9195e494108",
-                "reference": "e4d12d7d6acccf75a5e504114e2df9195e494108",
+                "url": "https://api.github.com/repos/guzzle/guzzle3/zipball/0faed3abffffbd3018f0dac6261fa1b59000bfee",
+                "reference": "0faed3abffffbd3018f0dac6261fa1b59000bfee",
                 "shasum": ""
             },
             "require": {
@@ -1308,7 +1308,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2014-04-23 21:43:40"
+            "time": "2014-05-01 21:56:28"
         },
         {
             "name": "mockery/mockery",
@@ -1316,12 +1316,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/padraic/mockery.git",
-                "reference": "09cad223615eac9e229837c9d44792f393529328"
+                "reference": "715721895260a951d9cb9c2b9269d5333fb37a5e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/padraic/mockery/zipball/09cad223615eac9e229837c9d44792f393529328",
-                "reference": "09cad223615eac9e229837c9d44792f393529328",
+                "url": "https://api.github.com/repos/padraic/mockery/zipball/715721895260a951d9cb9c2b9269d5333fb37a5e",
+                "reference": "715721895260a951d9cb9c2b9269d5333fb37a5e",
                 "shasum": ""
             },
             "require": {
@@ -1374,7 +1374,7 @@
                 "test double",
                 "testing"
             ],
-            "time": "2014-04-25 09:53:30"
+            "time": "2014-05-02 12:25:43"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -1630,12 +1630,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "4ce28b2d053db0a41d9a3ffd50b3347f976441af"
+                "reference": "7bd874fee52bdf95178e58ce8bda50586865e37d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/4ce28b2d053db0a41d9a3ffd50b3347f976441af",
-                "reference": "4ce28b2d053db0a41d9a3ffd50b3347f976441af",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/7bd874fee52bdf95178e58ce8bda50586865e37d",
+                "reference": "7bd874fee52bdf95178e58ce8bda50586865e37d",
                 "shasum": ""
             },
             "require": {
@@ -1695,7 +1695,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-04-30 12:57:53"
+            "time": "2014-05-02 13:42:23"
         },
         {
             "name": "phpunit/phpunit-mock-objects",

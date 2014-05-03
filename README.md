@@ -35,6 +35,61 @@ Practices, principles and patterns about web-development with PHP
 - GitHub, Travis-CI, Coveralls.io and VersionEye
 - PHPUnit with Mockery
 
+## Installation
+
+### Create Application
+
+```sh
+cd /var/www
+```
+```sh
+git clone git://github.com/mamuz/mm-web.git
+```
+```sh
+cd mm-web
+```
+```sh
+php composer.phar self-update; php composer.phar install
+```
+
+### Apache Setup
+
+Add virtual host to apache
+
+```sh
+<VirtualHost *:80>
+    DocumentRoot /var/www/mm-web/public
+    ServerName local.mm-web.de
+    AccessFileName .htaccess
+    SetEnv APPLICATION_ENV "development"
+    <Location />
+        RewriteEngine On
+        RewriteCond %{REQUEST_FILENAME} -s [OR]
+        RewriteCond %{REQUEST_FILENAME} -l [OR]
+        RewriteCond %{REQUEST_FILENAME} -d
+        RewriteRule ^ - [NC,L]
+        RewriteRule ^ /index.php [NC,L]
+    </Location>
+    <Directory "/var/www/mm-web/public">
+        DirectoryIndex index.php
+        Options Indexes MultiViews FollowSymLinks
+        AllowOverride All
+        Order allow,deny
+        Allow from all
+    </Directory>
+</VirtualHost>
+```
+
+Add servername 'local.mm-web.de' to host file and restart apache server.
+
+## Composer
+
+Dependencies are handled by Composer package manager.
+
+```sh
+php composer.phar self-update; php composer.phar update
+```
+
 ## Testrunner
 
 In test directory an over all module tesrunner exists.
