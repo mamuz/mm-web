@@ -4,6 +4,7 @@
     <testsuites>
         <testsuite name="All Testsuite">
             <directory>../module/Application/test/ApplicationTest</directory>
+            <directory>../module/Blog/test/BlogTest</directory>
             <directory>../module/Contact/test/ContactTest</directory>
             <directory>../module/ContentManager/test/ContentManagerTest</directory>
         </testsuite>
