@@ -82,6 +82,23 @@ Add virtual host to apache
 
 Add servername 'local.mm-web.de' to host file and restart apache server.
 
+### Data directory
+
+Create an directory for temporaly data
+
+```sh
+mkdir -p /var/www/mm-web/data/logs
+```
+```sh
+mkdir -p /var/www/mm-web/data/cache
+```
+```sh
+mkdir -p /var/www/mm-web/data/DoctrineORMModule
+```
+```sh
+chmod -R 0775 /var/www/mm-web/data
+```
+
 ### Environment
 
 Virtual Host config already defined an APPLICATION_ENV to "development".
