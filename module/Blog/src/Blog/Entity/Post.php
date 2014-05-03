@@ -9,9 +9,10 @@ use Zend\Form\Annotation;
 
 /**
  * @ORM\Entity
- * @Annotation\Name("blog")
+ * @ORM\Table(name="BlogPost")
+ * @Annotation\Name("blogPost")
  */
-class Blog
+class Post
 {
     /**
      * @ORM\Id
@@ -53,8 +54,8 @@ class Blog
     private $active = false;
 
     /**
-     * @ManyToMany(targetEntity="Tag", inversedBy="blogs")
-     * @JoinTable(name="blogs_tags")
+     * @ORM\ManyToMany(targetEntity="Tag", inversedBy="posts")
+     * @ORM\JoinTable(name="BlogPostsTags")
      * @var Collection
      */
     private $tags;
@@ -102,7 +103,7 @@ class Blog
 
     /**
      * @param int $id
-     * @return Blog
+     * @return Post
      */
     public function setId($id)
     {
@@ -120,7 +121,7 @@ class Blog
 
     /**
      * @param string $title
-     * @return Blog
+     * @return Post
      */
     public function setTitle($title)
     {
@@ -138,7 +139,7 @@ class Blog
 
     /**
      * @param string $content
-     * @return Blog
+     * @return Post
      */
     public function setContent($content)
     {
@@ -156,7 +157,7 @@ class Blog
 
     /**
      * @param boolean $active
-     * @return Blog
+     * @return Post
      */
     public function setActive($active)
     {
@@ -174,7 +175,7 @@ class Blog
 
     /**
      * @param \DateTime $createdAt
-     * @return Blog
+     * @return Post
      */
     public function setCreatedAt($createdAt)
     {
@@ -192,7 +193,7 @@ class Blog
 
     /**
      * @param \DateTime $modifiedAt
-     * @return Blog
+     * @return Post
      */
     public function setModifiedAt($modifiedAt)
     {
@@ -210,7 +211,7 @@ class Blog
 
     /**
      * @param Collection $tags
-     * @return Blog
+     * @return Post
      */
     public function setTags(Collection $tags)
     {

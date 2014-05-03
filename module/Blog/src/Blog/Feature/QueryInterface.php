@@ -2,13 +2,13 @@
 
 namespace Blog\Feature;
 
-use Blog\Entity\Blog;
+use Blog\Entity\Post;
 
 interface QueryInterface
 {
     /**
      * @param array $criteria
-     * @return Blog[]
+     * @return Post[]
      */
     public function findCollection(array $criteria);
 }

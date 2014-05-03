@@ -9,7 +9,8 @@ use Zend\Form\Annotation;
 
 /**
  * @ORM\Entity
- * @Annotation\Name("tag")
+ * @ORM\Table(name="BlogTag")
+ * @Annotation\Name("blogTag")
  */
 class Tag
 {
@@ -35,10 +36,10 @@ class Tag
     private $name = '';
 
     /**
-     * @ManyToMany(targetEntity="Blog", mappedBy="tags")
+     * @ORM\ManyToMany(targetEntity="Post", mappedBy="tags")
      * @var Collection
      */
-    private $blogs;
+    private $posts;
 
     /**
      * init datetime objects
@@ -76,7 +77,7 @@ class Tag
 
     /**
      * @param string $name
-     * @return Blog
+     * @return Tag
      */
     public function setName($name)
     {
@@ -93,20 +94,20 @@ class Tag
     }
 
     /**
-     * @param Collection $blogs
+     * @param Collection $posts
      * @return Tag
      */
-    public function setBlogs(Collection $blogs)
+    public function setPosts(Collection $posts)
     {
-        $this->blogs = $blogs;
+        $this->posts = $posts;
         return $this;
     }
 
     /**
-     * @return Collection|Blog[]
+     * @return Collection|Post[]
      */
-    public function getBlogs()
+    public function getPosts()
     {
-        return $this->blogs;
+        return $this->posts;
     }
 }

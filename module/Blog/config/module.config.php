@@ -3,13 +3,17 @@
 return array(
     'router'          => array(
         'routes' => array(
-            'blog' => array(
-                'type'    => 'Zend\Mvc\Router\Http\Literal',
+            'blogList' => array(
+                'type'    => 'segment',
                 'options' => array(
-                    'route'    => '/blog',
-                    'defaults' => array(
+                    'route'       => '/blog[/:page]',
+                    'constraints' => array(
+                        'page' => '[1-9][0-9]*',
+                    ),
+                    'defaults'    => array(
                         'controller' => 'Blog\Controller\Query',
-                        'action'     => 'latest',
+                        'action'     => 'list',
+                        'page'       => 1,
                     ),
                 ),
             ),
@@ -32,7 +36,7 @@ return array(
     ),
     'view_manager'    => array(
         'template_map' => array(
-            'blog/query/latest' => __DIR__ . '/../view/blog/query/latest.phtml',
+            'blog/query/list' => __DIR__ . '/../view/blog/query/list.phtml',
         ),
     ),
     'doctrine'        => array(

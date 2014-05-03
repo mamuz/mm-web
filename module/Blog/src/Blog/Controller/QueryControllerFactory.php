@@ -2,12 +2,11 @@
 
 namespace Blog\Controller;
 
-use Blog\Controller\QueryController;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorAwareInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class BlogControllerFactory implements FactoryInterface
+class QueryControllerFactory implements FactoryInterface
 {
     /**
      * {@inheritdoc}

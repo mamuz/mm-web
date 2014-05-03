@@ -3,7 +3,6 @@
 namespace Blog\Service;
 
 use Blog\Mapper\Db\Query as QueryMapper;
-use Blog\Service\Query as QueryService;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
@@ -11,16 +10,15 @@ class QueryFactory implements FactoryInterface
 {
     /**
      * {@inheritdoc}
-     * @return QueryService
+     * @return Query
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        /** @var \Doctrine\Common\Persistence\ObjectManager $entityManager */
+        /** @var \Doctrine\ORM\EntityManagerInterface $entityManager */
         $entityManager = $serviceLocator->get('Doctrine\ORM\EntityManager');
-        $repository = $entityManager->getRepository('Blog\Entity\Blog');
 
-        $queryMapper = new QueryMapper($repository);
-        $queryService = new QueryService($queryMapper);
+        $queryMapper = new QueryMapper($entityManager);
+        $queryService = new Query($queryMapper);
 
         return $queryService;
     }
