@@ -82,6 +82,18 @@ Add virtual host to apache
 
 Add servername 'local.mm-web.de' to host file and restart apache server.
 
+### Environment
+
+Virtual Host config already defined an APPLICATION_ENV to "development".
+For other environments change it to "staging" or "production".
+TestEnvironment is defined by "testing".
+Besides Virtual Host config an APPLICATION_ENV can be defined in public/environment.php which will be included
+by public/index.php.
+
+```php
+putenv("APPLICATION_ENV=development");
+```
+
 ## Composer
 
 Dependencies are handled by Composer package manager.
@@ -116,3 +128,33 @@ Travis Service integration is configured in .travis.yml.
 To check dependencies it is VersionEye Service integrated.
 Code coverage is integrated by Coveralls.io and configured in .coverall.yml.
 For Coveralls.io it must be "satooshi/php-coveralls" installed.
+
+## Doctrine Integration
+
+Create a new config file for doctrine in config/autoload and be sure that will not be commit to VCS.
+Inside that file define your connection:
+
+```php
+return array(
+    'doctrine' => array(
+        'connection' => array(
+            'orm_default' => array(
+                'driverClass' => 'Doctrine\DBAL\Driver\PDOMySql\Driver',
+                'params'      => array(
+                    'host'          => 'localhost',
+                    'port'          => '3306',
+                    'user'          => 'xxxxxxx',
+                    'password'      => 'xxxxxxx',
+                    'dbname'        => 'mm-web',
+                    'charset'       => 'utf8',
+                    'driverOptions' => array(1002 => 'SET NAMES utf8'),
+                ),
+            ),
+        ),
+    ),
+);
+```
+
+## Application Configuration
+
+In config/application.config define which modules will be integrated and the config cache behavior.
