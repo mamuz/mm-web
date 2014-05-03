@@ -38,7 +38,7 @@ Practices, principles and patterns about web-development with PHP
 ## Testrunner
 
 In test directory an over all module tesrunner exists.
-Be sure that each module is defined in test\config.php and in test\phpunit.xml
+Be sure that each module is defined in test\config.php and in test\phpunit.xml.
 Each module must have an autoloader classmap.
 
 ### Execute Testrunner
