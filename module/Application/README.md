@@ -1,24 +1,42 @@
 # Application
 
-## Installation
-
-Run doctrine orm command line to create database table:
-
-```sh
-./vendor/bin/doctrine-module
-```
-
 ## Configuration
 
-Change routing in module config, which will be resolved to path property of page entity.
+In module config file define logging, http header
 
-## Creating new Pages
+```php
+return array(
+    'application'        => array(
+        'http' => array(
+            'headers' => array(
+                'Content-Type'     => 'text/html; charset=UTF-8',
+                'Content-Language' => 'en',
+            ),
+        ),
+        'log'  => array(
+            'exceptionhandler'             => true,
+            'errorhandler'                 => true,
+            'fatal_error_shutdownfunction' => true,
+            'writers'                      => array(
+                'error' => array(
+                    'name'    => 'stream',
+                    'options' => array(
+                        'stream'    => './data/logs/error_' . date('Y-m') . '.log',
+                        'formatter' => array(
+                            'name'    => 'simple',
+                            'options' => array(
+                                'dateTimeFormat' => 'Y-m-d H:i:s'
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+        ),
+    ),
+);
+```
 
-Create new entities in page database table and set page content to content property.
-Content will be parsed as markdown.
+## Mail Listener
 
-## Workflow
-
-If routing is successful to a page entity found by active flag and path property,
-page content will be responsed in a new view model. Otherwise it will set 404 status code
-to http response
+For triggered events listener can be defined in src/Application/Listener/Aggregate.
+For example you can sending mails for that by implementing new Services.
