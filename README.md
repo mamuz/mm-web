@@ -43,7 +43,7 @@ Practices, principles and patterns about web-development with PHP
 cd /var/www
 ```
 ```sh
-git clone git://github.com/mamuz/mm-web.git
+git clone https://github.com/mamuz/mm-web.git
 ```
 ```sh
 cd mm-web
