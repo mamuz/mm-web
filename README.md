@@ -23,6 +23,7 @@ Practices, principles and patterns about web-development with PHP
 - Composer
 - ErrorLogging
 - Recaptcha by GoogleApi
+- GoogleTracking Plugin
 - Reportmail for new contact entry
 - UserInput Filter
 - Markdown parser for ContentManager
