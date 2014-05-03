@@ -3,6 +3,7 @@
 namespace Blog\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Zend\Form\Annotation;
 
@@ -54,6 +55,7 @@ class Blog
     /**
      * @ManyToMany(targetEntity="Tag", inversedBy="blogs")
      * @JoinTable(name="blogs_tags")
+     * @var Collection
      */
     private $tags;
 
@@ -207,17 +209,17 @@ class Blog
     }
 
     /**
-     * @param ArrayCollection $tags
+     * @param Collection $tags
      * @return Blog
      */
-    public function setTags(ArrayCollection $tags)
+    public function setTags(Collection $tags)
     {
         $this->tags = $tags;
         return $this;
     }
 
     /**
-     * @return ArrayCollection|Tag[]
+     * @return Collection|Tag[]
      */
     public function getTags()
     {

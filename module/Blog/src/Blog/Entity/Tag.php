@@ -3,12 +3,13 @@
 namespace Blog\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Zend\Form\Annotation;
 
 /**
  * @ORM\Entity
- * @Annotation\Name("blog")
+ * @Annotation\Name("tag")
  */
 class Tag
 {
@@ -35,6 +36,7 @@ class Tag
 
     /**
      * @ManyToMany(targetEntity="Blog", mappedBy="tags")
+     * @var Collection
      */
     private $blogs;
 
@@ -91,20 +93,20 @@ class Tag
     }
 
     /**
-     * @param ArrayCollection $tags
+     * @param Collection $blogs
      * @return Tag
      */
-    public function setTags(ArrayCollection $tags)
+    public function setBlogs(Collection $blogs)
     {
-        $this->tags = $tags;
+        $this->blogs = $blogs;
         return $this;
     }
 
     /**
-     * @return ArrayCollection|Blog[]
+     * @return Collection|Blog[]
      */
-    public function getTags()
+    public function getBlogs()
     {
-        return $this->tags;
+        return $this->blogs;
     }
 }
