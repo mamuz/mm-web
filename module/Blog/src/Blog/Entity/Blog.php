@@ -2,6 +2,7 @@
 
 namespace Blog\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Zend\Form\Annotation;
 
@@ -51,6 +52,12 @@ class Blog
     private $active = false;
 
     /**
+     * @ManyToMany(targetEntity="Tag", inversedBy="blogs")
+     * @JoinTable(name="blogs_tags")
+     */
+    private $tags;
+
+    /**
      * @ORM\Column(type="datetime", nullable=false)
      * @Annotation\Exclude()
      * @var \DateTime
@@ -69,6 +76,7 @@ class Blog
      */
     public function __construct()
     {
+        $this->tags = new ArrayCollection();
         $this->init();
     }
 
@@ -160,5 +168,59 @@ class Blog
     public function isActive()
     {
         return $this->active;
+    }
+
+    /**
+     * @param \DateTime $createdAt
+     * @return Blog
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @param \DateTime $modifiedAt
+     * @return Blog
+     */
+    public function setModifiedAt($modifiedAt)
+    {
+        $this->modifiedAt = $modifiedAt;
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getModifiedAt()
+    {
+        return $this->modifiedAt;
+    }
+
+    /**
+     * @param ArrayCollection $tags
+     * @return Blog
+     */
+    public function setTags(ArrayCollection $tags)
+    {
+        $this->tags = $tags;
+        return $this;
+    }
+
+    /**
+     * @return ArrayCollection|Tag[]
+     */
+    public function getTags()
+    {
+        return $this->tags;
     }
 }
