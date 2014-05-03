@@ -28,7 +28,7 @@ class Query implements QueryInterface
             $currentPage = (int) $criteria['page'];
         }
 
-        $dql = 'SELECT p, t FROM Blog\Entity\Post p JOIN p.tags t WHERE p.active = 1 ORDER BY p.createdAt DESC';
+        $dql = 'SELECT p, t FROM Blog\Entity\Post p LEFT JOIN p.tags t WHERE p.active = 1 ORDER BY p.createdAt DESC';
         $query = $this->entityManager->createQuery($dql);
         $paginator = new Paginator($query);
 
