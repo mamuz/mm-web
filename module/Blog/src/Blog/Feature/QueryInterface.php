@@ -7,8 +7,9 @@ use Blog\Entity\Post;
 interface QueryInterface
 {
     /**
-     * @param int $currentPage
+     * @param int         $currentPage
+     * @param string|null $tag
      * @return Post[]
      */
-    public function findActivePosts($currentPage);
+    public function findActivePosts($currentPage, $tag = null);
 }

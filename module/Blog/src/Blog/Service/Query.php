@@ -17,8 +17,8 @@ class Query implements QueryInterface
         $this->mapper = $mapper;
     }
 
-    public function findActivePosts($currentPage)
+    public function findActivePosts($currentPage, $tag = null)
     {
-        return $this->mapper->findActivePosts($currentPage);
+        return $this->mapper->findActivePosts($currentPage, $tag);
     }
 }

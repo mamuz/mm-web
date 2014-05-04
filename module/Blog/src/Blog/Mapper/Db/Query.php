@@ -27,17 +27,28 @@ class Query implements QueryInterface
         $this->range = $range;
     }
 
-    public function findActivePosts($currentPage)
+    public function findActivePosts($currentPage, $tag = null)
     {
         $firstResult = $this->range->getOffsetBy($currentPage);
         $maxResults = $this->range->getSize();
 
+        $constraints = array('p.active = 1');
+
+        if (is_string($tag)) {
+            $constraints[] = 'AND t.name = :tag';
+        }
+
         $dql = 'SELECT p, t FROM Blog\Entity\Post p LEFT JOIN p.tags t '
-            . 'WHERE p.active = 1 '
+            . 'WHERE ' . implode(' ', $constraints) . ' '
             . 'ORDER BY p.createdAt DESC';
 
         $query = $this->createQuery($dql);
+
         $query->setFirstResult($firstResult)->setMaxResults($maxResults);
+
+        if (is_string($tag)) {
+            $query->setParameter('tag', $tag);
+        }
 
         return new Paginator($query);
     }

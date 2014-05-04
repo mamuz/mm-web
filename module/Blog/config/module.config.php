@@ -3,11 +3,12 @@
 return array(
     'router'          => array(
         'routes' => array(
-            'blogList' => array(
+            'blogActivePosts' => array(
                 'type'    => 'segment',
                 'options' => array(
-                    'route'       => '/blog[/:page]',
+                    'route'       => '/blog[/:tag][/p/:page]',
                     'constraints' => array(
+                        'tag'  => '[a-zA-Z0-9_-]*',
                         'page' => '[1-9][0-9]*',
                     ),
                     'defaults'    => array(
