@@ -1,6 +1,6 @@
 <?php
 
-namespace Blog\Service\Feature;
+namespace Blog\Options;
 
 interface RangeInterface
 {

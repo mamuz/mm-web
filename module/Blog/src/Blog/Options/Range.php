@@ -1,8 +1,6 @@
 <?php
 
-namespace Blog\Service;
-
-use Blog\Service\Feature\RangeInterface;
+namespace Blog\Options;
 
 class Range implements RangeInterface
 {

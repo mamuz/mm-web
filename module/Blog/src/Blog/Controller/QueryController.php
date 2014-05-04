@@ -27,10 +27,13 @@ class QueryController extends AbstractActionController
      */
     public function activePostsAction()
     {
-        $currentPage = (int) $this->params()->fromRoute('page', 1);
-        $tag = $this->params()->fromRoute('tag');
+        $this->queryService->setCurrentPage($this->params()->fromRoute('page', 1));
 
-        $collection = $this->queryService->findActivePosts($currentPage, $tag);
+        if ($tag = $this->params()->fromRoute('tag')) {
+            $collection = $this->queryService->findActivePostsByTag($tag);
+        } else {
+            $collection = $this->queryService->findActivePosts();
+        }
 
         return new ViewModel(array('collection' => $collection));
     }

@@ -3,6 +3,7 @@
 namespace Blog\Service;
 
 use Blog\Mapper\Db\Query as QueryMapper;
+use Blog\Options\Range;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 

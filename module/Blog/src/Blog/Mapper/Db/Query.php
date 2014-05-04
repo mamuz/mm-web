@@ -3,7 +3,9 @@
 namespace Blog\Mapper\Db;
 
 use Blog\Feature\QueryInterface;
-use Blog\Service\Feature\RangeInterface;
+use Blog\Options\Constraint;
+use Blog\Options\ConstraintInterface;
+use Blog\Options\RangeInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Tools\Pagination\Paginator;
 
@@ -14,6 +16,9 @@ class Query implements QueryInterface
 
     /** @var RangeInterface */
     private $range;
+
+    /** @var int */
+    private $currentPage = 1;
 
     /**
      * @param EntityManagerInterface $entityManager
@@ -27,34 +32,50 @@ class Query implements QueryInterface
         $this->range = $range;
     }
 
-    public function findActivePosts($currentPage, $tag = null)
+    public function setCurrentPage($currentPage)
     {
-        $firstResult = $this->range->getOffsetBy($currentPage);
+        $this->currentPage = (int) $currentPage;
+        return $this;
+    }
+
+    public function findActivePosts()
+    {
+        $constraint = new Constraint;
+        $constraint->add('active', 'p.active = :active', true);
+
+        return $this->createPaginator($constraint);
+    }
+
+    public function findActivePostsByTag($tag)
+    {
+        $constraint = new Constraint;
+        $constraint->add('active', 'p.active = :active', 1);
+        $constraint->add('tag', 'AND t.name = :tag', $tag);
+
+        return $this->createPaginator($constraint);
+    }
+
+    private function createPaginator(ConstraintInterface $constraint)
+    {
+        $firstResult = $this->range->getOffsetBy($this->currentPage);
         $maxResults = $this->range->getSize();
+        $constraintString = '';
 
-        $constraints = array('p.active = 1');
-
-        if (is_string($tag)) {
-            $constraints[] = 'AND t.name = :tag';
+        if (!$constraint->isEmpty()) {
+            $constraintString = "WHERE " . $constraint->toString() . ' ';
         }
 
         $dql = 'SELECT p, t FROM Blog\Entity\Post p LEFT JOIN p.tags t '
-            . 'WHERE ' . implode(' ', $constraints) . ' '
+            . $constraintString
             . 'ORDER BY p.createdAt DESC';
 
-        $query = $this->createQuery($dql);
-
+        $query = $this->entityManager->createQuery($dql);
         $query->setFirstResult($firstResult)->setMaxResults($maxResults);
 
-        if (is_string($tag)) {
-            $query->setParameter('tag', $tag);
+        if (!$constraint->isEmpty()) {
+            $query->setParameters($constraint->toArray());
         }
 
         return new Paginator($query);
-    }
-
-    private function createQuery($dql)
-    {
-        return $this->entityManager->createQuery($dql);
     }
 }
