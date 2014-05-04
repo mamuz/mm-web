@@ -2,7 +2,14 @@
     <?php
     foreach ($this->collection as $entity) {
         /** @var \Blog\Entity\Post $entity */
-        echo '<li>' . $entity->getTitle();
+        $url = $this->url(
+            'blogActivePost',
+            array(
+                'title' => urlencode($entity->getTitle()),
+                'id'    => $this->hashId($entity->getId())
+            )
+        );
+        echo '<li><a href="' . $url . '">' . $entity->getTitle() . '</a>';
         $tags = $entity->getTags();
         echo '<ul>';
         foreach ($tags as $tag) {

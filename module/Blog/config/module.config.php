@@ -50,6 +50,11 @@ return array(
             'Blog\Service\Query' => 'Blog\Service\QueryFactory',
         ),
     ),
+    'view_helpers'    => array(
+        'factories' => array(
+            'hashId' => 'Blog\View\Helper\HashIdFactory',
+        ),
+    ),
     'view_manager'    => array(
         'template_map' => array(
             'blog/query/active-post'  => __DIR__ . '/../view/blog/query/active-post.phtml',
