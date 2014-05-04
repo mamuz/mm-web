@@ -21,11 +21,11 @@ class QueryController extends AbstractActionController
     }
 
     /**
-     * Latest blog entries retrieval
+     * Active post entries retrieval
      *
      * @return ModelInterface
      */
-    public function listAction()
+    public function activePostsAction()
     {
         $currentPage = (int) $this->params()->fromRoute('page', 1);
         $collection = $this->queryService->findActivePosts($currentPage);

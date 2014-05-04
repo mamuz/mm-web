@@ -12,7 +12,7 @@ return array(
                     ),
                     'defaults'    => array(
                         'controller' => 'Blog\Controller\Query',
-                        'action'     => 'list',
+                        'action'     => 'activePosts',
                         'page'       => 1,
                     ),
                 ),
@@ -36,7 +36,7 @@ return array(
     ),
     'view_manager'    => array(
         'template_map' => array(
-            'blog/query/list' => __DIR__ . '/../view/blog/query/list.phtml',
+            'blog/query/active-posts' => __DIR__ . '/../view/blog/query/active-posts.phtml',
         ),
     ),
     'doctrine'        => array(
