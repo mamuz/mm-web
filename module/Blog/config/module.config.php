@@ -21,10 +21,10 @@ return array(
             'blogActivePost'  => array(
                 'type'    => 'segment',
                 'options' => array(
-                    'route'       => '/blog/post[/:title][/h/:id]',
+                    'route'       => '/blog/post[/:id][/:title]',
                     'constraints' => array(
-                        'title' => '[a-zA-Z0-9_+%-]+',
                         'id'    => '[a-zA-Z0-9]{9,}',
+                        'title' => '[a-zA-Z0-9_+%-]+',
                     ),
                     'defaults'    => array(
                         'controller' => 'Blog\Controller\Query',
