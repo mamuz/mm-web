@@ -3,6 +3,7 @@
 namespace Blog\Mapper\Db;
 
 use Blog\Feature\QueryInterface;
+use Blog\Service\Feature\RangeInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Tools\Pagination\Paginator;
 
@@ -11,33 +12,38 @@ class Query implements QueryInterface
     /** @var EntityManagerInterface */
     private $entityManager;
 
+    /** @var RangeInterface */
+    private $range;
+
     /**
      * @param EntityManagerInterface $entityManager
+     * @param RangeInterface         $range
      */
-    public function __construct(EntityManagerInterface $entityManager)
-    {
+    public function __construct(
+        EntityManagerInterface $entityManager,
+        RangeInterface $range
+    ) {
         $this->entityManager = $entityManager;
+        $this->range = $range;
     }
 
-    public function findCollection(array $criteria)
+    public function findActivePosts($currentPage)
     {
-        $currentPage = 1;
-        $pageSize = 4;
+        $firstResult = $this->range->getOffsetBy($currentPage);
+        $maxResults = $this->range->getSize();
 
-        if (isset($criteria['page'])) {
-            $currentPage = (int) $criteria['page'];
-        }
+        $dql = 'SELECT p, t FROM Blog\Entity\Post p LEFT JOIN p.tags t '
+            . 'WHERE p.active = 1 '
+            . 'ORDER BY p.createdAt DESC';
 
-        $dql = 'SELECT p, t FROM Blog\Entity\Post p LEFT JOIN p.tags t WHERE p.active = 1 ORDER BY p.createdAt DESC';
-        $query = $this->entityManager->createQuery($dql);
-        $paginator = new Paginator($query);
+        $query = $this->createQuery($dql);
+        $query->setFirstResult($firstResult)->setMaxResults($maxResults);
 
-        // $totalItems = count($paginator);
-        // $pagesCount = ceil($totalItems / $pageSize);
+        return new Paginator($query);
+    }
 
-        $offset = $pageSize * ($currentPage - 1);
-        $paginator->getQuery()->setFirstResult($offset)->setMaxResults($pageSize);
-
-        return $paginator;
+    private function createQuery($dql)
+    {
+        return $this->entityManager->createQuery($dql);
     }
 }

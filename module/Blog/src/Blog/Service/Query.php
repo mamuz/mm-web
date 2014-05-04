@@ -17,8 +17,8 @@ class Query implements QueryInterface
         $this->mapper = $mapper;
     }
 
-    public function findCollection(array $criteria)
+    public function findActivePosts($currentPage)
     {
-        return $this->mapper->findCollection($criteria);
+        return $this->mapper->findActivePosts($currentPage);
     }
 }
