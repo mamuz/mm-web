@@ -23,7 +23,10 @@ class QueryControllerFactory implements FactoryInterface
         /** @var \Blog\Feature\QueryInterface $queryService */
         $queryService = $domainManager->get('Blog\Service\Query');
 
-        $controller = new QueryController($queryService);
+        /** @var \Blog\Crypt\CryptInterface $cryptEngine */
+        $cryptEngine = $domainManager->get('Blog\Crypt\HashId');
+
+        $controller = new QueryController($queryService, $cryptEngine);
 
         return $controller;
     }

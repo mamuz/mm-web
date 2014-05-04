@@ -18,6 +18,20 @@ return array(
                     ),
                 ),
             ),
+            'blogActivePost'  => array(
+                'type'    => 'segment',
+                'options' => array(
+                    'route'       => '/blog/post[/:title][/h/:id]',
+                    'constraints' => array(
+                        'title' => '[a-zA-Z0-9_%-]+',
+                        'id'    => '[a-zA-Z0-9]{1,}',
+                    ),
+                    'defaults'    => array(
+                        'controller' => 'Blog\Controller\Query',
+                        'action'     => 'activePost',
+                    ),
+                ),
+            ),
         ),
     ),
     'controllers'     => array(
@@ -32,11 +46,13 @@ return array(
     ),
     'blog_domain'     => array(
         'factories' => array(
+            'Blog\Crypt\HashId'  => 'Blog\Crypt\HashIdFactory',
             'Blog\Service\Query' => 'Blog\Service\QueryFactory',
         ),
     ),
     'view_manager'    => array(
         'template_map' => array(
+            'blog/query/active-post'  => __DIR__ . '/../view/blog/query/active-post.phtml',
             'blog/query/active-posts' => __DIR__ . '/../view/blog/query/active-posts.phtml',
         ),
     ),

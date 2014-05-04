@@ -11,6 +11,8 @@ use Doctrine\ORM\Tools\Pagination\Paginator;
 
 class Query implements QueryInterface
 {
+    const REPOSITORY = 'Blog\Entity\Post';
+
     /** @var EntityManagerInterface */
     private $entityManager;
 
@@ -65,7 +67,7 @@ class Query implements QueryInterface
             $constraintString = "WHERE " . $constraint->toString() . ' ';
         }
 
-        $dql = 'SELECT p, t FROM Blog\Entity\Post p LEFT JOIN p.tags t '
+        $dql = 'SELECT p, t FROM ' . self::REPOSITORY . ' p LEFT JOIN p.tags t '
             . $constraintString
             . 'ORDER BY p.createdAt DESC';
 
@@ -77,5 +79,10 @@ class Query implements QueryInterface
         }
 
         return new Paginator($query);
+    }
+
+    public function findActivePostById($id)
+    {
+        return $this->entityManager->find(self::REPOSITORY, $id);
     }
 }

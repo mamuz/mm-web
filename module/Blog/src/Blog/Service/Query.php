@@ -32,4 +32,9 @@ class Query implements QueryInterface
     {
         return $this->mapper->findActivePostsByTag($tag);
     }
+
+    public function findActivePostById($id)
+    {
+        return $this->mapper->findActivePostById($id);
+    }
 }
