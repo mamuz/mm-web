@@ -14,7 +14,12 @@ class HashIdFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        $sault = $serviceLocator->get('Config')['crypt']['hashid']['sault'];
-        return new HashId($sault);
+        $config = $serviceLocator->get('Config')['crypt']['hashid'];
+
+        return new HashId(
+            $config['sault'],
+            $config['minLength'],
+            $config['chars']
+        );
     }
 }

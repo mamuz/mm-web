@@ -23,8 +23,8 @@ return array(
                 'options' => array(
                     'route'       => '/blog/post[/:title][/h/:id]',
                     'constraints' => array(
-                        'title' => '[a-zA-Z0-9_%-]+',
-                        'id'    => '[a-zA-Z0-9]{1,}',
+                        'title' => '[a-zA-Z0-9_+%-]+',
+                        'id'    => '[a-zA-Z0-9]{9,}',
                     ),
                     'defaults'    => array(
                         'controller' => 'Blog\Controller\Query',
