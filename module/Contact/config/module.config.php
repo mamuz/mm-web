@@ -4,9 +4,9 @@ return array(
     'router'          => array(
         'routes' => array(
             'contact' => array(
-                'type'    => 'Zend\Mvc\Router\Http\Literal',
+                'type'    => 'segment',
                 'options' => array(
-                    'route'    => '/contact',
+                    'route'    => '/contact[/]',
                     'defaults' => array(
                         'controller' => 'Contact\Controller\Command',
                         'action'     => 'create',
