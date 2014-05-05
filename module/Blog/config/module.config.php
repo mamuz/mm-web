@@ -66,6 +66,13 @@ return array(
             'blog/query/active-posts' => __DIR__ . '/../view/blog/query/active-posts.phtml',
         ),
     ),
+    'asset_manager'   => array(
+        'resolver_configs' => array(
+            'paths' => array(
+                'Blog' => __DIR__ . '/../public',
+            ),
+        ),
+    ),
     'doctrine'        => array(
         'driver' => array(
             'blog_entities' => array(
