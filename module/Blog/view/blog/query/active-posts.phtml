@@ -3,7 +3,7 @@
 $posts = '';
 foreach ($this->collection as $entity) {
     $posts .= $this->postPanel($entity);
-    $posts .= $this->pagerNext($this->collection, 'blogActivePosts', array('page' => $this->currentPage));
+    $posts .= $this->pagerNext($this->collection, 'blogActivePosts', $this->routeParams);
 }
 
 if (!$this->isTerminal) {

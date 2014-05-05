@@ -49,7 +49,7 @@ class QueryController extends AbstractActionController
         return $this->createViewModel(
             array(
                 'collection'  => $collection,
-                'currentPage' => $currentPage,
+                'routeParams' => $this->params()->fromRoute(),
             )
         );
     }
