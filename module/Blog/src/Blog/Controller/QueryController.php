@@ -103,6 +103,7 @@ class QueryController extends AbstractActionController
         } else {
             $viewModel->setTerminal(true);
         }
+        $viewModel->setVariable('isTerminal', $viewModel->terminate());
         return $viewModel;
     }
 }

@@ -1,18 +1,15 @@
-<div class="list">
-    <?php
-    foreach ($this->collection as $entity) {
-        /** @var \Blog\Entity\Post $entity */
-        $url = $this->url(
-            'blogActivePost',
-            array(
-                'title' => $entity->getTitle(),
-                'id'    => $this->hashId($entity->getId())
-            )
-        );
-        echo '<h2><a href="' . $url . '">' . $entity->getTitle() . '</a></h2>' . PHP_EOL;
-        echo '<p>' . $entity->getContent() . '</p>' . PHP_EOL;
-    }
-    ?>
-</div>
 <?php
-echo $this->pager($this->collection, 'blogActivePosts', array('page' => $this->currentPage));
+
+$posts = '';
+foreach ($this->collection as $entity) {
+    $posts .= $this->postPanel($entity);
+    $posts .= $this->pagerNext($this->collection, 'blogActivePosts', array('page' => $this->currentPage));
+}
+
+if (!$this->isTerminal) {
+    $this->headScript()->prependFile('/js/vendor/jquery.jscroll.min.js');
+    $this->headScript()->prependFile('/js/base.js');
+    $posts = '<div class="list">' . $posts . '</div>';
+}
+
+echo $posts;

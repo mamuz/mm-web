@@ -51,9 +51,13 @@ return array(
         ),
     ),
     'view_helpers'    => array(
-        'factories' => array(
-            'hashId' => 'Blog\View\Helper\HashIdFactory',
-            'pager'  => 'Blog\View\Helper\PagerFactory',
+        'invokables' => array(
+            'postPanel' => 'Blog\View\Helper\PostPanel',
+        ),
+        'factories'  => array(
+            'hashId'    => 'Blog\View\Helper\HashIdFactory',
+            'pager'     => 'Blog\View\Helper\PagerFactory',
+            'pagerNext' => 'Blog\View\Helper\PagerNextFactory',
         ),
     ),
     'view_manager'    => array(
@@ -78,7 +82,7 @@ return array(
     ),
     'blog'            => array(
         'pagination' => array(
-            'range' => 4,
+            'range' => 1,
         ),
 
     )
