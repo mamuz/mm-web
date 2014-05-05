@@ -1,21 +1,18 @@
-<ul>
+<div class="infinite-scroll">
     <?php
     foreach ($this->collection as $entity) {
         /** @var \Blog\Entity\Post $entity */
         $url = $this->url(
             'blogActivePost',
             array(
-                'title' => urlencode($entity->getTitle()),
+                'title' => $entity->getTitle(),
                 'id'    => $this->hashId($entity->getId())
             )
         );
-        echo '<li><a href="' . $url . '">' . $entity->getTitle() . '</a>';
-        $tags = $entity->getTags();
-        echo '<ul>';
-        foreach ($tags as $tag) {
-            echo '<li>' . $tag->getName() . '</li>';
-        }
-        echo '</ul></li>';
+        echo '<h2><a href="' . $url . '">' . $entity->getTitle() . '</a></h2>' . PHP_EOL;
+        echo '<p>' . $entity->getContent() . '</p>' . PHP_EOL;
     }
     ?>
-</ul>
+</div>
+<?php
+echo $this->pager($this->collection, 'blogActivePosts', array('page' => $this->currentPage));

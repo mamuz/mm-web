@@ -4,6 +4,7 @@ namespace Blog\Controller;
 
 use Blog\Crypt\CryptInterface;
 use Blog\Feature\QueryInterface;
+use Zend\Http\PhpEnvironment\Request as HttpRequest;
 use Zend\Http\PhpEnvironment\Response;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ModelInterface;
@@ -32,11 +33,12 @@ class QueryController extends AbstractActionController
     /**
      * Active post entries retrieval
      *
-     * @return ModelInterface|null
+     * @return ModelInterface
      */
     public function activePostsAction()
     {
-        $this->queryService->setCurrentPage($this->params()->fromRoute('page', 1));
+        $currentPage = $this->params()->fromRoute('page', 1);
+        $this->queryService->setCurrentPage($currentPage);
 
         if ($tag = $this->params()->fromRoute('tag')) {
             $collection = $this->queryService->findActivePostsByTag($tag);
@@ -44,13 +46,12 @@ class QueryController extends AbstractActionController
             $collection = $this->queryService->findActivePosts();
         }
 
-        if ($collection instanceof \Countable
-            && count($collection) < 1
-        ) {
-            return $this->nullResponse();
-        }
-
-        return new ViewModel(array('collection' => $collection));
+        return $this->createViewModel(
+            array(
+                'collection'  => $collection,
+                'currentPage' => $currentPage,
+            )
+        );
     }
 
     /**
@@ -69,7 +70,7 @@ class QueryController extends AbstractActionController
             return $this->nullResponse();
         }
 
-        return new ViewModel(array('post' => $post));
+        return $this->createViewModel(array('post' => $post));
     }
 
     /**
@@ -83,5 +84,25 @@ class QueryController extends AbstractActionController
         $response = $this->getResponse();
         $response->setStatusCode(Response::STATUS_CODE_404);
         return null;
+    }
+
+    /**
+     * Create ViewModel instance
+     * and set terminal mode by HttpRequest
+     *
+     * @param null|array|\Traversable $variables
+     * @param null|array|\Traversable $options
+     * @return ModelInterface
+     */
+    private function createViewModel($variables = null, $options = null)
+    {
+        $viewModel = new ViewModel($variables, $options);
+        $request = $this->getRequest();
+        if ($request instanceof HttpRequest) {
+            $viewModel->setTerminal($request->isXmlHttpRequest());
+        } else {
+            $viewModel->setTerminal(true);
+        }
+        return $viewModel;
     }
 }

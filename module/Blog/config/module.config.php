@@ -53,6 +53,7 @@ return array(
     'view_helpers'    => array(
         'factories' => array(
             'hashId' => 'Blog\View\Helper\HashIdFactory',
+            'pager'  => 'Blog\View\Helper\PagerFactory',
         ),
     ),
     'view_manager'    => array(
@@ -75,4 +76,10 @@ return array(
             ),
         ),
     ),
+    'blog'            => array(
+        'pagination' => array(
+            'range' => 4,
+        ),
+
+    )
 );
