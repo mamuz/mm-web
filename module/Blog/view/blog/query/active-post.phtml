@@ -1,13 +1,3 @@
-<ul>
-    <?php
-    $entity = $this->post;
-    /** @var \Blog\Entity\Post $entity */
-    echo '<li>' . $entity->getTitle();
-    $tags = $entity->getTags();
-    echo '<ul>';
-    foreach ($tags as $tag) {
-        echo '<li>' . $tag->getName() . '</li>';
-    }
-    echo '</ul></li>';
-    ?>
-</ul>
+<?php
+
+echo $this->postPanel($this->post, false);
