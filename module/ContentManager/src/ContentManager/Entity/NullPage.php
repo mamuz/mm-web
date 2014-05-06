@@ -5,6 +5,7 @@ namespace ContentManager\Entity;
 class NullPage extends Page
 {
     const NULL_TITLE = 'Error';
+
     const NULL_CONTENT = 'Page not found';
 
     public function getTitle()

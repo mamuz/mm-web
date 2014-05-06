@@ -2,12 +2,13 @@
 
 namespace ContentManagerTest;
 
+// Define environment
+
 use RuntimeException;
 use Zend\Loader\AutoloaderFactory;
 use Zend\Mvc\Service\ServiceManagerConfig;
 use Zend\ServiceManager\ServiceManager;
 
-// Define environment
 putenv('APPLICATION_ENV=testing');
 error_reporting(E_ALL | E_STRICT);
 chdir(__DIR__);
@@ -44,7 +45,7 @@ class Bootstrap
             'module_listener_options' => array(
                 'module_paths' => $zf2ModulePaths,
             ),
-            'modules' => static::$modules,
+            'modules'                 => static::$modules,
         );
 
         $serviceManager = new ServiceManager(new ServiceManagerConfig());
@@ -95,7 +96,7 @@ class Bootstrap
             array(
                 'Zend\Loader\StandardAutoloader' => array(
                     'autoregister_zf' => true,
-                    'namespaces' => array(
+                    'namespaces'      => array(
                         __NAMESPACE__ => __DIR__ . '/' . __NAMESPACE__,
                     ),
                 ),
