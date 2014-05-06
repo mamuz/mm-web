@@ -19,13 +19,14 @@ class QueryController extends AbstractActionController
     private $cryptEngine;
 
     /**
-     * @param QueryInterface   $queryService
+     * @param QueryInterface $queryService
      * @param AdapterInterface $cryptEngine
      */
     public function __construct(
         QueryInterface $queryService,
         AdapterInterface $cryptEngine
-    ) {
+    )
+    {
         $this->queryService = $queryService;
         $this->cryptEngine = $cryptEngine;
     }
@@ -48,7 +49,7 @@ class QueryController extends AbstractActionController
 
         return $this->createViewModel(
             array(
-                'collection'  => $collection,
+                'collection' => $collection,
                 'routeParams' => $this->params()->fromRoute(),
             )
         );
@@ -83,6 +84,7 @@ class QueryController extends AbstractActionController
         /** @var Response $response */
         $response = $this->getResponse();
         $response->setStatusCode(Response::STATUS_CODE_404);
+
         return null;
     }
 
@@ -98,12 +100,15 @@ class QueryController extends AbstractActionController
     {
         $viewModel = new ViewModel($variables, $options);
         $request = $this->getRequest();
+
         if ($request instanceof HttpRequest) {
             $viewModel->setTerminal($request->isXmlHttpRequest());
         } else {
             $viewModel->setTerminal(true);
         }
+
         $viewModel->setVariable('isTerminal', $viewModel->terminate());
+
         return $viewModel;
     }
 }
