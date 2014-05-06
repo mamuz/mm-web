@@ -46,8 +46,8 @@ return array(
     ),
     'blog_domain'     => array(
         'factories' => array(
-            'Blog\Crypt\HashId'  => 'Blog\Crypt\HashIdFactory',
-            'Blog\Service\Query' => 'Blog\Service\QueryFactory',
+            'Blog\Crypt\HashIdAdapter' => 'Blog\Crypt\HashIdAdapterFactory',
+            'Blog\Service\Query'       => 'Blog\Service\QueryFactory',
         ),
     ),
     'view_helpers'    => array(

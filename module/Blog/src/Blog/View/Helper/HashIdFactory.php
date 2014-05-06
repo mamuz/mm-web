@@ -21,8 +21,8 @@ class HashIdFactory implements FactoryInterface
         /** @var ServiceLocatorInterface $domainManager */
         $domainManager = $serviceLocator->get('Blog\DomainManager');
 
-        /** @var \Blog\Crypt\CryptInterface $cryptEngine */
-        $cryptEngine = $domainManager->get('Blog\Crypt\HashId');
+        /** @var \Blog\Crypt\AdapterInterface $cryptEngine */
+        $cryptEngine = $domainManager->get('Blog\Crypt\HashIdAdapter');
 
         return new HashId($cryptEngine);
     }

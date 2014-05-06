@@ -10,4 +10,9 @@ tools:
     php_analyzer: true
 
 filter:
-    paths: [module/Application/src/*, module/ContentManager/src/*, module/Contact/src/*]
+    paths: [
+        module/Application/src/*,
+        module/ContentManager/src/*,
+        module/Contact/src/*,
+        module/Blog/src/*
+    ]

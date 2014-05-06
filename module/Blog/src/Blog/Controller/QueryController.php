@@ -2,7 +2,7 @@
 
 namespace Blog\Controller;
 
-use Blog\Crypt\CryptInterface;
+use Blog\Crypt\AdapterInterface;
 use Blog\Feature\QueryInterface;
 use Zend\Http\PhpEnvironment\Request as HttpRequest;
 use Zend\Http\PhpEnvironment\Response;
@@ -15,16 +15,16 @@ class QueryController extends AbstractActionController
     /** @var QueryInterface */
     private $queryService;
 
-    /** @var CryptInterface */
+    /** @var AdapterInterface */
     private $cryptEngine;
 
     /**
-     * @param QueryInterface $queryService
-     * @param CryptInterface $cryptEngine
+     * @param QueryInterface   $queryService
+     * @param AdapterInterface $cryptEngine
      */
     public function __construct(
         QueryInterface $queryService,
-        CryptInterface $cryptEngine
+        AdapterInterface $cryptEngine
     ) {
         $this->queryService = $queryService;
         $this->cryptEngine = $cryptEngine;

@@ -2,11 +2,12 @@
 
 namespace Blog\Crypt;
 
+use Hashids\Hashids;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 use Zend\ServiceManager\ServiceManager;
 
-class HashIdFactory implements FactoryInterface
+class HashIdAdapterFactory implements FactoryInterface
 {
     /**
      * {@inheritdoc}
@@ -16,10 +17,12 @@ class HashIdFactory implements FactoryInterface
     {
         $config = $serviceLocator->get('Config')['crypt']['hashid'];
 
-        return new HashId(
+        $hashIds = new HashIds(
             $config['sault'],
             $config['minLength'],
             $config['chars']
         );
+
+        return new HashIdAdapter($hashIds);
     }
 }

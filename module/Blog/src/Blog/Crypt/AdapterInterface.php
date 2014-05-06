@@ -2,7 +2,7 @@
 
 namespace Blog\Crypt;
 
-interface CryptInterface
+interface AdapterInterface
 {
     /**
      * @param mixed $value

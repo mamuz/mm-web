@@ -2,15 +2,18 @@
 
 namespace Blog\View\Helper;
 
-use Blog\Crypt\CryptInterface;
+use Blog\Crypt\AdapterInterface;
 use Zend\View\Helper\AbstractHelper;
 
 class HashId extends AbstractHelper
 {
-    /** @var CryptInterface */
+    /** @var AdapterInterface */
     private $cryptEngine;
 
-    public function __construct(CryptInterface $cryptEngine)
+    /**
+     * @param AdapterInterface $cryptEngine
+     */
+    public function __construct(AdapterInterface $cryptEngine)
     {
         $this->cryptEngine = $cryptEngine;
     }
