@@ -5,8 +5,8 @@
 $(document).ready(function () {
     $('.list').jscroll({
         nextSelector: 'a.next',
-        loadingHtml: '',
-        callback: function () {
+        loadingHtml : '',
+        callback    : function () {
             $('a.prev').remove()
         }
     });
