@@ -19,14 +19,13 @@ class QueryController extends AbstractActionController
     private $cryptEngine;
 
     /**
-     * @param QueryInterface $queryService
+     * @param QueryInterface   $queryService
      * @param AdapterInterface $cryptEngine
      */
     public function __construct(
         QueryInterface $queryService,
         AdapterInterface $cryptEngine
-    )
-    {
+    ) {
         $this->queryService = $queryService;
         $this->cryptEngine = $cryptEngine;
     }
@@ -49,7 +48,7 @@ class QueryController extends AbstractActionController
 
         return $this->createViewModel(
             array(
-                'collection' => $collection,
+                'collection'  => $collection,
                 'routeParams' => $this->params()->fromRoute(),
             )
         );
