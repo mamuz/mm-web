@@ -3,12 +3,12 @@
 $posts = '';
 foreach ($this->collection as $entity) {
     $posts .= $this->postPanel($entity);
-    $posts .= $this->pagerNext($this->collection, 'blogActivePosts', $this->routeParams);
+    $posts .= $this->pager($this->collection, 'blogActivePosts', $this->routeParams);
 }
 
 if (!$this->isTerminal) {
     $this->headTitle()->append('Blog');
-    $this->headScript()->prependFile('/js/blog.js');
+    $this->headScript()->prependFile('/js/posts.js');
     $this->headScript()->prependFile('/js/vendor/jquery.jscroll.min.js');
     $posts = '<div class="list">' . $posts . '</div>';
 }
