@@ -9,6 +9,7 @@ class Pager extends AbstractHelper
 {
     /** @var RangeInterface */
     private $range;
+
     /** @var string */
     private $html = '';
 
@@ -27,9 +28,9 @@ class Pager extends AbstractHelper
 
     /**
      * @param \Countable $collection
-     * @param string $route
-     * @param array $params
-     * @param string $pageKey
+     * @param string     $route
+     * @param array      $params
+     * @param string     $pageKey
      * @return string
      */
     public function render(\Countable $collection, $route, array $params, $pageKey = 'page')
