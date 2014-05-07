@@ -2,8 +2,6 @@
 
 namespace ContactTest;
 
-// Define environment
-
 use RuntimeException;
 use Zend\Loader\AutoloaderFactory;
 use Zend\Mvc\Service\ServiceManagerConfig;
