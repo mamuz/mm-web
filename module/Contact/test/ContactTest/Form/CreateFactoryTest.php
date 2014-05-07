@@ -14,7 +14,7 @@ class CreateFactoryTest extends \PHPUnit_Framework_TestCase
         $this->fixture = new CreateFactory;
     }
 
-    public function testImplementingFactoyInterface()
+    public function testImplementingFactoryInterface()
     {
         $this->assertInstanceOf('Zend\ServiceManager\FactoryInterface', $this->fixture);
     }
@@ -32,6 +32,27 @@ class CreateFactoryTest extends \PHPUnit_Framework_TestCase
         $sm->shouldReceive('get')->with('Config')->andReturn(array());
 
         $form = $this->fixture->createService($sm);
+
+        $this->assertInstanceOf('Zend\Form\FormInterface', $form);
+    }
+
+    public function testCreationWithServiceLocatorAwareness()
+    {
+        $sm = \Mockery::mock('Zend\ServiceManager\ServiceLocatorInterface');
+
+        $sl = \Mockery::mock('Zend\ServiceManager\AbstractPluginManager');
+        $sl->shouldReceive('getServiceLocator')->andReturn($sm);
+
+        $metadata = \Mockery::mock('Doctrine\Common\Persistence\Mapping\ClassMetadata')->shouldIgnoreMissing();
+        $metadata->shouldReceive('getAssociationNames')->andReturn(array());
+        $metadata->shouldReceive('getFieldNames')->andReturn(array());
+        $objectManager = \Mockery::mock('Doctrine\Common\Persistence\ObjectManager');
+        $objectManager->shouldReceive('getClassMetadata')->andReturn($metadata);
+
+        $sm->shouldReceive('get')->with('Doctrine\ORM\EntityManager')->andReturn($objectManager);
+        $sm->shouldReceive('get')->with('Config')->andReturn(array());
+
+        $form = $this->fixture->createService($sl);
 
         $this->assertInstanceOf('Zend\Form\FormInterface', $form);
     }

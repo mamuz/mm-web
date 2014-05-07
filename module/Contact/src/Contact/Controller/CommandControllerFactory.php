@@ -10,7 +10,7 @@ class CommandControllerFactory implements FactoryInterface
 {
     /**
      * {@inheritdoc}
-     * @return CommandController
+     * @return \Zend\Mvc\Controller\AbstractController
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {

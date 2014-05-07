@@ -22,6 +22,8 @@ class ErrorHandling implements ExceptionLoggerInterface
     {
         $log = $this->buildMessageBy($e) . PHP_EOL . $e->getTraceAsString();
         $this->logger->err($log);
+
+        return $this;
     }
 
     /**

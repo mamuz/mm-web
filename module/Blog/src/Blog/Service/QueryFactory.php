@@ -11,7 +11,7 @@ class QueryFactory implements FactoryInterface
 {
     /**
      * {@inheritdoc}
-     * @return Query
+     * @return \Blog\Feature\QueryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {

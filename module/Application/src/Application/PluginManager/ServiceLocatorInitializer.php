@@ -17,5 +17,7 @@ class ServiceLocatorInitializer implements InitializerInterface
         if ($instance instanceof ServiceLocatorAwareInterface) {
             $instance->setServiceLocator($serviceLocator);
         }
+
+        return $instance;
     }
 }

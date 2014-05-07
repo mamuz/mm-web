@@ -28,38 +28,43 @@ class PageTest extends \PHPUnit_Framework_TestCase
     {
         $expected = 12;
         $this->assertNull($this->fixture->getId());
-        $this->fixture->setId($expected);
+        $result = $this->fixture->setId($expected);
         $this->assertSame($expected, $this->fixture->getId());
+        $this->assertSame($result, $this->fixture);
     }
 
     public function testMutateAndAccessPath()
     {
         $expected = 'foo';
         $this->assertNull($this->fixture->getPath());
-        $this->fixture->setPath($expected);
+        $result = $this->fixture->setPath($expected);
         $this->assertSame($expected, $this->fixture->getPath());
+        $this->assertSame($result, $this->fixture);
     }
 
     public function testMutateAndAccessTitle()
     {
         $expected = 'foo';
         $this->assertSame('', $this->fixture->getTitle());
-        $this->fixture->setTitle($expected);
+        $result = $this->fixture->setTitle($expected);
         $this->assertSame($expected, $this->fixture->getTitle());
+        $this->assertSame($result, $this->fixture);
     }
 
     public function testMutateAndAccessContent()
     {
         $expected = 'foo';
         $this->assertSame('', $this->fixture->getContent());
-        $this->fixture->setContent($expected);
+        $result = $this->fixture->setContent($expected);
         $this->assertSame($expected, $this->fixture->getContent());
+        $this->assertSame($result, $this->fixture);
     }
 
     public function testMutateAndAccessActive()
     {
         $this->assertFalse($this->fixture->isActive());
-        $this->fixture->setActive(true);
+        $result = $this->fixture->setActive(true);
         $this->assertTrue($this->fixture->isActive());
+        $this->assertSame($result, $this->fixture);
     }
 }

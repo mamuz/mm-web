@@ -11,7 +11,7 @@ class HashIdFactory implements FactoryInterface
 {
     /**
      * {@inheritdoc}
-     * @return ServiceLocatorInterface
+     * @return \Zend\View\Helper\HelperInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {

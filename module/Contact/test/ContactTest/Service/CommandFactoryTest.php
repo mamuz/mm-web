@@ -14,7 +14,7 @@ class CommandFactoryTest extends \PHPUnit_Framework_TestCase
         $this->fixture = new CommandFactory;
     }
 
-    public function testImplementingFactoyInterface()
+    public function testImplementingFactoryInterface()
     {
         $this->assertInstanceOf('Zend\ServiceManager\FactoryInterface', $this->fixture);
     }
@@ -29,6 +29,6 @@ class CommandFactoryTest extends \PHPUnit_Framework_TestCase
 
         $service = $this->fixture->createService($sm);
 
-        $this->assertInstanceOf('Contact\Service\Command', $service);
+        $this->assertInstanceOf('Contact\Feature\CommandInterface', $service);
     }
 }

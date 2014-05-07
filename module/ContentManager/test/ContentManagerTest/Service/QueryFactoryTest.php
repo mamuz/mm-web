@@ -14,7 +14,7 @@ class QueryFactoryTest extends \PHPUnit_Framework_TestCase
         $this->fixture = new QueryFactory;
     }
 
-    public function testImplementingFactoyInterface()
+    public function testImplementingFactoryInterface()
     {
         $this->assertInstanceOf('Zend\ServiceManager\FactoryInterface', $this->fixture);
     }
@@ -29,6 +29,6 @@ class QueryFactoryTest extends \PHPUnit_Framework_TestCase
 
         $service = $this->fixture->createService($sm);
 
-        $this->assertInstanceOf('ContentManager\Service\Query', $service);
+        $this->assertInstanceOf('ContentManager\Feature\QueryInterface', $service);
     }
 }

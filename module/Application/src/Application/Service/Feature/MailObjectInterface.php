@@ -8,7 +8,7 @@ interface MailObjectInterface
      * Bind a object which will be filtered to message object
      *
      * @param mixed $object
-     * @return object
+     * @return MailObjectInterface
      */
     public function bind($object);
 

@@ -10,7 +10,7 @@ class QueryControllerFactory implements FactoryInterface
 {
     /**
      * {@inheritdoc}
-     * @return QueryController
+     * @return \Zend\Mvc\Controller\AbstractController
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {

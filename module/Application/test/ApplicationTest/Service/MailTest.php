@@ -37,12 +37,14 @@ class MailTest extends \PHPUnit_Framework_TestCase
         $this->fixture->send();
     }
 
-    public function testSendBintObject()
+    public function testSendBindObject()
     {
         $object = \Mockery::mock('Zend\Mail\Message');
         $this->builder->shouldReceive('filter')->with($object)->andReturn($object);
         $this->transporter->shouldReceive('send')->with($object);
 
-        $this->fixture->bind($object)->send();
+        $result = $this->fixture->bind($object);
+        $this->fixture->send();
+        $this->assertSame($result, $this->fixture);
     }
 }

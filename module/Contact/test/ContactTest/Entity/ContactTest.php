@@ -30,44 +30,49 @@ class ContactTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertInstanceOf('\DateTime', $this->fixture->getCreatedAt());
         $expected = new \DateTime;
-        $this->fixture->setCreatedAt($expected);
+        $result = $this->fixture->setCreatedAt($expected);
         $this->assertSame($expected, $this->fixture->getCreatedAt());
+        $this->assertSame($result, $this->fixture);
     }
 
     public function testMutateAndAccessFromEmail()
     {
         $expected = 'foo';
-        $this->fixture->setFromEmail($expected);
+        $result = $this->fixture->setFromEmail($expected);
         $this->assertSame($expected, $this->fixture->getFromEmail());
+        $this->assertSame($result, $this->fixture);
     }
 
     public function testMutateAndAccessId()
     {
         $expected = 'foo';
-        $this->fixture->setId($expected);
+        $result = $this->fixture->setId($expected);
         $this->assertSame($expected, $this->fixture->getId());
+        $this->assertSame($result, $this->fixture);
     }
 
     public function testMutateAndAccessMessage()
     {
         $expected = 'foo';
-        $this->fixture->setMessage($expected);
+        $result = $this->fixture->setMessage($expected);
         $this->assertSame($expected, $this->fixture->getMessage());
+        $this->assertSame($result, $this->fixture);
     }
 
     public function testMutateAndAccessSubject()
     {
         $expected = 'foo';
-        $this->fixture->setSubject($expected);
+        $result = $this->fixture->setSubject($expected);
         $this->assertSame($expected, $this->fixture->getSubject());
+        $this->assertSame($result, $this->fixture);
     }
 
     public function testMutateAndAccessReplied()
     {
         $this->assertFalse($this->fixture->isReplied());
-        $expected = true;
-        $this->fixture->setReplied($expected);
+        $result = $this->fixture->setReplied(true);
         $this->assertTrue($this->fixture->isReplied());
+        $this->assertSame($result, $this->fixture);
     }
 
     public function testArrayRepresentation()

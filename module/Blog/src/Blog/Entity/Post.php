@@ -84,11 +84,13 @@ class Post
     }
 
     /**
+     * Provide deep clone,
      * destroy identity and init datetime objects
      */
     public function __clone()
     {
         $this->id = null;
+        $this->tags = clone $this->tags;
         $this->init();
     }
 

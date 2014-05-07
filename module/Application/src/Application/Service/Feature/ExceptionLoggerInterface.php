@@ -6,7 +6,7 @@ interface ExceptionLoggerInterface
 {
     /**
      * @param \Exception $e
-     * @return void
+     * @return ExceptionLoggerInterface
      */
     public function logException(\Exception $e);
 }

@@ -10,7 +10,7 @@ class CommandFactory implements FactoryInterface
 {
     /**
      * {@inheritdoc}
-     * @return Command
+     * @return \Contact\Feature\CommandInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {

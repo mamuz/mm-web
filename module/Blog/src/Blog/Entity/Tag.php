@@ -42,19 +42,20 @@ class Tag
     private $posts;
 
     /**
-     * init datetime objects
+     * init posts collection
      */
     public function __construct()
     {
-        $this->tags = new ArrayCollection();
+        $this->posts = new ArrayCollection();
     }
 
     /**
-     * destroy identity
+     * provide deep clone and destroy identity
      */
     public function __clone()
     {
         $this->id = null;
+        $this->posts = clone $this->posts;
     }
 
     /**

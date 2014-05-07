@@ -10,7 +10,7 @@ class QueryFactory implements FactoryInterface
 {
     /**
      * {@inheritdoc}
-     * @return Query
+     * @return \ContentManager\Feature\QueryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {

@@ -11,7 +11,7 @@ class HashIdAdapterFactory implements FactoryInterface
 {
     /**
      * {@inheritdoc}
-     * @return ServiceLocatorInterface
+     * @return AdapterInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {

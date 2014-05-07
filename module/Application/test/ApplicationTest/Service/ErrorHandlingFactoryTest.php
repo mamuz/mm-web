@@ -14,7 +14,7 @@ class ErrorHandlingFactoryTest extends \PHPUnit_Framework_TestCase
         $this->fixture = new ErrorHandlingFactory;
     }
 
-    public function testImplementingFactoyInterface()
+    public function testImplementingFactoryInterface()
     {
         $this->assertInstanceOf('Zend\ServiceManager\FactoryInterface', $this->fixture);
     }

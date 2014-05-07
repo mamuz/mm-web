@@ -14,7 +14,7 @@ class ContactMailFactoryTest extends \PHPUnit_Framework_TestCase
         $this->fixture = new ContactMailFactory;
     }
 
-    public function testImplementingFactoyInterface()
+    public function testImplementingFactoryInterface()
     {
         $this->assertInstanceOf('Zend\ServiceManager\FactoryInterface', $this->fixture);
     }

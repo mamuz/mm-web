@@ -28,6 +28,7 @@ class ErrorHandlingTest extends \PHPUnit_Framework_TestCase
         $exception = \Mockery::mock('Exception')->shouldIgnoreMissing();
         $this->logger->shouldReceive('err');
 
-        $this->fixture->logException($exception);
+        $result = $this->fixture->logException($exception);
+        $this->assertSame($result, $this->fixture);
     }
 }
