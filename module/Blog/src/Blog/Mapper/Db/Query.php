@@ -40,6 +40,11 @@ class Query implements QueryInterface
         return $this;
     }
 
+    public function findActivePostById($id)
+    {
+        return $this->entityManager->find(self::REPOSITORY, $id);
+    }
+
     public function findActivePosts()
     {
         $constraint = new Constraint;
@@ -64,7 +69,7 @@ class Query implements QueryInterface
         $constraintString = '';
 
         if (!$constraint->isEmpty()) {
-            $constraintString = "WHERE " . $constraint->toString() . ' ';
+            $constraintString = 'WHERE ' . $constraint->toString() . ' ';
         }
 
         $dql = 'SELECT p, t FROM ' . self::REPOSITORY . ' p LEFT JOIN p.tags t '
@@ -79,10 +84,5 @@ class Query implements QueryInterface
         }
 
         return new Paginator($query);
-    }
-
-    public function findActivePostById($id)
-    {
-        return $this->entityManager->find(self::REPOSITORY, $id);
     }
 }

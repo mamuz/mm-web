@@ -14,6 +14,8 @@ class Constraint implements ConstraintInterface
     {
         $this->parameters[$key] = $value;
         $this->specs[$key] = $spec;
+
+        return $this;
     }
 
     public function isEmpty()
