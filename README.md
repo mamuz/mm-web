@@ -17,6 +17,7 @@ Practices, principles and patterns about web-development with PHP
 - Contact
 - ContentManager
 - Responsive Frontend
+- Blog: Postlist is infinitive
 
 ## Non-Functional Features
 
@@ -26,9 +27,10 @@ Practices, principles and patterns about web-development with PHP
 - GoogleTracking Plugin
 - Reportmail for new contact entry
 - UserInput Filter
-- Markdown parser for ContentManager
+- Markdown parser for ContentManager and BlogPosts
 - ORM
 - AnnotationBuilder
+- Hashed Repository Identities
 - Config Cache
 - Autoload classmap
 - Custom ServiceManager for each module
