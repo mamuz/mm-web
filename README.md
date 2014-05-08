@@ -108,6 +108,14 @@ putenv("APPLICATION_ENV=development");
 
 Dependencies are handled by Composer package manager.
 
+### Install composer
+
+```sh
+curl -s https://getcomposer.org/installer
+```
+
+### Install dependencies with composer
+
 ```sh
 php composer.phar self-update; php composer.phar update
 ```
