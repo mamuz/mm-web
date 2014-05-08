@@ -26,8 +26,13 @@
         "rwoverdijk/assetmanager"            : "1.*"
     },
     "require-dev"      : {
-        "satooshi/php-coveralls": "dev-master",
-        "phpunit/phpunit"       : "4.1.*",
-        "mockery/mockery"       : "0.9.*"
+        "satooshi/php-coveralls"   : "dev-master",
+        "phpunit/phpunit"          : "4.1.*",
+        "mockery/mockery"          : "0.9.*",
+        "pdepend/pdepend"          : "1.1.*",
+        "phpmd/phpmd"              : "1.4.*",
+        "squizlabs/php_codesniffer": "2.0.*@dev",
+        "sebastian/phpcpd"         : "*",
+        "phploc/phploc"            : "*"
     }
 }

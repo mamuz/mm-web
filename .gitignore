@@ -5,6 +5,8 @@ config/autoload/*.local.php
 public/environment.php
 data
 data/*
+build
+build/*
 vendor
 vendor/*
 .idea
