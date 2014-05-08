@@ -33,6 +33,7 @@
         "phpmd/phpmd"              : "1.4.*",
         "squizlabs/php_codesniffer": "2.0.*@dev",
         "sebastian/phpcpd"         : "*",
-        "phploc/phploc"            : "*"
+        "phploc/phploc"            : "*",
+        "mayflower/php-codebrowser": "~1.1"
     }
 }

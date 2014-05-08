@@ -15,3 +15,5 @@ mkdir -p build/coverage
 ./vendor/bin/phpcpd --exclude="test" ./module > ./build/logs/phpcpd.log
 
 ./vendor/bin/phploc --exclude="test" ./module/ > ./build/logs/report.log
+
+./vendor/bin/phpcb -o ./build/codebrowser -i test -s ./module
