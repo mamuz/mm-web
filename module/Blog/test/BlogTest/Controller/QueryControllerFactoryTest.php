@@ -33,4 +33,23 @@ class QueryControllerFactoryTest extends \PHPUnit_Framework_TestCase
 
         $this->assertInstanceOf('Zend\Mvc\Controller\AbstractController', $controller);
     }
+
+    public function testCreationWithServiceLocatorAwareness()
+    {
+        $sm = \Mockery::mock('Zend\ServiceManager\ServiceLocatorInterface');
+
+        $sl = \Mockery::mock('Zend\ServiceManager\AbstractPluginManager');
+        $sl->shouldReceive('getServiceLocator')->andReturn($sm);
+
+        $cryptEngine = \Mockery::mock('Blog\Crypt\AdapterInterface');
+        $queryInterface = \Mockery::mock('Blog\Feature\QueryInterface');
+        $sm->shouldReceive('getServiceLocator')->andReturn($sm);
+        $sm->shouldReceive('get')->with('Blog\DomainManager')->andReturn($sm);
+        $sm->shouldReceive('get')->with('Blog\Service\Query')->andReturn($queryInterface);
+        $sm->shouldReceive('get')->with('Blog\Crypt\HashIdAdapter')->andReturn($cryptEngine);
+
+        $controller = $this->fixture->createService($sl);
+
+        $this->assertInstanceOf('Zend\Mvc\Controller\AbstractController', $controller);
+    }
 }

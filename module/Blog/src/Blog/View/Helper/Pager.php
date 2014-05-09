@@ -11,7 +11,7 @@ class Pager extends AbstractHelper
     private $range;
 
     /** @var string */
-    private $html = '';
+    private $html;
 
     public function __construct(RangeInterface $range)
     {
@@ -35,6 +35,8 @@ class Pager extends AbstractHelper
      */
     public function render(\Countable $collection, $route, array $params, $pageKey = 'page')
     {
+        $this->html = '';
+
         $totalCount = count($collection);
         $pagesCount = ceil($totalCount / $this->range->getSize());
 
