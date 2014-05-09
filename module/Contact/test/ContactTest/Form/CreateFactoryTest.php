@@ -27,9 +27,12 @@ class CreateFactoryTest extends \PHPUnit_Framework_TestCase
         $objectManager = \Mockery::mock('Doctrine\Common\Persistence\ObjectManager');
         $objectManager->shouldReceive('getClassMetadata')->andReturn($metadata);
 
+        $element = \Mockery::mock('Zend\Form\ElementInterface');
+        $element->shouldReceive('getName')->andReturn('foo');
+
         $sm = \Mockery::mock('Zend\ServiceManager\ServiceLocatorInterface');
         $sm->shouldReceive('get')->with('Doctrine\ORM\EntityManager')->andReturn($objectManager);
-        $sm->shouldReceive('get')->with('Config')->andReturn(array());
+        $sm->shouldReceive('get')->with('Config')->andReturn(array('captcha' => $element));
 
         $form = $this->fixture->createService($sm);
 
