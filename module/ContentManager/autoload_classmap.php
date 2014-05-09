@@ -24,6 +24,8 @@ return array(
     __DIR__ . '/test/ContentManagerTest/Service/QueryFactoryTest.php',
     'ContentManagerTest\Mapper\Db\QueryTest'                   =>
     __DIR__ . '/test/ContentManagerTest/Mapper/Db/QueryTest.php',
+    'ContentManagerTest\Service\FactoryTest'                   =>
+    __DIR__ . '/test/ContentManagerTest/DomainManager/FactoryTest.php',
     'ContentManagerTest\Entity\NullPageTest'                   =>
     __DIR__ . '/test/ContentManagerTest/Entity/NullPageTest.php',
     'ContentManagerTest\Entity\PageTest'                       =>

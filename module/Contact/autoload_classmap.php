@@ -18,6 +18,8 @@ return array(
     __DIR__ . '/test/ContactTest/Service/CommandFactoryTest.php',
     'ContactTest\Service\CommandTest'                     => __DIR__ . '/test/ContactTest/Service/CommandTest.php',
     'ContactTest\Mapper\Db\CommandTest'                   => __DIR__ . '/test/ContactTest/Mapper/Db/CommandTest.php',
+    'ContactTest\Service\FactoryTest'                     =>
+    __DIR__ . '/test/ContactTest/DomainManager/FactoryTest.php',
     'ContactTest\Form\CreateFactoryTest'                  => __DIR__ . '/test/ContactTest/Form/CreateFactoryTest.php',
     'ContactTest\Entity\ContactTest'                      => __DIR__ . '/test/ContactTest/Entity/ContactTest.php',
     'ContactTest\Controller\CommandControllerFactoryTest' =>
