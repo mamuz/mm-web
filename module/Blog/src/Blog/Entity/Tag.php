@@ -55,7 +55,9 @@ class Tag
     public function __clone()
     {
         $this->id = null;
-        $this->posts = clone $this->posts;
+        if ($this->posts) {
+            $this->posts = clone $this->posts;
+        }
     }
 
     /**

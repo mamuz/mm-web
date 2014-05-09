@@ -90,7 +90,9 @@ class Post
     public function __clone()
     {
         $this->id = null;
-        $this->tags = clone $this->tags;
+        if ($this->tags) {
+            $this->tags = clone $this->tags;
+        }
         $this->init();
     }
 
