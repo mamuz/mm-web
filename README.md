@@ -36,6 +36,7 @@ Practices, principles and patterns about web-development with PHP
 - Custom ServiceManager for each module
 - GitHub, Travis-CI, Coveralls.io and VersionEye
 - PHPUnit with Mockery
+- PHPMD, PHPCS, PHPCPD, PHPLOC, PHPCB and PHPDOC integration
 
 ## Installation
 
@@ -44,6 +45,7 @@ Practices, principles and patterns about web-development with PHP
 ```sh
 cd /var/www
 ```
+
 ```sh
 git clone https://github.com/mamuz/mm-web.git
 ```
@@ -51,6 +53,7 @@ git clone https://github.com/mamuz/mm-web.git
 cd mm-web
 ```
 ```sh
+curl -s https://getcomposer.org/installer
 php composer.phar self-update; php composer.phar install
 ```
 
@@ -107,12 +110,6 @@ putenv("APPLICATION_ENV=development");
 ## Composer
 
 Dependencies are handled by Composer package manager.
-
-### Install composer
-
-```sh
-curl -s https://getcomposer.org/installer
-```
 
 ### Install dependencies with composer
 
