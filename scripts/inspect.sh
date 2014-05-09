@@ -2,6 +2,8 @@
 
 mkdir -p build/logs
 mkdir -p build/coverage
+mkdir -p build/codebrowser
+mkdir -p build/api
 
 ./vendor/bin/pdepend --summary-xml=./build/logs/summary.xml \
     --jdepend-chart=./build/logs/pdepend.svg --overview-pyramid=./build/logs/pyramid.svg ./module
@@ -17,3 +19,5 @@ mkdir -p build/coverage
 ./vendor/bin/phploc --exclude="test" ./module/ > ./build/logs/report.log
 
 ./vendor/bin/phpcb -o ./build/codebrowser -i test -s ./module
+
+phpdoc -d ./module -t ./build/api -i test

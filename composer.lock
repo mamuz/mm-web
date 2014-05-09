@@ -301,12 +301,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "ba61dd3d1cbeb5d1e3289d98408e085225045ac9"
+                "reference": "9d6300fd862478f58a526fbcad0a8f630daa60aa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/ba61dd3d1cbeb5d1e3289d98408e085225045ac9",
-                "reference": "ba61dd3d1cbeb5d1e3289d98408e085225045ac9",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/9d6300fd862478f58a526fbcad0a8f630daa60aa",
+                "reference": "9d6300fd862478f58a526fbcad0a8f630daa60aa",
                 "shasum": ""
             },
             "require": {
@@ -364,7 +364,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2014-05-08 21:43:10"
+            "time": "2014-05-09 13:52:56"
         },
         {
             "name": "doctrine/doctrine-module",
@@ -455,12 +455,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineORMModule.git",
-                "reference": "121dacbc3f42de2c9c146cb9a835985774304fc1"
+                "reference": "89c25f55e19973eedb616d433e19a4d7801b6813"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineORMModule/zipball/121dacbc3f42de2c9c146cb9a835985774304fc1",
-                "reference": "121dacbc3f42de2c9c146cb9a835985774304fc1",
+                "url": "https://api.github.com/repos/doctrine/DoctrineORMModule/zipball/89c25f55e19973eedb616d433e19a4d7801b6813",
+                "reference": "89c25f55e19973eedb616d433e19a4d7801b6813",
                 "shasum": ""
             },
             "require": {
@@ -530,7 +530,7 @@
                 "orm",
                 "zf2"
             ],
-            "time": "2014-05-08 21:27:45"
+            "time": "2014-05-09 06:43:22"
         },
         {
             "name": "doctrine/inflector",
@@ -1138,12 +1138,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Console.git",
-                "reference": "d12686cea4e1155ed93449c0bca9db223f31bb2d"
+                "reference": "ea1e32f8f3c78ca1a31f5a730229b028f1e76431"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Console/zipball/d12686cea4e1155ed93449c0bca9db223f31bb2d",
-                "reference": "d12686cea4e1155ed93449c0bca9db223f31bb2d",
+                "url": "https://api.github.com/repos/symfony/Console/zipball/ea1e32f8f3c78ca1a31f5a730229b028f1e76431",
+                "reference": "ea1e32f8f3c78ca1a31f5a730229b028f1e76431",
                 "shasum": ""
             },
             "require": {
@@ -1186,7 +1186,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "http://symfony.com",
-            "time": "2014-04-28 13:26:08"
+            "time": "2014-05-09 08:15:02"
         },
         {
             "name": "symfony/process",
@@ -2177,12 +2177,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit-mock-objects.git",
-                "reference": "bbc1aa16d02273790a2106e3385cc0efeb6a18cb"
+                "reference": "4dada9d8762055e292d79142adbdde56c113b21a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/bbc1aa16d02273790a2106e3385cc0efeb6a18cb",
-                "reference": "bbc1aa16d02273790a2106e3385cc0efeb6a18cb",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/4dada9d8762055e292d79142adbdde56c113b21a",
+                "reference": "4dada9d8762055e292d79142adbdde56c113b21a",
                 "shasum": ""
             },
             "require": {
@@ -2226,7 +2226,7 @@
                 "mock",
                 "xunit"
             ],
-            "time": "2014-05-04 09:39:30"
+            "time": "2014-05-09 09:09:30"
         },
         {
             "name": "psr/log",
@@ -2750,12 +2750,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "9b7f10067ffa71c6edbf67b8906f9615f97f097e"
+                "reference": "b37e7e4178b832809d8523e577664d1a4332b404"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/9b7f10067ffa71c6edbf67b8906f9615f97f097e",
-                "reference": "9b7f10067ffa71c6edbf67b8906f9615f97f097e",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/b37e7e4178b832809d8523e577664d1a4332b404",
+                "reference": "b37e7e4178b832809d8523e577664d1a4332b404",
                 "shasum": ""
             },
             "require": {
@@ -2815,7 +2815,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2014-05-06 06:28:35"
+            "time": "2014-05-09 00:54:23"
         },
         {
             "name": "symfony/config",
