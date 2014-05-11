@@ -35,10 +35,10 @@ class PostPanel extends AbstractHelper
             $header = '<a href="' . $url . '">' . $header . '</a>';
         }
 
-        $html = '<div class="page-header">' . PHP_EOL
-            . '<h3>' . $header . '</h3>' . PHP_EOL
-            . '</div>' . PHP_EOL
-            . $this->getView()->markdown($entity->getContent());
+        $html = '<h3>' . $header . '</h3>' . PHP_EOL
+            . '<div class="well">' . PHP_EOL
+            . $this->getView()->markdown($entity->getContent()) . PHP_EOL
+            . '</div>';
 
         return $html;
     }

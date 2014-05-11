@@ -43,9 +43,10 @@ class PostPanelTest extends \PHPUnit_Framework_TestCase
 
         $html = $this->fixture->render($this->post);
 
-        $expected = '<div class="page-header">' . PHP_EOL
-            . '<h3><a href="url">title</a></h3>' . PHP_EOL
-            . '</div>' . PHP_EOL . '_content_';
+        $expected = '<h3><a href="url">title</a></h3>' . PHP_EOL
+            . '<div class="well">' . PHP_EOL
+            . '_content_' . PHP_EOL
+            . '</div>';
 
         $this->assertSame($expected, $html);
 
@@ -58,9 +59,10 @@ class PostPanelTest extends \PHPUnit_Framework_TestCase
     {
         $html = $this->fixture->render($this->post, false);
 
-        $expected = '<div class="page-header">' . PHP_EOL
-            . '<h3>title</h3>' . PHP_EOL
-            . '</div>' . PHP_EOL . '_content_';
+        $expected = '<h3>title</h3>' . PHP_EOL
+            . '<div class="well">' . PHP_EOL
+            . '_content_' . PHP_EOL
+            . '</div>';
 
         $this->assertSame($expected, $html);
 
