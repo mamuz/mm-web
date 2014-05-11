@@ -23,16 +23,18 @@ footer .well {
     margin-bottom: 0;
 }
 
-#contact {
+.bs-component {
     max-width: 400px;
 }
 
-#contact textarea {
-    height: 100px;
+.form-control {
+    background-color: #e7e7e7;
 }
 
-#contact .btn {
-    width: 100%;
+@media (min-width: 767px) {
+    textarea.form-control {
+        height: 100px;
+    }
 }
 
 #recaptcha_area {

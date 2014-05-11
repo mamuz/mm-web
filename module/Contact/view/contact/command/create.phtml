@@ -19,7 +19,9 @@ if (isset($this->contact)) {
     $form->setAttribute('action', $this->url('contact'));
     $form->prepare();
 
+    echo '<div class="well bs-component">';
     echo $this->form()->openTag($form);
     echo $this->form($form);
     echo $this->form()->closeTag();
+    echo '</div>';
 }
