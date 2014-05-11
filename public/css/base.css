@@ -10,7 +10,7 @@ body {
 a,
 a:hover,
 a:focus {
-    color: #d67200;
+    color: #77b300;
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -39,7 +39,11 @@ footer .well {
 }
 
 .form-control {
-    background-color: #e7e7e7;
+    background-color: #c1c1c1;
+}
+
+.form-control:focus {
+    border-color: #77b300;
 }
 
 @media (min-width: 767px) {
@@ -50,6 +54,14 @@ footer .well {
 
 #recaptcha_area {
     margin: auto;
+}
+
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus,
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus {
+    background-color: #77b300;
 }
 
 pre {

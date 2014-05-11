@@ -84,7 +84,7 @@ class CreateFactory implements FactoryInterface
                 'name'       => 'submit',
                 'attributes' => array(
                     'value' => 'send',
-                    'class' => 'btn btn-primary btn-block',
+                    'class' => 'btn btn-success btn-block',
                 ),
             )
         );
