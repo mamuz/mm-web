@@ -40,3 +40,8 @@ footer .well {
 #recaptcha_area {
     margin: auto;
 }
+
+pre {
+    background-color: #0c0c0c;
+    border: 1px solid #000000;
+}
