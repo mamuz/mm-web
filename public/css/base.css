@@ -7,6 +7,17 @@ body {
     background-image: url(../img/bg.noise.png);
 }
 
+a,
+a:hover,
+a:focus {
+    color: #d67200;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    color: #77b300;
+}
+
 #wrap {
     min-height: 100%;
     height: auto;
