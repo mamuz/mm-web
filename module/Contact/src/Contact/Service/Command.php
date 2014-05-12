@@ -32,12 +32,12 @@ class Command implements EventManagerAwareInterface, CommandInterface
     }
 
     /**
-     * @param string $event
-     * @param array  $args
+     * @param string $name
+     * @param array  $argv
      * @return void
      */
-    private function triggerEvent($event, array $args)
+    private function triggerEvent($name, array $argv)
     {
-        $this->getEventManager()->trigger($event, $this, $args);
+        $this->getEventManager()->trigger($name, $this, $argv);
     }
 }

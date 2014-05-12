@@ -3,9 +3,13 @@
 namespace ContentManager\Service;
 
 use ContentManager\Feature\QueryInterface;
+use Zend\EventManager\EventManagerAwareInterface;
+use Zend\EventManager\EventManagerAwareTrait;
 
-class Query implements QueryInterface
+class Query implements EventManagerAwareInterface, QueryInterface
 {
+    use EventManagerAwareTrait;
+
     /** @var QueryInterface */
     private $mapper;
 
@@ -19,6 +23,20 @@ class Query implements QueryInterface
 
     public function findActivePageByPath($path)
     {
-        return $this->mapper->findActivePageByPath($path);
+        $this->triggerEvent(__FUNCTION__ . '.pre', func_get_args());
+        $entity = $this->mapper->findActivePageByPath($path);
+        $this->triggerEvent(__FUNCTION__ . '.post', array($entity));
+
+        return $entity;
+    }
+
+    /**
+     * @param string $name
+     * @param array  $argv
+     * @return void
+     */
+    private function triggerEvent($name, array $argv)
+    {
+        $this->getEventManager()->trigger($name, $this, $argv);
     }
 }

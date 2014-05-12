@@ -9,6 +9,9 @@ class QueryTest extends \PHPUnit_Framework_TestCase
     /** @var Query */
     protected $fixture;
 
+    /** @var \Zend\EventManager\EventManagerInterface | \Mockery\MockInterface */
+    protected $eventManager;
+
     /** @var \Blog\Feature\QueryInterface | \Mockery\MockInterface */
     protected $mapper;
 
@@ -19,13 +22,20 @@ class QueryTest extends \PHPUnit_Framework_TestCase
     {
         $this->entity = \Mockery::mock('Blog\Entity\Post');
         $this->mapper = \Mockery::mock('Blog\Feature\QueryInterface');
+        $this->eventManager = \Mockery::mock('Zend\EventManager\EventManagerInterface')->shouldIgnoreMissing();
 
         $this->fixture = new Query($this->mapper);
+        $this->fixture->setEventManager($this->eventManager);
     }
 
     public function testImplementingQueryInterface()
     {
         $this->assertInstanceOf('Blog\Feature\QueryInterface', $this->fixture);
+    }
+
+    public function testImplementingEventManagerAwareInterface()
+    {
+        $this->assertInstanceOf('Zend\EventManager\EventManagerAwareInterface', $this->fixture);
     }
 
     public function testSetCurrentPage()
@@ -41,6 +51,18 @@ class QueryTest extends \PHPUnit_Framework_TestCase
     {
         $this->mapper->shouldReceive('findActivePosts')->andReturn(array($this->entity));
 
+        $this->eventManager->shouldReceive('trigger')->with(
+            'findActivePosts.pre',
+            $this->fixture,
+            array()
+        );
+
+        $this->eventManager->shouldReceive('trigger')->with(
+            'findActivePosts.post',
+            $this->fixture,
+            array(array($this->entity))
+        );
+
         $this->assertSame(array($this->entity), $this->fixture->findActivePosts());
     }
 
@@ -52,6 +74,18 @@ class QueryTest extends \PHPUnit_Framework_TestCase
             ->with($tag)
             ->andReturn(array($this->entity));
 
+        $this->eventManager->shouldReceive('trigger')->with(
+            'findActivePostsByTag.pre',
+            $this->fixture,
+            array($tag)
+        );
+
+        $this->eventManager->shouldReceive('trigger')->with(
+            'findActivePostsByTag.post',
+            $this->fixture,
+            array(array($this->entity))
+        );
+
         $this->assertSame(array($this->entity), $this->fixture->findActivePostsByTag($tag));
     }
 
@@ -62,6 +96,18 @@ class QueryTest extends \PHPUnit_Framework_TestCase
             ->shouldReceive('findActivePostById')
             ->with($id)
             ->andReturn($this->entity);
+
+        $this->eventManager->shouldReceive('trigger')->with(
+            'findActivePostsByTag.pre',
+            $this->fixture,
+            array($id)
+        );
+
+        $this->eventManager->shouldReceive('trigger')->with(
+            'findActivePostById.post',
+            $this->fixture,
+            array($this->entity)
+        );
 
         $this->assertSame($this->entity, $this->fixture->findActivePostById($id));
     }

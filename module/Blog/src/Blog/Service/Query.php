@@ -3,9 +3,13 @@
 namespace Blog\Service;
 
 use Blog\Feature\QueryInterface;
+use Zend\EventManager\EventManagerAwareInterface;
+use Zend\EventManager\EventManagerAwareTrait;
 
-class Query implements QueryInterface
+class Query implements EventManagerAwareInterface, QueryInterface
 {
+    use EventManagerAwareTrait;
+
     /** @var QueryInterface */
     private $mapper;
 
@@ -25,16 +29,38 @@ class Query implements QueryInterface
 
     public function findActivePosts()
     {
-        return $this->mapper->findActivePosts();
+        $this->triggerEvent(__FUNCTION__ . '.pre', func_get_args());
+        $collection = $this->mapper->findActivePosts();
+        $this->triggerEvent(__FUNCTION__ . '.post', array($collection));
+
+        return $collection;
     }
 
     public function findActivePostsByTag($tag)
     {
-        return $this->mapper->findActivePostsByTag($tag);
+        $this->triggerEvent(__FUNCTION__ . '.pre', func_get_args());
+        $collection = $this->mapper->findActivePostsByTag($tag);
+        $this->triggerEvent(__FUNCTION__ . '.post', array($collection));
+
+        return $collection;
     }
 
     public function findActivePostById($id)
     {
-        return $this->mapper->findActivePostById($id);
+        $this->triggerEvent(__FUNCTION__ . '.pre', func_get_args());
+        $entity = $this->mapper->findActivePostById($id);
+        $this->triggerEvent(__FUNCTION__ . '.post', array($entity));
+
+        return $entity;
+    }
+
+    /**
+     * @param string $name
+     * @param array  $argv
+     * @return void
+     */
+    private function triggerEvent($name, array $argv)
+    {
+        $this->getEventManager()->trigger($name, $this, $argv);
     }
 }
