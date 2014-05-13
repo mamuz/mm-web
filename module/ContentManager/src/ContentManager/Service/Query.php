@@ -23,20 +23,6 @@ class Query implements EventManagerAwareInterface, QueryInterface
 
     public function findActivePageByPath($path)
     {
-        $this->triggerEvent(__FUNCTION__ . '.pre', func_get_args());
-        $entity = $this->mapper->findActivePageByPath($path);
-        $this->triggerEvent(__FUNCTION__ . '.post', array($entity));
-
-        return $entity;
-    }
-
-    /**
-     * @param string $name
-     * @param array  $argv
-     * @return void
-     */
-    private function triggerEvent($name, array $argv)
-    {
-        $this->getEventManager()->trigger($name, $this, $argv);
+        return $this->mapper->findActivePageByPath($path);
     }
 }
