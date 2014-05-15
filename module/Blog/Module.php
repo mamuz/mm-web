@@ -14,7 +14,6 @@ class Module implements
 {
     public function init(ModuleManagerInterface $modules)
     {
-        $modules->loadModule('AssetManager');
         $modules->loadModule('DoctrineModule');
         $modules->loadModule('DoctrineORMModule');
         $modules->loadModule('TwbBundle');

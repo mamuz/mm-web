@@ -22,8 +22,7 @@
         "maglnet/magl-markdown"              : "1.*",
         "neilime/zf2-twb-bundle"             : "2.*@stable",
         "zendframework/zendservice-recaptcha": "~2.0.1",
-        "hashids/hashids"                    : "*",
-        "rwoverdijk/assetmanager"            : "1.*"
+        "hashids/hashids"                    : "*"
     },
     "require-dev"      : {
         "satooshi/php-coveralls"   : "dev-master",
