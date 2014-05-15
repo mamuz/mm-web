@@ -40,6 +40,11 @@ return array(
             'Application\Service\Log'           => 'Application\Service\LogFactory',
         ),
     ),
+    'view_helpers'       => array(
+        'factories' => array(
+            'autoVersion' => 'Application\View\Helper\AutoVersionFactory',
+        ),
+    ),
     'view_manager'       => array(
         'display_not_found_reason' => ($env != 'production'),
         'display_exceptions'       => ($env != 'production'),
@@ -57,13 +62,14 @@ return array(
         ),
     ),
     'application'        => array(
-        'http' => array(
+        'document_root' => $_SERVER['DOCUMENT_ROOT'],
+        'http'          => array(
             'headers' => array(
                 'Content-Type'     => 'text/html; charset=UTF-8',
                 'Content-Language' => 'en',
             ),
         ),
-        'mail' => array(
+        'mail'          => array(
             'contact' => array(
                 'template_map' => array(
                     'contact/subject' => __DIR__ . '/../view/mail/contact/subject.phtml',
@@ -77,7 +83,7 @@ return array(
                 ),
             ),
         ),
-        'log'  => array(
+        'log'           => array(
             'exceptionhandler'             => true,
             'errorhandler'                 => true,
             'fatal_error_shutdownfunction' => true,

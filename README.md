@@ -69,6 +69,7 @@ Add virtual host to apache
     SetEnv APPLICATION_ENV "development"
     <Location />
         RewriteEngine On
+        RewriteRule ^(.*)\.[\d]{10}\.(css|js)$ $1.$2 [L]
         RewriteCond %{REQUEST_FILENAME} -s [OR]
         RewriteCond %{REQUEST_FILENAME} -l [OR]
         RewriteCond %{REQUEST_FILENAME} -d

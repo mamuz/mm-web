@@ -8,8 +8,6 @@ foreach ($this->collection as $entity) {
 
 if (!$this->isTerminal) {
     $this->headTitle()->append('Blog');
-    $this->headScript()->prependFile('/js/posts.js');
-    $this->headScript()->prependFile('/js/vendor/jquery.jscroll.min.js');
     $posts = '<div class="list">' . $posts . '</div>';
 }
 
