@@ -20,4 +20,4 @@ mkdir -p build/api
 
 ./vendor/bin/phpcb -o ./build/codebrowser -i test -s ./module
 
-phpdoc -i *test*,*Test -d ./module -t ./build/api
+phpdoc -i *test*,*Test,autoload_classmap.php,module.config.php -d ./module -t ./build/api
