@@ -20,6 +20,9 @@ return array(
     'Application\Listener\Aggregate'                        => __DIR__ . '/src/Application/Listener/Aggregate.php',
     'Application\Options\MailInterface'                     => __DIR__ . '/src/Application/Options/MailInterface.php',
     'Application\Options\Mail'                              => __DIR__ . '/src/Application/Options/Mail.php',
+    'Application\View\Helper\AutoVersionFactory'            =>
+    __DIR__ . '/src/Application/View/Helper/AutoVersionFactory.php',
+    'Application\View\Helper\AutoVersion'                   => __DIR__ . '/src/Application/View/Helper/AutoVersion.php',
     'Application\Filter\MailMessage'                        => __DIR__ . '/src/Application/Filter/MailMessage.php',
     'Application\Controller\IndexController'                =>
     __DIR__ . '/src/Application/Controller/IndexController.php',
@@ -39,6 +42,10 @@ return array(
     'ApplicationTest\Listener\AggregateTest'                =>
     __DIR__ . '/test/ApplicationTest/Listener/AggregateTest.php',
     'ApplicationTest\Options\MailTest'                      => __DIR__ . '/test/ApplicationTest/Options/MailTest.php',
+    'ApplicationTest\View\Helper\AutoVersionFactoryTest'    =>
+    __DIR__ . '/test/ApplicationTest/View/Helper/AutoVersionFactoryTest.php',
+    'ApplicationTest\View\Helper\AutoVersionTest'           =>
+    __DIR__ . '/test/ApplicationTest/View/Helper/AutoVersionlTest.php',
     'ApplicationTest\Filter\MailMessageTest'                =>
     __DIR__ . '/test/ApplicationTest/Filter/MailMessageTest.php',
     'ApplicationTest\Controller\IndexControllerTest'        =>
