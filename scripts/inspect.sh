@@ -1,9 +1,11 @@
 #!/bin/sh
 
-mkdir -p build/logs
-mkdir -p build/coverage
-mkdir -p build/codebrowser
-mkdir -p build/api
+rm -rf ./build
+
+mkdir -p ./build/logs
+mkdir -p ./build/coverage
+mkdir -p ./build/codebrowser
+mkdir -p ./build/api
 
 ./vendor/bin/pdepend --summary-xml=./build/logs/summary.xml \
     --jdepend-chart=./build/logs/pdepend.svg --overview-pyramid=./build/logs/pyramid.svg ./module
