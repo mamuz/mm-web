@@ -16,8 +16,8 @@ mkdir -p ./build/api
 ./vendor/bin/phpmd ./module html codesize,controversial,design,unusedcode --exclude test > ./build/logs/phpmd.html
 ./vendor/bin/phpmd ./module xml codesize,controversial,design,unusedcode --exclude test > ./build/logs/xml/phpmd.xml
 
-./vendor/bin/phpcs --standard=PSR2 --ignore=test,autoload_classmap.php,module.config.php --report-file=./build/logs/phpcs.log ./module
-./vendor/bin/phpcs --standard=PSR2 --ignore=test,autoload_classmap.php,module.config.php --report=xml --report-file=./build/logs/xml/phpcs.xml ./module
+./vendor/bin/phpcs --standard=PSR2 --ignore=test,autoload_classmap.php,plugin_classmap.php,template_map.php,module.config.php --report-file=./build/logs/phpcs.log ./module
+./vendor/bin/phpcs --standard=PSR2 --ignore=test,autoload_classmap.php,plugin_classmap.php,template_map.php,module.config.php --report=xml --report-file=./build/logs/xml/phpcs.xml ./module
 
 for D in `find ./module -maxdepth 1 -type d`
 do
@@ -32,4 +32,4 @@ done
 
 ./vendor/bin/phpcb --log ./build/logs/xml -o ./build/codebrowser
 
-phpdoc -i *test*,*Test,autoload_classmap.php,module.config.php -d ./module -t ./build/api
+phpdoc -i *test*,*Test,autoload_classmap.php,plugin_classmap.php,template_map.php,module.config.php -d ./module -t ./build/api
