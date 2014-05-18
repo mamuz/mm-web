@@ -36,9 +36,7 @@ return array(
         ),
     ),
     'view_manager'    => array(
-        'template_map' => array(
-            'contact/command/create' => __DIR__ . '/../view/contact/command/create.phtml',
-        ),
+        'template_map' => include __DIR__ . '/../template_map.php',
     ),
     'doctrine'        => array(
         'driver' => array(

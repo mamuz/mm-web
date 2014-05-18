@@ -60,10 +60,7 @@ return array(
         ),
     ),
     'view_manager'    => array(
-        'template_map' => array(
-            'blog/query/active-post'  => __DIR__ . '/../view/blog/query/active-post.phtml',
-            'blog/query/active-posts' => __DIR__ . '/../view/blog/query/active-posts.phtml',
-        ),
+        'template_map' => include __DIR__ . '/../template_map.php',
     ),
     'asset_manager'   => array(
         'resolver_configs' => array(

@@ -36,9 +36,7 @@ return array(
         ),
     ),
     'view_manager'           => array(
-        'template_map' => array(
-            'content-manager/query/page' => __DIR__ . '/../view/content-manager/query/page.phtml',
-        ),
+        'template_map' => include __DIR__ . '/../template_map.php',
     ),
     'doctrine'               => array(
         'driver' => array(
