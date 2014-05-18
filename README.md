@@ -33,10 +33,13 @@ Practices, principles and patterns about web-development with PHP
 - Hashed Repository Identities
 - Config Cache
 - Autoload classmap
+- Template Map
+- Asset Versioning
 - Custom ServiceManager for each module
 - GitHub, Travis-CI, Coveralls.io and VersionEye
 - PHPUnit with Mockery
 - PHPMD, PHPCS, PHPCPD, PHPLOC, PHPCB and PHPDOC integration
+- Dependency Security Check
 
 ## Installation
 
