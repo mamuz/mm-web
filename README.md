@@ -135,7 +135,7 @@ phpunit -c test/
 Each module must have an autoloader classmap
 
 ```sh
-cd ./module/{name}; ../../vendor/bin/classmap_generator.php -w
+./vendor/bin/classmap_generator.php -w -l ./module/{modulename}
 ```
 
 ## Travis-CI
