@@ -25,14 +25,16 @@
         "hashids/hashids"                    : "*"
     },
     "require-dev"      : {
-        "satooshi/php-coveralls"   : "dev-master",
-        "phpunit/phpunit"          : "4.1.*",
-        "mockery/mockery"          : "0.9.*",
-        "pdepend/pdepend"          : "1.1.*",
-        "phpmd/phpmd"              : "1.5.*",
-        "squizlabs/php_codesniffer": "2.0.*@dev",
-        "sebastian/phpcpd"         : "*",
-        "phploc/phploc"            : "*",
-        "mayflower/php-codebrowser": "~1.1"
+        "satooshi/php-coveralls"     : "dev-master",
+        "phpunit/phpunit"            : "4.1.*",
+        "mockery/mockery"            : "0.9.*",
+        "pdepend/pdepend"            : "1.1.*",
+        "phpmd/phpmd"                : "1.5.*",
+        "squizlabs/php_codesniffer"  : "2.0.*@dev",
+        "sebastian/phpcpd"           : "*",
+        "phploc/phploc"              : "*",
+        "sebastian/phpdcd"           : "*",
+        "sensiolabs/security-checker": "1.*",
+        "mayflower/php-codebrowser"  : "~1.1"
     }
 }

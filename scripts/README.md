@@ -1,15 +1,20 @@
 # Scripts
 
+## Requirements
+
+- [PHPDocumentor2](http://www.phpdoc.org/)
+
 ## Inspection
 
 - PHPMD
 - PHPCS
 - PHPCPD
+- PHPDPD
 - PHPLOC
 - PHPCB
+- SensiLabs Security Checker
 - PHPDOC
 
-Be sure that PHPDoc is installed.
 Inspections will be stored in ./build directory
 
 ```sh
