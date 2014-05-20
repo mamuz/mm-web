@@ -75,7 +75,7 @@ footer .well {
     background-color: #77b300;
 }
 
-pre {
+pre, code {
     background-color: #0c0c0c;
     border: 1px solid #000000;
     font-size: inherit;
