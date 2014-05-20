@@ -10,10 +10,16 @@ body {
 a,
 a:hover,
 a:focus {
-    color: #77b300;
+    color: #ff8800;
 }
 
-h1, h2, h3, h4, h5, h6,
+h1 {
+    padding-bottom: 9px;
+    margin: 40px 0 20px;
+    border-bottom: 1px solid #282828;
+}
+
+h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
     color: #77b300;
 }
@@ -72,4 +78,28 @@ pre {
 
 .hljs {
     background: #151515;
+}
+
+#sidebar .nav>li>a {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 4px 20px;
+}
+
+#sidebar .nav>li>a:hover {
+    background: none;
+    text-decoration: underline;
+}
+
+#sidebar .nav>li {
+    border-left: 1px solid transparent;
+}
+
+#sidebar .nav>li.active {
+    border-left: 1px solid #ff8800;
+}
+
+.affix-top, affix-bottom {
+    position: fixed;
 }

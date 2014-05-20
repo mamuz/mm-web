@@ -27,7 +27,14 @@
 <div id="wrap">
     <?php echo $this->partial('layout/header'); ?>
     <div class="container">
-        <?php echo $this->content; ?>
+        <div class="row">
+            <div id="main-content" class="col-md-9" role="main">
+                <?php echo $this->content; ?>
+            </div>
+            <div id="sidebar" class="col-md-3" role="complementary">
+                <ul id="affix-nav" class="nav sidenav hidden-print affix" data-spy="affix"></ul>
+            </div>
+        </div>
     </div>
 </div>
 <?php echo $this->partial('layout/footer'); ?>
