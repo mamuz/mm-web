@@ -11,10 +11,9 @@ $(document).ready(function () {
     });
     $("#main-content h2").each(function (index) {
         $(this).attr('id', 'section-' + index);
-        $("#affix-nav").append(
+        $(".sidenav").append(
             '<li><a href="#section-' + index + '">' + $(this).html() + '</a></li>'
         );
     });
-    $("#affix-nav").affix();
     $('body').scrollspy({target: '#sidebar'});
 });
