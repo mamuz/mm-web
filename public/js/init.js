@@ -1,7 +1,9 @@
 $(document).ready(function () {
+
     $('pre code').each(function (i, e) {
         hljs.highlightBlock(e)
     });
+
     $('.list').jscroll({
         nextSelector: 'a.next',
         loadingHtml : '',
@@ -9,6 +11,7 @@ $(document).ready(function () {
             $('a.prev').remove()
         }
     });
+
     $("#main-content h2").each(function (index) {
         $(this).attr('id', 'section-' + index);
         $(".sidenav").append(
@@ -16,4 +19,16 @@ $(document).ready(function () {
         );
     });
     $('body').scrollspy({target: '#sidebar'});
+
+    ZeroClipboard.config({moviePath: window.location.protocol + '//' + window.location.host + '/js/vendor/ZeroClipboard.swf'});
+    $("pre code").each(function (index) {
+        $(this).attr('id', 'copy-cnt-' + index).parent().prepend(
+            '<span title="copy to clipboard" data-clipboard-target="copy-cnt-' + index + '" class="clip glyphicon glyphicon-share"></span>'
+        );
+    });
+    var client = new ZeroClipboard($(".clip"));
+    client.on('complete', function (client, args) {
+        $('.clip').removeClass("glyphicon-ok").addClass('glyphicon-share');
+        $(this).toggleClass("glyphicon-share glyphicon-ok");
+    });
 });

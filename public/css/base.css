@@ -128,3 +128,14 @@ pre, code {
     width: auto;
     vertical-align: middle;
 }
+
+pre {
+    position: relative;
+}
+
+.clip {
+    color: #f5f5f5;
+    position: absolute;
+    right: 14px;
+    top: 14px;
+}
