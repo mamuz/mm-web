@@ -36,7 +36,7 @@ class Item extends AbstractHelper
             foreach ($page->getPages() as $child) {
                 $html .= $this->render($child);
             }
-            $html .= ' </ul>' . PHP_EOL;
+            $html .= '</ul>' . PHP_EOL;
         }
 
         return $html . '</li>' . PHP_EOL;
