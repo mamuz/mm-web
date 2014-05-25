@@ -32,7 +32,7 @@ class Item extends AbstractHelper
         $html = '<li' . $this->createStringFrom($attributes) . '>' . $this->createAnchorFrom($page);
 
         if ($page->hasPages()) {
-            $html .= '<ul class="dropdown-menu">' . PHP_EOL;
+            $html .= PHP_EOL . '<ul class="dropdown-menu">' . PHP_EOL;
             foreach ($page->getPages() as $child) {
                 $html .= $this->render($child);
             }
