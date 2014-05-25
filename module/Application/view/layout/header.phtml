@@ -1,3 +1,7 @@
+<?php
+/** @var \Zend\Navigation\Navigation $navigation */
+$navigation = $this->navigation('Zend\Navigation\Navigation');
+?>
 <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -17,50 +21,11 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="/blog">Blog</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Frontend <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/frontend/introduction">Introduction</a></li>
-                        <li><a href="/frontend/html">HTML</a></li>
-                        <li><a href="/frontend/css">CSS</a></li>
-                        <li><a href="/frontend/javascript">JavaScript</a></li>
-                        <li><a href="/frontend/user-experience">User Experience</a></li>
-                        <li><a href="/frontend/responsive+design">Responsive Design</a></li>
-                        <li><a href="/frontend/frameworks">Frameworks</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">OOP <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/oop/php">PHP</a></li>
-                        <li><a href="/oop/clean+code">Clean Code</a></li>
-                        <li><a href="/oop/solid">SOLID</a></li>
-                        <li><a href="/oop/principles">Principles</a></li>
-                        <li><a href="/oop/desing+patterns">Design Patterns</a></li>
-                        <li><a href="/oop/aspect-oriented">Aspect-Oriented</a></li>
-                        <li><a href="/oop/frameworks">Frameworks</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Architecture <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/architecture/planning">Planning</a></li>
-                        <li><a href="/architecture/conventions">Conventions</a></li>
-                        <li><a href="/architecture/principles">Principles</a></li>
-                        <li><a href="/architecture/documentation">Documentation</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Agile <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/agile/scrum">Scrum</a></li>
-                        <li><a href="/agile/continous+integration">Continuous Integration</a></li>
-                        <li><a href="/agile/domain-driven">Domain-Driven</a></li>
-                        <li><a href="/agile/test-driven">Test-Driven</a></li>
-                        <li><a href="/agile/behavior-driven">Behavior-Driven</a></li>
-                    </ul>
-                </li>
+                <?php
+                foreach ($navigation->getPages() as $page) {
+                    echo $this->navItem($page);
+                }
+                ?>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
