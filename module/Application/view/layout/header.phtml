@@ -1,10 +1,5 @@
-<?php
-/** @var \Zend\Navigation\Navigation $navigation */
-$navigation = $this->navigation('Zend\Navigation\Navigation');
-?>
 <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
             <button type="button"
                     class="navbar-toggle"
@@ -17,25 +12,20 @@ $navigation = $this->navigation('Zend\Navigation\Navigation');
             </button>
             <a class="navbar-brand" href="#" title="Marco Muths">M.M.</a>
         </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <?php
-                foreach ($navigation->getPages() as $page) {
+                foreach ($this->navigation('Application\Navigation\Default')->getPages() as $page) {
                     echo $this->navItem($page);
                 }
                 ?>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Check out <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/about+me">About Me</a></li>
-                        <li><a href="/imprint">Imprint</a></li>
-                        <li><a href="/contact">Contact</a></li>
-                    </ul>
-                </li>
+                <?php
+                foreach ($this->navigation('Application\Navigation\ProductOwner')->getPages() as $page) {
+                    echo $this->navItem($page);
+                }
+                ?>
             </ul>
             <form class="navbar-form navbar-right navbar-input-group" role="search">
                 <div class="form-group">

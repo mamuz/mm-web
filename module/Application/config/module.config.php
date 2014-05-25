@@ -24,8 +24,9 @@ return array(
     ),
     'service_manager'    => array(
         'factories' => array(
-            'Application\PluginManager'  => 'Application\PluginManager\Factory',
-            'Zend\Navigation\Navigation' => 'Zend\Navigation\Service\DefaultNavigationFactory',
+            'Application\PluginManager'           => 'Application\PluginManager\Factory',
+            'Application\Navigation\ProductOwner' => 'Application\Navigation\Service\ProductOwnerNavigationFactory',
+            'Application\Navigation\Default'      => 'Zend\Navigation\Service\DefaultNavigationFactory',
         ),
     ),
     'application_plugin' => array(
