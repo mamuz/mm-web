@@ -3,6 +3,7 @@
 namespace ApplicationTest\Listener;
 
 use Application\Listener\Aggregate;
+use Zend\Mvc\MvcEvent;
 
 class AggregateTest extends \PHPUnit_Framework_TestCase
 {
@@ -12,21 +13,25 @@ class AggregateTest extends \PHPUnit_Framework_TestCase
     /** @var \Zend\ServiceManager\ServiceLocatorInterface|\Mockery\MockInterface */
     protected $serviceLocator;
 
+    /** @var \Application\Service\Cache\OutputInterface|\Mockery\MockInterface */
+    protected $cacher;
+
     protected function setUp()
     {
+        $this->cacher = \Mockery::mock('Application\Service\Cache\OutputInterface');
+
         $this->serviceLocator = \Mockery::mock('Zend\ServiceManager\ServiceLocatorInterface');
         $this->serviceLocator
             ->shouldReceive('get')
             ->with('Application\PluginManager')
             ->andReturn($this->serviceLocator);
 
-        $this->fixture = new Aggregate;
-        $this->fixture->setServiceLocator($this->serviceLocator);
-    }
+        $this->serviceLocator
+            ->shouldReceive('get')
+            ->with('Application\Service\Cache\Output')
+            ->andReturn($this->cacher);
 
-    public function testImplementingServiceLocatorAwareInterface()
-    {
-        $this->assertInstanceOf('Zend\ServiceManager\ServiceLocatorAwareInterface', $this->fixture);
+        $this->fixture = new Aggregate($this->serviceLocator);
     }
 
     public function testExtendingAbstractListenerAggregate()
@@ -45,6 +50,18 @@ class AggregateTest extends \PHPUnit_Framework_TestCase
         $em = \Mockery::mock('Zend\EventManager\EventManagerInterface');
         $em->shouldReceive('getSharedManager')->andReturn($sem);
 
+        $em->shouldReceive('attach')->with(
+            MvcEvent::EVENT_ROUTE,
+            array($this->fixture, 'onMvcRoute'),
+            -100
+        );
+
+        $em->shouldReceive('attach')->with(
+            MvcEvent::EVENT_FINISH,
+            array($this->fixture, 'onMvcFinish'),
+            -100
+        );
+
         $this->fixture->attach($em);
     }
 
@@ -60,5 +77,24 @@ class AggregateTest extends \PHPUnit_Framework_TestCase
         $event->shouldReceive('getParam')->with(0)->andReturn($object);
 
         $this->fixture->onPersistContact($event);
+    }
+
+    public function testOnMvcRoute()
+    {
+        $expected = 'foo';
+        $event = \Mockery::mock('Zend\Mvc\MvcEvent');
+        $this->cacher->shouldReceive('bindMvcEvent')->with($event)->andReturn($this->cacher);
+        $this->cacher->shouldReceive('read')->andReturn($expected);
+
+        $this->assertSame($expected, $this->fixture->onMvcRoute($event));
+    }
+
+    public function testOnMvcFinish()
+    {
+        $event = \Mockery::mock('Zend\Mvc\MvcEvent');
+        $this->cacher->shouldReceive('bindMvcEvent')->with($event)->andReturn($this->cacher);
+        $this->cacher->shouldReceive('write');
+
+        $this->fixture->onMvcFinish($event);
     }
 }

@@ -30,7 +30,13 @@ return array(
     __DIR__ . '/src/Application/Controller/IndexController.php',
     'Application\Filter\MailMessage'                        => __DIR__ . '/src/Application/Filter/MailMessage.php',
     'Application\Listener\Aggregate'                        => __DIR__ . '/src/Application/Listener/Aggregate.php',
+    'Application\Listener\AggregateFactory'                 =>
+    __DIR__ . '/src/Application/Listener/AggregateFactory.php',
     'Application\Module'                                    => __DIR__ . '/Module.php',
+    'Application\Navigation\DefaultFactory'                 =>
+    __DIR__ . '/src/Application/Navigation/DefaultFactory.php',
+    'Application\Navigation\ProductOwnerFactory'            =>
+    __DIR__ . '/src/Application/Navigation/ProductOwnerFactory.php',
     'Application\Options\Mail'                              => __DIR__ . '/src/Application/Options/Mail.php',
     'Application\Options\MailInterface'                     => __DIR__ . '/src/Application/Options/MailInterface.php',
     'Application\PluginManager\Factory'                     => __DIR__ . '/src/Application/PluginManager/Factory.php',
@@ -38,6 +44,12 @@ return array(
     __DIR__ . '/src/Application/PluginManager/ProviderInterface.php',
     'Application\PluginManager\ServiceLocatorInitializer'   =>
     __DIR__ . '/src/Application/PluginManager/ServiceLocatorInitializer.php',
+    'Application\Service\Cache\OutputDecorator'             =>
+    __DIR__ . '/src/Application/Service/Cache/OutputDecorator.php',
+    'Application\Service\Cache\OutputFactory'               =>
+    __DIR__ . '/src/Application/Service/Cache/OutputFactory.php',
+    'Application\Service\Cache\OutputInterface'             =>
+    __DIR__ . '/src/Application/Service/Cache/OutputInterface.php',
     'Application\Service\ContactMailFactory'                =>
     __DIR__ . '/src/Application/Service/ContactMailFactory.php',
     'Application\Service\ErrorHandling'                     => __DIR__ . '/src/Application/Service/ErrorHandling.php',
@@ -52,4 +64,6 @@ return array(
     'Application\View\Helper\AutoVersion'                   => __DIR__ . '/src/Application/View/Helper/AutoVersion.php',
     'Application\View\Helper\AutoVersionFactory'            =>
     __DIR__ . '/src/Application/View/Helper/AutoVersionFactory.php',
+    'Application\View\Helper\Navigation\Item'               =>
+    __DIR__ . '/src/Application/View/Helper/Navigation/Item.php',
 );
