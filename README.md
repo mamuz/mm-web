@@ -36,6 +36,7 @@ Practices, principles and patterns about web-development with PHP
 - Template Map
 - Asset Versioning
 - Custom ServiceManager for each module
+- Output cache
 - GitHub, Travis-CI, Coveralls.io and VersionEye
 - PHPUnit with Mockery
 - PHPMD, PHPCS, PHPCPD, PHPLOC, PHPCB and PHPDOC integration

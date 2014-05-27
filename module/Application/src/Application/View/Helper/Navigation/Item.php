@@ -1,6 +1,6 @@
 <?php
 
-namespace Application\Navigation\View\Helper;
+namespace Application\View\Helper\Navigation;
 
 use Zend\Navigation\Page\AbstractPage;
 use Zend\View\Helper\AbstractHelper;

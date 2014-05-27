@@ -1,10 +1,10 @@
 <?php
 
-namespace Application\Navigation\Service;
+namespace Application\Navigation;
 
 use Zend\Navigation\Service\AbstractNavigationFactory;
 
-class ProductOwnerNavigationFactory extends AbstractNavigationFactory
+class ProductOwnerFactory extends AbstractNavigationFactory
 {
     protected function getName()
     {

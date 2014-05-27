@@ -29,7 +29,7 @@ return array(
             ),
             'blog'         => array(
                 'label' => 'Blog',
-                'route' => 'blogActivePosts',
+                'uri'   => '/blog',
             ),
             'frontend'     => array(
                 'label' => 'Frontend',

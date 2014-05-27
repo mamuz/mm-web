@@ -25,26 +25,25 @@ return array(
     'service_manager'    => array(
         'factories' => array(
             'Application\PluginManager'           => 'Application\PluginManager\Factory',
-            'Application\Navigation\ProductOwner' => 'Application\Navigation\Service\ProductOwnerNavigationFactory',
-            'Application\Navigation\Default'      => 'Zend\Navigation\Service\DefaultNavigationFactory',
+            'Application\Navigation\Default'      => 'Application\Navigation\DefaultFactory',
+            'Application\Navigation\ProductOwner' => 'Application\Navigation\ProductOwnerFactory',
         ),
     ),
     'application_plugin' => array(
         'initializers' => array(
             'ServiceLocatorInitializer' => 'Application\PluginManager\ServiceLocatorInitializer',
         ),
-        'invokables'   => array(
-            'Application\Listener\Aggregate' => 'Application\Listener\Aggregate',
-        ),
         'factories'    => array(
             'Application\Service\ContactMail'   => 'Application\Service\ContactMailFactory',
             'Application\Service\ErrorHandling' => 'Application\Service\ErrorHandlingFactory',
             'Application\Service\Log'           => 'Application\Service\LogFactory',
+            'Application\Service\Cache\Output'  => 'Application\Service\Cache\OutputFactory',
+            'Application\Listener\Aggregate'    => 'Application\Listener\AggregateFactory',
         ),
     ),
     'view_helpers'       => array(
         'invokables' => array(
-            'navItem' => 'Application\Navigation\View\Helper\Item',
+            'navItem' => 'Application\View\Helper\Navigation\Item',
         ),
         'factories'  => array(
             'autoVersion' => 'Application\View\Helper\AutoVersionFactory',
@@ -96,6 +95,21 @@ return array(
                             ),
                         ),
                     ),
+                ),
+            ),
+        ),
+        'cache'         => array(
+            'output' => array(
+                'storage'               => array(
+                    'adapter' => array(
+                        'name' => 'filesystem'
+                    ),
+                    'options' => array(
+                        'cache_dir' => './data/cache/output',
+                    ),
+                ),
+                'blacklistedRouteNames' => array(
+                    'contact'
                 ),
             ),
         ),

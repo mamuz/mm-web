@@ -1,6 +1,6 @@
 #!/bin/sh
 
-mkdir -p ./data/cache
+mkdir -p ./data/cache/output
 mkdir -p ./data/DoctrineORMModule
 mkdir -p ./data/logs
 
