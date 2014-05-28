@@ -8,7 +8,17 @@ return array(
     __DIR__ . '/test/ApplicationTest/Filter/MailMessageTest.php',
     'ApplicationTest\Listener\AggregateTest'                =>
     __DIR__ . '/test/ApplicationTest/Listener/AggregateTest.php',
+    'ApplicationTest\Navigation\DefaultFactoryTest'         =>
+    __DIR__ . '/test/ApplicationTest/Navigation/DefaultFactoryTest.php',
+    'ApplicationTest\Navigation\ProductOwnerFactoryTest'    =>
+    __DIR__ . '/test/ApplicationTest/Navigation/ProductOwnerFactoryTest.php',
     'ApplicationTest\Options\MailTest'                      => __DIR__ . '/test/ApplicationTest/Options/MailTest.php',
+    'ApplicationTest\Service\AggregateFactoryTest'          =>
+    __DIR__ . '/test/ApplicationTest/Listener/AggregateFactoryTest.php',
+    'ApplicationTest\Service\Cache\OutputDecoratorTest'     =>
+    __DIR__ . '/test/ApplicationTest/Service/Cache/OutputDecoratorTest.php',
+    'ApplicationTest\Service\Cache\OutputFactoryTest'       =>
+    __DIR__ . '/test/ApplicationTest/Service/Cache/OutputFactoryTest.php',
     'ApplicationTest\Service\ContactMailFactoryTest'        =>
     __DIR__ . '/test/ApplicationTest/Service/ContactMailFactoryTest.php',
     'ApplicationTest\Service\ErrorHandlingFactoryTest'      =>
@@ -25,7 +35,9 @@ return array(
     'ApplicationTest\View\Helper\AutoVersionFactoryTest'    =>
     __DIR__ . '/test/ApplicationTest/View/Helper/AutoVersionFactoryTest.php',
     'ApplicationTest\View\Helper\AutoVersionTest'           =>
-    __DIR__ . '/test/ApplicationTest/View/Helper/AutoVersionlTest.php',
+    __DIR__ . '/test/ApplicationTest/View/Helper/AutoVersionTest.php',
+    'ApplicationTest\View\Helper\ItemTest'                  =>
+    __DIR__ . '/test/ApplicationTest/View/Helper/Navigation/ItemTest.php',
     'Application\Controller\IndexController'                =>
     __DIR__ . '/src/Application/Controller/IndexController.php',
     'Application\Filter\MailMessage'                        => __DIR__ . '/src/Application/Filter/MailMessage.php',
