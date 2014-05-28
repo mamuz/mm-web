@@ -23,7 +23,10 @@ return array(
         ),
     ),
     'service_manager'    => array(
-        'factories' => array(
+        'abstract_factories' => array(
+            'Zend\Cache\Service\StorageCacheAbstractServiceFactory',
+        ),
+        'factories'          => array(
             'Application\PluginManager'           => 'Application\PluginManager\Factory',
             'Application\Navigation\Default'      => 'Application\Navigation\DefaultFactory',
             'Application\Navigation\ProductOwner' => 'Application\Navigation\ProductOwnerFactory',
@@ -98,20 +101,18 @@ return array(
                 ),
             ),
         ),
-        'cache'         => array(
-            'output' => array(
-                'storage'               => array(
-                    'adapter' => array(
-                        'name' => 'filesystem'
-                    ),
-                    'options' => array(
-                        'cache_dir' => './data/cache/output',
-                    ),
-                ),
-                'blacklistedRouteNames' => array(
-                    'contact'
-                ),
+    ),
+    'caches'             => array(
+        'outputCache'           => array(
+            'adapter' => array(
+                'name' => 'filesystem'
             ),
+            'options' => array(
+                'cache_dir' => './data/cache/output',
+            ),
+        ),
+        'blacklistedRouteNames' => array(
+            'contact'
         ),
     ),
 );

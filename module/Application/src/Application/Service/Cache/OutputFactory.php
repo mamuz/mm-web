@@ -2,7 +2,6 @@
 
 namespace Application\Service\Cache;
 
-use Zend\Cache\StorageFactory;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
@@ -14,9 +13,9 @@ class OutputFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        $config = $serviceLocator->get('Config')['application']['cache']['output'];
-
-        $storage = StorageFactory::factory($config['storage']);
+        $config = $serviceLocator->get('Config')['caches']['outputCache'];
+        /** @var \Zend\Cache\Storage\StorageInterface $storage */
+        $storage = $serviceLocator->get('outputCache');
 
         $cacher = new OutputDecorator($storage);
 

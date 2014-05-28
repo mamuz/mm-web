@@ -90,7 +90,7 @@ class OutputDecorator implements OutputInterface
      */
     private function hashKey()
     {
-        $this->key = md5(rtrim($this->request->getRequestUri(), '/'));
+        $this->key = md5($this->request->getRequestUri());
     }
 
     /**
