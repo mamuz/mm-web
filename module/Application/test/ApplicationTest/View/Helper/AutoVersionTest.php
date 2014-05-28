@@ -17,6 +17,11 @@ class AutoVersionTest extends \PHPUnit_Framework_TestCase
         $this->fixture = new AutoVersion($this->docRoot);
     }
 
+    public function testExtendingAbstractHelper()
+    {
+        $this->assertInstanceOf('Zend\View\Helper\AbstractHelper', $this->fixture);
+    }
+
     public function testInvokable()
     {
         $file = basename(__FILE__);
