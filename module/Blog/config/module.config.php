@@ -62,13 +62,6 @@ return array(
     'view_manager'    => array(
         'template_map' => include __DIR__ . '/../template_map.php',
     ),
-    'asset_manager'   => array(
-        'resolver_configs' => array(
-            'paths' => array(
-                'Blog' => __DIR__ . '/../public',
-            ),
-        ),
-    ),
     'doctrine'        => array(
         'driver' => array(
             'blog_entities' => array(
@@ -83,9 +76,4 @@ return array(
             ),
         ),
     ),
-    'blog'            => array(
-        'pagination' => array(
-            'range' => 1,
-        ),
-    )
 );
