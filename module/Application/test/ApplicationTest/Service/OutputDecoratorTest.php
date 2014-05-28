@@ -1,12 +1,12 @@
 <?php
 
-namespace ApplicationTest\Service\Cache;
+namespace ApplicationTest\Service;
 
-use Application\Service\Cache\OutputDecorator;
+use Application\Service\OutputCacheDecorator;
 
-class OutputDecoratorTest extends \PHPUnit_Framework_TestCase
+class OutputCacheDecoratorTest extends \PHPUnit_Framework_TestCase
 {
-    /** @var OutputDecorator */
+    /** @var OutputCacheDecorator */
     protected $fixture;
 
     /** @var \Zend\Cache\Storage\StorageInterface|\Mockery\MockInterface */
@@ -34,12 +34,12 @@ class OutputDecoratorTest extends \PHPUnit_Framework_TestCase
         $this->request = \Mockery::mock('Zend\Http\PhpEnvironment\Request');
         $this->mvcEvent = \Mockery::mock('Zend\Mvc\MvcEvent');
         $this->storage = \Mockery::mock('Zend\Cache\Storage\StorageInterface');
-        $this->fixture = new OutputDecorator($this->storage);
+        $this->fixture = new OutputCacheDecorator($this->storage);
     }
 
     public function testImplementingOutputInterface()
     {
-        $this->assertInstanceOf('Application\Service\Cache\OutputInterface', $this->fixture);
+        $this->assertInstanceOf('Application\Service\Feature\OutputCacheInterface', $this->fixture);
     }
 
     public function testReadWithoutMvcEvent()

@@ -15,10 +15,6 @@ return array(
     'ApplicationTest\Options\MailTest'                      => __DIR__ . '/test/ApplicationTest/Options/MailTest.php',
     'ApplicationTest\Service\AggregateFactoryTest'          =>
     __DIR__ . '/test/ApplicationTest/Listener/AggregateFactoryTest.php',
-    'ApplicationTest\Service\Cache\OutputDecoratorTest'     =>
-    __DIR__ . '/test/ApplicationTest/Service/Cache/OutputDecoratorTest.php',
-    'ApplicationTest\Service\Cache\OutputFactoryTest'       =>
-    __DIR__ . '/test/ApplicationTest/Service/Cache/OutputFactoryTest.php',
     'ApplicationTest\Service\ContactMailFactoryTest'        =>
     __DIR__ . '/test/ApplicationTest/Service/ContactMailFactoryTest.php',
     'ApplicationTest\Service\ErrorHandlingFactoryTest'      =>
@@ -30,6 +26,10 @@ return array(
     'ApplicationTest\Service\LogFactoryTest'                =>
     __DIR__ . '/test/ApplicationTest/Service/LogFactoryTest.php',
     'ApplicationTest\Service\MailTest'                      => __DIR__ . '/test/ApplicationTest/Service/MailTest.php',
+    'ApplicationTest\Service\OutputCacheDecoratorTest'      =>
+    __DIR__ . '/test/ApplicationTest/Service/OutputDecoratorTest.php',
+    'ApplicationTest\Service\OutputCacheFactoryTest'        =>
+    __DIR__ . '/test/ApplicationTest/Service/OutputFactoryTest.php',
     'ApplicationTest\Service\ServiceLocatorInitializerTest' =>
     __DIR__ . '/test/ApplicationTest/PluginManager/ServiceLocatorInitializerTest.php',
     'ApplicationTest\View\Helper\AutoVersionFactoryTest'    =>
@@ -56,12 +56,6 @@ return array(
     __DIR__ . '/src/Application/PluginManager/ProviderInterface.php',
     'Application\PluginManager\ServiceLocatorInitializer'   =>
     __DIR__ . '/src/Application/PluginManager/ServiceLocatorInitializer.php',
-    'Application\Service\Cache\OutputDecorator'             =>
-    __DIR__ . '/src/Application/Service/Cache/OutputDecorator.php',
-    'Application\Service\Cache\OutputFactory'               =>
-    __DIR__ . '/src/Application/Service/Cache/OutputFactory.php',
-    'Application\Service\Cache\OutputInterface'             =>
-    __DIR__ . '/src/Application/Service/Cache/OutputInterface.php',
     'Application\Service\ContactMailFactory'                =>
     __DIR__ . '/src/Application/Service/ContactMailFactory.php',
     'Application\Service\ErrorHandling'                     => __DIR__ . '/src/Application/Service/ErrorHandling.php',
@@ -71,8 +65,14 @@ return array(
     __DIR__ . '/src/Application/Service/Feature/ExceptionLoggerInterface.php',
     'Application\Service\Feature\MailObjectInterface'       =>
     __DIR__ . '/src/Application/Service/Feature/MailObjectInterface.php',
+    'Application\Service\Feature\OutputCacheInterface'      =>
+    __DIR__ . '/src/Application/Service/Feature/OutputCacheInterface.php',
     'Application\Service\LogFactory'                        => __DIR__ . '/src/Application/Service/LogFactory.php',
     'Application\Service\Mail'                              => __DIR__ . '/src/Application/Service/Mail.php',
+    'Application\Service\OutputCacheDecorator'              =>
+    __DIR__ . '/src/Application/Service/OutputCacheDecorator.php',
+    'Application\Service\OutputCacheFactory'                =>
+    __DIR__ . '/src/Application/Service/OutputCacheFactory.php',
     'Application\View\Helper\AutoVersion'                   => __DIR__ . '/src/Application/View/Helper/AutoVersion.php',
     'Application\View\Helper\AutoVersionFactory'            =>
     __DIR__ . '/src/Application/View/Helper/AutoVersionFactory.php',

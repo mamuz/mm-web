@@ -1,13 +1,14 @@
 <?php
 
-namespace Application\Service\Cache;
+namespace Application\Service;
 
+use Application\Service\Feature\OutputCacheInterface;
 use Zend\Cache\Storage\StorageInterface;
 use Zend\Http\PhpEnvironment\Request as HttpRequest;
 use Zend\Http\PhpEnvironment\Response as HttpResponse;
 use Zend\Mvc\MvcEvent;
 
-class OutputDecorator implements OutputInterface
+class OutputCacheDecorator implements OutputCacheInterface
 {
     const HEADER_FIELD_NAME = 'X-Application-Cache';
 
@@ -39,7 +40,7 @@ class OutputDecorator implements OutputInterface
 
     /**
      * @param array $blacklistedRouteNames
-     * @return OutputDecorator
+     * @return OutputCacheDecorator
      */
     public function setBlacklistedRouteNames(array $blacklistedRouteNames)
     {

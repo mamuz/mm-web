@@ -1,15 +1,16 @@
 <?php
 
-namespace Application\Service\Cache;
+namespace Application\Service;
+
 
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class OutputFactory implements FactoryInterface
+class OutputCacheFactory implements FactoryInterface
 {
     /**
      * {@inheritdoc}
-     * @return OutputInterface
+     * @return \Application\Service\Feature\OutputCacheInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
@@ -17,7 +18,7 @@ class OutputFactory implements FactoryInterface
         /** @var \Zend\Cache\Storage\StorageInterface $storage */
         $storage = $serviceLocator->get('outputCache');
 
-        $cacher = new OutputDecorator($storage);
+        $cacher = new OutputCacheDecorator($storage);
 
         if (isset($config['blacklistedRouteNames'])) {
             $cacher->setBlacklistedRouteNames((array) $config['blacklistedRouteNames']);

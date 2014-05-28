@@ -1,17 +1,17 @@
 <?php
 
-namespace ApplicationTest\Service\Cache;
+namespace ApplicationTest\Service;
 
-use Application\Service\Cache\OutputFactory;
+use Application\Service\OutputCacheFactory;
 
-class OutputFactoryTest extends \PHPUnit_Framework_TestCase
+class OutputCacheFactoryTest extends \PHPUnit_Framework_TestCase
 {
-    /** @var OutputFactory */
+    /** @var OutputCacheFactory */
     protected $fixture;
 
     protected function setUp()
     {
-        $this->fixture = new OutputFactory;
+        $this->fixture = new OutputCacheFactory;
     }
 
     public function testImplementingFactoryInterface()
@@ -35,6 +35,6 @@ class OutputFactoryTest extends \PHPUnit_Framework_TestCase
 
         $service = $this->fixture->createService($sm);
 
-        $this->assertInstanceOf('\Application\Service\Cache\OutputInterface', $service);
+        $this->assertInstanceOf('\Application\Service\Feature\OutputCacheInterface', $service);
     }
 }

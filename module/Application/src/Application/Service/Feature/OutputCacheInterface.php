@@ -1,15 +1,15 @@
 <?php
 
-namespace Application\Service\Cache;
+namespace Application\Service\Feature;
 
 use Zend\Http\PhpEnvironment\Response as HttpResponse;
 use Zend\Mvc\MvcEvent;
 
-interface OutputInterface
+interface OutputCacheInterface
 {
     /**
      * @param MvcEvent $event
-     * @return OutputInterface
+     * @return OutputCacheInterface
      */
     public function bindMvcEvent(MvcEvent $event);
 
@@ -19,7 +19,7 @@ interface OutputInterface
     public function read();
 
     /**
-     * @return OutputInterface
+     * @return OutputCacheInterface
      */
     public function write();
 }

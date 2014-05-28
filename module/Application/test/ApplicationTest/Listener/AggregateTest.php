@@ -13,12 +13,12 @@ class AggregateTest extends \PHPUnit_Framework_TestCase
     /** @var \Zend\ServiceManager\ServiceLocatorInterface|\Mockery\MockInterface */
     protected $serviceLocator;
 
-    /** @var \Application\Service\Cache\OutputInterface|\Mockery\MockInterface */
+    /** @var \Application\Service\Feature\OutputCacheInterface|\Mockery\MockInterface */
     protected $cacher;
 
     protected function setUp()
     {
-        $this->cacher = \Mockery::mock('Application\Service\Cache\OutputInterface');
+        $this->cacher = \Mockery::mock('Application\Service\Feature\OutputCacheInterface');
 
         $this->serviceLocator = \Mockery::mock('Zend\ServiceManager\ServiceLocatorInterface');
         $this->serviceLocator
@@ -28,7 +28,7 @@ class AggregateTest extends \PHPUnit_Framework_TestCase
 
         $this->serviceLocator
             ->shouldReceive('get')
-            ->with('Application\Service\Cache\Output')
+            ->with('Application\Service\OutputCache')
             ->andReturn($this->cacher);
 
         $this->fixture = new Aggregate($this->serviceLocator);

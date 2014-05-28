@@ -13,7 +13,7 @@ class Aggregate extends AbstractListenerAggregate
     /** @var ServiceLocatorInterface */
     private $pluginManager;
 
-    /** @var \Application\Service\Cache\OutputInterface */
+    /** @var \Application\Service\Feature\OutputCacheInterface */
     private $cache;
 
     /**
@@ -22,7 +22,7 @@ class Aggregate extends AbstractListenerAggregate
     public function __construct(ServiceLocatorInterface $pluginManager)
     {
         $this->pluginManager = $pluginManager;
-        $this->cache = $this->pluginManager->get('Application\Service\Cache\Output');
+        $this->cache = $this->pluginManager->get('Application\Service\OutputCache');
     }
 
     /**

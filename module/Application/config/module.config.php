@@ -40,7 +40,7 @@ return array(
             'Application\Service\ContactMail'   => 'Application\Service\ContactMailFactory',
             'Application\Service\ErrorHandling' => 'Application\Service\ErrorHandlingFactory',
             'Application\Service\Log'           => 'Application\Service\LogFactory',
-            'Application\Service\Cache\Output'  => 'Application\Service\Cache\OutputFactory',
+            'Application\Service\OutputCache'   => 'Application\Service\OutputCacheFactory',
             'Application\Listener\Aggregate'    => 'Application\Listener\AggregateFactory',
         ),
     ),
@@ -103,16 +103,16 @@ return array(
         ),
     ),
     'caches'             => array(
-        'outputCache'           => array(
-            'adapter' => array(
+        'outputCache' => array(
+            'adapter'               => array(
                 'name' => 'filesystem'
             ),
-            'options' => array(
+            'options'               => array(
                 'cache_dir' => './data/cache/output',
             ),
-        ),
-        'blacklistedRouteNames' => array(
-            'contact'
+            'blacklistedRouteNames' => array(
+                'contact'
+            ),
         ),
     ),
 );
