@@ -40,14 +40,14 @@ return array(
     ),
     'doctrine'        => array(
         'driver' => array(
-            'contact_entities' => array(
+            'mamuz_contact_entities' => array(
                 'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
                 'cache' => 'array',
-                'paths' => array(__DIR__ . '/../src/MamuzContact/Entity')
+                'paths' => array(__DIR__ . '/../src/MamuzContact/Entity'),
             ),
-            'orm_default'      => array(
+            'orm_default'            => array(
                 'drivers' => array(
-                    'MamuzContact\Entity' => 'contact_entities'
+                    'MamuzContact\Entity' => 'mamuz_contact_entities',
                 ),
             ),
         ),

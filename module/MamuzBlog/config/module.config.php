@@ -64,14 +64,14 @@ return array(
     ),
     'doctrine'        => array(
         'driver' => array(
-            'blog_entities' => array(
+            'mamuz_blog_entities' => array(
                 'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
                 'cache' => 'array',
-                'paths' => array(__DIR__ . '/../src/MamuzBlog/Entity')
+                'paths' => array(__DIR__ . '/../src/MamuzBlog/Entity'),
             ),
-            'orm_default'   => array(
+            'orm_default'         => array(
                 'drivers' => array(
-                    'MamuzBlog\Entity' => 'blog_entities'
+                    'MamuzBlog\Entity' => 'mamuz_blog_entities'
                 ),
             ),
         ),

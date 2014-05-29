@@ -40,14 +40,14 @@ return array(
     ),
     'doctrine'               => array(
         'driver' => array(
-            'contentmanager_entities' => array(
+            'mamuz_content_manager_entities' => array(
                 'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
                 'cache' => 'array',
-                'paths' => array(__DIR__ . '/../src/MamuzContentManager/Entity')
+                'paths' => array(__DIR__ . '/../src/MamuzContentManager/Entity'),
             ),
-            'orm_default'             => array(
+            'orm_default'                    => array(
                 'drivers' => array(
-                    'MamuzContentManager\Entity' => 'contentmanager_entities'
+                    'MamuzContentManager\Entity' => 'mamuz_content_manager_entities',
                 ),
             ),
         ),
