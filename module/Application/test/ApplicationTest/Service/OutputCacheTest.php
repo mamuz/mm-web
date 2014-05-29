@@ -2,11 +2,11 @@
 
 namespace ApplicationTest\Service;
 
-use Application\Service\OutputCacheDecorator;
+use Application\Service\OutputCache;
 
-class OutputCacheDecoratorTest extends \PHPUnit_Framework_TestCase
+class OutputCacheTest extends \PHPUnit_Framework_TestCase
 {
-    /** @var OutputCacheDecorator */
+    /** @var OutputCache */
     protected $fixture;
 
     /** @var \Zend\Cache\Storage\StorageInterface|\Mockery\MockInterface */
@@ -34,7 +34,7 @@ class OutputCacheDecoratorTest extends \PHPUnit_Framework_TestCase
         $this->request = \Mockery::mock('Zend\Http\PhpEnvironment\Request');
         $this->mvcEvent = \Mockery::mock('Zend\Mvc\MvcEvent');
         $this->storage = \Mockery::mock('Zend\Cache\Storage\StorageInterface');
-        $this->fixture = new OutputCacheDecorator($this->storage);
+        $this->fixture = new OutputCache($this->storage);
     }
 
     public function testImplementingOutputInterface()
@@ -84,7 +84,7 @@ class OutputCacheDecoratorTest extends \PHPUnit_Framework_TestCase
     {
         $content = 'content';
         $this->response->shouldReceive('getContent')->andReturn($content);
-        $this->request->shouldReceive('getRequestUri')->andReturn('baz');
+        $this->request->shouldReceive('getRequestUri')->andReturn('baz/');
         $this->mvcEvent->shouldReceive('getRequest')->andReturn($this->request);
         $this->mvcEvent->shouldReceive('getResponse')->andReturn($this->response);
         $this->mvcEvent->shouldReceive('getRouteMatch')->andReturn(false);
@@ -102,7 +102,7 @@ class OutputCacheDecoratorTest extends \PHPUnit_Framework_TestCase
         $headers->shouldReceive('addHeaderLine');
         $this->response->shouldReceive('setContent')->with($content);
         $this->response->shouldReceive('getHeaders')->andReturn($headers);
-        $this->request->shouldReceive('getRequestUri')->andReturn('baz');
+        $this->request->shouldReceive('getRequestUri')->andReturn('baz/');
         $this->mvcEvent->shouldReceive('getRequest')->andReturn($this->request);
         $this->mvcEvent->shouldReceive('getResponse')->andReturn($this->response);
         $this->mvcEvent->shouldReceive('getRouteMatch')->andReturn(false);

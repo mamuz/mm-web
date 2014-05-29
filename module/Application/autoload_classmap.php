@@ -26,10 +26,10 @@ return array(
     'ApplicationTest\Service\LogFactoryTest'                =>
     __DIR__ . '/test/ApplicationTest/Service/LogFactoryTest.php',
     'ApplicationTest\Service\MailTest'                      => __DIR__ . '/test/ApplicationTest/Service/MailTest.php',
-    'ApplicationTest\Service\OutputCacheDecoratorTest'      =>
-    __DIR__ . '/test/ApplicationTest/Service/OutputDecoratorTest.php',
     'ApplicationTest\Service\OutputCacheFactoryTest'        =>
-    __DIR__ . '/test/ApplicationTest/Service/OutputFactoryTest.php',
+    __DIR__ . '/test/ApplicationTest/Service/OutputCacheFactoryTest.php',
+    'ApplicationTest\Service\OutputCacheTest'               =>
+    __DIR__ . '/test/ApplicationTest/Service/OutputCacheTest.php',
     'ApplicationTest\Service\ServiceLocatorInitializerTest' =>
     __DIR__ . '/test/ApplicationTest/PluginManager/ServiceLocatorInitializerTest.php',
     'ApplicationTest\View\Helper\AutoVersionFactoryTest'    =>
@@ -69,8 +69,7 @@ return array(
     __DIR__ . '/src/Application/Service/Feature/OutputCacheInterface.php',
     'Application\Service\LogFactory'                        => __DIR__ . '/src/Application/Service/LogFactory.php',
     'Application\Service\Mail'                              => __DIR__ . '/src/Application/Service/Mail.php',
-    'Application\Service\OutputCacheDecorator'              =>
-    __DIR__ . '/src/Application/Service/OutputCacheDecorator.php',
+    'Application\Service\OutputCache'                       => __DIR__ . '/src/Application/Service/OutputCache.php',
     'Application\Service\OutputCacheFactory'                =>
     __DIR__ . '/src/Application/Service/OutputCacheFactory.php',
     'Application\View\Helper\AutoVersion'                   => __DIR__ . '/src/Application/View/Helper/AutoVersion.php',

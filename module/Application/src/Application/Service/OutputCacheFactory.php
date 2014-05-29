@@ -18,7 +18,7 @@ class OutputCacheFactory implements FactoryInterface
         /** @var \Zend\Cache\Storage\StorageInterface $storage */
         $storage = $serviceLocator->get('outputCache');
 
-        $cacher = new OutputCacheDecorator($storage);
+        $cacher = new OutputCache($storage);
 
         if (isset($config['blacklistedRouteNames'])) {
             $cacher->setBlacklistedRouteNames((array) $config['blacklistedRouteNames']);

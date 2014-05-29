@@ -8,7 +8,7 @@ use Zend\Http\PhpEnvironment\Request as HttpRequest;
 use Zend\Http\PhpEnvironment\Response as HttpResponse;
 use Zend\Mvc\MvcEvent;
 
-class OutputCacheDecorator implements OutputCacheInterface
+class OutputCache implements OutputCacheInterface
 {
     const HEADER_FIELD_NAME = 'X-Application-Cache';
 
@@ -40,7 +40,7 @@ class OutputCacheDecorator implements OutputCacheInterface
 
     /**
      * @param array $blacklistedRouteNames
-     * @return OutputCacheDecorator
+     * @return OutputCache
      */
     public function setBlacklistedRouteNames(array $blacklistedRouteNames)
     {
@@ -91,7 +91,7 @@ class OutputCacheDecorator implements OutputCacheInterface
      */
     private function hashKey()
     {
-        $this->key = md5($this->request->getRequestUri());
+        $this->key = md5(rtrim($this->request->getRequestUri(), '/'));
     }
 
     /**
