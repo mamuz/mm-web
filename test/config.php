@@ -1,8 +1,8 @@
 <?php
 
 return array(
-    'Application',
-    'Blog',
-    'Contact',
-    'ContentManager',
+    'MamuzApplication',
+    'MamuzBlog',
+    'MamuzContact',
+    'MamuzContentManager',
 );

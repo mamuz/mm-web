@@ -1,7 +1,7 @@
 <?php
 
 return array(
-    'application' => array(
+    'mamuz-application' => array(
         'document_root' => $_SERVER['DOCUMENT_ROOT'],
         'http'          => array(
             'headers' => array(

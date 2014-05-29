@@ -3,10 +3,10 @@
 <phpunit bootstrap="Bootstrap.php" colors="true">
     <testsuites>
         <testsuite name="All Testsuite">
-            <directory>../module/Application/test/ApplicationTest</directory>
-            <directory>../module/Blog/test/BlogTest</directory>
-            <directory>../module/Contact/test/ContactTest</directory>
-            <directory>../module/ContentManager/test/ContentManagerTest</directory>
+            <directory>../module/MamuzApplication/test/MamuzApplicationTest</directory>
+            <directory>../module/MamuzBlog/test/MamuzBlogTest</directory>
+            <directory>../module/MamuzContact/test/MamuzContactTest</directory>
+            <directory>../module/MamuzContentManager/test/MamuzContentManagerTest</directory>
         </testsuite>
     </testsuites>
     <listeners>
@@ -14,10 +14,10 @@
     </listeners>
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">../module/Application/src</directory>
-            <directory suffix=".php">../module/Blog/src</directory>
-            <directory suffix=".php">../module/Contact/src</directory>
-            <directory suffix=".php">../module/ContentManager/src</directory>
+            <directory suffix=".php">../module/MamuzApplication/src</directory>
+            <directory suffix=".php">../module/MamuzBlog/src</directory>
+            <directory suffix=".php">../module/MamuzContact/src</directory>
+            <directory suffix=".php">../module/MamuzContentManager/src</directory>
         </whitelist>
     </filter>
 </phpunit>

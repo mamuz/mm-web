@@ -1,0 +1,8 @@
+<?php
+
+/** @var \MamuzContact\Entity\Contact $contact */
+$contact = $this->object;
+
+foreach ($contact->toArray() as $field => $value) {
+    echo $field . ': ' . $value . PHP_EOL . PHP_EOL;
+}

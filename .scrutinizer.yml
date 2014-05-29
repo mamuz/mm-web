@@ -10,4 +10,4 @@ tools:
     php_analyzer: true
 
 filter:
-    paths: [module/Application/src/*, module/ContentManager/src/*, module/Contact/src/*, module/Blog/src/*]
+    paths: [module/MamuzApplication/src/*, module/MamuzContentManager/src/*, module/MamuzContact/src/*, module/MamuzBlog/src/*]

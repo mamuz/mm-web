@@ -3,10 +3,10 @@
 $env = getenv('APPLICATION_ENV') ? : 'production';
 
 $modules = array(
-    'Application',
-    'Blog',
-    'Contact',
-    'ContentManager',
+    'MamuzApplication',
+    'MamuzBlog',
+    'MamuzContact',
+    'MamuzContentManager',
 );
 
 return array(
