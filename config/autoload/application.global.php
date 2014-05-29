@@ -12,8 +12,8 @@ return array(
         'mail'          => array(
             'contact' => array(
                 'template_map' => array(
-                    'contact/subject' => __DIR__ . '/../view/mamuz-mail/contact/subject.phtml',
-                    'contact/body'    => __DIR__ . '/../view/mamuz-mail/contact/body.phtml',
+                    'contact/subject' => './module/MamuzApplication/view/mamuz-mail/contact/subject.phtml',
+                    'contact/body'    => './module/MamuzApplication/view/mamuz-mail/contact/body.phtml',
                 ),
                 'options'      => array(
                     'to'              => 'muzzi_is@web.de',
