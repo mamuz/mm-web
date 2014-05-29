@@ -121,7 +121,8 @@ class Module implements
      */
     private function addHeaderLinesToResponse(HttpResponse $response)
     {
-        $headers = $this->getConfig()['mamuz-application']['http']['headers'];
+        $config = $this->application->getServiceManager()->get('Config');
+        $headers = $config['mamuz-application']['http']['headers'];
         foreach ($headers as $name => $value) {
             $response->getHeaders()->addHeaderLine($name, $value);
         }
