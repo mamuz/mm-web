@@ -134,12 +134,12 @@ Each module must have an autoloader classmap.
 phpunit -c test/
 ```
 
-### Autoload Classmap
+### Filemaps
 
-Each module must have an autoloader classmap
+Each module must have an autoloader classmap and a template map
 
 ```sh
-./vendor/bin/classmap_generator.php -w -l ./module/{modulename}
+sh ./scripts/generate_maps.sh
 ```
 
 ## Travis-CI
