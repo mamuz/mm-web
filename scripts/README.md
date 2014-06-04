@@ -1,19 +1,11 @@
 # Scripts
 
-## Requirements
-
-- [PHPDocumentor2](http://www.phpdoc.org/)
-
 ## Inspection
 
 - PHPMD
 - PHPCS
-- PHPCPD
 - PHPDPD
-- PHPLOC
-- PHPCB
 - SensiLabs Security Checker
-- PHPDOC
 
 Inspections will be stored in ./build directory
 
@@ -25,4 +17,10 @@ sh ./scripts/inspect.sh
 
 ```sh
 sh ./scripts/mkdata.sh
+```
+
+## Create zf2 map files
+
+```sh
+sh ./scripts/generate_maps.sh
 ```

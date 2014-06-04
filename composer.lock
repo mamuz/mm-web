@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2fa679677b2a4959710613bdc90cf497",
+    "hash": "a7b8d512e2cbc4d659ca2c181f1c1297",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -768,12 +768,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ivanakimov/hashids.php.git",
-                "reference": "6bc5e99a9d7f3aa09eb1b4ada2189fbf882abdf0"
+                "reference": "8587e301d86217666d341e8c68ee3051ef23aaaa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ivanakimov/hashids.php/zipball/6bc5e99a9d7f3aa09eb1b4ada2189fbf882abdf0",
-                "reference": "6bc5e99a9d7f3aa09eb1b4ada2189fbf882abdf0",
+                "url": "https://api.github.com/repos/ivanakimov/hashids.php/zipball/8587e301d86217666d341e8c68ee3051ef23aaaa",
+                "reference": "8587e301d86217666d341e8c68ee3051ef23aaaa",
                 "shasum": ""
             },
             "require": {
@@ -817,7 +817,7 @@
                 "obfuscate",
                 "youtube"
             ],
-            "time": "2014-01-08 00:03:57"
+            "time": "2014-06-04 01:56:32"
         },
         {
             "name": "maglnet/magl-markdown",
@@ -874,6 +874,137 @@
                 "zf2"
             ],
             "time": "2014-05-25 09:10:51"
+        },
+        {
+            "name": "mamuz/mamuz-blog",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mamuz/MamuzBlog.git",
+                "reference": "4c683db649e13130dbafe3596ba158e0e6032514"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mamuz/MamuzBlog/zipball/4c683db649e13130dbafe3596ba158e0e6032514",
+                "reference": "4c683db649e13130dbafe3596ba158e0e6032514",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/doctrine-orm-module": "0.*",
+                "hashids/hashids": "*",
+                "maglnet/magl-markdown": "1.*",
+                "neilime/zf2-twb-bundle": "2.*@stable",
+                "php": ">=5.4",
+                "zendframework/zendframework": "~2.3.1"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*",
+                "phpmd/phpmd": "2.0.*",
+                "phpunit/phpunit": "4.1.*",
+                "satooshi/php-coveralls": "dev-master",
+                "squizlabs/php_codesniffer": "2.0.*@dev"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Marco Muths",
+                    "email": "muzzi_is@web.de"
+                }
+            ],
+            "description": "Simple blog for product owner",
+            "keywords": [
+                "blog",
+                "mamuz"
+            ],
+            "time": "2014-06-03 23:17:55"
+        },
+        {
+            "name": "mamuz/mamuz-contact",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mamuz/MamuzContact.git",
+                "reference": "270bb312aae7b51d85b1a1d9fcebcbb188ee7f3f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mamuz/MamuzContact/zipball/270bb312aae7b51d85b1a1d9fcebcbb188ee7f3f",
+                "reference": "270bb312aae7b51d85b1a1d9fcebcbb188ee7f3f",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/doctrine-orm-module": "0.*",
+                "maglnet/magl-markdown": "1.*",
+                "neilime/zf2-twb-bundle": "2.*@stable",
+                "php": ">=5.4",
+                "zendframework/zendframework": "~2.3.1",
+                "zendframework/zendservice-recaptcha": "~2.0.1"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*",
+                "phpmd/phpmd": "2.0.*",
+                "phpunit/phpunit": "4.1.*",
+                "satooshi/php-coveralls": "dev-master",
+                "squizlabs/php_codesniffer": "2.0.*@dev"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Marco Muths",
+                    "email": "muzzi_is@web.de"
+                }
+            ],
+            "description": "Contact form",
+            "keywords": [
+                "contact",
+                "mamuz"
+            ],
+            "time": "2014-06-03 23:20:10"
+        },
+        {
+            "name": "mamuz/mamuz-content-manager",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mamuz/MamuzContentManager.git",
+                "reference": "418f4178a401676b2f42de9d2a7f69032b9e903e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mamuz/MamuzContentManager/zipball/418f4178a401676b2f42de9d2a7f69032b9e903e",
+                "reference": "418f4178a401676b2f42de9d2a7f69032b9e903e",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/doctrine-orm-module": "0.*",
+                "maglnet/magl-markdown": "1.*",
+                "neilime/zf2-twb-bundle": "2.*@stable",
+                "php": ">=5.4",
+                "zendframework/zendframework": "~2.3.1"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*",
+                "phpmd/phpmd": "2.0.*",
+                "phpunit/phpunit": "4.1.*",
+                "satooshi/php-coveralls": "dev-master",
+                "squizlabs/php_codesniffer": "2.0.*@dev"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Marco Muths",
+                    "email": "muzzi_is@web.de"
+                }
+            ],
+            "description": "Content Provider",
+            "keywords": [
+                "cms",
+                "mamuz"
+            ],
+            "time": "2014-06-03 23:17:12"
         },
         {
             "name": "michelf/php-markdown",
@@ -1470,16 +1601,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.9.1",
+            "version": "1.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "65026b610f8c19e61d7242f600530677b0466aac"
+                "reference": "25b16e801979098cb2f120e697bfce454b18bf23"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/65026b610f8c19e61d7242f600530677b0466aac",
-                "reference": "65026b610f8c19e61d7242f600530677b0466aac",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/25b16e801979098cb2f120e697bfce454b18bf23",
+                "reference": "25b16e801979098cb2f120e697bfce454b18bf23",
                 "shasum": ""
             },
             "require": {
@@ -1507,7 +1638,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.9.x-dev"
+                    "dev-master": "1.10.x-dev"
                 }
             },
             "autoload": {
@@ -1534,7 +1665,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2014-04-24 13:29:03"
+            "time": "2014-06-04 16:30:04"
         },
         {
             "name": "pdepend/pdepend",
@@ -3144,7 +3275,6 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": {
-        "neilime/zf2-twb-bundle": 0,
         "satooshi/php-coveralls": 20,
         "squizlabs/php_codesniffer": 20
     },

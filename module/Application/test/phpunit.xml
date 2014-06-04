@@ -2,8 +2,8 @@
 
 <phpunit bootstrap="Bootstrap.php" colors="true">
     <testsuites>
-        <testsuite name="All Testsuite">
-            <directory>../module/Application/test/ApplicationTest</directory>
+        <testsuite name="Application Testsuite">
+            <directory>./ApplicationTest</directory>
         </testsuite>
     </testsuites>
     <listeners>
@@ -11,7 +11,7 @@
     </listeners>
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">../module/Application/src</directory>
+            <directory suffix=".php">../src</directory>
         </whitelist>
     </filter>
 </phpunit>

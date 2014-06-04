@@ -1,7 +1,7 @@
 <?php
 
 return array(
-    'mamuz-application' => array(
+    'application' => array(
         'document_root' => $_SERVER['DOCUMENT_ROOT'],
         'http'          => array(
             'headers' => array(
@@ -12,8 +12,8 @@ return array(
         'mail'          => array(
             'contact' => array(
                 'template_map' => array(
-                    'contact/subject' => './module/MamuzApplication/view/mamuz-mail/contact/subject.phtml',
-                    'contact/body'    => './module/MamuzApplication/view/mamuz-mail/contact/body.phtml',
+                    'contact/subject' => './module/Application/view/mail/contact/subject.phtml',
+                    'contact/body'    => './module/Application/view/mail/contact/body.phtml',
                 ),
                 'options'      => array(
                     'to'              => 'muzzi_is@web.de',
