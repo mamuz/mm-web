@@ -3,43 +3,41 @@
 return array(
     'ApplicationTest\Bootstrap'                             => __DIR__ . '/test/Bootstrap.php',
     'ApplicationTest\Controller\IndexControllerTest'        =>
-    __DIR__ . '/test/MamuzApplicationTest/Controller/IndexControllerTest.php',
+    __DIR__ . '/test/ApplicationTest/Controller/IndexControllerTest.php',
     'ApplicationTest\Filter\MailMessageTest'                =>
-    __DIR__ . '/test/MamuzApplicationTest/Filter/MailMessageTest.php',
+    __DIR__ . '/test/ApplicationTest/Filter/MailMessageTest.php',
     'ApplicationTest\Listener\AggregateTest'                =>
-    __DIR__ . '/test/MamuzApplicationTest/Listener/AggregateTest.php',
+    __DIR__ . '/test/ApplicationTest/Listener/AggregateTest.php',
     'ApplicationTest\Navigation\DefaultFactoryTest'         =>
-    __DIR__ . '/test/MamuzApplicationTest/Navigation/DefaultFactoryTest.php',
+    __DIR__ . '/test/ApplicationTest/Navigation/DefaultFactoryTest.php',
     'ApplicationTest\Navigation\ProductOwnerFactoryTest'    =>
-    __DIR__ . '/test/MamuzApplicationTest/Navigation/ProductOwnerFactoryTest.php',
-    'ApplicationTest\Options\MailTest'                      =>
-    __DIR__ . '/test/MamuzApplicationTest/Options/MailTest.php',
+    __DIR__ . '/test/ApplicationTest/Navigation/ProductOwnerFactoryTest.php',
+    'ApplicationTest\Options\MailTest'                      => __DIR__ . '/test/ApplicationTest/Options/MailTest.php',
     'ApplicationTest\Service\AggregateFactoryTest'          =>
-    __DIR__ . '/test/MamuzApplicationTest/Listener/AggregateFactoryTest.php',
+    __DIR__ . '/test/ApplicationTest/Listener/AggregateFactoryTest.php',
     'ApplicationTest\Service\ContactMailFactoryTest'        =>
-    __DIR__ . '/test/MamuzApplicationTest/Service/ContactMailFactoryTest.php',
+    __DIR__ . '/test/ApplicationTest/Service/ContactMailFactoryTest.php',
     'ApplicationTest\Service\ErrorHandlingFactoryTest'      =>
-    __DIR__ . '/test/MamuzApplicationTest/Service/ErrorHandlingFactoryTest.php',
+    __DIR__ . '/test/ApplicationTest/Service/ErrorHandlingFactoryTest.php',
     'ApplicationTest\Service\ErrorHandlingTest'             =>
-    __DIR__ . '/test/MamuzApplicationTest/Service/ErrorHandlingTest.php',
+    __DIR__ . '/test/ApplicationTest/Service/ErrorHandlingTest.php',
     'ApplicationTest\Service\FactoryTest'                   =>
-    __DIR__ . '/test/MamuzApplicationTest/PluginManager/FactoryTest.php',
+    __DIR__ . '/test/ApplicationTest/PluginManager/FactoryTest.php',
     'ApplicationTest\Service\LogFactoryTest'                =>
-    __DIR__ . '/test/MamuzApplicationTest/Service/LogFactoryTest.php',
-    'ApplicationTest\Service\MailTest'                      =>
-    __DIR__ . '/test/MamuzApplicationTest/Service/MailTest.php',
+    __DIR__ . '/test/ApplicationTest/Service/LogFactoryTest.php',
+    'ApplicationTest\Service\MailTest'                      => __DIR__ . '/test/ApplicationTest/Service/MailTest.php',
     'ApplicationTest\Service\OutputCacheFactoryTest'        =>
-    __DIR__ . '/test/MamuzApplicationTest/Service/OutputCacheFactoryTest.php',
+    __DIR__ . '/test/ApplicationTest/Service/OutputCacheFactoryTest.php',
     'ApplicationTest\Service\OutputCacheTest'               =>
-    __DIR__ . '/test/MamuzApplicationTest/Service/OutputCacheTest.php',
+    __DIR__ . '/test/ApplicationTest/Service/OutputCacheTest.php',
     'ApplicationTest\Service\ServiceLocatorInitializerTest' =>
-    __DIR__ . '/test/MamuzApplicationTest/PluginManager/ServiceLocatorInitializerTest.php',
+    __DIR__ . '/test/ApplicationTest/PluginManager/ServiceLocatorInitializerTest.php',
     'ApplicationTest\View\Helper\AutoVersionFactoryTest'    =>
-    __DIR__ . '/test/MamuzApplicationTest/View/Helper/AutoVersionFactoryTest.php',
+    __DIR__ . '/test/ApplicationTest/View/Helper/AutoVersionFactoryTest.php',
     'ApplicationTest\View\Helper\AutoVersionTest'           =>
-    __DIR__ . '/test/MamuzApplicationTest/View/Helper/AutoVersionTest.php',
+    __DIR__ . '/test/ApplicationTest/View/Helper/AutoVersionTest.php',
     'ApplicationTest\View\Helper\ItemTest'                  =>
-    __DIR__ . '/test/MamuzApplicationTest/View/Helper/Navigation/ItemTest.php',
+    __DIR__ . '/test/ApplicationTest/View/Helper/Navigation/ItemTest.php',
     'Application\Controller\IndexController'                =>
     __DIR__ . '/src/Application/Controller/IndexController.php',
     'Application\Filter\MailMessage'                        => __DIR__ . '/src/Application/Filter/MailMessage.php',
