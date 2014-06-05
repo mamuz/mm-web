@@ -1,5 +1,4 @@
 !.gitignore
-composer.phar
 config/autoload/doctrine.production.php
 config/autoload/*.local.php
 public/environment.php
