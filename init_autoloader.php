@@ -4,18 +4,6 @@ if (file_exists('environment.php')) {
     include 'environment.php';
 }
 
-/* @todo
-require_once __DIR__ . '/vendor/zendframework/zendframework/library/Zend/Loader/AutoloaderFactory.php';
-require_once __DIR__ . '/vendor/zendframework/zendframework/library/Zend/Loader/ClassMapAutoloader.php';
-Zend\Loader\AutoloaderFactory::factory(
-array(
-'Zend\Loader\ClassMapAutoloader' => array(
-'Composer' => __DIR__ . '/vendor/composer/autoload_classmap.php',
-)
-)
-);
- */
-
 // Composer autoloading
 if (file_exists('vendor/autoload.php')) {
     $loader = include 'vendor/autoload.php';
@@ -43,8 +31,8 @@ if ($zf2Path) {
         include $zf2Path . '/Zend/Loader/AutoloaderFactory.php';
         Zend\Loader\AutoloaderFactory::factory(
             array(
-                'Zend\Loader\StandardAutoloader' => array(
-                    'autoregister_zf' => true
+                'Zend\Loader\ClassMapAutoloader' => array(
+                    'Composer' => __DIR__ . '/vendor/composer/autoload_classmap.php',
                 )
             )
         );
