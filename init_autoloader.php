@@ -1,5 +1,9 @@
 <?php
 
+if (file_exists('environment.php')) {
+    include 'environment.php';
+}
+
 /* @todo
 require_once __DIR__ . '/vendor/zendframework/zendframework/library/Zend/Loader/AutoloaderFactory.php';
 require_once __DIR__ . '/vendor/zendframework/zendframework/library/Zend/Loader/ClassMapAutoloader.php';
