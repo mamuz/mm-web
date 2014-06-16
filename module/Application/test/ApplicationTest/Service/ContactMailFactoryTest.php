@@ -25,13 +25,18 @@ class ContactMailFactoryTest extends \PHPUnit_Framework_TestCase
             'application' => array(
                 'mail' => array(
                     'contact' => array(
-                        'template_map' => array(),
-                        'options'      => array(),
+                        'options' => array(),
                     )
                 )
             )
         );
+
+        $renderer = \Mockery::mock('Zend\View\Renderer\RendererInterface');
+        $viewManager = \Mockery::mock('Zend\View\HelperPluginManager');
+        $viewManager->shouldReceive('getRenderer')->andReturn($renderer);
+
         $sm = \Mockery::mock('Zend\ServiceManager\ServiceLocatorInterface');
+        $sm->shouldReceive('get')->with('ViewManager')->andReturn($viewManager);
         $sm->shouldReceive('get')->with('Config')->andReturn($config);
 
         $service = $this->fixture->createService($sm);

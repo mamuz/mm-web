@@ -11,15 +11,11 @@ return array(
         ),
         'mail'          => array(
             'contact' => array(
-                'template_map' => array(
-                    'contact/subject' => './module/Application/view/mail/contact/subject.phtml',
-                    'contact/body'    => './module/Application/view/mail/contact/body.phtml',
-                ),
-                'options'      => array(
+                'options' => array(
                     'to'              => 'muzzi_is@web.de',
                     'from'            => 'automail@marco-muths.de',
-                    'subjectTemplate' => 'contact/subject',
-                    'bodyTemplate'    => 'contact/body',
+                    'subjectTemplate' => 'mail/contact/subject',
+                    'bodyTemplate'    => 'mail/contact/body',
                 ),
             ),
         ),
