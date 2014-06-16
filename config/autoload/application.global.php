@@ -27,7 +27,7 @@ return array(
                 'error' => array(
                     'name'    => 'stream',
                     'options' => array(
-                        'stream'    => './data/logs/error_' . date('Y-m') . '.log',
+                        'stream'    => './data/logs/error/' . date('Y-m') . '.log',
                         'formatter' => array(
                             'name'    => 'simple',
                             'options' => array(
