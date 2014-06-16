@@ -13,7 +13,7 @@ return array(
         'config_cache_key'         => 'app_config',
         'module_map_cache_enabled' => ($env == 'production'),
         'module_map_cache_key'     => 'module_map',
-        'cache_dir'                => __DIR__ . '/../data/cache/',
+        'cache_dir'                => __DIR__ . '/../data/cache/config',
         'check_dependencies'       => ($env != 'production'),
     ),
 );
