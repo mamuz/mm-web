@@ -53,7 +53,7 @@ class Module implements
 
         $response = $e->getResponse();
         if ($response instanceof HttpResponse) {
-            $this->addHeaderLinesToResponse($response);
+            $this->addHeaderLinesTo($response);
         }
     }
 
@@ -123,7 +123,7 @@ class Module implements
      * @param HttpResponse $response
      * @return void
      */
-    private function addHeaderLinesToResponse(HttpResponse $response)
+    private function addHeaderLinesTo(HttpResponse $response)
     {
         $config = $this->application->getServiceManager()->get('Config');
         $headers = $config['application']['http']['headers'];
