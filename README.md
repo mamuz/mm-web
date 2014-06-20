@@ -14,33 +14,19 @@ Practices, principles and patterns about web-development with PHP
 ## Functional Features
 
 - Skeleton with twitter-Bootstrap
+- Responsive Frontend
 - Contact
 - ContentManager
-- Responsive Frontend
 - Blog: Postlist is infinitive
 
 ## Non-Functional Features
 
-- Composer
 - ErrorLogging
-- Recaptcha by GoogleApi
 - GoogleTracking Plugin
-- Reportmail for new contact entry
-- UserInput Filter
-- Markdown parser for ContentManager and BlogPosts
-- ORM
-- AnnotationBuilder
-- Hashed Repository Identities
+- Automail for new contact entry
 - Config Cache
-- Autoload classmap
-- Template Map
 - Asset Versioning
-- Custom ServiceManager for each module
 - Output cache
-- GitHub, Travis-CI, Coveralls.io and VersionEye
-- PHPUnit with Mockery
-- PHPMD, PHPCS, PHPCPD, PHPLOC, PHPCB and PHPDOC integration
-- Dependency Security Check
 
 ## Installation
 
@@ -49,7 +35,6 @@ Practices, principles and patterns about web-development with PHP
 ```sh
 cd /var/www
 ```
-
 ```sh
 git clone https://github.com/mamuz/mm-web.git
 ```
@@ -69,8 +54,6 @@ Add virtual host to apache
 <VirtualHost *:80>
     DocumentRoot /var/www/mm-web/public
     ServerName local.mm-web.de
-    AccessFileName .htaccess
-    SetEnv APPLICATION_ENV "development"
     <Location />
         RewriteEngine On
         RewriteRule ^(.*)\.[\d]{10}\.(css|js)$ $1.$2 [L]
@@ -94,7 +77,7 @@ Add servername 'local.mm-web.de' to host file and restart apache server.
 
 ### Data directory
 
-Create directories for temporaly data
+Create directories for temporary data
 
 ```sh
 sh ./scripts/mkdata.sh
@@ -102,11 +85,8 @@ sh ./scripts/mkdata.sh
 
 ### Environment
 
-Virtual Host config already defined an APPLICATION_ENV to "development".
+In ``./environment.php`` is an APPLICATION_ENV defined to "development".
 For other environments change it to "staging" or "production".
-TestEnvironment is defined by "testing".
-Besides Virtual Host config an APPLICATION_ENV can be defined in public/environment.php which will be included
-by public/index.php.
 
 ```php
 putenv("APPLICATION_ENV=development");
@@ -119,7 +99,7 @@ Dependencies are handled by Composer package manager.
 ### Install dependencies with composer
 
 ```sh
-php composer.phar self-update; php composer.phar update
+php composer.phar self-update; php composer.phar install
 ```
 
 ## Testrunner
@@ -131,12 +111,12 @@ Each module must have an autoloader classmap.
 ### Execute Testrunner
 
 ```sh
-phpunit -c test/
+./vendor/phpunit -c test/
 ```
 
 ### Filemaps
 
-Each module must have an autoloader classmap and a template map
+Each module should have an autoloader classmap and a template map.
 
 ```sh
 sh ./scripts/generate_maps.sh
@@ -178,3 +158,7 @@ return array(
 ## Application Configuration
 
 In config/application.config define which modules will be integrated and the config cache behavior.
+
+## Application Module Configuration
+
+See [README.md in Application module](https://github.com/mamuz/mm-web/tree/master/module/Application) for more informations.

@@ -2,18 +2,25 @@
 
 ## Configuration
 
-In config file define logging and http header
+In ``./config/autoload/application.global.php`` you have to define
+
+ - document root: used for asset versioning
+ - http headers: used for sending response headers
+ - log: used for error logger factory
+
+### Example
 
 ```php
 return array(
-    'application'        => array(
-        'http' => array(
+    'application' => array(
+        'document_root' => $_SERVER['DOCUMENT_ROOT'],
+        'http'          => array(
             'headers' => array(
                 'Content-Type'     => 'text/html; charset=UTF-8',
                 'Content-Language' => 'en',
             ),
         ),
-        'log'  => array(
+        'log'           => array(
             'exceptionhandler'             => true,
             'errorhandler'                 => true,
             'fatal_error_shutdownfunction' => true,
@@ -21,7 +28,7 @@ return array(
                 'error' => array(
                     'name'    => 'stream',
                     'options' => array(
-                        'stream'    => './data/logs/error_' . date('Y-m') . '.log',
+                        'stream'    => './data/log/error/' . date('Y-m') . '.log',
                         'formatter' => array(
                             'name'    => 'simple',
                             'options' => array(
@@ -36,7 +43,7 @@ return array(
 );
 ```
 
-## Mail Listener
+### Mail Listener
 
 Listener for triggered events can be implemented in src/Application/Listener/Aggregate.
 For example you can sending mails for that by using Mail Service.
@@ -52,8 +59,8 @@ return array(
                     'contact/body'    => __DIR__ . '/../view/mail/contact/body.phtml',
                 ),
                 'options'      => array(
-                    'to'              => 'muzzi_is@web.de',
-                    'from'            => 'automail@marco-muths.de',
+                    'to'              => 'foo@bar.com',
+                    'from'            => 'baz@bam.com',
                     'subjectTemplate' => 'contact/subject',
                     'bodyTemplate'    => 'contact/body',
                 ),
@@ -62,3 +69,35 @@ return array(
     ),
 );
 ```
+
+## Output cache
+
+To improve response performance an output cache exists, which can be configured
+with factory options in ``./config/autoload/cache.global.php``. Each route which not
+contains in ``blacklistedRouteNames`` array will be cached. Cached responses have an
+additional header ``X-Application-Cache``.
+
+### Example
+
+```php
+return array(
+    'caches' => array(
+        'outputCache' => array(
+            'adapter'               => array(
+                'name' => 'filesystem'
+            ),
+            'options'               => array(
+                'cache_dir' => './data/cache/output',
+            ),
+            'blacklistedRouteNames' => array(
+                'contact'
+            ),
+        ),
+    ),
+);
+```
+
+## Navigation
+
+Navigation is build by view helper specialized for bootstrap and configured by
+``./config/autoload/navigation.global.php`` which contains options for Zend\Navigation factory.
