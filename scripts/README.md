@@ -20,7 +20,7 @@ sh ./scripts/inspect.sh
 sh ./scripts/mkdata.sh
 ```
 
-## Create zf2 map files
+## Create ZF2 map files
 
 ```sh
 sh ./scripts/generate_maps.sh
