@@ -162,3 +162,7 @@ In config/application.config define which modules will be integrated and the con
 ## Application Module Configuration
 
 See [README.md in Application module](https://github.com/mamuz/mm-web/tree/master/module/Application) for more informations.
+
+## Scripts
+
+See [README.md in scripts directory](https://github.com/mamuz/mm-web/tree/master/scripts) for more informations.
