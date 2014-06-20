@@ -111,7 +111,7 @@ Each module must have an autoloader classmap.
 ### Execute Testrunner
 
 ```sh
-./vendor/phpunit -c test/
+./vendor/bin/phpunit -c test/
 ```
 
 ### Filemaps
