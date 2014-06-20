@@ -2,12 +2,13 @@
 
 ## Inspection
 
+- PHPUNIT
 - PHPMD
 - PHPCS
 - PHPDPD
 - SensiLabs Security Checker
 
-Inspections will be stored in ./build directory
+Inspections will be stored in ``./build`` directory
 
 ```sh
 sh ./scripts/inspect.sh
