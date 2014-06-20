@@ -9,7 +9,7 @@ Homepage with ZF2 and Doctrine2
 
 ## Domain
 
-Practices, principles and patterns about web-development with PHP
+Private homepage to provide informations about: Practices, principles and patterns in web-development with PHP
 
 ## Functional Features
 
@@ -73,7 +73,7 @@ Add virtual host to apache
 </VirtualHost>
 ```
 
-Add servername 'local.mm-web.de' to host file and restart apache server.
+Add servername ``local.mm-web.de`` to host file and restart apache server.
 
 ### Data directory
 
@@ -105,7 +105,7 @@ php composer.phar self-update; php composer.phar install
 ## Testrunner
 
 In test directory an over all module tesrunner exists.
-Be sure that each module is defined in test\config.php and in test\phpunit.xml.
+Be sure that each module is defined in ``./test/config.php`` and in ``./test/phpunit.xml``.
 Each module must have an autoloader classmap.
 
 ### Execute Testrunner
@@ -124,14 +124,14 @@ sh ./scripts/generate_maps.sh
 
 ## Travis-CI
 
-Travis Service integration is configured in .travis.yml.
+Travis Service integration is configured in ``.travis.yml``.
 To check dependencies it is VersionEye Service integrated.
-Code coverage is integrated by Coveralls.io and configured in .coverall.yml.
-For Coveralls.io it must be "satooshi/php-coveralls" installed.
+Code coverage is integrated by Coveralls.io and configured in ``.coverall.yml``.
+For Coveralls.io it must be [satooshi/php-coveralls](https://github.com/satooshi/php-coveralls) installed.
 
 ## Doctrine Integration
 
-Create a new config file for doctrine in config/autoload and be sure that will not be commit to VCS.
+Create a new config file for doctrine in ``./config/autoload`` and be sure that will not be commit to VCS.
 Inside that file define your connection:
 
 ```php
@@ -157,7 +157,7 @@ return array(
 
 ## Application Configuration
 
-In config/application.config define which modules will be integrated and the config cache behavior.
+In ``./config/application.config`` define which modules will be integrated and the config cache behavior.
 
 ## Application Module Configuration
 
