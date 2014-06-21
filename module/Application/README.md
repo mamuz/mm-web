@@ -2,7 +2,7 @@
 
 ## Configuration
 
-In ``./config/autoload/application.global.php`` you have to define
+In `./config/autoload/application.global.php` you have to define
 
  - document root: used for asset versioning
  - http headers: used for sending response headers
@@ -45,7 +45,7 @@ return array(
 
 ### Mail Listener
 
-Listener for triggered events can be implemented in src/Application/Listener/Aggregate.
+Listener for triggered events can be implemented in `src/Application/Listener/Aggregate`.
 For example you can sending mails for that by using Mail Service.
 Those services can be configured by a factory, which reads options from module config.
 
@@ -73,9 +73,9 @@ return array(
 ## Output cache
 
 To improve response performance an output cache exists, which can be configured
-with factory options in ``./config/autoload/cache.global.php``. Each route which not
-contains in ``blacklistedRouteNames`` array will be cached. Cached responses have an
-additional header ``X-Application-Cache``.
+with factory options in `./config/autoload/cache.global.php`. Each route which not
+contains in `blacklistedRouteNames` array will be cached. Cached responses have an
+additional header `X-Application-Cache`.
 
 ### Example
 
@@ -100,4 +100,4 @@ return array(
 ## Navigation
 
 Navigation is build by view helper specialized for bootstrap and configured by
-``./config/autoload/navigation.global.php`` which contains options for Zend\Navigation factory.
+`./config/autoload/navigation.global.php` which contains options for `Zend\Navigation` factory.

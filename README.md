@@ -122,39 +122,6 @@ Each module should have an autoloader classmap and a template map.
 sh ./scripts/generate_maps.sh
 ```
 
-## Travis-CI
-
-Travis Service integration is configured in `.travis.yml`.
-To check dependencies it is VersionEye Service integrated.
-Code coverage is integrated by Coveralls.io and configured in `.coverall.yml`.
-For Coveralls.io it must be [`satooshi/php-coveralls`](https://github.com/satooshi/php-coveralls) installed.
-
-## Doctrine Integration
-
-Create a new config file for doctrine in `./config/autoload` and be sure that will not be commit to VCS.
-Inside that file define your connection:
-
-```php
-return array(
-    'doctrine' => array(
-        'connection' => array(
-            'orm_default' => array(
-                'driverClass' => 'Doctrine\DBAL\Driver\PDOMySql\Driver',
-                'params'      => array(
-                    'host'          => 'localhost',
-                    'port'          => '3306',
-                    'user'          => 'xxxxxxx',
-                    'password'      => 'xxxxxxx',
-                    'dbname'        => 'mm-web',
-                    'charset'       => 'utf8',
-                    'driverOptions' => array(1002 => 'SET NAMES utf8'),
-                ),
-            ),
-        ),
-    ),
-);
-```
-
 ## Application Configuration
 
 In `./config/application.config` define which modules will be integrated and the config cache behavior.
