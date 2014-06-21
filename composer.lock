@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "99f36f97c1bfd4f7b9f78fb961c099a4",
+    "hash": "9ca155196ea2a8c9570ec05929f4eb46",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -928,21 +928,20 @@
         },
         {
             "name": "mamuz/mamuz-contact",
-            "version": "dev-master",
+            "version": "0.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mamuz/MamuzContact.git",
-                "reference": "af6e071c61e82087dd50fa303f22a7313a964a9e"
+                "reference": "d159799cbf305a6123c88abebbebe7684e70b91f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mamuz/MamuzContact/zipball/af6e071c61e82087dd50fa303f22a7313a964a9e",
-                "reference": "af6e071c61e82087dd50fa303f22a7313a964a9e",
+                "url": "https://api.github.com/repos/mamuz/MamuzContact/zipball/d159799cbf305a6123c88abebbebe7684e70b91f",
+                "reference": "d159799cbf305a6123c88abebbebe7684e70b91f",
                 "shasum": ""
             },
             "require": {
                 "doctrine/doctrine-orm-module": "0.*",
-                "maglnet/magl-markdown": "1.*",
                 "neilime/zf2-twb-bundle": "2.*@stable",
                 "php": ">=5.4",
                 "zendframework/zendframework": "~2.3.1",
@@ -969,32 +968,35 @@
                     "email": "muzzi_is@web.de"
                 }
             ],
-            "description": "Provides simple contact form feature.",
+            "description": "Provides simple contact form rendered by twitter-bootstrap view helper for ZF2 with Doctrine",
             "homepage": "https://github.com/mamuz/MamuzContact",
             "keywords": [
                 "contact",
-                "mamuz"
+                "doctrine",
+                "form",
+                "mamuz",
+                "twitter-bootstrap",
+                "zf2"
             ],
-            "time": "2014-06-20 20:14:18"
+            "time": "2014-06-21 13:21:58"
         },
         {
             "name": "mamuz/mamuz-content-manager",
-            "version": "dev-master",
+            "version": "0.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mamuz/MamuzContentManager.git",
-                "reference": "130a78d73e8694f66f08c767dcc4374bd5f717ad"
+                "reference": "1f6eed64991ba00a2d476224a5269624e74e2b7b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mamuz/MamuzContentManager/zipball/130a78d73e8694f66f08c767dcc4374bd5f717ad",
-                "reference": "130a78d73e8694f66f08c767dcc4374bd5f717ad",
+                "url": "https://api.github.com/repos/mamuz/MamuzContentManager/zipball/1f6eed64991ba00a2d476224a5269624e74e2b7b",
+                "reference": "1f6eed64991ba00a2d476224a5269624e74e2b7b",
                 "shasum": ""
             },
             "require": {
                 "doctrine/doctrine-orm-module": "0.*",
                 "maglnet/magl-markdown": "1.*",
-                "neilime/zf2-twb-bundle": "2.*@stable",
                 "php": ">=5.4",
                 "zendframework/zendframework": "~2.3.1"
             },
@@ -1019,13 +1021,16 @@
                     "email": "muzzi_is@web.de"
                 }
             ],
-            "description": "Provides simple content manager.",
+            "description": "Provides simple content manager for ZF2 with Doctrine",
             "homepage": "https://github.com/mamuz/MamuzContentManager",
             "keywords": [
                 "cms",
-                "mamuz"
+                "doctrine",
+                "mamuz",
+                "markdown",
+                "zf2"
             ],
-            "time": "2014-06-20 20:13:31"
+            "time": "2014-06-21 14:22:53"
         },
         {
             "name": "michelf/php-markdown",
