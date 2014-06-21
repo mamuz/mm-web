@@ -1,7 +1,6 @@
 !.gitignore
 config/autoload/doctrine.production.php
 config/autoload/*.local.php
-composer.lock
 data
 data/*
 build
