@@ -4,7 +4,7 @@ $(document).ready(function () {
         hljs.highlightBlock(e)
     });
 
-    $('.list').jscroll({
+    $('.scroll-list').jscroll({
         nextSelector: 'a.next',
         loadingHtml : '',
         callback    : function () {
