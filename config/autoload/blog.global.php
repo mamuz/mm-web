@@ -11,7 +11,7 @@ return array(
     ),
     'view_manager' => array(
         'template_map' => array(
-            'mamuz-blog/query/active-posts' => './module/Application/view/mamuz-blog/query/active-posts.phtml',
+            'mamuz-blog/post-query/active-posts' => './module/Application/view/mamuz-blog/post-query/active-posts.phtml',
         )
     ),
 );
