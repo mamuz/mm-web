@@ -2,8 +2,18 @@
 
 $env = getenv('APPLICATION_ENV') ? : 'production';
 
+$devModules = array(
+    'ZendDeveloperTools',
+    //'BjyProfiler',
+    'OcraServiceManager',
+);
+
+$modules = array(
+    'Application',
+);
+
 return array(
-    'modules'                 => array('Application'),
+    'modules'                 => ($env == 'development') ? array_merge($devModules, $modules) : $modules,
     'module_listener_options' => array(
         'module_paths'             => array('./module', './vendor'),
         'config_glob_paths'        => array(

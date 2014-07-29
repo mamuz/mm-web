@@ -24,12 +24,15 @@
         "mamuz/mamuz-content-manager": "0.*"
     },
     "require-dev"      : {
-        "satooshi/php-coveralls"     : "dev-master",
-        "phpunit/phpunit"            : "4.1.*",
-        "mockery/mockery"            : "0.9.*",
-        "pdepend/pdepend"            : "2.0.*",
-        "phpmd/phpmd"                : "2.0.*",
-        "squizlabs/php_codesniffer"  : "2.0.*@dev",
-        "sensiolabs/security-checker": "1.*"
+        "zendframework/zend-developer-tools": "dev-master",
+        "bjyoungblood/bjy-profiler"         : "1.1.*",
+        "ocramius/ocra-service-manager"     : "2.1.*",
+        "satooshi/php-coveralls"            : "dev-master",
+        "phpunit/phpunit"                   : "4.1.*",
+        "mockery/mockery"                   : "0.9.*",
+        "pdepend/pdepend"                   : "2.0.*",
+        "phpmd/phpmd"                       : "2.0.*",
+        "squizlabs/php_codesniffer"         : "2.0.*@dev",
+        "sensiolabs/security-checker"       : "1.*"
     }
 }
