@@ -3,7 +3,10 @@
 return array(
     'mamuz-blog'   => array(
         'pagination' => array(
-            'range' => 1,
+            'range' => array(
+                'post' => 1,
+                'tag'  => 10,
+            ),
         ),
     ),
     'view_manager' => array(
