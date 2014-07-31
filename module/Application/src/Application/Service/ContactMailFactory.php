@@ -4,6 +4,7 @@ namespace Application\Service;
 
 use Application\Filter\MailMessage as MessageBuilder;
 use Application\Options\Mail as MailOptions;
+use Application\Service\Mail as Mailer;
 use Zend\Mail\Transport\Sendmail;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
@@ -25,7 +26,7 @@ class ContactMailFactory implements FactoryInterface
 
         $messageBuilder = new MessageBuilder($renderer, $mailOptions);
         $mailTransporter = new Sendmail;
-        $mailer = new Mail($messageBuilder, $mailTransporter);
+        $mailer = new Mailer($messageBuilder, $mailTransporter);
 
         return $mailer;
     }
