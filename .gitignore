@@ -7,5 +7,3 @@ build
 build/*
 vendor
 vendor/*
-.idea
-.idea/*
