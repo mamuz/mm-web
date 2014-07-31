@@ -1,6 +1,7 @@
 {
     "name"             : "mamuz/mm-web",
     "description"      : "Practices, principles and patterns about web-development with PHP",
+    "license": "proprietary",
     "keywords"         : ["mamuz"],
     "authors"          : [
         {
