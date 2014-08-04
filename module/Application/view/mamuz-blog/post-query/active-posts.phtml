@@ -14,4 +14,7 @@ echo $this->postPager($this->collection, $this->routeParams) . PHP_EOL;
 
 if (!$this->isTerminal) {
     echo "</div>" . PHP_EOL;
+    echo '<div id="sidebar" class="col-md-3" role="complementary">';
+    echo $this->tagList();
+    echo '</div>';
 }

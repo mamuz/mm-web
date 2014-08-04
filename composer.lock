@@ -4,8 +4,64 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b3379540b6896b2721ad9b4ddc5b1a9b",
+    "hash": "9ade56cb702decc87997835def66730d",
     "packages": [
+        {
+            "name": "cocur/slugify",
+            "version": "v0.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cocur/slugify.git",
+                "reference": "a5a64066d6857174225ac857e615cfc3c308091a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cocur/slugify/zipball/a5a64066d6857174225ac857e615cfc3c308091a",
+                "reference": "a5a64066d6857174225ac857e615cfc3c308091a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9",
+                "phpunit/phpunit": "~3.7",
+                "sami/sami": "~1.3",
+                "satooshi/php-coveralls": "dev-master",
+                "silex/silex": "~1.2",
+                "symfony/dependency-injection": "~2.4",
+                "symfony/http-kernel": "~2.4",
+                "twig/twig": "~1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Cocur\\Slugify\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ivo Bathke",
+                    "email": "ivo.bathke@gmail.com"
+                },
+                {
+                    "name": "Florian Eckerstorfer",
+                    "email": "florian@eckerstorfer.co",
+                    "homepage": "http://florian.ec",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Converts a string into a slug.",
+            "keywords": [
+                "slug",
+                "slugify"
+            ],
+            "time": "2014-05-29 09:51:57"
+        },
         {
             "name": "doctrine/annotations",
             "version": "v1.2.0",
@@ -878,19 +934,20 @@
         },
         {
             "name": "mamuz/mamuz-blog",
-            "version": "1.0.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mamuz/MamuzBlog.git",
-                "reference": "14e8af57777341ceac20ef4aaa1b315134de5738"
+                "reference": "2dae26c87c3ca67b7ac626f9ed81a351ac863aaa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mamuz/MamuzBlog/zipball/14e8af57777341ceac20ef4aaa1b315134de5738",
-                "reference": "14e8af57777341ceac20ef4aaa1b315134de5738",
+                "url": "https://api.github.com/repos/mamuz/MamuzBlog/zipball/2dae26c87c3ca67b7ac626f9ed81a351ac863aaa",
+                "reference": "2dae26c87c3ca67b7ac626f9ed81a351ac863aaa",
                 "shasum": ""
             },
             "require": {
+                "cocur/slugify": "0.*",
                 "doctrine/doctrine-orm-module": "0.*",
                 "ext-intl": "*",
                 "hashids/hashids": "0.3.*@dev",
@@ -920,7 +977,7 @@
                     "email": "muzzi_is@web.de"
                 }
             ],
-            "description": "Provides simple product owner blog feature for ZF2 with Doctrine",
+            "description": "Provides blog feature for ZF2 with Doctrine",
             "homepage": "https://github.com/mamuz/MamuzBlog",
             "keywords": [
                 "blog",
@@ -930,7 +987,7 @@
                 "twitter-bootstrap",
                 "zf2"
             ],
-            "time": "2014-07-29 20:02:04"
+            "time": "2014-08-03 11:35:37"
         },
         {
             "name": "mamuz/mamuz-contact",
@@ -3086,9 +3143,7 @@
             "time": "2014-07-11 19:51:50"
         }
     ],
-    "aliases": [
-
-    ],
+    "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
         "zendframework/zend-developer-tools": 20,
@@ -3099,7 +3154,5 @@
     "platform": {
         "php": ">=5.4"
     },
-    "platform-dev": [
-
-    ]
+    "platform-dev": []
 }
