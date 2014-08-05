@@ -90,23 +90,12 @@ pre, code {
     font-size: 13px;
     font-weight: 500;
     padding: 4px 20px;
+    color: #ffffff;
 }
 
-#sidebar .nav>li>a:hover {
-    background: none;
-    text-decoration: underline;
-}
-
-#sidebar .nav>li {
-    border-left: 1px solid transparent;
-}
-
-#sidebar .nav>li.active {
-    border-left: 1px solid #ff8800;
-}
-
-.sidenav {
+#sidebar .nav {
     position: fixed;
+    width: 260px;
 }
 
 .navbar-form .input-group-btn {

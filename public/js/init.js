@@ -16,10 +16,10 @@ $(document).ready(function () {
 
     // dynamic sidebar
     if (!$.trim($('#sidebar').html())) {
-        $('#sidebar').append('<ul class="nav sidenav hidden-print"></ul>');
+        $('#sidebar').append('<ul class="nav nav-pills nav-stacked"></ul>');
         $("#main-content h2").each(function (index) {
             $(this).attr('id', 'section-' + index);
-            $(".sidenav").append(
+            $(".nav-stacked").append(
                 '<li><a href="#section-' + index + '">' + $(this).html() + '</a></li>'
             );
         });

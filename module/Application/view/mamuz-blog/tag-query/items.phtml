@@ -1,0 +1,18 @@
+<?php
+
+if ($this->currentTag) {
+    $this->headTitle()->append($this->translate($this->currentTag));
+}
+
+$items = array();
+foreach ($this->collection as $entity) {
+    /** @var \MamuzBlog\Entity\Tag $entity */
+    if ($item = $this->tag($entity)) {
+        $active = $entity->getName() === $this->currentTag ? ' class="active"' : '';
+        $items[] = '<li' . $active . '>' . $item . '</li>';
+    }
+}
+
+echo '<ul class="nav nav-pills nav-stacked">' . PHP_EOL;
+echo implode(PHP_EOL, $items);
+echo '</ul>' . PHP_EOL;
