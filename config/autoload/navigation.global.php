@@ -31,6 +31,7 @@ return array(
                 'label' => 'Blog',
                 'uri'   => '/blog',
             ),
+            /*
             'frontend'     => array(
                 'label' => 'Frontend',
                 'uri'   => '#',
@@ -59,12 +60,9 @@ return array(
                         'label' => 'Responsive Design',
                         'uri'   => '/frontend/responsive+design',
                     ),
-                    'frameworks'        => array(
-                        'label' => 'Frameworks',
-                        'uri'   => '/frontend/frameworks',
-                    ),
                 ),
             ),
+            */
             'oop'          => array(
                 'label' => 'OOP',
                 'uri'   => '#',
@@ -72,6 +70,10 @@ return array(
                     'php'             => array(
                         'label' => 'PHP',
                         'uri'   => '/oop/php',
+                    ),
+                    'principles' => array(
+                        'label' => 'Principles',
+                        'uri'   => '/oop/principles',
                     ),
                     'clean-code'      => array(
                         'label' => 'Clean Code',
@@ -81,21 +83,9 @@ return array(
                         'label' => 'SOLID',
                         'uri'   => '/oop/solid',
                     ),
-                    'principles'      => array(
-                        'label' => 'Principles',
-                        'uri'   => '/oop/principles',
-                    ),
                     'design-patterns' => array(
                         'label' => 'Design Patterns',
                         'uri'   => '/oop/design+patterns',
-                    ),
-                    'aspect-oriented' => array(
-                        'label' => 'Aspect-Oriented',
-                        'uri'   => '/oop/aspect-oriented',
-                    ),
-                    'frameworks'      => array(
-                        'label' => 'Frameworks',
-                        'uri'   => '/oop/frameworks',
                     ),
                 ),
             ),
@@ -103,19 +93,27 @@ return array(
                 'label' => 'Architecture',
                 'uri'   => '#',
                 'pages' => array(
-                    'planning'      => array(
+                    'planning'        => array(
                         'label' => 'Planning',
                         'uri'   => '/architecture/planning',
                     ),
-                    'conventions'   => array(
+                    'conventions'     => array(
                         'label' => 'Conventions',
                         'uri'   => '/architecture/conventions',
                     ),
-                    'principles'    => array(
+                    'principles'      => array(
                         'label' => 'Principles',
                         'uri'   => '/architecture/principles',
                     ),
-                    'documentation' => array(
+                    'layers'          => array(
+                        'label' => 'Layers / Tiers',
+                        'uri'   => '/oop/layers',
+                    ),
+                    'aspect-oriented' => array(
+                        'label' => 'Aspect-Oriented',
+                        'uri'   => '/oop/aspect-oriented',
+                    ),
+                    'documentation'   => array(
                         'label' => 'Documentation',
                         'uri'   => '/architecture/documentation',
                     ),
