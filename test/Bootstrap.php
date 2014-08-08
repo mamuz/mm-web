@@ -1,137 +1,26 @@
 <?php
 
-namespace OverallTest;
-
-use RuntimeException;
-use Zend\Loader\AutoloaderFactory;
-use Zend\Mvc\Service\ServiceManagerConfig;
-use Zend\ServiceManager\ServiceManager;
-
-putenv('APPLICATION_ENV=testing');
-error_reporting(E_ALL | E_STRICT);
-chdir(__DIR__);
+error_reporting(E_ALL);
 
 if (function_exists('xdebug_disable')) {
     xdebug_disable();
 }
 
-/**
- * Test bootstrap, for setting up autoloading
- */
-class Bootstrap
-{
-    protected static $modules = array();
-
-    protected static $serviceManager;
-
-    public static function init()
-    {
-        static::loadConfig();
-
-        $zf2ModulePaths = array(dirname(dirname(__DIR__)));
-        if (($path = static::findParentPath('vendor'))) {
-            $zf2ModulePaths[] = $path;
-        }
-        if (($path = static::findParentPath('module')) !== $zf2ModulePaths[0]) {
-            $zf2ModulePaths[] = $path;
-        }
-
-        static::initAutoloader();
-
-        // use ModuleManager to load this module and it's dependencies
-        $config = array(
-            'module_listener_options' => array(
-                'module_paths' => $zf2ModulePaths,
-            ),
-            'modules'                 => static::$modules,
-        );
-
-        $serviceManager = new ServiceManager(new ServiceManagerConfig());
-        $serviceManager->setService('ApplicationConfig', $config);
-        $serviceManager->get('ModuleManager')->loadModules();
-        static::$serviceManager = $serviceManager;
-    }
-
-    protected static function loadConfig()
-    {
-        static::$modules = include __DIR__ . '/config.php';
-    }
-
-    public static function chroot()
-    {
-        $rootPath = dirname(static::findParentPath('module'));
-        chdir($rootPath);
-    }
-
-    public static function getServiceManager()
-    {
-        return static::$serviceManager;
-    }
-
-    protected static function initAutoloader()
-    {
-        $vendorPath = static::findParentPath('vendor');
-
-        $zf2Path = getenv('ZF2_PATH');
-        if (!$zf2Path) {
-            if (defined('ZF2_PATH')) {
-                $zf2Path = ZF2_PATH;
-            } elseif (is_dir($vendorPath . '/ZF2/library')) {
-                $zf2Path = $vendorPath . '/ZF2/library';
-            } elseif (is_dir($vendorPath . '/zendframework/zendframework/library')) {
-                $zf2Path = $vendorPath . '/zendframework/zendframework/library';
-            }
-        }
-
-        if (!$zf2Path) {
-            throw new RuntimeException(
-                'Unable to load ZF2. Run `php composer.phar install` or'
-                . ' define a ZF2_PATH environment variable.'
-            );
-        }
-
-        if (file_exists($vendorPath . '/autoload.php')) {
-            include $vendorPath . '/autoload.php';
-        }
-
-        include $zf2Path . '/Zend/Loader/AutoloaderFactory.php';
-        AutoloaderFactory::factory(
-            array(
-                'Zend\Loader\ClassMapAutoloader' => static::collectAutoloaderClassMaps(),
-                'Zend\Loader\StandardAutoloader' => array(
-                    'autoregister_zf' => true,
-                    'namespaces'      => array(
-                        __NAMESPACE__ => __DIR__ . '/' . __NAMESPACE__,
-                    ),
-                ),
-            )
-        );
-    }
-
-    protected static function collectAutoloaderClassMaps()
-    {
-        $classMaps = array();
-        $rootPath = dirname(static::findParentPath('module'));
-        foreach (static::$modules as $module) {
-            $classMaps[] = $rootPath . '/module/' . $module . '/autoload_classmap.php';
-        }
-        return $classMaps;
-    }
-
-    protected static function findParentPath($path)
-    {
-        $dir = __DIR__;
-        $previousDir = '.';
-        while (!is_dir($dir . '/' . $path)) {
-            $dir = dirname($dir);
-            if ($previousDir === $dir) {
-                return false;
-            }
-            $previousDir = $dir;
-        }
-        return $dir . '/' . $path;
-    }
+$file = __DIR__ . '/../vendor/autoload.php';
+if (file_exists($file)) {
+    $loader = require $file;
 }
 
-Bootstrap::init();
-Bootstrap::chroot();
+if (!isset($loader)) {
+    throw new \RuntimeException('Can not find vendor/autoload.php');
+}
+
+$modulePath = __DIR__ . '/../module';
+$modules = array_diff(scandir($modulePath), array('.', '..'));
+foreach ($modules as $module) {
+    /** @var \Composer\Autoload\ClassLoader $loader */
+    $loader->add($module . '\\', $modulePath . '/' . $module . '/src');
+    $loader->add($module . 'Test\\', $modulePath . '/' . $module . '/test');
+}
+
+unset($file, $loader);

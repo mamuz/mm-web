@@ -29,20 +29,16 @@ class IndexControllerTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        /** @var \Zend\ServiceManager\ServiceManager $serviceManager */
-        $serviceManager = Bootstrap::getServiceManager();
         $this->fixture = new IndexController();
         $this->request = new Request();
         $this->routeMatch = new RouteMatch(array('controller' => 'index'));
         $this->event = new MvcEvent();
-        $config = $serviceManager->get('Config');
-        $routerConfig = isset($config['router']) ? $config['router'] : array();
+        $routerConfig = array();
         $router = HttpRouter::factory($routerConfig);
 
         $this->event->setRouter($router);
         $this->event->setRouteMatch($this->routeMatch);
         $this->fixture->setEvent($this->event);
-        $this->fixture->setServiceLocator($serviceManager);
     }
 
     public function testExtendingZendActionController()
