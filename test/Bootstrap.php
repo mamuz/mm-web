@@ -19,4 +19,4 @@ foreach ($modules as $module) {
     $loader->add($module . 'Test\\', $modulePath . '/' . $module . '/test');
 }
 
-unset($file, $loader);
+unset($file, $loader, $modulePath, $modules, $module);
