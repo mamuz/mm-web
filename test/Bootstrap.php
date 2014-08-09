@@ -2,8 +2,13 @@
 
 error_reporting(E_ALL);
 
-if (function_exists('xdebug_disable')) {
-    xdebug_disable();
+if (version_compare(PHP_VERSION, '5.4', '>=') && gc_enabled()) {
+    /**
+     * Disabling Zend Garbage Collection to prevent segfaults with PHP5.4+
+     *
+     * @see https://bugs.php.net/bug.php?id=53976
+     */
+    gc_disable();
 }
 
 $file = __DIR__ . '/../vendor/autoload.php';
