@@ -8,7 +8,7 @@ if (file_exists($file)) {
 }
 
 if (!isset($loader)) {
-    throw new \RuntimeException('Can not find vendor/autoload.php');
+    throw new \RuntimeException('Cannot find vendor/autoload.php');
 }
 
 $modulePath = __DIR__ . '/../module';
