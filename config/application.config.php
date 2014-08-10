@@ -4,7 +4,6 @@ $env = getenv('APPLICATION_ENV') ? : 'production';
 
 $devModules = array(
     'ZendDeveloperTools',
-    //'BjyProfiler',
     'OcraServiceManager',
 );
 
