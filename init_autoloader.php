@@ -25,8 +25,8 @@ if ($zf2Path) {
         $loader->add('ZendXml', $zf2Path);
     } else {
         include $zf2Path . '/Zend/Loader/AutoloaderFactory.php';
-        Zend\Loader\AutoloaderFactory::factory(
-            array(
+        \Zend\Loader\AutoloaderFactory::factory(
+        array(
                 'Zend\Loader\ClassMapAutoloader' => array(
                     'Composer' => __DIR__ . '/vendor/composer/autoload_classmap.php',
                 )
@@ -36,5 +36,5 @@ if ($zf2Path) {
 }
 
 if (!class_exists('Zend\Loader\AutoloaderFactory')) {
-    throw new RuntimeException('Unable to load ZF2.');
+    throw new \RuntimeException('Unable to load ZF2.');
 }
