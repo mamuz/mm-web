@@ -16,7 +16,7 @@ $modules = array_diff(scandir($modulePath), array('.', '..'));
 foreach ($modules as $module) {
     /** @var \Composer\Autoload\ClassLoader $loader */
     $loader->add($module . '\\', $modulePath . '/' . $module . '/src');
-    $loader->add($module . 'Test\\', $modulePath . '/' . $module . '/test');
+    $loader->add($module . 'Test\\', $modulePath . '/' . $module . '/tests');
 }
 
 unset($file, $loader, $modulePath, $modules, $module);
