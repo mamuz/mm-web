@@ -26,7 +26,7 @@ if ($zf2Path) {
     } else {
         include $zf2Path . '/Zend/Loader/AutoloaderFactory.php';
         \Zend\Loader\AutoloaderFactory::factory(
-        array(
+            array(
                 'Zend\Loader\ClassMapAutoloader' => array(
                     'Composer' => __DIR__ . '/vendor/composer/autoload_classmap.php',
                 )
