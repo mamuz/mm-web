@@ -17,8 +17,6 @@ if (is_dir('vendor/ZF2/library')) {
     $zf2Path = 'vendor/ZF2/library';
 } elseif (getenv('ZF2_PATH')) {
     $zf2Path = getenv('ZF2_PATH');
-} elseif (get_cfg_var('zf2_path')) {
-    $zf2Path = get_cfg_var('zf2_path');
 }
 
 if ($zf2Path) {
