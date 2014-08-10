@@ -12,8 +12,8 @@ return array(
     'view_manager' => array(
         'template_map' => array(
             // @codingStandardsIgnoreStart
-            'mamuz-blog/post-query/active-posts' => './module/Application/view/mamuz-blog/post-query/active-posts.phtml',
-            'mamuz-blog/tag-query/items'         => './module/Application/view/mamuz-blog/tag-query/items.phtml',
+            'mamuz-blog/post-query/published-posts' => './module/Application/view/mamuz-blog/post-query/published-posts.phtml',
+            'mamuz-blog/tag-query/items'            => './module/Application/view/mamuz-blog/tag-query/items.phtml',
             // @codingStandardsIgnoreEnd
         )
     ),
