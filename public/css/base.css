@@ -63,6 +63,10 @@ footer .well {
     }
 }
 
+.navbar-brand {
+    padding: 10px 15px;
+}
+
 #recaptcha_area {
     margin: auto;
 }
