@@ -58,7 +58,7 @@
             ZeroClipboard.config({
                 moviePath: window.location.protocol + '//' + window.location.host + '/js/vendor/ZeroClipboard.swf'
             });
-            $("pre code", this.element).each(function (index) {
+            $("pre code", el).each(function (index) {
                 var icon = $('<span>').attr({
                     title                  : "copy to clipboard",
                     "data-clipboard-target": "copy-cnt-" + index
