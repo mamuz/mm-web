@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "82a1ca7e71969da22350075f83962051",
+    "hash": "f5062c6a1307757c284b7c83121a812b",
     "packages": [
         {
             "name": "cocur/slugify",
@@ -932,16 +932,16 @@
         },
         {
             "name": "mamuz/mamuz-blog",
-            "version": "1.1.1",
+            "version": "1.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mamuz/MamuzBlog.git",
-                "reference": "ed22f8d7b9d072bb0447a0d4b5e8aec7fc66683a"
+                "reference": "09724196b00c50576bf36afefd4c1774b402204e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mamuz/MamuzBlog/zipball/ed22f8d7b9d072bb0447a0d4b5e8aec7fc66683a",
-                "reference": "ed22f8d7b9d072bb0447a0d4b5e8aec7fc66683a",
+                "url": "https://api.github.com/repos/mamuz/MamuzBlog/zipball/09724196b00c50576bf36afefd4c1774b402204e",
+                "reference": "09724196b00c50576bf36afefd4c1774b402204e",
                 "shasum": ""
             },
             "require": {
@@ -952,11 +952,19 @@
                 "maglnet/magl-markdown": "1.*",
                 "neilime/zf2-twb-bundle": "2.*@stable",
                 "php": ">=5.4",
-                "zendframework/zendframework": "~2.3.1"
+                "zendframework/zend-eventmanager": "~2.3",
+                "zendframework/zend-form": "~2.3",
+                "zendframework/zend-http": "~2.3",
+                "zendframework/zend-loader": "~2.3",
+                "zendframework/zend-modulemanager": "~2.3",
+                "zendframework/zend-mvc": "~2.3",
+                "zendframework/zend-servicemanager": "~2.3",
+                "zendframework/zend-stdlib": "~2.3",
+                "zendframework/zend-view": "~2.3"
             },
             "require-dev": {
                 "mockery/mockery": "0.9.*",
-                "phpunit/phpunit": "4.1.*",
+                "phpunit/phpunit": "4.2.*",
                 "satooshi/php-coveralls": "0.6.*"
             },
             "type": "library",
@@ -985,7 +993,7 @@
                 "twitter-bootstrap",
                 "zf2"
             ],
-            "time": "2014-08-05 19:47:58"
+            "time": "2014-08-17 19:05:17"
         },
         {
             "name": "mamuz/mamuz-contact",
@@ -1043,16 +1051,16 @@
         },
         {
             "name": "mamuz/mamuz-content-manager",
-            "version": "0.1.4",
+            "version": "0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mamuz/MamuzContentManager.git",
-                "reference": "b2d940491e6c4db97ae59c0ba935a5d94eb9fdbd"
+                "reference": "b02db807d5c7d0a14df9d890f7eb868e270e27eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mamuz/MamuzContentManager/zipball/b2d940491e6c4db97ae59c0ba935a5d94eb9fdbd",
-                "reference": "b2d940491e6c4db97ae59c0ba935a5d94eb9fdbd",
+                "url": "https://api.github.com/repos/mamuz/MamuzContentManager/zipball/b02db807d5c7d0a14df9d890f7eb868e270e27eb",
+                "reference": "b02db807d5c7d0a14df9d890f7eb868e270e27eb",
                 "shasum": ""
             },
             "require": {
@@ -1063,7 +1071,7 @@
             },
             "require-dev": {
                 "mockery/mockery": "0.9.*",
-                "phpunit/phpunit": "4.1.*",
+                "phpunit/phpunit": "4.2.*",
                 "satooshi/php-coveralls": "0.6.*"
             },
             "type": "library",
@@ -1091,7 +1099,7 @@
                 "markdown",
                 "zf2"
             ],
-            "time": "2014-07-26 15:42:11"
+            "time": "2014-08-10 14:50:17"
         },
         {
             "name": "michelf/php-markdown",
@@ -1261,17 +1269,17 @@
         },
         {
             "name": "zendframework/zendframework",
-            "version": "2.3.1",
+            "version": "2.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "055eac4314425c291f3ef0e104a6196a8fc24cd5"
+                "reference": "0b74b66dc07ff88140287bdf67d230c1bd32ee0c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packages.zendframework.com/composer/zendframework-zendframework-055eac4314425c291f3ef0e104a6196a8fc24cd5-zip-13cc39.zip",
-                "reference": "2.3.1",
-                "shasum": "3f93bd90560b42b997ba8261e7a99d6dbb73d799"
+                "url": "https://packages.zendframework.com/composer/zendframework-zendframework-0b74b66dc07ff88140287bdf67d230c1bd32ee0c-zip-9b89fd.zip",
+                "reference": "2.3.2",
+                "shasum": "ff3a5cbffa07c22894669eca7be0de818d3dad20"
             },
             "require": {
                 "php": ">=5.3.23",
@@ -1332,7 +1340,7 @@
             },
             "require-dev": {
                 "doctrine/annotations": ">=1.0",
-                "fabpot/php-cs-fixer": "*@dev",
+                "fabpot/php-cs-fixer": "dev-master",
                 "ircmaxell/random-lib": "dev-master",
                 "ircmaxell/security-lib": "dev-master",
                 "mikey179/vfsstream": "1.2.*",
@@ -1375,10 +1383,10 @@
                 "zf2"
             ],
             "support": {
-                "source": "https://github.com/zendframework/zf2/tree/release-2.3.1",
+                "source": "https://github.com/zendframework/zf2/tree/release-2.3.2",
                 "issues": "https://github.com/zendframework/zf2/issues"
             },
-            "time": "2014-04-15 14:47:18"
+            "time": "2014-08-12 16:48:34"
         },
         {
             "name": "zendframework/zendservice-recaptcha",
@@ -1478,16 +1486,16 @@
     "packages-dev": [
         {
             "name": "guzzle/guzzle",
-            "version": "v3.9.1",
+            "version": "v3.9.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle3.git",
-                "reference": "92d9934f2fca1da15178c91239576ae26e505e60"
+                "reference": "54991459675c1a2924122afbb0e5609ade581155"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle3/zipball/92d9934f2fca1da15178c91239576ae26e505e60",
-                "reference": "92d9934f2fca1da15178c91239576ae26e505e60",
+                "url": "https://api.github.com/repos/guzzle/guzzle3/zipball/54991459675c1a2924122afbb0e5609ade581155",
+                "reference": "54991459675c1a2924122afbb0e5609ade581155",
                 "shasum": ""
             },
             "require": {
@@ -1531,7 +1539,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.8-dev"
+                    "dev-master": "3.9-dev"
                 }
             },
             "autoload": {
@@ -1566,7 +1574,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2014-05-07 17:04:22"
+            "time": "2014-08-11 04:32:36"
         },
         {
             "name": "mockery/mockery",
@@ -1636,16 +1644,16 @@
         },
         {
             "name": "ocramius/instantiator",
-            "version": "1.0.0",
+            "version": "1.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Ocramius/Instantiator.git",
-                "reference": "cc754c2289ffd4483c319f6ed6ee88ce21676f64"
+                "reference": "a7abbb5fc9df6e7126af741dd6c140d1a7369435"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Ocramius/Instantiator/zipball/cc754c2289ffd4483c319f6ed6ee88ce21676f64",
-                "reference": "cc754c2289ffd4483c319f6ed6ee88ce21676f64",
+                "url": "https://api.github.com/repos/Ocramius/Instantiator/zipball/a7abbb5fc9df6e7126af741dd6c140d1a7369435",
+                "reference": "a7abbb5fc9df6e7126af741dd6c140d1a7369435",
                 "shasum": ""
             },
             "require": {
@@ -1654,6 +1662,7 @@
             },
             "require-dev": {
                 "athletic/athletic": "~0.1.8",
+                "ext-pdo": "*",
                 "ext-phar": "*",
                 "phpunit/phpunit": "~4.0",
                 "squizlabs/php_codesniffer": "2.0.*@ALPHA"
@@ -1677,8 +1686,7 @@
                 {
                     "name": "Marco Pivetta",
                     "email": "ocramius@gmail.com",
-                    "homepage": "http://ocramius.github.com/",
-                    "role": "Developer"
+                    "homepage": "http://ocramius.github.com/"
                 }
             ],
             "description": "A small, lightweight utility to instantiate objects in PHP without invoking their constructors",
@@ -1687,7 +1695,7 @@
                 "constructor",
                 "instantiate"
             ],
-            "time": "2014-06-15 11:44:46"
+            "time": "2014-08-14 15:10:55"
         },
         {
             "name": "ocramius/lazy-map",
@@ -2199,16 +2207,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "4.2.0",
+            "version": "4.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "58db726aa45fe26bca93f692cb3d77e9a46b7830"
+                "reference": "e08a5b64400b9ca9124d38db30448d4b10b9f047"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/58db726aa45fe26bca93f692cb3d77e9a46b7830",
-                "reference": "58db726aa45fe26bca93f692cb3d77e9a46b7830",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/e08a5b64400b9ca9124d38db30448d4b10b9f047",
+                "reference": "e08a5b64400b9ca9124d38db30448d4b10b9f047",
                 "shasum": ""
             },
             "require": {
@@ -2269,7 +2277,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-08-08 05:13:30"
+            "time": "2014-08-17 08:08:26"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -3137,13 +3145,13 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/ZendDeveloperTools.git",
-                "reference": "a9244b9cc17861eb36a7c899d450119575d16d41"
+                "reference": "6468ed1c58a65ad797f04ebe794ca85fef0ff142"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packages.zendframework.com/composer/zendframework-zend-developer-tools-a9244b9cc17861eb36a7c899d450119575d16d41-zip-a04b8e.zip",
+                "url": "https://packages.zendframework.com/composer/zendframework-zend-developer-tools-6468ed1c58a65ad797f04ebe794ca85fef0ff142-zip-73e483.zip",
                 "reference": "dev-master",
-                "shasum": "51d7c7df77d5e09acbe37bd2d2edae9441507b4a"
+                "shasum": "1e254d3f8589bb5e4fdca32c33fecab5088ec298"
             },
             "require": {
                 "php": ">=5.3.3",
@@ -3190,10 +3198,10 @@
                 "zf2"
             ],
             "support": {
-                "source": "https://github.com/zendframework/ZendDeveloperTools/tree/1.0.0-BETA5",
+                "source": "https://github.com/zendframework/ZendDeveloperTools/tree/master",
                 "issues": "https://github.com/zendframework/ZendDeveloperTools/issues"
             },
-            "time": "2014-07-11 19:51:50"
+            "time": "2014-08-13 19:03:31"
         }
     ],
     "aliases": [],
