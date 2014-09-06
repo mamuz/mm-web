@@ -20,7 +20,7 @@
     "require"          : {
         "php"                        : ">=5.4",
         "zendframework/zendframework": "~2.3",
-        "mamuz/mamuz-blog"           : "1.*",
+        "mamuz/mamuz-blog-feed": "*",
         "mamuz/mamuz-contact"        : "0.*",
         "mamuz/mamuz-content-manager": "0.*"
     },
