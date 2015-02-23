@@ -1,6 +1,6 @@
 {
     "name"             : "mamuz/mm-web",
-    "description"      : "Practices, principles and patterns about web-development with PHP",
+    "description": "Blog about practices, principles and patterns of web-development with PHP",
     "license"          : "proprietary",
     "keywords"         : ["mamuz"],
     "authors"          : [
@@ -20,13 +20,11 @@
     "require"          : {
         "php"                        : ">=5.4",
         "zendframework/zendframework": "~2.3",
-        "mamuz/mamuz-blog-feed": "*",
         "mamuz/mamuz-contact"        : "0.*",
         "mamuz/mamuz-content-manager": "0.*"
     },
     "require-dev"      : {
         "zendframework/zend-developer-tools": "dev-master",
-        "ocramius/ocra-service-manager": "2.1.*",
         "doctrine/doctrine-orm-module" : "dev-master",
         "satooshi/php-coveralls"            : "dev-master",
         "phpunit/phpunit"              : "4.2.*",
