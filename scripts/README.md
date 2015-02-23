@@ -25,3 +25,9 @@ sh ./scripts/mkdata.sh
 ```sh
 sh ./scripts/generate_maps.sh
 ```
+
+## Remove dev dependencies
+
+```sh
+composer --no-dev update
+```
