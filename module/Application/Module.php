@@ -31,7 +31,6 @@ class Module implements
     public function init(ModuleManagerInterface $modules)
     {
         $modules->loadModule('MamuzBlog');
-        $modules->loadModule('MamuzBlogFeed');
         $modules->loadModule('MamuzContact');
         $modules->loadModule('MamuzContentManager');
 

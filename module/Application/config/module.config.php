@@ -27,9 +27,8 @@ return array(
             'Zend\Cache\Service\StorageCacheAbstractServiceFactory',
         ),
         'factories'          => array(
-            'Application\PluginManager'           => 'Application\PluginManager\Factory',
-            'Application\Navigation\Default'      => 'Application\Navigation\DefaultFactory',
-            'Application\Navigation\ProductOwner' => 'Application\Navigation\ProductOwnerFactory',
+            'Application\PluginManager'      => 'Application\PluginManager\Factory',
+            'Application\Navigation\Default' => 'Application\Navigation\DefaultFactory',
         ),
     ),
     'application_plugin' => array(
