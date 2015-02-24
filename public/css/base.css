@@ -11,6 +11,11 @@ a,
 a:hover,
 a:focus {
     color: #ff8800;
+    text-decoration: underline;
+}
+
+a:hover {
+    text-decoration: none;
 }
 
 h1 {
