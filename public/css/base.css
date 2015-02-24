@@ -73,6 +73,11 @@ footer .well {
 }
 
 .navbar-brand {
+    font-size: 15px;
+    color: #ff8800 !important;
+}
+
+a.navbar-brand {
     padding: 10px 15px;
 }
 

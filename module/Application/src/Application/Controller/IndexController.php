@@ -15,6 +15,12 @@ class IndexController extends AbstractActionController
      */
     public function indexAction()
     {
-        return new ViewModel();
+        /** @var \Zend\ServiceManager\ServiceLocatorInterface $blogDomain */
+        $blogDomain = $this->getServiceLocator()->get('MamuzBlog\DomainManager');
+        /** @var \MamuzBlog\Feature\PostQueryInterface $queryService */
+        $queryService = $blogDomain->get('MamuzBlog\Service\PostQuery');
+        $collection = $queryService->findPublishedPosts();
+
+        return new ViewModel(array('collection' => $collection));
     }
 }
