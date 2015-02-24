@@ -11,11 +11,6 @@ a,
 a:hover,
 a:focus {
     color: #ff8800;
-    text-decoration: underline;
-}
-
-a:hover {
-    text-decoration: none;
 }
 
 h1 {
@@ -103,7 +98,7 @@ pre, code {
     background: #151515;
 }
 
-#sidebar .nav>li>a {
+#sidebar .nav > li > a {
     display: block;
     font-size: 13px;
     font-weight: 500;
