@@ -8,7 +8,7 @@ return array(
                 'route' => 'home',
             ),
             'blog'     => array(
-                'label' => 'Blog',
+                'label' => 'Archive',
                 'uri'   => '/blog',
             ),
             'about-me' => array(
