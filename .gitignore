@@ -1,9 +1,6 @@
 !.gitignore
-config/autoload/doctrine.production.php
+config/autoload/doctrine*
 config/autoload/*.local.php
 data
-data/*
 build
-build/*
 vendor
-vendor/*
