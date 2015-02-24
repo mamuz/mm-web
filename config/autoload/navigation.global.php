@@ -12,8 +12,8 @@ return array(
                 'uri'   => '/blog',
             ),
             'about-me' => array(
-                'label' => 'About Me',
-                'uri'   => '/about+me',
+                'label' => 'About',
+                'uri'   => '/about',
             ),
             'contact'  => array(
                 'label' => 'Contact',
