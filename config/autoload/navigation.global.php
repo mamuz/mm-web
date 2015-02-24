@@ -2,12 +2,12 @@
 
 return array(
     'navigation' => array(
-        'default'       => array(
-            'home' => array(
+        'default' => array(
+            'home'     => array(
                 'label' => 'Home',
                 'route' => 'home',
             ),
-            'blog' => array(
+            'blog'     => array(
                 'label' => 'Blog',
                 'uri'   => '/blog',
             ),
@@ -15,11 +15,7 @@ return array(
                 'label' => 'About Me',
                 'uri'   => '/about+me',
             ),
-            'imprint' => array(
-                'label' => 'Imprint',
-                'uri'   => '/imprint',
-            ),
-            'contact' => array(
+            'contact'  => array(
                 'label' => 'Contact',
                 'route' => 'contact',
             ),
