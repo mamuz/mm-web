@@ -1,5 +1,5 @@
 !.gitignore
-config/autoload/doctrine*
+config/autoload/doc*
 config/autoload/*.local.php
 data
 build
