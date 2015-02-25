@@ -70,4 +70,5 @@ return array(
         __DIR__ . '/src/Application/View/Helper/AutoVersionFactory.php',
     'Application\View\Helper\Navigation\Item'               =>
         __DIR__ . '/src/Application/View/Helper/Navigation/Item.php',
+    'Application\View\Helper\PostPanel'                     => __DIR__ . '/src/Application/View/Helper/PostPanel.php',
 );
