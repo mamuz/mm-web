@@ -19,8 +19,17 @@ class IndexController extends AbstractActionController
         $blogDomain = $this->getServiceLocator()->get('MamuzBlog\DomainManager');
         /** @var \MamuzBlog\Feature\PostQueryInterface $queryService */
         $queryService = $blogDomain->get('MamuzBlog\Service\PostQuery');
-        $collection = $queryService->findPublishedPosts();
+        $collection = $queryService->findPublishedPosts()->getIterator();
 
-        return new ViewModel(array('collection' => $collection));
+        if (isset($collection[0])) {
+            $post = $collection[0];
+        } else {
+            $post = null;
+        }
+
+        $viewModel = new ViewModel(array('post' => $post));
+        $viewModel->setTemplate('mamuz-blog/post-query/published-post');
+
+        return $viewModel;
     }
 }
