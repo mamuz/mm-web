@@ -27,13 +27,15 @@
         },
 
         infinitizeList: function (el, options) {
-            $('.scroll-list', el).jscroll({
-                nextSelector: 'a.next',
-                loadingHtml : '',
-                callback    : function () {
-                    $('a.prev').remove()
-                }
-            });
+            if ($("a.next", el).length > 0) {
+                $('.scroll-list', el).jscroll({
+                    nextSelector: 'a.next',
+                    loadingHtml : '',
+                    callback    : function () {
+                        $('a.prev').remove()
+                    }
+                });
+            }
         },
 
         createClipboards: function (el, options) {
