@@ -2,6 +2,7 @@
 
 namespace Application\Listener;
 
+use MamuzContact\EventManager\Event as ContactEvent;
 use Zend\EventManager\AbstractListenerAggregate;
 use Zend\EventManager\EventInterface;
 use Zend\EventManager\EventManagerInterface;
@@ -32,8 +33,8 @@ class Aggregate extends AbstractListenerAggregate
     public function attach(EventManagerInterface $events)
     {
         $events->getSharedManager()->attach(
-            'MamuzContact\Service\Command',
-            'persist.post',
+            ContactEvent::IDENTIFIER,
+            ContactEvent::POST_PERSISTENCE,
             array($this, 'onPersistContact')
         );
 
@@ -49,7 +50,7 @@ class Aggregate extends AbstractListenerAggregate
     {
         /** @var \Application\Service\Feature\MailObjectInterface $mailer */
         $mailer = $this->pluginManager->get('Application\Service\ContactMail');
-        $mailer->bind($e->getParam(0));
+        $mailer->bind($e->getParam('contact'));
         $mailer->send();
     }
 
