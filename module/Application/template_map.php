@@ -5,6 +5,7 @@ return array(
     'layout/footer'                         => __DIR__ . '/view/layout/footer.phtml',
     'layout/header'                         => __DIR__ . '/view/layout/header.phtml',
     'layout/layout'                         => __DIR__ . '/view/layout/layout.phtml',
+    'mamuz-contact/command/create' => __DIR__ . '/view/mamuz-contact/command/create.phtml',
     'mamuz-blog/tag-query/items'            => __DIR__ . '/view/mamuz-blog/tag-query/items.phtml',
     'mamuz-blog/post-query/published-posts' => __DIR__ . '/view/mamuz-blog/post-query/published-posts.phtml',
     'mail/contact/body'                     => __DIR__ . '/view/mail/contact/body.phtml',
