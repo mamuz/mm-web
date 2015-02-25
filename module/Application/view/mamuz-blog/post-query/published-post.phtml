@@ -1,0 +1,6 @@
+<?php
+
+$this->headTitle()->append($this->post->getTitle());
+
+echo $this->postPanel($this->post) . PHP_EOL;
+echo $this->partial('plugin/disqus', array('id' => $this->hashId($this->post->getId())));
