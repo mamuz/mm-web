@@ -14,9 +14,9 @@ if (isset($this->contact)) {
     }
     echo '</dl>';
 } else {
-    $notice = 'Please note, that I will not respond to recruiters,'
+    $notice = 'Please note, that I will not respond to recruiters,<br />'
         . ' nor to questions that could be asked in public forums.';
-    echo $this->alert($this->translate($notice), 'alert-info');
+    echo '<p>' . $this->translate($notice) . '</p>';
     /** @var \Zend\Form\Form $form */
     $form = $this->form;
     $form->setAttribute('action', $this->url('contact'));

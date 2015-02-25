@@ -13,6 +13,11 @@ a:focus {
     color: #ff8800;
 }
 
+a:hover {
+    text-decoration: none;
+    color: #ffffff;
+}
+
 h1 {
     padding-bottom: 9px;
     margin: 0 0 20px;
@@ -79,6 +84,10 @@ footer .well {
 
 a.navbar-brand {
     padding: 10px 15px;
+}
+
+a.navbar-brand span {
+    margin-left: 10px;
 }
 
 #recaptcha_area {
