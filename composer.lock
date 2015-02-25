@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e5d7a962f0b0a83ab08cefa53f810e3f",
+    "hash": "ba155d470989ea96a2dfe6d020a1a4d0",
     "packages": [
         {
             "name": "cocur/slugify",
@@ -1041,16 +1041,16 @@
         },
         {
             "name": "mamuz/mamuz-blog",
-            "version": "1.4.2",
+            "version": "1.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mamuz/MamuzBlog.git",
-                "reference": "9afd67e7f74484047407df6bda7dbf37766639df"
+                "reference": "ac23ffc71acf3917a423f76bc55d3942ff0f2665"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mamuz/MamuzBlog/zipball/9afd67e7f74484047407df6bda7dbf37766639df",
-                "reference": "9afd67e7f74484047407df6bda7dbf37766639df",
+                "url": "https://api.github.com/repos/mamuz/MamuzBlog/zipball/ac23ffc71acf3917a423f76bc55d3942ff0f2665",
+                "reference": "ac23ffc71acf3917a423f76bc55d3942ff0f2665",
                 "shasum": ""
             },
             "require": {
@@ -1072,9 +1072,9 @@
                 "zendframework/zend-view": "~2.3"
             },
             "require-dev": {
-                "mamuz/php-dependency-analysis": "0.2.*",
+                "mamuz/php-dependency-analysis": "0.*",
                 "mockery/mockery": "0.9.*",
-                "phpunit/phpunit": "4.4.*",
+                "phpunit/phpunit": "4.*",
                 "satooshi/php-coveralls": "0.6.*"
             },
             "type": "library",
@@ -1103,20 +1103,20 @@
                 "twitter-bootstrap",
                 "zf2"
             ],
-            "time": "2015-01-18 19:58:20"
+            "time": "2015-02-25 00:40:37"
         },
         {
             "name": "mamuz/mamuz-contact",
-            "version": "0.2.0",
+            "version": "0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mamuz/MamuzContact.git",
-                "reference": "f557d75184a51949c2cb69d42e516813f4e986c3"
+                "reference": "fc9d6774eb02a64417dc24a63f4c5a99700d3769"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mamuz/MamuzContact/zipball/f557d75184a51949c2cb69d42e516813f4e986c3",
-                "reference": "f557d75184a51949c2cb69d42e516813f4e986c3",
+                "url": "https://api.github.com/repos/mamuz/MamuzContact/zipball/fc9d6774eb02a64417dc24a63f4c5a99700d3769",
+                "reference": "fc9d6774eb02a64417dc24a63f4c5a99700d3769",
                 "shasum": ""
             },
             "require": {
@@ -1139,8 +1139,9 @@
                 "zendframework/zendservice-recaptcha": "~2.0.1"
             },
             "require-dev": {
+                "mamuz/php-dependency-analysis": "0.*",
                 "mockery/mockery": "0.9.*",
-                "phpunit/phpunit": "4.2.*",
+                "phpunit/phpunit": "4.*",
                 "satooshi/php-coveralls": "0.6.*"
             },
             "type": "library",
@@ -1169,20 +1170,20 @@
                 "twitter-bootstrap",
                 "zf2"
             ],
-            "time": "2014-08-20 21:18:06"
+            "time": "2015-02-25 00:41:23"
         },
         {
             "name": "mamuz/mamuz-content-manager",
-            "version": "0.2.2",
+            "version": "0.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mamuz/MamuzContentManager.git",
-                "reference": "983b2e1f90cfc03679ffa224e7a667f1415b2f97"
+                "reference": "3a06758924be9a075f7c5744d4f63176a4bb3405"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mamuz/MamuzContentManager/zipball/983b2e1f90cfc03679ffa224e7a667f1415b2f97",
-                "reference": "983b2e1f90cfc03679ffa224e7a667f1415b2f97",
+                "url": "https://api.github.com/repos/mamuz/MamuzContentManager/zipball/3a06758924be9a075f7c5744d4f63176a4bb3405",
+                "reference": "3a06758924be9a075f7c5744d4f63176a4bb3405",
                 "shasum": ""
             },
             "require": {
@@ -1199,9 +1200,9 @@
                 "zendframework/zend-view": "~2.3"
             },
             "require-dev": {
-                "mamuz/php-dependency-analysis": "0.2.*",
+                "mamuz/php-dependency-analysis": "0.*",
                 "mockery/mockery": "0.9.*",
-                "phpunit/phpunit": "4.4.*",
+                "phpunit/phpunit": "4.*",
                 "satooshi/php-coveralls": "0.6.*"
             },
             "type": "library",
@@ -1229,7 +1230,7 @@
                 "markdown",
                 "zf2"
             ],
-            "time": "2015-02-24 17:27:52"
+            "time": "2015-02-25 00:42:01"
         },
         {
             "name": "michelf/php-markdown",
