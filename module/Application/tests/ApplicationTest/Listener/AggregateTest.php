@@ -3,6 +3,7 @@
 namespace ApplicationTest\Listener;
 
 use Application\Listener\Aggregate;
+use MamuzContact\EventManager\Event as ContactEvent;
 use Zend\Mvc\MvcEvent;
 
 class AggregateTest extends \PHPUnit_Framework_TestCase
@@ -43,8 +44,8 @@ class AggregateTest extends \PHPUnit_Framework_TestCase
     {
         $sem = \Mockery::mock('Zend\EventManager\SharedEventManagerInterface');
         $sem->shouldReceive('attach')->with(
-            'MamuzContact\Service\Command',
-            'persist.post',
+            ContactEvent::IDENTIFIER,
+            ContactEvent::POST_PERSISTENCE,
             array($this->fixture, 'onPersistContact')
         );
         $em = \Mockery::mock('Zend\EventManager\EventManagerInterface');
@@ -74,7 +75,7 @@ class AggregateTest extends \PHPUnit_Framework_TestCase
         $this->serviceLocator->shouldReceive('get')->with('Application\Service\ContactMail')->andReturn($mailer);
 
         $event = \Mockery::mock('Zend\EventManager\EventInterface');
-        $event->shouldReceive('getParam')->with(0)->andReturn($object);
+        $event->shouldReceive('getParam')->with('contact')->andReturn($object);
 
         $this->fixture->onPersistContact($event);
     }
