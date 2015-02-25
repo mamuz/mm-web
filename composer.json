@@ -27,7 +27,7 @@
     "require-dev"      : {
         "zendframework/zend-developer-tools": "dev-master",
         "satooshi/php-coveralls"     : "0.6.*",
-        "phpunit/phpunit"            : "4.5.*",
+        "phpunit/phpunit"            : "4.*",
         "mockery/mockery"                   : "0.9.*",
         "pdepend/pdepend"                   : "2.0.*",
         "phpmd/phpmd"                : "2.2.*",
