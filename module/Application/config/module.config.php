@@ -45,7 +45,8 @@ return array(
     ),
     'view_helpers'       => array(
         'invokables' => array(
-            'navItem' => 'Application\View\Helper\Navigation\Item',
+            'navItem'   => 'Application\View\Helper\Navigation\Item',
+            'postPanel' => 'Application\View\Helper\PostPanel',
         ),
         'factories'  => array(
             'autoVersion' => 'Application\View\Helper\AutoVersionFactory',
