@@ -17,7 +17,6 @@
         init: function () {
             this.highlightCode(this.element);
             this.infinitizeList(this.element);
-            this.createSidebar(this.element);
             this.createClipboards(this.element);
         },
 
@@ -35,23 +34,6 @@
                     $('a.prev').remove()
                 }
             });
-        },
-
-        createSidebar: function (el, options) {
-            var sidebar = $('#sidebar', el);
-            if (!$.trim(sidebar.html())) {
-                var list = $('<ul>').addClass('nav nav-pills nav-stacked');
-                $("#main-content h2", el).each(function (index) {
-                    $(this).attr('id', 'section-' + index);
-                    list.append(
-                        $('<li>').append(
-                            $('<a>').attr({href: "#section-" + index}).html($(this).html())
-                        )
-                    );
-                });
-                sidebar.append(list);
-            }
-            $(el).scrollspy({target: '#sidebar'});
         },
 
         createClipboards: function (el, options) {
