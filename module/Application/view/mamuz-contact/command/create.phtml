@@ -1,4 +1,7 @@
 <?php
+$this->headLink()->appendStylesheet($this->basePath() . '/css/vendor/bootstrap.cyborg.min.css');
+$this->headLink()->appendStylesheet($this->basePath() . $this->autoVersion('/css/base-min.css'));
+
 $this->headTitle()->append($this->translate('Contact'));
 echo '<h1>' . $this->translate('Contact') . '</h1>';
 
