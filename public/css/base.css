@@ -161,6 +161,10 @@ article h1 small {
     right: 0;
 }
 
+article h1 .pull-right {
+    float: none !important;
+}
+
 pre {
     position: relative;
 }
