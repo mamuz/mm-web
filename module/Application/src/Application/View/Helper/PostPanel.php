@@ -24,9 +24,7 @@ class PostPanel extends MamuzBlogPostPanel
     {
         $html = '<article>' . PHP_EOL
             . '<header><h1>' . $header . '</h1></header>' . PHP_EOL
-            . '<p> ' . PHP_EOL
             . $content . PHP_EOL
-            . '</p>' . PHP_EOL
             . '<footer>' . PHP_EOL
             . $footer . PHP_EOL
             . '</footer>' . PHP_EOL
