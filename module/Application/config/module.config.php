@@ -45,11 +45,9 @@ return array(
     ),
     'view_helpers'       => array(
         'invokables' => array(
-            'navItem'       => 'Application\View\Helper\Navigation\Item',
-            'postPanel'     => 'Application\View\Helper\PostPanel',
-            'postMeta'      => 'Application\View\Helper\PostMeta',
-            'permaLinkTag'  => 'Application\View\Helper\PermaLinkTag',
-            'permaLinkPost' => 'Application\View\Helper\PermaLinkPost',
+            'navItem'   => 'Application\View\Helper\Navigation\Item',
+            'postPanel' => 'Application\View\Helper\PostPanel',
+            'postMeta'  => 'Application\View\Helper\PostMeta',
         ),
         'factories'  => array(
             'autoVersion' => 'Application\View\Helper\AutoVersionFactory',
