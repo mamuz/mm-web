@@ -1,5 +1,6 @@
 !.gitignore
-config/autoload/doc*
+config/autoload/doctrine*
+config/autoload/captcha*
 config/autoload/*.local.php
 data
 build

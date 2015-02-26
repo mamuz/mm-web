@@ -1,12 +1,16 @@
-<div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_shortname = 'mamuzcodingblog';
-    var disqus_identifier = '<?php echo $this->id ?>';
-    (function () {
-        var dsq = document.createElement('script');
-        dsq.type = 'text/javascript';
-        dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
+<?php if ($this->getHelperPluginManager()->getServiceLocator()->get('Config')['mamuz-blog']['display-disqus']): ?>
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'mamuzcodingblog';
+        var disqus_identifier = '<?php echo $this->id ?>';
+        (function () {
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+
+<?php endif; ?>
