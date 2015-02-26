@@ -15,6 +15,21 @@ return array(
                     ),
                 ),
             ),
+            'blogPublishedPosts' => array(
+                'options' => array(
+                    'route' => '/archive[/:tag][/p/:page]',
+                ),
+            ),
+            'blogPublishedPost'  => array(
+                'options' => array(
+                    'route' => '/article[/:title][/:id]',
+                ),
+            ),
+            'blogTags'           => array(
+                'options' => array(
+                    'route' => '/categories[/p/:page]',
+                ),
+            ),
         ),
     ),
     'controllers'        => array(
