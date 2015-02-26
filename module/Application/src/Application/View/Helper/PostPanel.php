@@ -23,11 +23,8 @@ class PostPanel extends MamuzBlogPostPanel
     public function panel($header, $content, $footer)
     {
         $html = '<article>' . PHP_EOL
-            . '<header><h1>' . $header . '</h1></header>' . PHP_EOL
+            . '<header><h1>' . $header . '<small>' . $footer . '</small></h1></header>' . PHP_EOL
             . $content . PHP_EOL
-            . '<footer>' . PHP_EOL
-            . $footer . PHP_EOL
-            . '</footer>' . PHP_EOL
             . '</article>';
 
         return $html;

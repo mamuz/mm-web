@@ -8,9 +8,12 @@ class PostMeta extends MamuzBlogPostMeta
 {
     protected function createDate(\DateTime $dateTime)
     {
-        $html = $this->getRenderer()->glyphicon('calendar')
-            . '<time datetime="' . $dateTime->format('Y-m-d') . '">'
-            . $dateTime->format('F j, Y')
+        $dateString = $dateTime->format('F j, Y');
+        $title = $this->getRenderer()->translate('Created at ') . $dateString;
+
+        $html = $this->getRenderer()->glyphicon('calendar', array('title' => $title))
+            . '&nbsp;<time datetime="' . $dateTime->format('Y-m-d') . '">'
+            . $dateString
             . '</time>';
 
         return $html;

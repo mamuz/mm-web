@@ -145,6 +145,18 @@ pre, code {
     vertical-align: middle;
 }
 
+article h1 {
+    position: relative;
+    padding-bottom: 16px;
+}
+
+article h1 small {
+    font-size: 14px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
 pre {
     position: relative;
 }
