@@ -9,9 +9,14 @@
     <?php echo $this->headTitle()->setSeparator(' - ')->prepend("mamuz' coding blog") . PHP_EOL; ?>
     <meta name="description" content="Practices, Principles and Patterns of Web-Development">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Droid+Sans:400,700">
+    <link rel="stylesheet" href="<?php echo $this->basePath() . '/css/vendor/bootstrap.cyborg.min.css' ?>">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//yandex.st/highlightjs/8.0/styles/monokai.min.css">
+    <link rel="stylesheet" href="<?php echo $this->basePath() . $this->autoVersion('/css/base-min.css') ?>">
     <?php echo $this->headLink() . PHP_EOL; ?>
 </head>
-<body style="background-color: #000">
+<body>
 <div id="wrap">
     <?php echo $this->partial('layout/header'); ?>
     <div class="container">
@@ -27,11 +32,6 @@
 </div>
 <?php echo $this->partial('layout/footer'); ?>
 
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Droid+Sans:400,700">
-<link rel="stylesheet" href="<?php echo $this->basePath() . '/css/vendor/bootstrap.cyborg.min.css' ?>">
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="//yandex.st/highlightjs/8.0/styles/monokai.min.css">
-<link rel="stylesheet" href="<?php echo $this->basePath() . $this->autoVersion('/css/base-min.css') ?>">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 <!--[if lt IE 9]>
