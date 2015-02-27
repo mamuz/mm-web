@@ -12,12 +12,6 @@ return array(
             'title'         => "mamuz' coding blog",
             'description'   => 'Practices, Principles and Patterns of Web-Development',
             'encoding'      => 'UTF-8',
-            'authors'       => array(
-                array(
-                    'name' => 'Marco Muths',
-                    'uri'  => 'http://www.mamuz.de',
-                ),
-            ),
             'copyright'     => date('Y') . ' by Marco Muths. All rights reserved.',
             'image'         => array(
                 'uri'         => 'http://www.mamuz.de/img/logo.png',
