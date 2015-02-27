@@ -5,7 +5,7 @@ $env = getenv('APPLICATION_ENV') ? : 'production';
 return array(
     'router'             => array(
         'routes' => array(
-            'home' => array(
+            'home'               => array(
                 'type'    => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(
                     'route'    => '/',
@@ -28,6 +28,11 @@ return array(
             'blogTags'           => array(
                 'options' => array(
                     'route' => '/categories[/p/:page]',
+                ),
+            ),
+            'blogFeedPosts'      => array(
+                'options' => array(
+                    'route' => '/feed[/:tag]',
                 ),
             ),
         ),
