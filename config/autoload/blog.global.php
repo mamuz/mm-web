@@ -19,4 +19,9 @@ return array(
             // @codingStandardsIgnoreEnd
         )
     ),
+    'blog_domain' => array(
+        'factories' => array(
+            'MamuzBlogFeed\Feed\Writer\Factory' => 'Application\Feed\WriterFactory',
+        ),
+    ),
 );

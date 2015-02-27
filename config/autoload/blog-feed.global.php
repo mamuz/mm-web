@@ -4,7 +4,7 @@ return array(
     'MamuzBlogFeed' => array(
         'default' => array(
             'autoHeadLink'  => true,
-            'type'          => 'rss',
+            'type' => 'atom',
             'maxResults'    => 100,
             'language'      => 'en',
             'dateCreated'   => new \DateTime('2015-02-26'),
