@@ -1,6 +1,6 @@
 {
     "name"             : "mamuz/mm-web",
-    "description"      : "Blog about practices, principles and patterns of web-development with PHP",
+    "description"      : "private blog site",
     "license"          : "proprietary",
     "keywords"         : ["mamuz"],
     "authors"          : [
@@ -9,18 +9,12 @@
             "email": "muzzi_is@web.de"
         }
     ],
-    "repositories"     : [
-        {
-            "type": "composer",
-            "url" : "http://packages.zendframework.com/"
-        }
-    ],
     "minimum-stability": "dev",
     "prefer-stable"    : true,
     "require"          : {
         "php"                        : ">=5.4",
         "zendframework/zendframework": "~2.3",
-        "mamuz/mamuz-blog": "1.*",
+        "mamuz/mamuz-blog-feed": "0.*",
         "mamuz/mamuz-contact"        : "0.*",
         "mamuz/mamuz-content-manager": "0.*"
     },
