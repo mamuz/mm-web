@@ -4,7 +4,6 @@ namespace Application;
 
 use Zend\EventManager\EventInterface;
 use Zend\EventManager\EventManagerInterface;
-use Zend\Http\PhpEnvironment\Response as HttpResponse;
 use Zend\ModuleManager\Feature;
 use Zend\ModuleManager\Listener\ServiceListenerInterface;
 use Zend\ModuleManager\ModuleManager;
@@ -50,11 +49,6 @@ class Module implements
 
         $this->attachErrorLogger();
         $this->attachListenerAggregate();
-
-        $response = $e->getResponse();
-        if ($response instanceof HttpResponse) {
-            $this->addHeaderLinesTo($response);
-        }
     }
 
     public function getConfig()
@@ -117,18 +111,5 @@ class Module implements
         /* @var \Zend\EventManager\ListenerAggregateInterface $listenerAggregate */
         $listenerAggregate = $this->pluginManager->get('Application\Listener\Aggregate');
         $this->eventManager->attachAggregate($listenerAggregate);
-    }
-
-    /**
-     * @param HttpResponse $response
-     * @return void
-     */
-    private function addHeaderLinesTo(HttpResponse $response)
-    {
-        $config = $this->application->getServiceManager()->get('Config');
-        $headers = $config['application']['http']['headers'];
-        foreach ($headers as $name => $value) {
-            $response->getHeaders()->addHeaderLine($name, $value);
-        }
     }
 }

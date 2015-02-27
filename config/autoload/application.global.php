@@ -3,11 +3,6 @@
 return array(
     'application' => array(
         'document_root'    => $_SERVER['DOCUMENT_ROOT'],
-        'http'             => array(
-            'headers' => array(
-                'Content-Language' => 'en',
-            ),
-        ),
         'google-analytics' => true,
         'mail'             => array(
             'contact' => array(
