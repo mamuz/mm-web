@@ -4,9 +4,9 @@ return array(
     'MamuzBlogFeed' => array(
         'default' => array(
             'autoHeadLink'  => true,
-            'type' => 'rss',
+            'type'          => 'rss',
             'maxResults'    => 100,
-            'language' => 'en-US',
+            'language'      => 'en-US',
             'dateCreated'   => new \DateTime('2015-02-26'),
             'lastBuildDate' => new \DateTime,
             'title'         => "mamuz' coding blog",

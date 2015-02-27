@@ -9,7 +9,7 @@ return array(
             ),
             'blog'     => array(
                 'label' => 'Archive',
-                'uri' => '/archive',
+                'uri'   => '/archive',
             ),
             'about-me' => array(
                 'label' => 'About',
