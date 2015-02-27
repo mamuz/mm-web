@@ -14,18 +14,18 @@
     "require"          : {
         "php"                        : ">=5.4",
         "zendframework/zendframework": "~2.3",
-        "mamuz/mamuz-blog-feed": "0.*",
+        "mamuz/mamuz-blog-feed"      : "0.*",
         "mamuz/mamuz-contact"        : "0.*",
         "mamuz/mamuz-content-manager": "0.*"
     },
     "require-dev"      : {
         "zendframework/zend-developer-tools": "dev-master",
-        "satooshi/php-coveralls"     : "0.6.*",
-        "phpunit/phpunit"            : "4.*",
+        "satooshi/php-coveralls"            : "0.6.*",
+        "phpunit/phpunit"                   : "4.*",
         "mockery/mockery"                   : "0.9.*",
         "pdepend/pdepend"                   : "2.0.*",
-        "phpmd/phpmd"                : "2.2.*",
-        "squizlabs/php_codesniffer"  : "2.2.*",
-        "sensiolabs/security-checker": "2.*"
+        "phpmd/phpmd"                       : "2.2.*",
+        "squizlabs/php_codesniffer"         : "2.2.*",
+        "sensiolabs/security-checker"       : "2.*"
     }
 }
