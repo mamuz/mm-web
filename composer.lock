@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d60f4617caf0ff34f64e5a6756afeedc",
+    "hash": "308df9068ce9143f51d0029595abf45a",
     "packages": [
         {
             "name": "cocur/slugify",
@@ -1041,16 +1041,16 @@
         },
         {
             "name": "mamuz/mamuz-blog",
-            "version": "1.5.0",
+            "version": "1.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mamuz/MamuzBlog.git",
-                "reference": "71f8d869080029957f982f6d320cef2f6e252f68"
+                "reference": "1f3e6734cb329704fac8ffe3d353fc9e6cee0c5f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mamuz/MamuzBlog/zipball/71f8d869080029957f982f6d320cef2f6e252f68",
-                "reference": "71f8d869080029957f982f6d320cef2f6e252f68",
+                "url": "https://api.github.com/repos/mamuz/MamuzBlog/zipball/1f3e6734cb329704fac8ffe3d353fc9e6cee0c5f",
+                "reference": "1f3e6734cb329704fac8ffe3d353fc9e6cee0c5f",
                 "shasum": ""
             },
             "require": {
@@ -1106,7 +1106,7 @@
                 "twitter-bootstrap",
                 "zf2"
             ],
-            "time": "2015-02-27 00:57:41"
+            "time": "2015-02-27 03:23:45"
         },
         {
             "name": "mamuz/mamuz-blog-feed",
