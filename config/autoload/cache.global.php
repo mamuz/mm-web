@@ -10,7 +10,8 @@ return array(
                 'cache_dir' => './data/cache/output',
             ),
             'blacklistedRouteNames' => array(
-                'contact'
+                'contact',
+                'blogFeedPosts',
             ),
         ),
     ),
