@@ -1110,16 +1110,16 @@
         },
         {
             "name": "mamuz/mamuz-blog-feed",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mamuz/MamuzBlogFeed.git",
-                "reference": "31c9c400fec0586c3010cf2577b651dd1e26c8ab"
+                "reference": "45983e22c2de1fc415aca889c94f58bcf0163f2c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mamuz/MamuzBlogFeed/zipball/31c9c400fec0586c3010cf2577b651dd1e26c8ab",
-                "reference": "31c9c400fec0586c3010cf2577b651dd1e26c8ab",
+                "url": "https://api.github.com/repos/mamuz/MamuzBlogFeed/zipball/45983e22c2de1fc415aca889c94f58bcf0163f2c",
+                "reference": "45983e22c2de1fc415aca889c94f58bcf0163f2c",
                 "shasum": ""
             },
             "require": {
@@ -1155,7 +1155,7 @@
                 "feed",
                 "mamuz"
             ],
-            "time": "2015-02-27 02:07:08"
+            "time": "2015-02-27 14:16:16"
         },
         {
             "name": "mamuz/mamuz-contact",
