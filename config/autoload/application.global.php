@@ -5,7 +5,6 @@ return array(
         'document_root'    => $_SERVER['DOCUMENT_ROOT'],
         'http'             => array(
             'headers' => array(
-                'Content-Type'     => 'text/html; charset=UTF-8',
                 'Content-Language' => 'en',
             ),
         ),
