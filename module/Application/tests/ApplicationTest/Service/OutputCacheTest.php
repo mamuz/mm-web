@@ -79,36 +79,4 @@ class OutputCacheTest extends \PHPUnit_Framework_TestCase
 
         $this->assertNull($this->fixture->bindMvcEvent($this->mvcEvent)->read());
     }
-
-    public function testReadNullByMvcEventAndWrite()
-    {
-        $content = 'content';
-        $this->response->shouldReceive('getContent')->andReturn($content);
-        $this->request->shouldReceive('getRequestUri')->andReturn('baz/');
-        $this->mvcEvent->shouldReceive('getRequest')->andReturn($this->request);
-        $this->mvcEvent->shouldReceive('getResponse')->andReturn($this->response);
-        $this->mvcEvent->shouldReceive('getRouteMatch')->andReturn(false);
-        $this->storage->shouldReceive('getItem')->with(md5('baz'))->andReturn(null);
-        $this->storage->shouldReceive('setItem')->with(md5('baz'), $content);
-
-        $this->assertNull($this->fixture->bindMvcEvent($this->mvcEvent)->read());
-        $this->assertSame($this->fixture, $this->fixture->write());
-    }
-
-    public function testReadByMvcEventAndNotWritable()
-    {
-        $content = 'content';
-        $headers = \Mockery::mock('Zend\Http\Headers');
-        $headers->shouldReceive('addHeaderLine');
-        $this->response->shouldReceive('setContent')->with($content);
-        $this->response->shouldReceive('getHeaders')->andReturn($headers);
-        $this->request->shouldReceive('getRequestUri')->andReturn('baz/');
-        $this->mvcEvent->shouldReceive('getRequest')->andReturn($this->request);
-        $this->mvcEvent->shouldReceive('getResponse')->andReturn($this->response);
-        $this->mvcEvent->shouldReceive('getRouteMatch')->andReturn(false);
-        $this->storage->shouldReceive('getItem')->with(md5('baz'))->andReturn($content);
-
-        $this->assertSame($this->response, $this->fixture->bindMvcEvent($this->mvcEvent)->read());
-        $this->assertSame($this->fixture, $this->fixture->write());
-    }
 }
