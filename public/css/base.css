@@ -90,6 +90,10 @@ a.navbar-brand span {
     margin-left: 10px;
 }
 
+.navbar-right a {
+    margin-top: 6px;
+}
+
 #recaptcha_area {
     margin: auto;
 }
