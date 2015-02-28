@@ -2,7 +2,6 @@
 
 namespace Application\Listener;
 
-use Application\Listener\Aggregate;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 

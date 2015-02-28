@@ -109,7 +109,9 @@ class OutputCache implements OutputCacheInterface
         }
 
         if ($result = $this->storage->getItem($this->key)) {
-            $this->response->setContent($result);
+            $this->response->setStatusCode($result['statusCode']);
+            $this->response->getHeaders()->addHeaders($result['headers']);
+            $this->response->setContent($result['content']);
             $this->response->getHeaders()->addHeaderLine(self::HEADER_FIELD_NAME, $this->key);
             $this->isWritable = false;
             return $this->response;
@@ -122,7 +124,12 @@ class OutputCache implements OutputCacheInterface
     public function write()
     {
         if ($this->hasKey() && $this->isWritable) {
-            $this->storage->setItem($this->key, $this->response->getContent());
+            $data = array(
+                'statusCode' => $this->response->getStatusCode(),
+                'headers'    => $this->response->getHeaders()->toArray(),
+                'content'    => $this->response->getContent(),
+            );
+            $this->storage->setItem($this->key, $data);
         }
 
         return $this;
