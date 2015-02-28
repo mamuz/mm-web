@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "308df9068ce9143f51d0029595abf45a",
+    "hash": "d60f4617caf0ff34f64e5a6756afeedc",
     "packages": [
         {
             "name": "cocur/slugify",
@@ -1110,16 +1110,16 @@
         },
         {
             "name": "mamuz/mamuz-blog-feed",
-            "version": "0.0.2",
+            "version": "0.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mamuz/MamuzBlogFeed.git",
-                "reference": "45983e22c2de1fc415aca889c94f58bcf0163f2c"
+                "reference": "b02171567a8d98b99aa1dcbbb0a60cf89878af0e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mamuz/MamuzBlogFeed/zipball/45983e22c2de1fc415aca889c94f58bcf0163f2c",
-                "reference": "45983e22c2de1fc415aca889c94f58bcf0163f2c",
+                "url": "https://api.github.com/repos/mamuz/MamuzBlogFeed/zipball/b02171567a8d98b99aa1dcbbb0a60cf89878af0e",
+                "reference": "b02171567a8d98b99aa1dcbbb0a60cf89878af0e",
                 "shasum": ""
             },
             "require": {
@@ -1155,7 +1155,7 @@
                 "feed",
                 "mamuz"
             ],
-            "time": "2015-02-27 14:16:16"
+            "time": "2015-02-28 22:25:26"
         },
         {
             "name": "mamuz/mamuz-contact",
@@ -1883,16 +1883,16 @@
         },
         {
             "name": "pdepend/pdepend",
-            "version": "2.0.4",
+            "version": "2.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pdepend/pdepend.git",
-                "reference": "1b0acf162da4f30237987e61e177a57f78e3d87e"
+                "reference": "5714f56f40e361f63a0562fd6e15a4c8782dae27"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pdepend/pdepend/zipball/1b0acf162da4f30237987e61e177a57f78e3d87e",
-                "reference": "1b0acf162da4f30237987e61e177a57f78e3d87e",
+                "url": "https://api.github.com/repos/pdepend/pdepend/zipball/5714f56f40e361f63a0562fd6e15a4c8782dae27",
+                "reference": "5714f56f40e361f63a0562fd6e15a4c8782dae27",
                 "shasum": ""
             },
             "require": {
@@ -1918,7 +1918,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2014-12-04 12:38:39"
+            "time": "2015-02-27 15:50:01"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
