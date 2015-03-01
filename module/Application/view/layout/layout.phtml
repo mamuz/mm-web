@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="//yandex.st/highlightjs/8.0/styles/monokai.min.css">
     <link rel="stylesheet" href="<?php echo $this->basePath() . $this->autoVersion('/css/base-min.css') ?>">
     <?php echo $this->headLink() . PHP_EOL; ?>
+    <?php echo $this->partial('plugin/googleanalytics'); ?>
 </head>
 <body>
 <div id="wrap">
@@ -43,7 +44,6 @@
 <script src="<?php echo $this->basePath() . '/js/vendor/ZeroClipboard.min.js' ?>"></script>
 <script src="<?php echo $this->basePath() . $this->autoVersion('/js/jquery.initializer.plugin-min.js') ?>"></script>
 <?php echo $this->inlineScript() . PHP_EOL; ?>
-<?php echo $this->partial('plugin/googleanalytics'); ?>
 <script>
     $(document).ready(function () {
         $('body').initializer();
