@@ -85,6 +85,9 @@ footer .well {
 }
 
 @media (max-width: 404px) {
+    .container, .container-fluid {
+        padding: 0;
+    }
     .well {
         padding: 0;
         background-color: transparent;
