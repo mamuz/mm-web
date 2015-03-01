@@ -47,11 +47,12 @@ h3, h4, h5, h6,
 
 footer {
     padding-top: 30px;
-    height: 90px;
+    height: 70px;
 }
 
 footer .well {
     margin-bottom: 0;
+    padding: 10px;
 }
 
 .bs-component {
@@ -74,6 +75,20 @@ footer .well {
 @media (min-width: 767px) {
     textarea.form-control {
         height: 100px;
+    }
+}
+
+@media (max-width: 767px) {
+    .navbar-fixed-bottom {
+        position: relative;
+    }
+}
+
+@media (max-width: 404px) {
+    .well {
+        padding: 0;
+        background-color: transparent;
+        border: 0;
     }
 }
 
