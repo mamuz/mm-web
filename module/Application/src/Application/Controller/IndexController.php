@@ -27,9 +27,6 @@ class IndexController extends AbstractActionController
             $post = null;
         }
 
-        $viewModel = new ViewModel(array('post' => $post));
-        $viewModel->setTemplate('mamuz-blog/post-query/published-post');
-
-        return $viewModel;
+        return new ViewModel(array('post' => $post));
     }
 }
