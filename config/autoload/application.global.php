@@ -7,8 +7,8 @@ return array(
         'mail'             => array(
             'contact' => array(
                 'options' => array(
-                    'to'              => 'muzzi_is@web.de',
-                    'from'            => 'automail@marco-muths.de',
+                    'to'              => 'mamuz.de@gmail.com',
+                    'from'            => 'automail@mamuz.de',
                     'subjectTemplate' => 'mail/contact/subject',
                     'bodyTemplate'    => 'mail/contact/body',
                 ),
