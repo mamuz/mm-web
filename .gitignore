@@ -2,6 +2,7 @@
 config/autoload/doctrine*
 config/autoload/captcha*
 config/autoload/*.local.php
+public/content
 data
 build
 vendor
