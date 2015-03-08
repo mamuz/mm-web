@@ -33,9 +33,9 @@ h2, .h2 {
 
 h3, h4, h5, h6,
 .h3, .h4, .h5, .h6 {
-    font-size: 14px;
-    font-weight: bold;
     color: #888888;
+    font-size: .96em;
+    font-weight: bold;
 }
 
 #wrap {
@@ -43,6 +43,16 @@ h3, h4, h5, h6,
     height: auto;
     margin: 0 auto -70px;
     padding: 0 0 70px;
+}
+
+#main-content img {
+    max-width:100%;
+}
+
+#main-content {
+    margin: 0 0 20px;
+    font-size: 1.14em;
+    line-height: 1.6;
 }
 
 footer {
@@ -172,7 +182,7 @@ article {
 
 article h1 {
     position: relative;
-    padding-bottom: 16px;
+    padding-bottom: 20px;
 }
 
 article h1 small {
