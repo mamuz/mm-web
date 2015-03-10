@@ -38,6 +38,11 @@ h3, h4, h5, h6,
     font-weight: bold;
 }
 
+.panel-default > .panel-heading,
+.panel-footer {
+    color: #cfcfcf;
+}
+
 #wrap {
     min-height: 100%;
     height: auto;
@@ -52,7 +57,15 @@ h3, h4, h5, h6,
 #main-content {
     margin: 0 0 20px;
     font-size: 1.14em;
-    line-height: 1.6;
+    line-height: 1.8;
+}
+
+p {
+    margin: 0 0 30px;
+}
+
+ul, ol {
+    margin-bottom: 30px;
 }
 
 footer {
@@ -182,7 +195,7 @@ article {
 
 article h1 {
     position: relative;
-    padding-bottom: 20px;
+    padding-bottom: 30px;
 }
 
 article h1 small {
