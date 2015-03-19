@@ -1,7 +1,7 @@
 <?php if ($this->getHelperPluginManager()->getServiceLocator()->get('Config')['mamuz-blog']['display-disqus']): ?>
 
     <div id="disqus_thread"></div>
-    <script type="text/javascript">
+    <script>
         var disqus_shortname = 'mamuzcodingblog';
         var disqus_identifier = '<?php echo $this->id ?>';
         (function () {
