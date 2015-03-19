@@ -194,15 +194,13 @@ article {
 }
 
 article h1 {
-    position: relative;
-    padding-bottom: 30px;
+    padding-bottom: 0;
+    margin-bottom: 0;
 }
 
-article h1 small {
+article footer {
     font-size: 14px;
-    position: absolute;
-    bottom: 0;
-    right: 0;
+    text-align: right;
 }
 
 article h1 .pull-right {
