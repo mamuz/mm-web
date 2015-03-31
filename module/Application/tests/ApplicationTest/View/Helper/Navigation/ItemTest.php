@@ -21,6 +21,7 @@ class ItemTest extends \PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->page = \Mockery::mock('Zend\Navigation\Page\AbstractPage');
+        $this->page->shouldReceive('getCustomProperties')->andReturn(array());
         $this->page->shouldReceive('getLabel')->andReturn($this->pageLabel);
         $this->page->shouldReceive('getHref')->andReturn($this->pageHref);
         $this->fixture = new Item;
