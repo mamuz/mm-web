@@ -65,9 +65,10 @@ return array(
     ),
     'view_helpers'       => array(
         'invokables' => array(
-            'navItem'   => 'Application\View\Helper\Navigation\Item',
-            'postPanel' => 'Application\View\Helper\PostPanel',
-            'postMeta'  => 'Application\View\Helper\PostMeta',
+            'keywordsByPost' => 'Application\View\Helper\KeywordsByPost',
+            'navItem'        => 'Application\View\Helper\Navigation\Item',
+            'postPanel'      => 'Application\View\Helper\PostPanel',
+            'postMeta'       => 'Application\View\Helper\PostMeta',
         ),
         'factories'  => array(
             'autoVersion' => 'Application\View\Helper\AutoVersionFactory',

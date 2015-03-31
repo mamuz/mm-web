@@ -2,12 +2,11 @@
 
 <html lang="en">
 <head>
+    <?php echo $this->headTitle()->setSeparator(' - ')->prepend("mamuz' coding blog") . PHP_EOL; ?>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php echo $this->headMeta() . PHP_EOL; ?>
-    <?php echo $this->headTitle()->setSeparator(' - ')->prepend("mamuz' coding blog") . PHP_EOL; ?>
-    <meta name="description" content="Practices, Principles and Patterns of Web-Development">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Droid+Sans:400,700">
     <link rel="stylesheet" href="<?php echo $this->basePath() . '/css/vendor/bootstrap.cyborg.min.css' ?>">

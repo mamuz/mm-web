@@ -1,4 +1,7 @@
 <?php
 
+$keywords = array('Blog', 'Muths', 'Coding', 'Programming', 'Mamuz');
+$this->headMeta()->appendName('description', 'Practices, Principles and Patterns of Web-Development');
+$this->headMeta()->appendName('keywords', $this->keywordsByPost($this->post, $keywords));
 echo $this->partial('mamuz-blog/post-query/published-post', array('post' => $this->post));
 $this->layout()->sidebar = $this->partial('plugin/twitter');

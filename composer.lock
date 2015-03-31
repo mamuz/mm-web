@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d60f4617caf0ff34f64e5a6756afeedc",
+    "hash": "dcb5510a3d31c268da4557b68a96d90a",
     "packages": [
         {
             "name": "cocur/slugify",
@@ -1226,16 +1226,16 @@
         },
         {
             "name": "mamuz/mamuz-content-manager",
-            "version": "0.2.3",
+            "version": "0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mamuz/MamuzContentManager.git",
-                "reference": "3a06758924be9a075f7c5744d4f63176a4bb3405"
+                "reference": "1f0526c6b2eeea438bd22c84ed75dd83c715ce32"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mamuz/MamuzContentManager/zipball/3a06758924be9a075f7c5744d4f63176a4bb3405",
-                "reference": "3a06758924be9a075f7c5744d4f63176a4bb3405",
+                "url": "https://api.github.com/repos/mamuz/MamuzContentManager/zipball/1f0526c6b2eeea438bd22c84ed75dd83c715ce32",
+                "reference": "1f0526c6b2eeea438bd22c84ed75dd83c715ce32",
                 "shasum": ""
             },
             "require": {
@@ -1270,7 +1270,7 @@
             "authors": [
                 {
                     "name": "Marco Muths",
-                    "email": "muzzi_is@web.de"
+                    "email": "mamuz.de@gmail.com"
                 }
             ],
             "description": "Provides simple content manager for ZF2 with Doctrine",
@@ -1282,7 +1282,7 @@
                 "markdown",
                 "zf2"
             ],
-            "time": "2015-02-25 00:42:01"
+            "time": "2015-03-31 20:37:49"
         },
         {
             "name": "michelf/php-markdown",

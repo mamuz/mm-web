@@ -1,6 +1,8 @@
 <?php
 
 if (!$this->isTerminal) {
+    $this->headMeta()->appendName('description', 'Blog archiv of all articles.');
+    $this->headMeta()->appendName('keywords', 'Blog, Archiv, Coding, Programming, Mamuz, Articles');
     $this->headTitle()->append($this->translate('Archive'));
     echo '<h1>' . $this->translate('Archive') . '</h1>' . PHP_EOL;
     echo '<div class="scroll-list">' . PHP_EOL;
