@@ -49,7 +49,8 @@ class Item extends AbstractHelper
     private function createAnchorFrom(AbstractPage $page)
     {
         $label = $page->getLabel();
-        $attributes = array('href' => $page->getHref());
+        $attributes = $page->getCustomProperties();
+        $attributes['href'] = $page->getHref();
 
         if ($page->hasPages()) {
             $attributes['class'] = "dropdown-toggle";
