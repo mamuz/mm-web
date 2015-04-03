@@ -27,10 +27,10 @@ class PostPanel extends MamuzBlogPostPanel
         $html = '<article itemscope itemtype="http://schema.org/BlogPosting">' . PHP_EOL
             . '<header><h1 itemprop="headline">' . $header . '</h1></header>' . PHP_EOL
             . '<footer>' . $footer . '</footer>' . PHP_EOL
-            . '<span itemprop="articleBody">' . $content . '</span>' . PHP_EOL
-            . '<span itemprop="description" class="hide">'
+            . '<div itemprop="articleBody">' . $content . '</div>' . PHP_EOL
+            . '<div itemprop="description" class="hide">'
             . $this->getRenderer()->markdown($this->entity->getDescription())
-            . '</span>' . PHP_EOL
+            . '</div>' . PHP_EOL
             . '<meta itemprop="datePublished" content="' . $isoDate . '" />' . PHP_EOL
             . '</article>';
 
