@@ -1,9 +1,7 @@
 <?php
 
 if ($this->post) {
-    $keywords = array('Blog', 'Article', 'Coding', 'Programming');
     $this->headMeta()->appendName('description', strip_tags($this->post->getDescription()));
-    $this->headMeta()->appendName('keywords', $this->keywordsByPost($this->post, $keywords));
     $this->headTitle()->append($this->post->getTitle());
     echo $this->partial('plugin/shareaholic-canvas', array('link' => $this->permaLinkPost($this->post)));
     echo $this->postPanel($this->post) . PHP_EOL;

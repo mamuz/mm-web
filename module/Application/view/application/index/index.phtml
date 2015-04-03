@@ -2,3 +2,8 @@
 
 echo $this->partial('mamuz-blog/post-query/published-post', array('post' => $this->post));
 $this->layout()->sidebar = $this->partial('plugin/twitter');
+
+$this->headMeta()->setName(
+    'description',
+    'Mamuz\' Coding Blog about Practices, Principles and Patterns of Web-Development'
+);
