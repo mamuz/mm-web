@@ -9,6 +9,6 @@ $this->headMeta()->setProperty('og:url', $this->permaLinkPost($this->post));
 $this->headMeta()->setProperty('og:site_name', 'mamuz\' coding blog');
 $this->headMeta()->setProperty('og:locale', 'en_US');
 $this->headMeta()->setProperty('og:title', $post->getTitle());
-$this->headMeta()->setProperty('og:description', $this->markdown($post->getDescription()));
+$this->headMeta()->setProperty('og:description', $post->getDescription());
 $this->headMeta()->setProperty('article:published_time', $post->getCreatedAt()->format('c'));
 $this->headMeta()->setProperty('article:modified_time', $post->getModifiedAt()->format('c'));
