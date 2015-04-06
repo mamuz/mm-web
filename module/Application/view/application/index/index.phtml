@@ -3,7 +3,8 @@
 echo $this->partial('mamuz-blog/post-query/published-post', array('post' => $this->post));
 $this->layout()->sidebar = $this->partial('plugin/twitter');
 
+$this->headTitle()->set('Practices, Principles and Patterns of Web-Development');
 $this->headMeta()->setName(
     'description',
-    'Mamuz\' Coding Blog about Practices, Principles and Patterns of Web-Development'
+    $this->post->getTitle() . ' - ' . $this->post->getDescription()
 );

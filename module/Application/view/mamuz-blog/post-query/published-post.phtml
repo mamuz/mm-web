@@ -3,6 +3,8 @@
 if ($this->post) {
     $this->headMeta()->appendName('description', $this->post->getDescription());
     $this->headTitle()->append($this->post->getTitle());
+    $this->partial('plugin/twitter-card', array('post' => $this->post));
+    $this->partial('plugin/opengraph', array('post' => $this->post));
     echo $this->partial('plugin/shareaholic-canvas', array('link' => $this->permaLinkPost($this->post)));
     echo $this->postPanel($this->post) . PHP_EOL;
     echo $this->partial('plugin/disqus', array('id' => $this->hashId($this->post->getId())));
