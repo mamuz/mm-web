@@ -3,4 +3,5 @@
 <div class="shareaholic-canvas"
      data-app="share_buttons"
      data-app-id="16307259"
-     data-link="<?php echo $this->link; ?>"></div>
+     data-title="<?php echo $this->escapeHtmlAttr($this->post->getTitle()); ?>"
+     data-link="<?php echo $this->permaLinkPost($this->post) ?>"></div>
