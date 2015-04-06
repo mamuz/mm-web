@@ -1226,16 +1226,16 @@
         },
         {
             "name": "mamuz/mamuz-content-manager",
-            "version": "0.3.0",
+            "version": "0.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mamuz/MamuzContentManager.git",
-                "reference": "1f0526c6b2eeea438bd22c84ed75dd83c715ce32"
+                "reference": "3160c74e930a8d7cf9403dfb929da55919d85bdc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mamuz/MamuzContentManager/zipball/1f0526c6b2eeea438bd22c84ed75dd83c715ce32",
-                "reference": "1f0526c6b2eeea438bd22c84ed75dd83c715ce32",
+                "url": "https://api.github.com/repos/mamuz/MamuzContentManager/zipball/3160c74e930a8d7cf9403dfb929da55919d85bdc",
+                "reference": "3160c74e930a8d7cf9403dfb929da55919d85bdc",
                 "shasum": ""
             },
             "require": {
@@ -1282,7 +1282,7 @@
                 "markdown",
                 "zf2"
             ],
-            "time": "2015-03-31 20:37:49"
+            "time": "2015-04-06 13:00:06"
         },
         {
             "name": "michelf/php-markdown",
