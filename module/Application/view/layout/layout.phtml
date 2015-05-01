@@ -7,13 +7,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php echo $this->headMeta() . PHP_EOL; ?>
+    <link rel="manifest" href="<?php echo $this->basePath() . '/manifest/metadata.json' ?>">
+    <link rel="apple-touch-icon" href="<?php echo $this->basePath() . '/img/launcher/icon-4x.png' ?>" />
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Droid+Sans:400,700">
     <link rel="stylesheet" href="<?php echo $this->basePath() . '/css/vendor/bootstrap.cyborg.min.css' ?>">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="//yandex.st/highlightjs/8.0/styles/monokai.min.css">
     <link rel="stylesheet" href="<?php echo $this->basePath() . $this->autoVersion('/css/base-min.css') ?>">
-    <link rel="manifest" href="<?php echo $this->basePath() . '/manifest/metadata.json' ?>">
     <?php echo $this->headLink() . PHP_EOL; ?>
     <?php echo $this->headScript() . PHP_EOL; ?>
     <?php echo $this->partial('plugin/googleanalytics'); ?>
