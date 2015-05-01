@@ -91,7 +91,10 @@ class OutputCache implements OutputCacheInterface
      */
     private function hashKey()
     {
-        $this->key = md5(rtrim($this->request->getRequestUri(), '/'));
+        $id = rtrim($this->request->getRequestUri(), '/');
+        $id .= $this->request->isXmlHttpRequest() ? 'xhr' : 'non-xhr';
+
+        $this->key = md5($id);
     }
 
     /**
