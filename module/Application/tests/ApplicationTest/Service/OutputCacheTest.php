@@ -72,10 +72,11 @@ class OutputCacheTest extends \PHPUnit_Framework_TestCase
         $this->fixture->setBlacklistedRouteNames($this->blacklist);
         $this->routeMatch->shouldReceive('getMatchedRouteName')->andReturn('bar');
         $this->request->shouldReceive('getRequestUri')->andReturn('baz');
+        $this->request->shouldReceive('isXmlHttpRequest')->andReturn(false);
         $this->mvcEvent->shouldReceive('getRequest')->andReturn($this->request);
         $this->mvcEvent->shouldReceive('getResponse')->andReturn($this->response);
         $this->mvcEvent->shouldReceive('getRouteMatch')->andReturn($this->routeMatch);
-        $this->storage->shouldReceive('getItem')->with(md5('baz'))->andReturn(null);
+        $this->storage->shouldReceive('getItem')->with(md5('baz__non-xhr'))->andReturn(null);
 
         $this->assertNull($this->fixture->bindMvcEvent($this->mvcEvent)->read());
     }
