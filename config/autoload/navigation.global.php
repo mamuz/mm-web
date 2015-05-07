@@ -6,22 +6,22 @@ return array(
             'home'     => array(
                 'label' => 'Home',
                 'route' => 'home',
-                'title' => 'Home of mamuz\' coding blog',
+                'options' => array('title' => 'Home of mamuz\' coding blog'),
             ),
             'blog'     => array(
                 'label' => 'Archive',
                 'uri'   => '/archive',
-                'title' => 'Blog Archive',
+                'options' => array('title' => 'Blog Archive'),
             ),
             'about-me' => array(
                 'label' => 'About',
                 'uri'   => '/about',
-                'title' => 'About Me',
+                'options' => array('title' => 'About Me', 'rel' => 'author'),
             ),
             'contact'  => array(
                 'label' => 'Contact',
                 'route' => 'contact',
-                'title' => 'Contact Me',
+                'options' => array('title' => 'Contact Me'),
             ),
         ),
     ),

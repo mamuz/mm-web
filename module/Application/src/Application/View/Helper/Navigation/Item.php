@@ -50,6 +50,9 @@ class Item extends AbstractHelper
     {
         $label = $page->getLabel();
         $attributes = $page->getCustomProperties();
+        if (isset($attributes['options'])) {
+            $attributes = $attributes['options'];
+        }
         $attributes['href'] = $page->getHref();
 
         if ($page->hasPages()) {
