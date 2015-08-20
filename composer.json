@@ -1,31 +1,43 @@
 {
-    "name"             : "mamuz/mm-web",
-    "description"      : "private blog site",
-    "license"          : "proprietary",
-    "keywords"         : ["mamuz"],
-    "authors"          : [
-        {
-            "name" : "Marco Muths",
-            "email": "mamuz.de@gmail.com"
-        }
-    ],
-    "minimum-stability": "dev",
-    "prefer-stable"    : true,
-    "require"          : {
-        "php"                        : ">=5.4",
-        "zendframework/zendframework": "~2.3",
-        "mamuz/mamuz-blog-feed"      : "0.*",
-        "mamuz/mamuz-contact"        : "0.*",
-        "mamuz/mamuz-content-manager": "0.*"
-    },
-    "require-dev"      : {
-        "zendframework/zend-developer-tools": "dev-master",
-        "satooshi/php-coveralls"            : "0.6.*",
-        "phpunit/phpunit"                   : "4.*",
-        "mockery/mockery"                   : "0.9.*",
-        "pdepend/pdepend"                   : "2.0.*",
-        "phpmd/phpmd"                       : "2.2.*",
-        "squizlabs/php_codesniffer"         : "2.2.*",
-        "sensiolabs/security-checker"       : "2.*"
+  "name": "mamuz/mm-web",
+  "description": "private blog site",
+  "license": "proprietary",
+  "keywords": [
+    "mamuz"
+  ],
+  "authors": [
+    {
+      "name": "Marco Muths",
+      "email": "mamuz.de@gmail.com"
     }
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {
+    "php": ">=5.4",
+    "zendframework/zend-mail": "~2.3",
+    "zendframework/zend-filter": "~2.3",
+    "zendframework/zend-console": "~2.3",
+    "zendframework/zend-cache": "~2.3",
+    "zendframework/zend-log": "~2.3",
+    "zendframework/zend-http": "~2.3",
+    "zendframework/zend-mvc": "~2.3",
+    "zendframework/zend-eventmanager": "~2.3",
+    "zendframework/zend-servicemanager": "~2.3",
+    "zendframework/zend-modulemanager": "~2.3",
+    "zendframework/zend-view": "~2.3",
+    "zendframework/zend-navigation": "~2.3",
+    "mamuz/mamuz-blog-feed": "~1.0",
+    "mamuz/mamuz-contact": "~1.0",
+    "mamuz/mamuz-content-manager": "~1.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "4.*",
+    "mockery/mockery": "0.9.*"
+  },
+  "autoload": {
+    "psr-0": {
+      "Application\\": "module/Application/src/"
+    }
+  }
 }

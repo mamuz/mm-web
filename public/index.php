@@ -1,7 +1,8 @@
 <?php
 
-chdir(getenv('APPLICATION_PATH') ? : dirname(__DIR__));
+chdir(getenv('APPLICATION_PATH') ?: dirname(__DIR__));
 
-require 'init_autoloader.php';
+include './environment.php';
+include './vendor/autoload.php';
 
-Zend\Mvc\Application::init(require 'config/application.config.php')->run();
+Zend\Mvc\Application::init(require './config/application.config.php')->run();
