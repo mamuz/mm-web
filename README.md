@@ -1,11 +1,5 @@
 # mm-web
 
-[![Build Status](https://travis-ci.org/mamuz/mm-web.svg?branch=master)](https://travis-ci.org/mamuz/mm-web)
-[![Dependency Status](https://www.versioneye.com/user/projects/53628be3fe0d07ed79000192/badge.svg)](https://www.versioneye.com/user/projects/53628be3fe0d07ed79000192)
-[![Coverage Status](https://coveralls.io/repos/mamuz/mm-web/badge.png?branch=master)](https://coveralls.io/r/mamuz/mm-web?branch=master)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mamuz/mm-web/badges/quality-score.png?s=b03a2d5d3c33bcf30edec09a0f7ce9fa5a554df9)](https://scrutinizer-ci.com/g/mamuz/mm-web/)
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/6a0a0053-22a2-4e43-9906-61562576bc09/mini.png)](https://insight.sensiolabs.com/projects/6a0a0053-22a2-4e43-9906-61562576bc09)
-
 Homepage with ZF2 and Doctrine2
 
 ## Domain
