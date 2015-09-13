@@ -13,6 +13,11 @@ return array(
                 'uri'   => '/archive',
                 'options' => array('title' => 'Blog Archive'),
             ),
+            'projects' => array(
+                'label' => 'Projects',
+                'uri'   => '/projects',
+                'options' => array('title' => 'My Projects'),
+            ),
             'about-me' => array(
                 'label' => 'About',
                 'uri'   => '/about',
